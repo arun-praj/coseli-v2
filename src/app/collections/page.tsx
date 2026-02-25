@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import { SlidersHorizontal, ChevronDown, ChevronUp, Check, X } from "lucide-react";
+import { useProducts, Product } from "@/lib/hooks/useProducts";
 
 const filterCategories = [
     { id: "collection", name: "Collection", options: ["Chukas", "Shambas", "Oxfords", "Sneakers"] },
@@ -12,51 +13,6 @@ const filterCategories = [
     { id: "materials", name: "Materials", options: ["Leather", "Suede", "Canvas", "Vegan Leather"] },
 ];
 
-const mockProducts = [
-    {
-        id: "oxford-classic",
-        name: "The Oxford Classic",
-        description: "Handcrafted Leather",
-        price: 320,
-        image: "https://images.unsplash.com/photo-1614252332824-34df734c38d4?q=80&w=1887&auto=format&fit=crop",
-    },
-    {
-        id: "sneaker-01",
-        name: "Coseli Sneaker 01",
-        description: "Premium Canvas & Suede",
-        price: 240,
-        image: "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?q=80&w=1887&auto=format&fit=crop",
-    },
-    {
-        id: "shamba-loafer",
-        name: "The Shamba Loafer",
-        description: "Textured Leather",
-        price: 280,
-        image: "https://images.unsplash.com/photo-1638247025967-b4e38f787b76?q=80&w=1964&auto=format&fit=crop",
-    },
-    {
-        id: "chuka-boot",
-        name: "Minimalist Chuka",
-        description: "Soft Suede",
-        price: 360,
-        image: "https://images.unsplash.com/photo-1595341888016-a392ef81b7de?q=80&w=1779&auto=format&fit=crop",
-    },
-    {
-        id: "derby-pro",
-        name: "The Derby Pro",
-        description: "Polished Calfskin",
-        price: 340,
-        image: "https://images.unsplash.com/photo-1533867617858-e7b97e060509?q=80&w=2069&auto=format&fit=crop",
-    },
-    {
-        id: "summer-slipon",
-        name: "Summer Slip-On",
-        description: "Lightweight Canvas",
-        price: 180,
-        image: "https://images.unsplash.com/photo-1560769629-975ec94e6a86?q=80&w=1964&auto=format&fit=crop",
-    }
-];
-
 export default function CollectionsPage() {
     const [isFilterSidebarVisible, setIsFilterSidebarVisible] = useState(true);
     const [isMobileFilterVisible, setIsMobileFilterVisible] = useState(false);
@@ -64,6 +20,9 @@ export default function CollectionsPage() {
 
     // Track which accordion sections are open
     const [openFilterSections, setOpenFilterSections] = useState<string[]>([]);
+
+    // Track selected sorting option
+    const [selectedSort, setSelectedSort] = useState<string>("Recommended");
 
     useEffect(() => {
         const handleResize = () => {
@@ -89,6 +48,42 @@ export default function CollectionsPage() {
     const [selectedFilters, setSelectedFilters] = useState<Record<string, string[]>>({});
 
     const totalActiveFilters = Object.values(selectedFilters).flat().length;
+
+    // Map selected filters -> API query params
+    const getHookOptions = () => {
+        let min_price: number | undefined = undefined;
+        let max_price: number | undefined = undefined;
+
+        if (selectedFilters.price) {
+            if (selectedFilters.price.includes("Under Rs. 150")) {
+                max_price = 150;
+            }
+            if (selectedFilters.price.includes("Over Rs. 250")) {
+                min_price = min_price ? Math.min(min_price, 250) : 250;
+            }
+            if (selectedFilters.price.includes("Rs. 150 - Rs. 250")) {
+                min_price = 150;
+                max_price = 250;
+            }
+        }
+
+        let sortParam = undefined;
+        if (selectedSort === "Price: Low to High") sortParam = "price_asc";
+        else if (selectedSort === "Price: High to Low") sortParam = "price_desc";
+        else if (selectedSort === "Newest") sortParam = "newest";
+        else if (selectedSort === "Recommended") sortParam = "recommended";
+
+        return {
+            category: selectedFilters.collection,
+            material: selectedFilters.materials,
+            color: selectedFilters.color,
+            min_price,
+            max_price,
+            sort: sortParam
+        };
+    };
+
+    const { products, loading, error } = useProducts(getHookOptions());
 
     const toggleFilterAccordion = (categoryId: string) => {
         setOpenFilterSections(prev =>
@@ -160,17 +155,21 @@ export default function CollectionsPage() {
                 </button>
 
                 <div className="flex items-center gap-2 sm:gap-4 flex-shrink-0">
-                    <span className="text-sm text-zinc-500 hidden sm:block">{mockProducts.length} Results</span>
+                    <span className="text-sm text-zinc-500 hidden sm:block">{loading ? '...' : products.length} Results</span>
                     <div className="relative group/sort">
                         <button className="flex items-center gap-1 sm:gap-2 text-sm font-medium text-black group-hover/sort:text-zinc-600 transition-colors py-2">
-                            <span className="hidden sm:inline">Sort By: Recommended</span>
+                            <span className="hidden sm:inline">Sort By: {selectedSort}</span>
                             <span className="sm:hidden">Sort</span>
                             <ChevronDown className="w-4 h-4 shrink-0" />
                         </button>
                         {/* Sort Dropdown (Hover) */}
                         <div className="absolute right-0 top-full mt-2 w-48 bg-white border border-zinc-200 shadow-xl opacity-0 invisible group-hover/sort:opacity-100 group-hover/sort:visible transition-all duration-200 z-40 py-2">
                             {["Recommended", "Newest", "Price: Low to High", "Price: High to Low"].map((option) => (
-                                <button key={option} className="block w-full text-left px-4 py-2 text-sm text-zinc-600 hover:bg-zinc-50 hover:text-black transition-colors">
+                                <button
+                                    key={option}
+                                    onClick={() => setSelectedSort(option)}
+                                    className={`block w-full text-left px-4 py-2 text-sm hover:bg-zinc-50 transition-colors ${selectedSort === option ? 'text-black font-medium' : 'text-zinc-600 hover:text-black'}`}
+                                >
                                     {option}
                                 </button>
                             ))}
@@ -272,156 +271,179 @@ export default function CollectionsPage() {
                 </div>
 
                 {/* Right Side: Product Grid */}
-                <div className="flex-1 w-full transition-all duration-500">
-                    <div className={`grid grid-cols-2 md:grid-cols-3 ${isFilterSidebarVisible ? 'lg:grid-cols-3 xl:grid-cols-3' : 'lg:grid-cols-4 xl:grid-cols-5'} gap-x-4 gap-y-8 sm:gap-x-6 lg:gap-x-8 sm:gap-y-12 transition-all duration-500`}>
-                        {mockProducts.map((product) => (
-                            <a key={product.id} href={`/products/${product.id}`} className="group cursor-pointer block">
-                                <div className="relative aspect-[4/5] overflow-hidden bg-zinc-100 mb-4 sm:mb-6">
-                                    <Image
-                                        src={product.image}
-                                        alt={product.name}
-                                        fill
-                                        className="object-cover object-center transition-transform duration-700 group-hover:scale-105"
-                                    />
-                                </div>
-                                <div className="flex flex-col xl:flex-row justify-between items-start">
-                                    <div>
-                                        <h3 className="font-serif text-base sm:text-lg md:text-xl mb-1 mt-2 text-black">{product.name}</h3>
-                                        <p className="text-zinc-500 text-xs sm:text-sm hidden sm:block">{product.description}</p>
-                                    </div>
-                                    <span className="font-sans text-sm mt-1 xl:mt-2 font-medium text-black">Rs. {product.price.toFixed(2)}</span>
-                                </div>
-                            </a>
-                        ))}
-                    </div>
-                </div>
-            </div>
-            {/* Mobile Filter Modal (Full Page) */}
-            {isMobileFilterVisible && (
-                <div className="fixed inset-0 z-[100] bg-white flex flex-col lg:hidden animate-in slide-in-from-bottom-[100%] duration-300">
-                    {/* Modal Header */}
-                    <div className="flex items-center justify-between p-6 border-b border-zinc-200">
-                        <span className="font-serif text-2xl text-black">Filters</span>
-                        <button
-                            onClick={() => {
-                                setIsMobileFilterVisible(false);
-                                setMobileFiltersDirty(false);
-                            }}
-                            className="p-2 -mr-2 text-zinc-500 hover:text-black transition-colors"
-                        >
-                            <X className="w-6 h-6" />
-                        </button>
-                    </div>
-
-                    {/* Modal Scrollable Content (Filters) */}
-                    <div className="flex-1 overflow-y-auto p-4 pb-24">
-                        <div className="flex flex-col gap-6">
-                            {filterCategories.map((category) => {
-                                const isOpen = openFilterSections.includes(category.id);
-                                return (
-                                    <div key={category.id} className="border-b border-zinc-200 pb-6">
-                                        <button
-                                            onClick={() => toggleFilterAccordion(category.id)}
-                                            className="w-full flex justify-between items-center text-left py-1 group"
-                                        >
-                                            <span className="font-medium text-sm text-black uppercase tracking-widest">{category.name}</span>
-                                            {isOpen ? (
-                                                <ChevronUp className="w-4 h-4 text-zinc-400 group-hover:text-black transition-colors" />
-                                            ) : (
-                                                <ChevronDown className="w-4 h-4 text-zinc-400 group-hover:text-black transition-colors" />
-                                            )}
-                                        </button>
-
-                                        {/* Accordion Content */}
-                                        <div
-                                            className={`overflow-hidden transition-all duration-300 ease-in-out ${isOpen ? "max-h-[800px] mt-4 opacity-100" : "max-h-0 opacity-0"}`}
-                                        >
-                                            <div className="flex flex-col gap-3">
-                                                {category.options.map((option, index) => {
-                                                    const isSelected = (selectedFilters[category.id] || []).includes(option);
-                                                    const isVisible = index < 4 || expandedCategories.includes(category.id);
-
-                                                    return (
-                                                        <label
-                                                            key={option}
-                                                            className={`flex items-center gap-3 cursor-pointer group transition-all duration-300 ease-in-out origin-top ${isVisible ? "max-h-12 opacity-100 mb-0 pointer-events-auto" : "max-h-0 opacity-0 mb-0 overflow-hidden pointer-events-none"}`}
-                                                        >
-                                                            <input
-                                                                type="checkbox"
-                                                                className="hidden"
-                                                                checked={isSelected}
-                                                                onChange={() => toggleFilterOption(category.id, option)}
-                                                            />
-                                                            {/* Standard Checkbox */}
-                                                            <div className={`w-4 h-4 border flex items-center justify-center transition-colors shrink-0 ${isSelected ? 'bg-black border-black' : 'border-zinc-300 bg-white group-hover:border-black'}`}>
-                                                                {isSelected && <Check className="w-3 h-3 text-white" strokeWidth={3} />}
-                                                            </div>
-
-                                                            {/* Optional Color Swatch */}
-                                                            {category.id === "color" && (
-                                                                <div
-                                                                    className="w-4 h-4 rounded-full border border-zinc-200 shrink-0 shadow-sm"
-                                                                    style={{
-                                                                        backgroundColor:
-                                                                            option === "Black" ? "#000000" :
-                                                                                option === "Brown" ? "#5C4033" :
-                                                                                    option === "Tan" ? "#D2B48C" :
-                                                                                        option === "White" ? "#FFFFFF" :
-                                                                                            option === "Navy" ? "#000080" : "#E5E5E5"
-                                                                    }}
-                                                                />
-                                                            )}
-
-                                                            <span className={`text-sm transition-colors truncate ${isSelected ? 'text-black font-medium' : 'text-zinc-600 group-hover:text-black'}`}>
-                                                                {option}
-                                                            </span>
-                                                        </label>
-                                                    );
-                                                })}
-
-                                                {category.options.length > 4 && (
-                                                    <button
-                                                        onClick={() => toggleShowMore(category.id)}
-                                                        className="text-left text-xs font-medium text-zinc-500 hover:text-black transition-colors mt-2 flex items-center gap-1 w-fit"
-                                                    >
-                                                        {expandedCategories.includes(category.id) ? (
-                                                            <>Show Less <ChevronUp className="w-3 h-3" /></>
-                                                        ) : (
-                                                            <>Show More <ChevronDown className="w-3 h-3" /></>
-                                                        )}
-                                                    </button>
-                                                )}
-                                            </div>
-                                        </div>
-                                    </div>
-                                );
-                            })}
+                <div className="flex-1 w-full transition-all duration-500 min-h-[50vh]">
+                    {loading ? (
+                        <div className="flex justify-center items-center h-full w-full py-20">
+                            <span className="text-zinc-400 uppercase tracking-widest text-sm animate-pulse">Loading Collection...</span>
                         </div>
-                    </div>
-
-                    {/* Modal Sticky Footer (Actions) */}
-                    {mobileFiltersDirty && (
-                        <div className="absolute bottom-0 w-full p-4 border-t border-zinc-200 bg-white flex gap-4 mt-auto">
-                            <button
-                                onClick={() => setSelectedFilters({})}
-                                className="flex-1 py-4 text-sm font-medium border border-zinc-200 text-zinc-600 hover:bg-zinc-50 transition-colors uppercase tracking-widest"
-                            >
-                                {totalActiveFilters > 0 ? `Clear (${totalActiveFilters})` : 'Clear'}
-                            </button>
+                    ) : error ? (
+                        <div className="flex justify-center items-center h-full w-full py-20">
+                            <span className="text-red-500 uppercase tracking-widest text-sm">Error Loading Products</span>
+                        </div>
+                    ) : products.length === 0 ? (
+                        <div className="flex justify-center items-center h-full w-full py-20">
+                            <span className="text-zinc-400 uppercase tracking-widest text-sm">No products found for these filters.</span>
+                        </div>
+                    ) : (
+                        <div className={`grid grid-cols-2 md:grid-cols-3 ${isFilterSidebarVisible ? 'lg:grid-cols-3 xl:grid-cols-3' : 'lg:grid-cols-4 xl:grid-cols-5'} gap-x-4 gap-y-8 sm:gap-x-6 lg:gap-x-8 sm:gap-y-12 transition-all duration-500`}>
+                            {products.map((product) => (
+                                <a key={product.id} href={`/products/${product.id}`} className="group cursor-pointer block">
+                                    <div className="relative aspect-[4/5] overflow-hidden bg-zinc-100 mb-4 sm:mb-6">
+                                        {/* Primary Thumbnail */}
+                                        <Image
+                                            src={product.thumbnail_image_url || product.annotated_image_url || "https://images.unsplash.com/photo-1549298916-b41d501d3772?q=80&w=2012&auto=format&fit=crop"}
+                                            alt={product.name}
+                                            fill
+                                            className={`object-cover object-center transition-all duration-700 group-hover:scale-105 ${product.hover_image_url ? 'group-hover:opacity-0' : ''}`}
+                                        />
+                                        {/* Hover Thumbnail (if available) */}
+                                        {product.hover_image_url && (
+                                            <Image
+                                                src={product.hover_image_url}
+                                                alt={`${product.name} hover`}
+                                                fill
+                                                className="object-cover object-center absolute inset-0 opacity-0 transition-all duration-700 group-hover:opacity-100 group-hover:scale-105"
+                                            />
+                                        )}
+                                    </div>
+                                    <div className="flex flex-col xl:flex-row justify-between items-start">
+                                        <div>
+                                            <h3 className="font-serif text-base sm:text-lg md:text-xl mb-1 mt-2 text-black">{product.name}</h3>
+                                            <p className="text-zinc-500 text-xs sm:text-sm hidden sm:block">{product.short_description || "Premium Quality"}</p>
+                                        </div>
+                                        <span className="font-sans text-sm mt-1 xl:mt-2 font-medium text-black">Rs. {product.base_price.toFixed(2)}</span>
+                                    </div>
+                                </a>
+                            ))}
+                        </div>
+                    )}
+                </div>
+                {/* Mobile Filter Modal (Full Page) */}
+                {isMobileFilterVisible && (
+                    <div className="fixed inset-0 z-[100] bg-white flex flex-col lg:hidden animate-in slide-in-from-bottom-[100%] duration-300">
+                        {/* Modal Header */}
+                        <div className="flex items-center justify-between p-6 border-b border-zinc-200">
+                            <span className="font-serif text-2xl text-black">Filters</span>
                             <button
                                 onClick={() => {
                                     setIsMobileFilterVisible(false);
                                     setMobileFiltersDirty(false);
                                 }}
-                                className="flex-1 py-4 text-sm font-medium bg-black text-white hover:bg-zinc-800 transition-colors uppercase tracking-widest"
+                                className="p-2 -mr-2 text-zinc-500 hover:text-black transition-colors"
                             >
-                                Apply
+                                <X className="w-6 h-6" />
                             </button>
                         </div>
-                    )}
-                </div>
-            )
-            }
-        </div >
+
+                        {/* Modal Scrollable Content (Filters) */}
+                        <div className="flex-1 overflow-y-auto p-4 pb-24">
+                            <div className="flex flex-col gap-6">
+                                {filterCategories.map((category) => {
+                                    const isOpen = openFilterSections.includes(category.id);
+                                    return (
+                                        <div key={category.id} className="border-b border-zinc-200 pb-6">
+                                            <button
+                                                onClick={() => toggleFilterAccordion(category.id)}
+                                                className="w-full flex justify-between items-center text-left py-1 group"
+                                            >
+                                                <span className="font-medium text-sm text-black uppercase tracking-widest">{category.name}</span>
+                                                {isOpen ? (
+                                                    <ChevronUp className="w-4 h-4 text-zinc-400 group-hover:text-black transition-colors" />
+                                                ) : (
+                                                    <ChevronDown className="w-4 h-4 text-zinc-400 group-hover:text-black transition-colors" />
+                                                )}
+                                            </button>
+
+                                            {/* Accordion Content */}
+                                            <div
+                                                className={`overflow-hidden transition-all duration-300 ease-in-out ${isOpen ? "max-h-[800px] mt-4 opacity-100" : "max-h-0 opacity-0"}`}
+                                            >
+                                                <div className="flex flex-col gap-3">
+                                                    {category.options.map((option, index) => {
+                                                        const isSelected = (selectedFilters[category.id] || []).includes(option);
+                                                        const isVisible = index < 4 || expandedCategories.includes(category.id);
+
+                                                        return (
+                                                            <label
+                                                                key={option}
+                                                                className={`flex items-center gap-3 cursor-pointer group transition-all duration-300 ease-in-out origin-top ${isVisible ? "max-h-12 opacity-100 mb-0 pointer-events-auto" : "max-h-0 opacity-0 mb-0 overflow-hidden pointer-events-none"}`}
+                                                            >
+                                                                <input
+                                                                    type="checkbox"
+                                                                    className="hidden"
+                                                                    checked={isSelected}
+                                                                    onChange={() => toggleFilterOption(category.id, option)}
+                                                                />
+                                                                {/* Standard Checkbox */}
+                                                                <div className={`w-4 h-4 border flex items-center justify-center transition-colors shrink-0 ${isSelected ? 'bg-black border-black' : 'border-zinc-300 bg-white group-hover:border-black'}`}>
+                                                                    {isSelected && <Check className="w-3 h-3 text-white" strokeWidth={3} />}
+                                                                </div>
+
+                                                                {/* Optional Color Swatch */}
+                                                                {category.id === "color" && (
+                                                                    <div
+                                                                        className="w-4 h-4 rounded-full border border-zinc-200 shrink-0 shadow-sm"
+                                                                        style={{
+                                                                            backgroundColor:
+                                                                                option === "Black" ? "#000000" :
+                                                                                    option === "Brown" ? "#5C4033" :
+                                                                                        option === "Tan" ? "#D2B48C" :
+                                                                                            option === "White" ? "#FFFFFF" :
+                                                                                                option === "Navy" ? "#000080" : "#E5E5E5"
+                                                                        }}
+                                                                    />
+                                                                )}
+
+                                                                <span className={`text-sm transition-colors truncate ${isSelected ? 'text-black font-medium' : 'text-zinc-600 group-hover:text-black'}`}>
+                                                                    {option}
+                                                                </span>
+                                                            </label>
+                                                        );
+                                                    })}
+
+                                                    {category.options.length > 4 && (
+                                                        <button
+                                                            onClick={() => toggleShowMore(category.id)}
+                                                            className="text-left text-xs font-medium text-zinc-500 hover:text-black transition-colors mt-2 flex items-center gap-1 w-fit"
+                                                        >
+                                                            {expandedCategories.includes(category.id) ? (
+                                                                <>Show Less <ChevronUp className="w-3 h-3" /></>
+                                                            ) : (
+                                                                <>Show More <ChevronDown className="w-3 h-3" /></>
+                                                            )}
+                                                        </button>
+                                                    )}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    );
+                                })}
+                            </div>
+                        </div>
+
+                        {/* Modal Sticky Footer (Actions) */}
+                        {mobileFiltersDirty && (
+                            <div className="absolute bottom-0 w-full p-4 border-t border-zinc-200 bg-white flex gap-4 mt-auto">
+                                <button
+                                    onClick={() => setSelectedFilters({})}
+                                    className="flex-1 py-4 text-sm font-medium border border-zinc-200 text-zinc-600 hover:bg-zinc-50 transition-colors uppercase tracking-widest"
+                                >
+                                    {totalActiveFilters > 0 ? `Clear (${totalActiveFilters})` : 'Clear'}
+                                </button>
+                                <button
+                                    onClick={() => {
+                                        setIsMobileFilterVisible(false);
+                                        setMobileFiltersDirty(false);
+                                    }}
+                                    className="flex-1 py-4 text-sm font-medium bg-black text-white hover:bg-zinc-800 transition-colors uppercase tracking-widest"
+                                >
+                                    Apply
+                                </button>
+                            </div>
+                        )}
+                    </div>
+                )}
+            </div>
+        </div>
     );
 }
