@@ -1,7 +1,34 @@
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
+import { CuratedCarousel } from "@/components/curated-carousel";
 
-export default function Home() {
+interface Product {
+  id: number;
+  name: string;
+  base_price: number;
+  short_description: string;
+  thumbnail_image_url: string;
+  hover_image_url: string;
+  annotated_image_url: string;
+}
+
+async function getCuratedEssentials(): Promise<Product[]> {
+  try {
+    const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000/api/v1';
+    // Use force-cache so Next.js statically renders this page at build time
+    const res = await fetch(`${apiUrl}/showcases/curated_essentials`, { cache: 'force-cache' });
+    if (!res.ok) return [];
+    const json = await res.json();
+    return json.data || [];
+  } catch (err) {
+    console.error("Failed to fetch curated essentials:", err);
+    return [];
+  }
+}
+
+export default async function Home() {
+  const curatedProducts = await getCuratedEssentials();
+
   return (
     <div className="min-h-screen bg-white selection:bg-zinc-200 pt-20">
       {/* Hero Section */}
@@ -36,90 +63,7 @@ export default function Home() {
 
       {/* Featured Products */}
       <section className="py-16 md:py-32 px-4 md:px-12 max-w-screen-2xl mx-auto">
-        <div className="flex flex-col md:flex-row justify-between items-start mb-8 md:mb-16 gap-8">
-          <h2 className="font-serif text-4xl md:text-6xl tracking-tight text-black max-w-md">Curated Essentials</h2>
-          <a href="/products" className="text-sm font-medium tracking-widest uppercase border-b border-black pb-1 hover:text-zinc-500 hover:border-zinc-500 transition-colors">
-            View All Pieces
-          </a>
-        </div>
-
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-4 gap-y-8 sm:gap-x-8 sm:gap-y-16">
-          {/* Product 1 */}
-          <a href="/products/oxford-classic" className="group cursor-pointer block">
-            <div className="relative aspect-[4/5] overflow-hidden bg-zinc-100 mb-4 sm:mb-6">
-              <Image
-                src="https://images.unsplash.com/photo-1614252332824-34df734c38d4?q=80&w=1887&auto=format&fit=crop"
-                alt="The Oxford Classic"
-                fill
-                className="object-cover object-center transition-transform duration-700 group-hover:scale-105"
-              />
-            </div>
-            <div className="flex flex-col xl:flex-row justify-between items-start">
-              <div>
-                <h3 className="font-serif text-base sm:text-xl mb-1 mt-2">The Oxford Classic</h3>
-                <p className="text-zinc-500 text-xs sm:text-sm">Handcrafted Leather</p>
-              </div>
-              <span className="font-sans text-sm mt-1 xl:mt-2">Rs. 320</span>
-            </div>
-          </a>
-
-          {/* Product 2 */}
-          <a href="/products/sneaker-01" className="group cursor-pointer block">
-            <div className="relative aspect-[4/5] overflow-hidden bg-zinc-100 mb-4 sm:mb-6">
-              <Image
-                src="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?q=80&w=1887&auto=format&fit=crop"
-                alt="Coseli Sneaker 01"
-                fill
-                className="object-cover object-center transition-transform duration-700 group-hover:scale-105"
-              />
-            </div>
-            <div className="flex flex-col xl:flex-row justify-between items-start">
-              <div>
-                <h3 className="font-serif text-base sm:text-xl mb-1 mt-2">Coseli Sneaker 01</h3>
-                <p className="text-zinc-500 text-xs sm:text-sm">Premium Canvas</p>
-              </div>
-              <span className="font-sans text-sm mt-1 xl:mt-2">Rs. 240</span>
-            </div>
-          </a>
-
-          {/* Product 3 */}
-          <a href="/products/shamba-loafer" className="group cursor-pointer block">
-            <div className="relative aspect-[4/5] overflow-hidden bg-zinc-100 mb-4 sm:mb-6">
-              <Image
-                src="https://images.unsplash.com/photo-1638247025967-b4e38f787b76?q=80&w=1964&auto=format&fit=crop"
-                alt="The Shamba Loafer"
-                fill
-                className="object-cover object-center transition-transform duration-700 group-hover:scale-105"
-              />
-            </div>
-            <div className="flex flex-col xl:flex-row justify-between items-start">
-              <div>
-                <h3 className="font-serif text-base sm:text-xl mb-1 mt-2">The Shamba Loafer</h3>
-                <p className="text-zinc-500 text-xs sm:text-sm">Textured Leather</p>
-              </div>
-              <span className="font-sans text-sm mt-1 xl:mt-2">Rs. 280</span>
-            </div>
-          </a>
-
-          {/* Product 4 */}
-          <a href="/products/chelsea-boot" className="group cursor-pointer block">
-            <div className="relative aspect-[4/5] overflow-hidden bg-zinc-100 mb-4 sm:mb-6">
-              <Image
-                src="https://images.unsplash.com/photo-1620800762635-424a6435bd78?q=80&w=1974&auto=format&fit=crop"
-                alt="Chelsea Boot"
-                fill
-                className="object-cover object-center transition-transform duration-700 group-hover:scale-105"
-              />
-            </div>
-            <div className="flex flex-col xl:flex-row justify-between items-start">
-              <div>
-                <h3 className="font-serif text-base sm:text-xl mb-1 mt-2">The Chelsea Boot</h3>
-                <p className="text-zinc-500 text-xs sm:text-sm">Full-Grain Leather</p>
-              </div>
-              <span className="font-sans text-sm mt-1 xl:mt-2">Rs. 360</span>
-            </div>
-          </a>
-        </div>
+        <CuratedCarousel products={curatedProducts} />
       </section>
 
       {/* Editorial / Brand Section */}
