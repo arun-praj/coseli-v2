@@ -89,8 +89,8 @@ export default function ContactPage() {
                         <div className="space-y-4 flex-1">
                             <h3 className="font-serif text-2xl text-black">The Atelier</h3>
                             <div className="text-zinc-500 text-sm leading-relaxed space-y-1">
-                                <p>Durbar Marg, 44600</p>
-                                <p>Kathmandu, Nepal</p>
+                                <p>Bira Complex, first floor, shop n.o : f2 New Road</p>
+                                <p>Kathmandu, Nepal 44600D</p>
                                 <p className="pt-2 text-black hover:text-zinc-500 transition-colors cursor-pointer inline-block border-b border-zinc-300 pb-0.5">Get Directions</p>
                             </div>
                         </div>

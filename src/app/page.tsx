@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { CuratedCarousel } from "@/components/curated-carousel";
+import { TestimonialCarousel } from "@/components/testimonial-carousel";
 
 interface Product {
   id: number;
@@ -26,8 +27,22 @@ async function getCuratedEssentials(): Promise<Product[]> {
   }
 }
 
+async function getPopularPicks(): Promise<Product[]> {
+  try {
+    const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000/api/v1';
+    const res = await fetch(`${apiUrl}/showcases/popular`, { cache: 'force-cache' });
+    if (!res.ok) return [];
+    const json = await res.json();
+    return json.data || [];
+  } catch (err) {
+    console.error("Failed to fetch popular picks:", err);
+    return [];
+  }
+}
+
 export default async function Home() {
   const curatedProducts = await getCuratedEssentials();
+  const popularProducts = await getPopularPicks();
 
   return (
     <div className="min-h-screen bg-white selection:bg-zinc-200 pt-20">
@@ -74,6 +89,19 @@ export default async function Home() {
           </p>
           <div className="w-12 h-[1px] bg-black mr-auto md:mx-auto"></div>
           <p className="text-sm font-sans tracking-widest uppercase text-zinc-500">The Atelier</p>
+        </div>
+      </section>
+
+      {/* Top Picks Section */}
+      <section className="py-16 md:py-32 px-4 md:px-12 max-w-screen-2xl mx-auto">
+        <CuratedCarousel products={popularProducts} title="Top Picks" />
+      </section>
+
+      {/* Testimonial Section */}
+      <section className="py-24 px-4 bg-white border-t border-zinc-100">
+        <div className="max-w-3xl mx-auto text-center space-y-12">
+          <h2 className="font-sans text-xs font-semibold tracking-widest uppercase text-zinc-400 mb-8">Client Stories</h2>
+          <TestimonialCarousel />
         </div>
       </section>
     </div>

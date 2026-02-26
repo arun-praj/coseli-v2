@@ -20,7 +20,7 @@ interface Product {
     annotated_image_url: string;
 }
 
-export function CuratedCarousel({ products }: { products: Product[] }) {
+export function CuratedCarousel({ products, title = "Curated Essentials" }: { products: Product[], title?: string }) {
     if (!products || products.length === 0) {
         return (
             <div className="py-24 text-center text-zinc-500">
@@ -38,7 +38,7 @@ export function CuratedCarousel({ products }: { products: Product[] }) {
             className="w-full relative"
         >
             <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-8 md:mb-16 gap-4 md:gap-8">
-                <h2 className="font-serif text-4xl md:text-6xl tracking-tight text-black max-w-md">Curated Essentials</h2>
+                <h2 className="font-serif text-4xl md:text-6xl tracking-tight text-black max-w-md">{title}</h2>
 
                 <div className="flex flex-col items-end gap-4 w-full md:w-auto mt-4 md:mt-0">
                     <a href="/collections" className="text-sm font-medium tracking-widest uppercase border-b border-black pb-1 hover:text-zinc-500 hover:border-zinc-500 transition-colors">

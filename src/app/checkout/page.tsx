@@ -1,30 +1,128 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { CheckoutButton } from "@/components/CheckoutButton";
-
-// Mock data for the cart
-const cartItems = [
-    {
-        id: "oxford-classic",
-        name: "The Oxford Classic",
-        color: "Onyx Black",
-        size: "US 10",
-        price: 320,
-        quantity: 1,
-        image: "https://images.unsplash.com/photo-1614252332824-34df734c38d4?q=80&w=300&auto=format&fit=crop"
-    }
-];
+import { useCartStore } from "@/lib/store/cart";
+import confetti from "canvas-confetti";
 
 export default function CheckoutPage() {
-    const subtotal = cartItems.reduce((acc, item) => acc + item.price * item.quantity, 0);
+    const [isMounted, setIsMounted] = useState(false);
+    const { items: cartItems, getCartTotal, clearCart } = useCartStore();
+
+    const [email, setEmail] = useState("");
+    const [phone, setPhone] = useState("");
+    const [firstName, setFirstName] = useState("");
+    const [lastName, setLastName] = useState("");
+    const [city, setCity] = useState("");
+    const [address, setAddress] = useState("");
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [submitError, setSubmitError] = useState("");
+    const [submitSuccess, setSubmitSuccess] = useState(false);
+    const [isCouponExpanded, setIsCouponExpanded] = useState(false);
+    const [trackingNumber, setTrackingNumber] = useState("");
+
+    useEffect(() => {
+        setIsMounted(true);
+    }, []);
+
+    useEffect(() => {
+        if (submitSuccess) {
+            setTimeout(() => {
+                window.scrollTo({ top: 0, behavior: "instant" as ScrollBehavior });
+            }, 100);
+            confetti({
+                particleCount: 150,
+                spread: 70,
+                origin: { y: 0.6 },
+                colors: ['#000000', '#ffffff', '#a1a1aa', '#3f3f46', '#27272a']
+            });
+        }
+    }, [submitSuccess]);
+
+    const subtotal = getCartTotal();
+    const totalItems = cartItems.reduce((acc, item) => acc + item.quantity, 0);
     const shipping = 15;
     const total = subtotal + shipping;
 
-    const [email, setEmail] = useState("");
-    const [isCouponExpanded, setIsCouponExpanded] = useState(false);
+    if (!isMounted) {
+        return null;
+    }
+
+    const handlePlaceOrder = async () => {
+        if (!phone || !firstName || !lastName || !city || !address) {
+            setSubmitError("Please fill in all required fields.");
+            return;
+        }
+
+        // Check for stale cart items (from before variantId was added to store)
+        const hasStaleItems = cartItems.some(item => !item.variantId);
+        if (hasStaleItems) {
+            setSubmitError("Your cart contains outdated items. Please clear your cart and add the items again.");
+            return;
+        }
+
+        setIsSubmitting(true);
+        setSubmitError("");
+
+        try {
+            const apiUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000/api/v1";
+            const response = await fetch(`${apiUrl}/orders/guest`, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    customer_info: {
+                        contact_no: phone,
+                        email: email || undefined,
+                    },
+                    shipping_address: {
+                        first_name: firstName,
+                        last_name: lastName,
+                        city,
+                        address,
+                    },
+                    items: cartItems.map(item => ({
+                        variant_id: item.variantId,
+                        quantity: item.quantity,
+                    })),
+                }),
+            });
+
+            if (!response.ok) {
+                const data = await response.json();
+                throw new Error(data.error || "Failed to place order.");
+            }
+
+            const responseData = await response.json();
+            setTrackingNumber(responseData?.data?.tracking_number || "");
+
+            setSubmitSuccess(true);
+            clearCart();
+        } catch (error: any) {
+            setSubmitError(error.message);
+        } finally {
+            setIsSubmitting(false);
+        }
+    };
+
+    if (submitSuccess) {
+        return (
+            <div className="min-h-screen bg-white pt-24 md:pt-32 pb-24 md:pb-32 flex items-center justify-center">
+                <div className="max-w-md mx-auto px-4 text-center">
+                    <h1 className="font-serif text-4xl text-black mb-6">Order Placed</h1>
+                    {trackingNumber && (
+                        <div className="mb-6 p-4 border border-zinc-200 bg-zinc-50">
+                            <span className="text-xs text-zinc-500 uppercase tracking-widest block mb-1">Your Tracking Number</span>
+                            <span className="font-mono text-lg font-medium tracking-wider text-black">{trackingNumber}</span>
+                        </div>
+                    )}
+                    <p className="text-zinc-500 font-sans mb-12">Thank you! Your order has been successfully placed. We will contact you shortly to coordinate delivery.</p>
+                    <CheckoutButton href="/collections" text="Continue Shopping" className="w-full py-6 text-base" />
+                </div>
+            </div>
+        );
+    }
 
     return (
         <div className="min-h-screen bg-white pt-16 md:pt-24 pb-24 md:pb-32 selection:bg-zinc-200">
@@ -73,6 +171,8 @@ export default function CheckoutPage() {
                                             placeholder="Mobile Number"
                                             className="w-full border border-zinc-300 px-4 py-3 text-sm focus:outline-none focus:border-black transition-colors placeholder:text-zinc-400"
                                             required
+                                            value={phone}
+                                            onChange={(e) => setPhone(e.target.value)}
                                         />
                                     </div>
                                     <p className="text-xs text-zinc-400 mt-2">Required for delivery coordination. Currently supporting Nepal region only.</p>
@@ -89,12 +189,16 @@ export default function CheckoutPage() {
                                     placeholder="First Name *"
                                     className="w-full border border-zinc-300 px-4 py-3 text-sm focus:outline-none focus:border-black transition-colors placeholder:text-zinc-400"
                                     required
+                                    value={firstName}
+                                    onChange={(e) => setFirstName(e.target.value)}
                                 />
                                 <input
                                     type="text"
                                     placeholder="Last Name *"
                                     className="w-full border border-zinc-300 px-4 py-3 text-sm focus:outline-none focus:border-black transition-colors placeholder:text-zinc-400"
                                     required
+                                    value={lastName}
+                                    onChange={(e) => setLastName(e.target.value)}
                                 />
                             </div>
                             <div className="space-y-4">
@@ -103,12 +207,16 @@ export default function CheckoutPage() {
                                     placeholder="City *"
                                     className="w-full border border-zinc-300 px-4 py-3 text-sm focus:outline-none focus:border-black transition-colors placeholder:text-zinc-400"
                                     required
+                                    value={city}
+                                    onChange={(e) => setCity(e.target.value)}
                                 />
                                 <input
                                     type="text"
                                     placeholder="Apartment, House No, Street name, etc. *"
                                     className="w-full border border-zinc-300 px-4 py-3 text-sm focus:outline-none focus:border-black transition-colors placeholder:text-zinc-400"
                                     required
+                                    value={address}
+                                    onChange={(e) => setAddress(e.target.value)}
                                 />
                             </div>
                         </section>
@@ -158,6 +266,11 @@ export default function CheckoutPage() {
 
                         {/* Terms and Submit */}
                         <div className="pt-8 mt-2 border-t border-zinc-200">
+                            {submitError && (
+                                <div className="mb-6 p-4 border border-red-500 bg-red-50 text-red-500 text-sm font-medium">
+                                    {submitError}
+                                </div>
+                            )}
                             <p className="text-xs text-zinc-500 leading-relaxed mb-8">
                                 By clicking on continue, you agree to place your order and accept our <a href="#" className="underline underline-offset-2 hover:text-black transition-colors">Terms and Conditions</a>,
                                 as well as our <a href="/privacy" className="underline underline-offset-2 hover:text-black transition-colors" target="_blank" rel="noopener noreferrer">Privacy Policy</a>. Your personal data will be used to process your order,
@@ -165,13 +278,14 @@ export default function CheckoutPage() {
                             </p>
                             <CheckoutButton
                                 className="w-full py-7 text-base shadow-lg shadow-black/10 mt-4"
-                                text="Place Order"
+                                text={isSubmitting ? "Placing Order..." : "Place Order"}
+                                onClick={handlePlaceOrder}
                             />
                         </div>
 
                         {/* Order Summary (Mobile Only - positioned after Submit) */}
                         <div className="block lg:hidden bg-zinc-50 border border-zinc-200 p-4 rounded-sm mt-8">
-                            <h2 className="font-serif text-lg text-black mb-4 border-b border-zinc-200 pb-3">Order Summary</h2>
+                            <h2 className="font-serif text-lg text-black mb-4 border-b border-zinc-200 pb-3">Order Summary ({totalItems} {totalItems === 1 ? 'item' : 'items'})</h2>
 
                             {/* Items List (Extra Compact) */}
                             <div className="flex flex-col gap-3 mb-4">
@@ -184,13 +298,9 @@ export default function CheckoutPage() {
                                                 fill
                                                 className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
                                             />
-                                            {/* Quantity Badge slightly overlapping */}
-                                            <div className="absolute top-0 right-0 translate-x-1/2 -translate-y-1/2 w-4 h-4 bg-zinc-500 text-white rounded-full flex items-center justify-center text-[8px] font-medium z-10 shadow-sm">
-                                                {item.quantity}
-                                            </div>
                                         </div>
                                         <div className="flex-1 flex flex-col">
-                                            <h4 className="font-serif text-sm text-black leading-tight">{item.name}</h4>
+                                            <h4 className="font-serif text-sm text-black leading-tight">{item.name} ({item.quantity})</h4>
                                             <p className="text-[10px] text-zinc-500">{item.color} / {item.size}</p>
                                         </div>
                                         <div className="text-sm font-medium text-black">
@@ -229,7 +339,7 @@ export default function CheckoutPage() {
                     <div className="hidden lg:flex w-full lg:w-[45%] flex-col pt-8 lg:pt-0">
                         {/* Sticky container on large screens */}
                         <div className="lg:sticky lg:top-32 bg-zinc-50 p-6 md:p-8 rounded-sm">
-                            <h2 className="font-serif text-xl md:text-2xl text-black mb-6 border-b border-zinc-200 pb-4">Order Summary</h2>
+                            <h2 className="font-serif text-xl md:text-2xl text-black mb-6 border-b border-zinc-200 pb-4">Order Summary ({totalItems} {totalItems === 1 ? 'item' : 'items'})</h2>
 
                             {/* Items List (Compact) */}
                             <div className="flex flex-col gap-4 mb-6">
@@ -242,13 +352,9 @@ export default function CheckoutPage() {
                                                 fill
                                                 className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
                                             />
-                                            {/* Quantity Badge slightly overlapping */}
-                                            <div className="absolute top-0 right-0 translate-x-1/2 -translate-y-1/2 w-5 h-5 bg-zinc-500 text-white rounded-full flex items-center justify-center text-[10px] font-medium z-10 shadow-sm">
-                                                {item.quantity}
-                                            </div>
                                         </div>
                                         <div className="flex-1 flex flex-col">
-                                            <h4 className="font-serif text-sm md:text-base text-black leading-tight mb-0.5">{item.name}</h4>
+                                            <h4 className="font-serif text-sm md:text-base text-black leading-tight mb-0.5">{item.name} ({item.quantity})</h4>
                                             <p className="text-xs text-zinc-500">{item.color} / {item.size}</p>
                                         </div>
                                         <div className="text-sm font-medium text-black">

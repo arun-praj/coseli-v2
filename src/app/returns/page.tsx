@@ -1,18 +1,103 @@
 "use client";
 import { useState } from "react";
-import { ChevronRight } from "lucide-react";
+import { ChevronRight, Package, AlertCircle, CheckCircle2 } from "lucide-react";
+
+interface OrderTrackingData {
+    status: string;
+    tracking_number: string;
+    created_at: string;
+    total_amount: number;
+    payment_method: string;
+    order_items?: any[];
+}
 
 export default function ReturnsPage() {
     const [showForm, setShowForm] = useState(false);
     const [orderNumber, setOrderNumber] = useState("");
     const [email, setEmail] = useState("");
-    const [isSubmitted, setIsSubmitted] = useState(false);
 
-    const handleSubmit = (e: React.FormEvent) => {
+    // Status & Error States
+    const [isLoading, setIsLoading] = useState(false);
+    const [error, setError] = useState("");
+    const [isSubmitted, setIsSubmitted] = useState(false);
+    const [orderData, setOrderData] = useState<OrderTrackingData | null>(null);
+
+    // Return States
+    const [isReturning, setIsReturning] = useState(false);
+    const [returnError, setReturnError] = useState("");
+    const [returnReason, setReturnReason] = useState("");
+    const [returnOtherReason, setReturnOtherReason] = useState("");
+
+    const handleFindOrder = async (e: React.FormEvent) => {
         e.preventDefault();
-        // For now, accept any order number as valid
-        if (orderNumber.trim() && email.trim()) {
+
+        if (!orderNumber.trim() || !email.trim()) {
+            setError("Please enter both order number and email.");
+            return;
+        }
+
+        setIsLoading(true);
+        setError("");
+        setOrderData(null);
+
+        try {
+            const apiUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000/api/v1";
+            const response = await fetch(`${apiUrl}/orders/track/${encodeURIComponent(orderNumber.trim())}`);
+
+            if (!response.ok) {
+                const data = await response.json();
+                throw new Error(data.error || "Failed to find order");
+            }
+
+            const { data } = await response.json();
+
+            if (data.status !== 'delivered') {
+                throw new Error(`Order is currently '${data.status}'. Only delivered orders can be returned.`);
+            }
+
+            // We can optionally verify the email if we had it, but for now we just find by order NO
+            setOrderData(data);
+        } catch (err: any) {
+            setError(err.message);
+        } finally {
+            setIsLoading(false);
+        }
+    };
+
+    const handleReturnOrder = async () => {
+        if (!orderData) return;
+
+        const finalReason = returnReason === "Other" ? returnOtherReason : returnReason;
+
+        if (!finalReason.trim()) {
+            setReturnError("Please specify a reason for the return.");
+            return;
+        }
+
+        setIsReturning(true);
+        setReturnError("");
+
+        try {
+            const apiUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000/api/v1";
+            const response = await fetch(`${apiUrl}/orders/track/${encodeURIComponent(orderData.tracking_number)}/return`, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ return_reason: finalReason })
+            });
+
+            if (!response.ok) {
+                const data = await response.json();
+                throw new Error(data.error || "Failed to initiate return");
+            }
+
+            // Success
             setIsSubmitted(true);
+            setOrderData(null);
+            setShowForm(false);
+        } catch (err: any) {
+            setReturnError(err.message);
+        } finally {
+            setIsReturning(false);
         }
     };
 
@@ -55,31 +140,11 @@ export default function ReturnsPage() {
                             Once our atelier receives and inspects your returned item (usually within 3-5 business days of receipt), we will process your refund. The funds will be credited back to your original payment method. Please allow up to 10 business days for the refund to reflect on your statement.
                         </p>
                     </section>
-
-                    <section className="bg-zinc-50 p-6 md:p-8 border border-zinc-100 mt-12">
-                        <h2 className="font-serif text-2xl text-black mb-4">Need Help?</h2>
-                        <p className="mb-6">
-                            If you have any questions about your return or exchange, our concierge team is always available to assist you.
-                        </p>
-                        <div className="flex flex-col sm:flex-row sm:items-center gap-6 mb-8 text-black">
-                            <p className="flex items-center gap-2">
-                                <span className="text-zinc-500 w-16">Email:</span>
-                                <a href="mailto:concierge@coseli.com" className="hover:underline underline-offset-4 decoration-zinc-300">concierge@coseli.com</a>
-                            </p>
-                            <p className="flex items-center gap-2">
-                                <span className="text-zinc-500 w-16">Phone:</span>
-                                <a href="tel:+977014220000" className="hover:underline underline-offset-4 decoration-zinc-300">+977 1 422 0000</a>
-                            </p>
-                        </div>
-                        <a href="/contact" className="inline-block border border-black text-black px-6 py-3 text-xs tracking-widest uppercase font-medium hover:bg-black hover:text-white transition-colors duration-300">
-                            Visit Contact Page
-                        </a>
-                    </section>
                 </div>
 
                 {/* Initiate Return Action Area */}
-                <div className="border-t border-zinc-200 pt-16 text-center bg-zinc-50 p-8 md:p-12">
-                    {!showForm && !isSubmitted && (
+                <div className="border-t border-zinc-200 pt-16 text-center bg-zinc-50 p-8 md:p-12 mb-20">
+                    {!showForm && !isSubmitted && !orderData && (
                         <div className="space-y-6">
                             <h2 className="font-serif text-3xl text-black">Ready to make a return?</h2>
                             <p className="text-zinc-500 text-sm mb-8">Have your order number ready.</p>
@@ -92,20 +157,20 @@ export default function ReturnsPage() {
                         </div>
                     )}
 
-                    {showForm && !isSubmitted && (
+                    {showForm && !isSubmitted && !orderData && (
                         <div className="max-w-md mx-auto text-left animate-in fade-in slide-in-from-bottom-4 duration-500">
                             <h2 className="font-serif text-2xl text-black mb-6 text-center">Enter Order Details</h2>
-                            <form onSubmit={handleSubmit} className="space-y-6">
+                            <form onSubmit={handleFindOrder} className="space-y-6">
                                 <div className="space-y-2">
-                                    <label htmlFor="orderNumber" className="block text-xs font-medium tracking-widest uppercase text-zinc-500">Order Number *</label>
+                                    <label htmlFor="orderNumber" className="block text-xs font-medium tracking-widest uppercase text-zinc-500">Order/Tracking Number *</label>
                                     <input
                                         type="text"
                                         id="orderNumber"
                                         value={orderNumber}
-                                        onChange={(e) => setOrderNumber(e.target.value)}
+                                        onChange={(e) => setOrderNumber(e.target.value.toUpperCase())}
                                         required
-                                        placeholder="e.g. COSELI-123456"
-                                        className="w-full bg-transparent border-b border-zinc-300 py-3 text-sm text-black focus:outline-none focus:border-black transition-colors rounded-none placeholder:text-zinc-400"
+                                        placeholder="e.g. TRK-123456"
+                                        className="w-full bg-transparent border-b border-zinc-300 py-3 text-sm text-black focus:outline-none focus:border-black transition-colors rounded-none placeholder:text-zinc-400 font-mono uppercase"
                                     />
                                 </div>
                                 <div className="space-y-2">
@@ -120,6 +185,13 @@ export default function ReturnsPage() {
                                         className="w-full bg-transparent border-b border-zinc-300 py-3 text-sm text-black focus:outline-none focus:border-black transition-colors rounded-none placeholder:text-zinc-400"
                                     />
                                 </div>
+
+                                {error && (
+                                    <p className="text-red-500 text-xs mt-3 bg-red-50 p-3 flex items-start gap-2 border border-red-500 font-medium">
+                                        <AlertCircle className="w-4 h-4 shrink-0 mt-0.5" /> {error}
+                                    </p>
+                                )}
+
                                 <div className="pt-4 flex justify-between items-center">
                                     <button
                                         type="button"
@@ -130,25 +202,110 @@ export default function ReturnsPage() {
                                     </button>
                                     <button
                                         type="submit"
-                                        className="bg-black text-white px-8 py-4 text-xs tracking-widest uppercase font-medium hover:bg-zinc-800 transition-colors"
+                                        disabled={isLoading}
+                                        className="bg-black text-white px-8 py-4 text-xs tracking-widest uppercase font-medium hover:bg-zinc-800 transition-colors disabled:opacity-50"
                                     >
-                                        Find Order
+                                        {isLoading ? "Searching..." : "Find Order"}
                                     </button>
                                 </div>
                             </form>
                         </div>
                     )}
 
+                    {orderData && !isSubmitted && (
+                        <div className="max-w-xl mx-auto text-left animate-in fade-in slide-in-from-bottom-4 duration-500">
+                            <h2 className="font-serif text-2xl text-black mb-6 text-center">Select Items to Return</h2>
+
+                            <div className="bg-white border border-zinc-200 p-4 md:p-6 mb-8">
+                                <h4 className="text-[10px] font-bold tracking-widest uppercase text-zinc-500 mb-4">Order {orderData.tracking_number}</h4>
+                                <div className="space-y-4">
+                                    {orderData.order_items?.map((item: any, idx: number) => (
+                                        <div key={idx} className="flex gap-4 items-center">
+                                            {item.thumbnail ? (
+                                                <img src={item.thumbnail} alt={item.product_name || "Product"} className="w-16 h-16 object-cover bg-zinc-100" />
+                                            ) : (
+                                                <div className="w-16 h-16 bg-zinc-100 flex items-center justify-center">
+                                                    <Package className="w-6 h-6 text-zinc-300" />
+                                                </div>
+                                            )}
+                                            <div className="flex-1">
+                                                <p className="font-medium text-black text-sm">{item.product_name || "Product Item"}</p>
+                                                <p className="text-zinc-500 text-xs mt-1">Qty: {item.quantity}</p>
+                                            </div>
+                                            <div className="font-mono text-sm">${(item.price_at_purchase * item.quantity).toFixed(2)}</div>
+                                        </div>
+                                    ))}
+                                </div>
+                                <div className="mt-6 pt-4 border-t border-zinc-100 flex justify-between items-center">
+                                    <span className="text-[10px] font-bold tracking-widest uppercase text-zinc-500">Refund Amount (Est)</span>
+                                    <span className="font-mono font-bold">${orderData.total_amount?.toFixed(2)}</span>
+                                </div>
+                            </div>
+
+                            <div className="space-y-6 max-w-sm mx-auto">
+                                <div>
+                                    <label className="text-[10px] font-bold tracking-widest uppercase text-zinc-500 block mb-2">Reason for Return *</label>
+                                    <select
+                                        className="w-full border border-zinc-300 p-3 text-sm flex-1 bg-white focus:outline-none focus:border-black transition-colors"
+                                        value={returnReason}
+                                        onChange={(e) => setReturnReason(e.target.value)}
+                                    >
+                                        <option value="" disabled>Select a reason...</option>
+                                        <option value="Wrong Size">Wrong Size</option>
+                                        <option value="Defective">Item Defective</option>
+                                        <option value="Not as described">Not as described</option>
+                                        <option value="Changed mind">Changed my mind</option>
+                                        <option value="Other">Other</option>
+                                    </select>
+                                </div>
+
+                                {returnReason === "Other" && (
+                                    <div className="animate-in fade-in slide-in-from-top-2 duration-300">
+                                        <label className="text-[10px] font-bold tracking-widest uppercase text-zinc-500 block mb-2">Please specify *</label>
+                                        <textarea
+                                            className="w-full border border-zinc-300 p-3 text-sm focus:outline-none focus:border-black transition-colors min-h-[100px] bg-white resize-none"
+                                            placeholder="Tell us what went wrong..."
+                                            value={returnOtherReason}
+                                            onChange={(e) => setReturnOtherReason(e.target.value)}
+                                        />
+                                    </div>
+                                )}
+
+                                <div className="flex flex-col gap-3 pt-4">
+                                    <button
+                                        onClick={handleReturnOrder}
+                                        disabled={isReturning}
+                                        className="w-full bg-black text-white px-8 py-4 text-xs tracking-widest uppercase font-bold hover:bg-zinc-800 transition-colors disabled:opacity-50"
+                                    >
+                                        {isReturning ? "Submitting..." : "Confirm Return"}
+                                    </button>
+                                    <button
+                                        type="button"
+                                        onClick={() => setOrderData(null)}
+                                        disabled={isReturning}
+                                        className="w-full text-zinc-500 text-xs tracking-widest uppercase font-medium hover:text-black transition-colors py-4"
+                                    >
+                                        Cancel
+                                    </button>
+
+                                    {returnError && (
+                                        <p className="text-red-500 text-xs mt-2 bg-red-50 p-3 flex items-start gap-2 border border-red-500 font-medium">
+                                            <AlertCircle className="w-4 h-4 shrink-0 mt-0.5" /> {returnError}
+                                        </p>
+                                    )}
+                                </div>
+                            </div>
+                        </div>
+                    )}
+
                     {isSubmitted && (
                         <div className="max-w-md mx-auto text-center space-y-6 animate-in fade-in slide-in-from-bottom-4 duration-500">
                             <div className="w-16 h-16 bg-black rounded-full flex items-center justify-center mx-auto mb-6">
-                                <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                                </svg>
+                                <CheckCircle2 className="w-8 h-8 text-white" />
                             </div>
-                            <h2 className="font-serif text-2xl text-black">Order Found</h2>
+                            <h2 className="font-serif text-2xl text-black">Return Initiated</h2>
                             <p className="text-zinc-600 text-sm leading-relaxed">
-                                We've located order <strong className="text-black">{orderNumber}</strong>. An email with return instructions has been sent to <strong className="text-black">{email}</strong>.
+                                We've received your return request for order <strong className="text-black">{orderNumber}</strong>. An email with return instructions and next steps has been sent to your address.
                             </p>
                             <button
                                 onClick={() => {
@@ -156,8 +313,10 @@ export default function ReturnsPage() {
                                     setShowForm(false);
                                     setOrderNumber("");
                                     setEmail("");
+                                    setReturnReason("");
+                                    setReturnOtherReason("");
                                 }}
-                                className="mt-8 text-xs tracking-widest uppercase border-b border-black pb-1 hover:text-zinc-500 hover:border-zinc-500 transition-colors inline-block"
+                                className="mt-8 text-xs tracking-widest uppercase font-medium border-b border-black pb-1 hover:text-zinc-500 hover:border-zinc-500 transition-colors inline-block"
                             >
                                 Return Another Order
                             </button>

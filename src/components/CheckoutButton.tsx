@@ -1,6 +1,6 @@
 "use client";
 
-import { Lock } from "lucide-react";
+import { Lock, ShoppingBag, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 interface CheckoutButtonProps {
@@ -8,16 +8,23 @@ interface CheckoutButtonProps {
     text?: string;
     onClick?: () => void;
     href?: string;
+    icon?: "lock" | "bag" | "arrow";
 }
 
-export function CheckoutButton({ className = "", text = "Checkout", onClick, href }: CheckoutButtonProps) {
+export function CheckoutButton({ className = "", text = "Checkout", onClick, href, icon }: CheckoutButtonProps) {
     const defaultClasses = "rounded-none uppercase tracking-widest bg-black text-white hover:bg-zinc-800 transition-colors flex items-center justify-center gap-2 font-semibold";
+
+    let IconComponent = Lock;
+    if (icon === "bag") IconComponent = ShoppingBag;
+    else if (icon === "arrow") IconComponent = ArrowRight;
+    else if (!icon && text.toLowerCase().includes("order")) IconComponent = ShoppingBag;
+    else if (!icon && text.toLowerCase().includes("shopping")) IconComponent = ArrowRight;
 
     if (href) {
         return (
             <Button asChild className={`${defaultClasses} ${className}`} onClick={onClick}>
                 <a href={href}>
-                    <Lock className="w-4 h-4 shrink-0" />
+                    <IconComponent className="w-4 h-4 shrink-0" />
                     <span>{text}</span>
                 </a>
             </Button>
@@ -29,7 +36,7 @@ export function CheckoutButton({ className = "", text = "Checkout", onClick, hre
             className={`${defaultClasses} ${className}`}
             onClick={onClick}
         >
-            <Lock className="w-4 h-4 shrink-0" />
+            <IconComponent className="w-4 h-4 shrink-0" />
             <span>{text}</span>
         </Button>
     );

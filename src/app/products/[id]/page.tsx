@@ -2,8 +2,9 @@
 
 import Image from "next/image";
 import { useState, useRef, useEffect } from "react";
-import { useParams } from "next/navigation";
+import { useParams, useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
+import { useCartStore } from "@/lib/store/cart";
 import { ShoppingCart, Truck, RefreshCcw, ChevronLeft, ChevronRight } from "lucide-react";
 
 export default function ProductDetailPage() {
@@ -17,6 +18,13 @@ export default function ProductDetailPage() {
     const [selectedImage, setSelectedImage] = useState(0);
     const [selectedColor, setSelectedColor] = useState(0);
     const [selectedSize, setSelectedSize] = useState<number | null>(null);
+
+    const [validationError, setValidationError] = useState<string | null>(null);
+    const [isAdded, setIsAdded] = useState(false);
+
+    // Stores
+    const addItem = useCartStore(state => state.addItem);
+    const router = useRouter();
 
     const thumbnailsRef = useRef<HTMLDivElement>(null);
 
@@ -86,11 +94,11 @@ export default function ProductDetailPage() {
     const uniqueSizesMap = new Map();
     availableSizesForColor.forEach((v: any) => {
         if (!uniqueSizesMap.has(v.size)) {
-            uniqueSizesMap.set(v.size, { size: v.size, priceOverride: v.price_override, inventory: v.inventory_count });
+            uniqueSizesMap.set(v.size, { size: v.size, priceOverride: v.price_override, inventory: v.inventory_count, variantId: v.id });
         }
     });
     const sizes = Array.from(uniqueSizesMap.values());
-    if (sizes.length === 0) sizes.push({ size: "One Size", priceOverride: null, inventory: 10 });
+    if (sizes.length === 0) sizes.push({ size: "One Size", priceOverride: null, inventory: 10, variantId: 0 });
 
     // Handle prices
     const activeSize = selectedSize !== null ? sizes[selectedSize] : sizes[0];
@@ -142,6 +150,32 @@ export default function ProductDetailPage() {
     const shippingCost = product.shipping_price || 0;
     const shippingType = "Standard Delivery";
     const returns = "Free returns within 30 days of receipt.";
+
+    const handleAddToCart = (buyNow = false) => {
+        if (selectedSize === null && sizes.length > 0 && sizes[0].size !== "One Size") {
+            setValidationError("Please select a size first.");
+            return;
+        }
+
+        setValidationError(null);
+
+        addItem({
+            productId: product.id,
+            variantId: activeSize?.variantId || 0,
+            name: product.name,
+            color: selectedColorName || "Default",
+            size: activeSize?.size || "One Size",
+            price: currentPrice,
+            image: images[validSelectedImage] || product.thumbnail_image_url
+        });
+
+        if (buyNow) {
+            router.push("/cart");
+        } else {
+            setIsAdded(true);
+            setTimeout(() => setIsAdded(false), 2000);
+        }
+    };
 
     return (
         <div className="min-h-screen bg-white pt-16 md:pt-24 pb-24 md:pb-32 selection:bg-zinc-200">
@@ -295,18 +329,28 @@ export default function ProductDetailPage() {
 
                         {/* Actions */}
                         <div className="flex flex-col gap-4 mb-12">
+                            {validationError && (
+                                <p className="text-red-500 text-sm font-medium tracking-wide mb-2 animate-in fade-in slide-in-from-top-1">
+                                    {validationError}
+                                </p>
+                            )}
                             <Button
+                                onClick={() => handleAddToCart(true)}
                                 variant="default"
                                 className="w-full py-6 rounded-none bg-black text-white hover:bg-zinc-800 transition-colors uppercase tracking-widest text-sm"
                             >
                                 Buy Now
                             </Button>
                             <Button
+                                onClick={() => handleAddToCart(false)}
                                 variant="outline"
-                                className="w-full py-6 rounded-none border-zinc-200 text-black hover:bg-zinc-50 transition-colors uppercase tracking-widest text-sm flex items-center justify-center gap-2"
+                                className={`w-full py-6 rounded-none border-zinc-200 uppercase tracking-widest text-sm flex items-center justify-center gap-2 transition-all ${isAdded
+                                    ? "bg-green-50 text-green-700 border-green-200 hover:bg-green-50"
+                                    : "text-black hover:bg-zinc-50"
+                                    }`}
                             >
                                 <ShoppingCart className="w-4 h-4" />
-                                Add to Cart
+                                {isAdded ? "Added to Cart" : "Add to Cart"}
                             </Button>
                         </div>
 

@@ -5,6 +5,23 @@ import { Plus, Minus } from "lucide-react";
 // FAQ Data Structure
 const faqs = [
     {
+        category: "About Coseli",
+        questions: [
+            {
+                q: "What is Coseli?",
+                a: "Coseli is a premium handcrafted leather footwear brand based in Kathmandu, Nepal. We specialize in bespoke oxfords, loafers, sneakers, and shambas, using ethically sourced full-grain leather and traditional construction methods like Goodyear Welt and Blake stitch."
+            },
+            {
+                q: "Where are your shoes made?",
+                a: "Every pair of Coseli shoes is designed and handcrafted by master artisans in our Kathmandu atelier."
+            },
+            {
+                q: "Do you only sell shoes?",
+                a: "While footwear is our primary focus, we also craft a curated selection of premium leather accessories, including belts and wallets, designed to complement our shoe collections."
+            }
+        ]
+    },
+    {
         category: "Bespoke & Orders",
         questions: [
             {

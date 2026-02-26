@@ -59,6 +59,7 @@ export default function RootLayout({
             <div className="flex flex-col gap-4">
               <h3 className="font-sans text-xs font-semibold tracking-widest uppercase text-black mb-2">Client Services</h3>
               <a href="/contact" className="text-sm text-zinc-500 hover:text-black transition-colors">Contact Us</a>
+              <a href="/track" className="text-sm text-zinc-500 hover:text-black transition-colors">Track Order</a>
               <a href="/returns" className="text-sm text-zinc-500 hover:text-black transition-colors">Shipping & Returns</a>
               <a href="/faq" className="text-sm text-zinc-500 hover:text-black transition-colors">FAQ</a>
               <a href="/shoe-care" className="text-sm text-zinc-500 hover:text-black transition-colors">Shoe Care Guide</a>

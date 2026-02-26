@@ -3,15 +3,17 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import { SlidersHorizontal, ChevronDown, ChevronUp, Check, X } from "lucide-react";
-import { useProducts, Product } from "@/lib/hooks/useProducts";
+import { useProducts, useCollectionCounts, Product } from "@/lib/hooks/useProducts";
 
 const filterCategories = [
-    { id: "collection", name: "Collection", options: ["Chukas", "Shambas", "Oxfords", "Sneakers"] },
+    { id: "collection", name: "Collection", options: ["Chukka", "Shamba", "Oxford", "Sneaker", "Loafer", "Boot"] },
     { id: "price", name: "Price", options: ["Under Rs. 150", "Rs. 150 - Rs. 250", "Over Rs. 250"] },
-    { id: "color", name: "Color", options: ["Black", "Brown", "Tan", "White", "Navy"] },
+    { id: "color", name: "Color", options: ["Black", "Brown", "Tan", "White", "Navy", "Grey", "Olive"] },
     { id: "gender", name: "Gender", options: ["Men", "Women", "Unisex"] },
-    { id: "materials", name: "Materials", options: ["Leather", "Suede", "Canvas", "Vegan Leather"] },
+    { id: "materials", name: "Materials", options: ["Leather", "Suede", "Canvas", "Vegan Leather", "Synthetic", "Mesh"] },
 ];
+
+
 
 export default function CollectionsPage() {
     const [isFilterSidebarVisible, setIsFilterSidebarVisible] = useState(true);
@@ -72,6 +74,8 @@ export default function CollectionsPage() {
         else if (selectedSort === "Price: High to Low") sortParam = "price_desc";
         else if (selectedSort === "Newest") sortParam = "newest";
         else if (selectedSort === "Recommended") sortParam = "recommended";
+        else if (selectedSort === "Trending") sortParam = "trending";
+        else if (selectedSort === "Popular") sortParam = "popular";
 
         return {
             category: selectedFilters.collection,
@@ -83,7 +87,22 @@ export default function CollectionsPage() {
         };
     };
 
-    const { products, loading, error } = useProducts(getHookOptions());
+    const { products, loading, loadingMore, hasMore, error, loadMore } = useProducts(getHookOptions());
+    const { counts: collectionCounts } = useCollectionCounts();
+
+    // Scroll listener for infinite pagination
+    useEffect(() => {
+        const handleScroll = () => {
+            const scrollPosition = Math.ceil(window.innerHeight + window.scrollY);
+            const documentHeight = document.documentElement.scrollHeight;
+            if (scrollPosition >= documentHeight - 1500) {
+                loadMore();
+            }
+        };
+
+        window.addEventListener('scroll', handleScroll, { passive: true });
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, [loadMore]);
 
     const toggleFilterAccordion = (categoryId: string) => {
         setOpenFilterSections(prev =>
@@ -164,7 +183,7 @@ export default function CollectionsPage() {
                         </button>
                         {/* Sort Dropdown (Hover) */}
                         <div className="absolute right-0 top-full mt-2 w-48 bg-white border border-zinc-200 shadow-xl opacity-0 invisible group-hover/sort:opacity-100 group-hover/sort:visible transition-all duration-200 z-40 py-2">
-                            {["Recommended", "Newest", "Price: Low to High", "Price: High to Low"].map((option) => (
+                            {["Recommended", "Trending", "Popular", "Newest", "Price: Low to High", "Price: High to Low"].map((option) => (
                                 <button
                                     key={option}
                                     onClick={() => setSelectedSort(option)}
@@ -244,7 +263,7 @@ export default function CollectionsPage() {
                                                         )}
 
                                                         <span className={`text-sm transition-colors truncate ${isSelected ? 'text-black font-medium' : 'text-zinc-600 group-hover:text-black'}`}>
-                                                            {option}
+                                                            {option} {category.id === "collection" && collectionCounts[option] !== undefined && <span className="text-zinc-400 font-normal text-xs ml-1">({collectionCounts[option]})</span>}
                                                         </span>
                                                     </label>
                                                 );
@@ -253,12 +272,12 @@ export default function CollectionsPage() {
                                             {category.options.length > 4 && (
                                                 <button
                                                     onClick={() => toggleShowMore(category.id)}
-                                                    className="text-left text-xs font-medium text-zinc-500 hover:text-black transition-colors mt-2 flex items-center gap-1 w-fit"
+                                                    className="text-left text-xs font-medium text-zinc-500 hover:text-black transition-colors mt-0 sm:-mt-1 flex items-center gap-1 w-fit"
                                                 >
                                                     {expandedCategories.includes(category.id) ? (
                                                         <>Show Less <ChevronUp className="w-3 h-3" /></>
                                                     ) : (
-                                                        <>Show More <ChevronDown className="w-3 h-3" /></>
+                                                        <>Show More ({category.options.length - 4}) <ChevronDown className="w-3 h-3" /></>
                                                     )}
                                                 </button>
                                             )}
@@ -272,7 +291,7 @@ export default function CollectionsPage() {
 
                 {/* Right Side: Product Grid */}
                 <div className="flex-1 w-full transition-all duration-500 min-h-[50vh]">
-                    {loading ? (
+                    {loading && products.length === 0 ? (
                         <div className="flex justify-center items-center h-full w-full py-20">
                             <span className="text-zinc-400 uppercase tracking-widest text-sm animate-pulse">Loading Collection...</span>
                         </div>
@@ -285,36 +304,50 @@ export default function CollectionsPage() {
                             <span className="text-zinc-400 uppercase tracking-widest text-sm">No products found for these filters.</span>
                         </div>
                     ) : (
-                        <div className={`grid grid-cols-2 md:grid-cols-3 ${isFilterSidebarVisible ? 'lg:grid-cols-3 xl:grid-cols-3' : 'lg:grid-cols-4 xl:grid-cols-5'} gap-x-4 gap-y-8 sm:gap-x-6 lg:gap-x-8 sm:gap-y-12 transition-all duration-500`}>
-                            {products.map((product) => (
-                                <a key={product.id} href={`/products/${product.id}`} className="group cursor-pointer block">
-                                    <div className="relative aspect-[4/5] overflow-hidden bg-zinc-100 mb-4 sm:mb-6">
-                                        {/* Primary Thumbnail */}
-                                        <Image
-                                            src={product.thumbnail_image_url || product.annotated_image_url || "https://images.unsplash.com/photo-1549298916-b41d501d3772?q=80&w=2012&auto=format&fit=crop"}
-                                            alt={product.name}
-                                            fill
-                                            className={`object-cover object-center transition-all duration-700 group-hover:scale-105 ${product.hover_image_url ? 'group-hover:opacity-0' : ''}`}
-                                        />
-                                        {/* Hover Thumbnail (if available) */}
-                                        {product.hover_image_url && (
+                        <div className={`transition-all duration-500 ${loading ? 'opacity-50 pointer-events-none' : ''}`}>
+                            {selectedFilters.collection && selectedFilters.collection.length > 0 && (
+                                <h2 className="text-3xl font-serif mb-6 text-black border-b border-zinc-200 pb-2">
+                                    {selectedFilters.collection.join(", ")} Collection{selectedFilters.collection.length > 1 ? 's' : ''}
+                                </h2>
+                            )}
+                            <div className={`grid grid-cols-2 md:grid-cols-3 ${isFilterSidebarVisible ? 'lg:grid-cols-3 xl:grid-cols-3' : 'lg:grid-cols-4 xl:grid-cols-5'} gap-x-4 gap-y-8 sm:gap-x-6 lg:gap-x-8 sm:gap-y-12`}>
+                                {products.map((product) => (
+                                    <a key={product.id} href={`/products/${product.id}`} className="group cursor-pointer block">
+                                        <div className="relative aspect-[4/5] overflow-hidden bg-zinc-100 mb-4 sm:mb-6">
+                                            {/* Primary Thumbnail */}
                                             <Image
-                                                src={product.hover_image_url}
-                                                alt={`${product.name} hover`}
+                                                src={product.thumbnail_image_url || product.annotated_image_url || "https://images.unsplash.com/photo-1549298916-b41d501d3772?q=80&w=2012&auto=format&fit=crop"}
+                                                alt={product.name}
                                                 fill
-                                                className="object-cover object-center absolute inset-0 opacity-0 transition-all duration-700 group-hover:opacity-100 group-hover:scale-105"
+                                                className={`object-cover object-center transition-all duration-700 group-hover:scale-105 ${product.hover_image_url ? 'group-hover:opacity-0' : ''}`}
                                             />
-                                        )}
-                                    </div>
-                                    <div className="flex flex-col xl:flex-row justify-between items-start">
-                                        <div>
-                                            <h3 className="font-serif text-base sm:text-lg md:text-xl mb-1 mt-2 text-black">{product.name}</h3>
-                                            <p className="text-zinc-500 text-xs sm:text-sm hidden sm:block">{product.short_description || "Premium Quality"}</p>
+                                            {/* Hover Thumbnail (if available) */}
+                                            {product.hover_image_url && (
+                                                <Image
+                                                    src={product.hover_image_url}
+                                                    alt={`${product.name} hover`}
+                                                    fill
+                                                    className="object-cover object-center absolute inset-0 opacity-0 transition-all duration-700 group-hover:opacity-100 group-hover:scale-105"
+                                                />
+                                            )}
                                         </div>
-                                        <span className="font-sans text-sm mt-1 xl:mt-2 font-medium text-black">Rs. {product.base_price.toFixed(2)}</span>
-                                    </div>
-                                </a>
-                            ))}
+                                        <div className="flex flex-col xl:flex-row justify-between items-start">
+                                            <div>
+                                                <h3 className="font-serif text-base sm:text-lg md:text-xl mb-1 mt-2 text-black">{product.name}</h3>
+                                                <p className="text-zinc-500 text-xs sm:text-sm hidden sm:block">{product.short_description || "Premium Quality"}</p>
+                                            </div>
+                                            <span className="font-sans text-sm mt-1 xl:mt-2 font-medium text-black">Rs. {product.base_price.toFixed(2)}</span>
+                                        </div>
+                                    </a>
+                                ))}
+                            </div>
+                        </div>
+                    )}
+
+                    {/* Infinite Scroll Indicators */}
+                    {loadingMore && (
+                        <div className="flex justify-center items-center py-12 w-full">
+                            <span className="text-zinc-400 uppercase tracking-widest text-sm animate-pulse">Loading More...</span>
                         </div>
                     )}
                 </div>
@@ -395,7 +428,7 @@ export default function CollectionsPage() {
                                                                 )}
 
                                                                 <span className={`text-sm transition-colors truncate ${isSelected ? 'text-black font-medium' : 'text-zinc-600 group-hover:text-black'}`}>
-                                                                    {option}
+                                                                    {option} {category.id === "collection" && collectionCounts[option] !== undefined && <span className="text-zinc-400 font-normal text-xs ml-1">({collectionCounts[option]})</span>}
                                                                 </span>
                                                             </label>
                                                         );
@@ -404,12 +437,12 @@ export default function CollectionsPage() {
                                                     {category.options.length > 4 && (
                                                         <button
                                                             onClick={() => toggleShowMore(category.id)}
-                                                            className="text-left text-xs font-medium text-zinc-500 hover:text-black transition-colors mt-2 flex items-center gap-1 w-fit"
+                                                            className="text-left text-xs font-medium text-zinc-500 hover:text-black transition-colors mt-0 sm:-mt-1 flex items-center gap-1 w-fit"
                                                         >
                                                             {expandedCategories.includes(category.id) ? (
                                                                 <>Show Less <ChevronUp className="w-3 h-3" /></>
                                                             ) : (
-                                                                <>Show More <ChevronDown className="w-3 h-3" /></>
+                                                                <>Show More ({category.options.length - 4}) <ChevronDown className="w-3 h-3" /></>
                                                             )}
                                                         </button>
                                                     )}
@@ -444,6 +477,6 @@ export default function CollectionsPage() {
                     </div>
                 )}
             </div>
-        </div>
+        </div >
     );
 }
