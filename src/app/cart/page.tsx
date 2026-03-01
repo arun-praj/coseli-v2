@@ -12,6 +12,7 @@ export default function CartPage() {
     const { items, updateQuantity, removeItem, getCartTotal } = useCartStore();
 
     useEffect(() => {
+        window.scrollTo(0, 0);
         setIsMounted(true);
     }, []);
 
@@ -22,7 +23,7 @@ export default function CartPage() {
     }
 
     return (
-        <div className="min-h-screen bg-white pt-24 md:pt-32 pb-24 md:pb-32">
+        <div className="min-h-screen bg-white pt-20 md:pt-32 pb-24 md:pb-32">
             <div className="max-w-screen-xl mx-auto px-4 md:px-12">
 
                 <h1 className="font-serif text-4xl md:text-5xl text-black mb-12 tracking-tight">Shopping Bag</h1>
@@ -72,11 +73,11 @@ export default function CartPage() {
                                             <div className="flex justify-between items-center mb-3">
                                                 <p className="text-xs md:text-sm text-zinc-500">{item.color} / {item.size}</p>
                                                 {/* Mobile Price */}
-                                                <span className="md:hidden font-medium text-sm text-black">Rs. {item.price.toFixed(2)}</span>
+                                                <span className="md:hidden font-medium text-sm text-black">NPR {item.price.toFixed(2)}</span>
                                             </div>
 
                                             {/* Desktop Price */}
-                                            <span className="hidden md:block font-medium text-black mb-4">Rs. {item.price.toFixed(2)}</span>
+                                            <span className="hidden md:block font-medium text-black mb-4">NPR {item.price.toFixed(2)}</span>
 
                                             {/* Mobile Quantity */}
                                             <div className="flex md:hidden items-center border border-zinc-200 w-fit mt-auto cursor-pointer">
@@ -129,7 +130,7 @@ export default function CartPage() {
                                     {/* Total and Remove (Desktop) */}
                                     <div className="col-span-3 hidden md:flex w-full justify-end items-center">
                                         <div className="flex items-center gap-6">
-                                            <span className="font-medium text-lg text-black">Rs. {(item.price * item.quantity).toFixed(2)}</span>
+                                            <span className="font-medium text-lg text-black">NPR {(item.price * item.quantity).toFixed(2)}</span>
                                             <button onClick={() => removeItem(item.id)} className="text-zinc-400 hover:text-red-500 transition-colors" aria-label="Remove item">
                                                 <Trash2 className="w-5 h-5" />
                                             </button>
@@ -149,7 +150,7 @@ export default function CartPage() {
                             <div className="flex flex-col gap-4 font-sans text-sm text-zinc-600 mb-8">
                                 <div className="flex justify-between items-center">
                                     <span>Subtotal</span>
-                                    <span className="text-black font-medium text-base">Rs. {subtotal.toFixed(2)}</span>
+                                    <span className="text-black font-medium text-base">NPR {subtotal.toFixed(2)}</span>
                                 </div>
                                 <div className="flex justify-between items-center">
                                     <span>Shipping Estimate</span>
@@ -160,7 +161,7 @@ export default function CartPage() {
 
                                 <div className="flex justify-between items-center">
                                     <span className="text-lg text-black font-medium">Estimated Total</span>
-                                    <span className="font-serif text-2xl text-black font-medium tracking-tight">Rs. {subtotal.toFixed(2)}</span>
+                                    <span className="font-serif text-2xl text-black font-medium tracking-tight">NPR {subtotal.toFixed(2)}</span>
                                 </div>
                             </div>
 
@@ -209,7 +210,7 @@ export default function CartPage() {
                                 <p className="text-zinc-500 text-xs">Neutral Color</p>
                             </div>
                             <div className="flex flex-col items-start sm:items-end mt-2 sm:mt-0">
-                                <span className="font-sans text-sm text-black mb-1">Rs. 18.00</span>
+                                <span className="font-sans text-sm text-black mb-1">NPR 18.00</span>
                                 <button className="text-[10px] font-semibold tracking-widest uppercase border-b border-black text-black hover:text-zinc-500 hover:border-zinc-500 transition-colors pb-0.5">
                                     Add to Cart
                                 </button>
@@ -233,7 +234,7 @@ export default function CartPage() {
                                 <p className="text-zinc-500 text-xs">Soft Bristle</p>
                             </div>
                             <div className="flex flex-col items-start sm:items-end mt-2 sm:mt-0">
-                                <span className="font-sans text-sm text-black mb-1">Rs. 24.00</span>
+                                <span className="font-sans text-sm text-black mb-1">NPR 24.00</span>
                                 <button className="text-[10px] font-semibold tracking-widest uppercase border-b border-black text-black hover:text-zinc-500 hover:border-zinc-500 transition-colors pb-0.5">
                                     Add to Cart
                                 </button>

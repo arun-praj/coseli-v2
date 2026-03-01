@@ -7,7 +7,7 @@ import { useProducts, useCollectionCounts, Product } from "@/lib/hooks/useProduc
 
 const filterCategories = [
     { id: "collection", name: "Collection", options: ["Chukka", "Shamba", "Oxford", "Sneaker", "Loafer", "Boot"] },
-    { id: "price", name: "Price", options: ["Under Rs. 150", "Rs. 150 - Rs. 250", "Over Rs. 250"] },
+    { id: "price", name: "Price", options: ["Under NPR 150", "NPR 150 - NPR 250", "Over NPR 250"] },
     { id: "color", name: "Color", options: ["Black", "Brown", "Tan", "White", "Navy", "Grey", "Olive"] },
     { id: "gender", name: "Gender", options: ["Men", "Women", "Unisex"] },
     { id: "materials", name: "Materials", options: ["Leather", "Suede", "Canvas", "Vegan Leather", "Synthetic", "Mesh"] },
@@ -57,13 +57,13 @@ export default function CollectionsPage() {
         let max_price: number | undefined = undefined;
 
         if (selectedFilters.price) {
-            if (selectedFilters.price.includes("Under Rs. 150")) {
+            if (selectedFilters.price.includes("Under NPR 150")) {
                 max_price = 150;
             }
-            if (selectedFilters.price.includes("Over Rs. 250")) {
+            if (selectedFilters.price.includes("Over NPR 250")) {
                 min_price = min_price ? Math.min(min_price, 250) : 250;
             }
-            if (selectedFilters.price.includes("Rs. 150 - Rs. 250")) {
+            if (selectedFilters.price.includes("NPR 150 - NPR 250")) {
                 min_price = 150;
                 max_price = 250;
             }
@@ -89,6 +89,14 @@ export default function CollectionsPage() {
 
     const { products, loading, loadingMore, hasMore, error, loadMore } = useProducts(getHookOptions());
     const { counts: collectionCounts } = useCollectionCounts();
+
+    // Dynamically build filter categories based on DB collections
+    const dynamicFilterCategories = filterCategories.map(cat => {
+        if (cat.id === "collection" && Object.keys(collectionCounts).length > 0) {
+            return { ...cat, options: Object.keys(collectionCounts) };
+        }
+        return cat;
+    });
 
     // Scroll listener for infinite pagination
     useEffect(() => {
@@ -136,7 +144,7 @@ export default function CollectionsPage() {
     };
 
     return (
-        <div className="pt-32 pb-24 px-4 md:px-12 max-w-[1800px] mx-auto min-h-screen">
+        <div className="pt-24 md:pt-32 pb-24 px-4 md:px-12 max-w-[1800px] mx-auto min-h-screen">
 
             {/* Page Header */}
             <div className="mb-12 text-center md:text-left">
@@ -206,7 +214,7 @@ export default function CollectionsPage() {
                         }`}
                 >
                     <div className="w-full flex flex-col gap-6 pb-8">
-                        {filterCategories.map((category) => {
+                        {dynamicFilterCategories.map((category) => {
                             const isOpen = openFilterSections.includes(category.id);
                             return (
                                 <div key={category.id} className="border-b border-zinc-200 pb-6">
@@ -336,7 +344,7 @@ export default function CollectionsPage() {
                                                 <h3 className="font-serif text-base sm:text-lg md:text-xl mb-1 mt-2 text-black">{product.name}</h3>
                                                 <p className="text-zinc-500 text-xs sm:text-sm hidden sm:block">{product.short_description || "Premium Quality"}</p>
                                             </div>
-                                            <span className="font-sans text-sm mt-1 xl:mt-2 font-medium text-black">Rs. {product.base_price.toFixed(2)}</span>
+                                            <span className="font-sans text-sm mt-1 xl:mt-2 font-medium text-black">NPR {product.base_price.toFixed(2)}</span>
                                         </div>
                                     </a>
                                 ))}
@@ -371,7 +379,7 @@ export default function CollectionsPage() {
                         {/* Modal Scrollable Content (Filters) */}
                         <div className="flex-1 overflow-y-auto p-4 pb-24">
                             <div className="flex flex-col gap-6">
-                                {filterCategories.map((category) => {
+                                {dynamicFilterCategories.map((category) => {
                                     const isOpen = openFilterSections.includes(category.id);
                                     return (
                                         <div key={category.id} className="border-b border-zinc-200 pb-6">

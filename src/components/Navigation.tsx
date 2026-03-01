@@ -124,7 +124,7 @@ export function Navigation() {
                                                         {item.name}
                                                     </a>
                                                     <span className="text-[10px] text-zinc-500 mb-2">{item.color} / {item.size} <span className="text-zinc-400 mx-1">|</span> Qty: {item.quantity}</span>
-                                                    <span className="font-medium text-black text-sm">Rs. {item.price.toFixed(2)}</span>
+                                                    <span className="font-medium text-black text-sm">NPR {item.price.toFixed(2)}</span>
                                                 </div>
                                             </div>
                                         ))}
@@ -132,7 +132,7 @@ export function Navigation() {
                                     <div className="p-5 bg-zinc-50 border-t border-zinc-100">
                                         <div className="flex justify-between items-center mb-4 text-sm">
                                             <span className="text-zinc-600">Subtotal</span>
-                                            <span className="font-medium text-black">Rs. {cartTotal.toFixed(2)}</span>
+                                            <span className="font-medium text-black">NPR {cartTotal.toFixed(2)}</span>
                                         </div>
                                         <CheckoutButton
                                             href="/checkout"

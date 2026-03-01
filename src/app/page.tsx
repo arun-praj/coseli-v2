@@ -45,15 +45,15 @@ export default async function Home() {
   const popularProducts = await getPopularPicks();
 
   return (
-    <div className="min-h-screen bg-white selection:bg-zinc-200 pt-20">
+    <div className="min-h-screen bg-white selection:bg-zinc-200 pt-16 md:pt-20">
       {/* Hero Section */}
-      <section className="relative h-[calc(100vh-80px)] xl:h-screen flex flex-col items-center justify-center overflow-hidden px-4 md:pt-0">
-        <div className="z-10 md:text-center max-w-4xl mr-auto md:mx-auto flex flex-col items-start md:items-center gap-8 mix-blend-difference text-white">
-          <h1 className="font-serif text-5xl md:text-8xl leading-[1.1] tracking-tight">
+      <section className="relative h-[60vh] min-h-[440px] md:h-[calc(100vh-80px)] xl:h-screen flex flex-col items-center justify-center overflow-hidden px-4 md:pt-0 transition-all duration-700">
+        <div className="z-10 md:text-center max-w-4xl mr-auto md:mx-auto flex flex-col items-start md:items-center gap-4 md:gap-8 mix-blend-difference text-white">
+          <h1 className="font-serif text-4xl sm:text-5xl md:text-8xl leading-[1.1] tracking-tight">
             The Art of<br />
             <span className="italic font-light">Custom Fit</span>
           </h1>
-          <p className="font-sans text-lg md:text-xl font-light tracking-wide max-w-lg mx-auto opacity-90">
+          <p className="font-sans text-base md:text-xl font-light tracking-wide max-w-lg mx-auto opacity-90">
             Handcrafted leather shoes and elevated sneakers, designed precisely for your journey.
           </p>
           <a href="/collections">
@@ -70,19 +70,19 @@ export default async function Home() {
             src="https://images.unsplash.com/photo-1549298916-b41d501d3772?q=80&w=2012&auto=format&fit=crop"
             alt="Handcrafted leather shoe"
             fill
-            className="object-cover object-center scale-105 animate-in fade-in zoom-in duration-1000 ease-out"
+            className="object-cover object-center"
             priority
           />
         </div>
       </section>
 
       {/* Featured Products */}
-      <section className="py-16 md:py-32 px-4 md:px-12 max-w-screen-2xl mx-auto">
+      <section className="py-8 md:py-32 px-4 md:px-12 max-w-screen-2xl mx-auto">
         <CuratedCarousel products={curatedProducts} />
       </section>
 
       {/* Editorial / Brand Section */}
-      <section className="py-16 md:py-24 px-4 bg-zinc-50">
+      <section className="py-8 md:py-24 px-4 bg-zinc-50">
         <div className="max-w-4xl mx-auto md:text-center text-left space-y-8">
           <p className="font-serif text-2xl md:text-3xl lg:text-4xl leading-snug font-light text-zinc-900">
             "True luxury is not just what you wear, but how it makes you feel. Every pair of Coseli shoes is a testament to the artisan's touch, designed to move with you."
@@ -93,14 +93,14 @@ export default async function Home() {
       </section>
 
       {/* Top Picks Section */}
-      <section className="py-16 md:py-32 px-4 md:px-12 max-w-screen-2xl mx-auto">
+      <section className="py-8 md:py-32 px-4 md:px-12 max-w-screen-2xl mx-auto">
         <CuratedCarousel products={popularProducts} title="Top Picks" />
       </section>
 
       {/* Testimonial Section */}
-      <section className="py-24 px-4 bg-white border-t border-zinc-100">
-        <div className="max-w-3xl mx-auto text-center space-y-12">
-          <h2 className="font-sans text-xs font-semibold tracking-widest uppercase text-zinc-400 mb-8">Client Stories</h2>
+      <section className="py-12 md:py-24 px-4 bg-white border-t border-zinc-100">
+        <div className="max-w-3xl mx-auto text-center space-y-8 md:space-y-12">
+          <h2 className="font-sans text-xs font-semibold tracking-widest uppercase text-zinc-400 mb-6 md:mb-8">Client Stories</h2>
           <TestimonialCarousel />
         </div>
       </section>
