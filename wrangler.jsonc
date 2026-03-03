@@ -12,5 +12,11 @@
   },
   "images": {
     "binding": "IMAGES"
-  }
+  },
+  "routes": [
+    {
+      "pattern": "coseli.arunprajapati.com",
+      "custom_domain": true
+    }
+  ]
 }

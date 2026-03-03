@@ -1,3 +1,13 @@
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+    title: "Privacy Policy | Coseli",
+    robots: {
+        index: false,
+        follow: false,
+    },
+};
+
 export default function PrivacyPolicy() {
     return (
         <div className="min-h-screen bg-white pt-24 md:pt-32 pb-24 md:pb-32 selection:bg-zinc-200">

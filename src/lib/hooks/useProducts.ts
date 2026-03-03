@@ -29,6 +29,7 @@ interface FetchProductsOptions {
     min_price?: number;
     max_price?: number;
     sort?: string;
+    showcase?: string;
 }
 
 export interface UseProductsResult {
@@ -67,7 +68,7 @@ export function useProducts(options: FetchProductsOptions): UseProductsResult {
     }, [
         LIMIT,
         JSON.stringify(options.category), JSON.stringify(options.material), JSON.stringify(options.color),
-        options.min_price, options.max_price, options.sort
+        options.min_price, options.max_price, options.sort, options.showcase
     ]);
 
     const isFetchingRef = useRef(false);
@@ -93,6 +94,7 @@ export function useProducts(options: FetchProductsOptions): UseProductsResult {
                 if (options.min_price !== undefined) params.append('min_price', options.min_price.toString());
                 if (options.max_price !== undefined) params.append('max_price', options.max_price.toString());
                 if (options.sort) params.append('sort', options.sort);
+                if (options.showcase) params.append('showcase', options.showcase);
 
                 const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000/api/v1';
                 const response = await fetch(`${apiUrl}/products?${params.toString()}`);
@@ -139,7 +141,7 @@ export function useProducts(options: FetchProductsOptions): UseProductsResult {
         offset, // Depend on offset to trigger new fetches for loadMore
         LIMIT,
         JSON.stringify(options.category), JSON.stringify(options.material), JSON.stringify(options.color),
-        options.min_price, options.max_price, options.sort
+        options.min_price, options.max_price, options.sort, options.showcase
     ]);
 
     const loadMore = useCallback(() => {
@@ -179,4 +181,30 @@ export function useCollectionCounts() {
     }, []);
 
     return { counts, loading, error };
+}
+
+export function useShowcases() {
+    const [showcases, setShowcases] = useState<{ id: number; name: string; slug: string }[]>([]);
+    const [loading, setLoading] = useState<boolean>(true);
+    const [error, setError] = useState<Error | null>(null);
+
+    useEffect(() => {
+        const fetchShowcases = async () => {
+            try {
+                const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000/api/v1';
+                const response = await fetch(`${apiUrl}/showcases`);
+                if (!response.ok) throw new Error(`Failed to fetch showcases: ${response.statusText}`);
+                const result = await response.json();
+                setShowcases(result.data || []);
+            } catch (err: any) {
+                setError(err instanceof Error ? err : new Error(String(err)));
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        fetchShowcases();
+    }, []);
+
+    return { showcases, loading, error };
 }

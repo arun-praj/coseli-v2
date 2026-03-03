@@ -1,4 +1,14 @@
 
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+    title: "Contact Us | Coseli",
+    robots: {
+        index: false,
+        follow: false,
+    },
+};
+
 export default function ContactPage() {
     return (
         <div className="min-h-screen bg-white pt-32 pb-24 px-4 md:px-12 max-w-[1500px] mx-auto">

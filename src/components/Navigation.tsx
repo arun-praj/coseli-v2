@@ -62,7 +62,7 @@ export function Navigation() {
 
     return (
         <>
-            <nav className="fixed w-full top-0 z-[70] flex items-center justify-between px-6 md:px-8 py-4 md:py-6 bg-white/50 backdrop-blur-md border-b border-zinc-100 transition-all duration-300">
+            <nav className="fixed w-full top-0 z-[70] flex items-center justify-between px-6 md:px-8 py-4 md:py-6 bg-white/90 backdrop-blur-md border-b border-zinc-100 transition-all duration-300">
                 <div className="font-serif text-2xl tracking-tight text-black z-[60]">
                     <a href="/">COSELI</a>
                 </div>

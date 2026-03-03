@@ -363,24 +363,8 @@ export default function CheckoutPage() {
                             <h2 className="font-serif text-3xl text-black mb-6">Contact</h2>
                             <div className="space-y-6">
                                 <div>
-                                    <input
-                                        type="email"
-                                        placeholder="Email (Optional)"
-                                        className="w-full border border-zinc-300 px-4 py-3 text-sm focus:outline-none focus:border-black transition-colors placeholder:text-zinc-400"
-                                        value={email}
-                                        onChange={(e) => setEmail(e.target.value)}
-                                    />
-                                    {email && (
-                                        <div className="flex items-center gap-3 mt-4 animate-in fade-in slide-in-from-top-2 duration-300 text-black">
-                                            <input type="checkbox" id="newsletter" defaultChecked={false} className="w-4 h-4 rounded border-zinc-300 text-black focus:ring-black accent-black" />
-                                            <label htmlFor="newsletter" className="text-sm cursor-pointer select-none">Email me with news and offers</label>
-                                        </div>
-                                    )}
-                                </div>
-
-                                <div>
                                     <label className="text-xs font-semibold tracking-widest uppercase text-zinc-500 mb-2 block">Phone Number <span className="text-red-500">*</span></label>
-                                    <div className="flex group">
+                                    <div className="flex group font-sans">
                                         <span className="inline-flex items-center px-4 border border-r-0 border-zinc-300 bg-zinc-50 text-sm font-medium text-zinc-600 transition-colors group-focus-within:border-black">
                                             +977
                                         </span>
@@ -394,6 +378,20 @@ export default function CheckoutPage() {
                                         />
                                     </div>
                                     <p className="text-xs text-zinc-400 mt-2">Required for delivery coordination. Currently supporting Nepal region only.</p>
+                                </div>
+
+                                <div className="pt-2">
+                                    <input
+                                        type="email"
+                                        placeholder="Email (Optional)"
+                                        className="w-full border border-zinc-300 px-4 py-3 text-sm focus:outline-none focus:border-black transition-colors placeholder:text-zinc-400"
+                                        value={email}
+                                        onChange={(e) => setEmail(e.target.value)}
+                                    />
+                                    <div className="flex items-center gap-3 mt-4 text-black">
+                                        <input type="checkbox" id="newsletter" defaultChecked={false} className="w-4 h-4 rounded border-zinc-300 text-black focus:ring-black accent-black" />
+                                        <label htmlFor="newsletter" className="text-sm cursor-pointer select-none">Email me with news and offers</label>
+                                    </div>
                                 </div>
                             </div>
                         </section>

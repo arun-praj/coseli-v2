@@ -19,11 +19,26 @@ export const metadata: Metadata = {
   description: "Luxury minimal custom fit handcrafted leather shoes, sneakers, and shambas.",
 };
 
-export default function RootLayout({
+async function getCollections() {
+  const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000/api/v1';
+  try {
+    const res = await fetch(`${apiUrl}/collections`, { next: { revalidate: 3600 } });
+    if (!res.ok) return [];
+    const result = await res.json();
+    return result.data || [];
+  } catch (e) {
+    console.error("Error fetching collections for footer:", e);
+    return [];
+  }
+}
+
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const collections = await getCollections();
+
   return (
     <html lang="en">
       <body className={`${inter.variable} ${playfair.variable} font-sans antialiased bg-white text-zinc-950 flex flex-col min-h-screen`}>
@@ -49,10 +64,24 @@ export default function RootLayout({
             {/* Column 2: Shop Links */}
             <div className="flex flex-col gap-4">
               <h3 className="font-sans text-xs font-semibold tracking-widest uppercase text-black mb-2">Shop</h3>
-              <a href="#" className="text-sm text-zinc-500 hover:text-black transition-colors">Leather Shoes</a>
-              <a href="#" className="text-sm text-zinc-500 hover:text-black transition-colors">Sneakers</a>
-              <a href="#" className="text-sm text-zinc-500 hover:text-black transition-colors">Shambas</a>
-              <a href="#" className="text-sm text-zinc-500 hover:text-black transition-colors">Accessories</a>
+              {collections.length > 0 ? (
+                collections.map((c: any) => (
+                  <a
+                    key={c.id}
+                    href={`/collections/${c.slug}`}
+                    className="text-sm text-zinc-500 hover:text-black transition-colors"
+                  >
+                    {c.name}
+                  </a>
+                ))
+              ) : (
+                <>
+                  <a href="/collections" className="text-sm text-zinc-500 hover:text-black transition-colors">All Collections</a>
+                  <a href="#" className="text-sm text-zinc-500 hover:text-black transition-colors">Leather Shoes</a>
+                  <a href="#" className="text-sm text-zinc-500 hover:text-black transition-colors">Sneakers</a>
+                  <a href="#" className="text-sm text-zinc-500 hover:text-black transition-colors">Shambas</a>
+                </>
+              )}
             </div>
 
             {/* Column 3: Support Links */}

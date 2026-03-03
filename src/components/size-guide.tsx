@@ -48,13 +48,13 @@ export function SizeGuide() {
                     Size Guide
                 </button>
             </DialogTrigger>
-            <DialogContent className="max-w-2xl bg-white rounded-none border-none p-0 overflow-hidden sm:max-h-[90vh]">
-                <div className="flex flex-col h-full">
+            <DialogContent className="w-[95vw] sm:max-w-2xl bg-white rounded-none border-none p-0 overflow-hidden h-[90vh] sm:h-auto flex flex-col">
+                <div className="flex flex-col h-full overflow-y-auto">
                     {/* Header */}
-                    <DialogHeader className="p-8 pb-4 border-b border-zinc-100 flex flex-row justify-between items-center space-y-0">
+                    <DialogHeader className="p-6 md:p-8 pb-4 border-b border-zinc-100 flex flex-row justify-between items-center space-y-0">
                         <div>
-                            <DialogTitle className="font-serif text-3xl tracking-tight text-black mb-1">Interactive Size Guide</DialogTitle>
-                            <p className="text-zinc-500 text-sm font-sans tracking-wide">Standard sizing used in Nepal (EU/UK)</p>
+                            <DialogTitle className="font-serif text-2xl md:text-3xl tracking-tight text-black mb-1">Interactive Size Guide</DialogTitle>
+                            <p className="text-zinc-500 text-[10px] md:text-sm font-sans tracking-wide">Standard sizing used in Nepal (EU/UK)</p>
                         </div>
                     </DialogHeader>
 
@@ -74,7 +74,7 @@ export function SizeGuide() {
                         </button>
                     </div>
 
-                    <div className="p-8 overflow-y-auto">
+                    <div className="p-6 md:p-8 overflow-y-auto">
                         {activeTab === "chart" ? (
                             <div className="space-y-8 animate-in fade-in duration-500">
                                 {/* Calculator */}

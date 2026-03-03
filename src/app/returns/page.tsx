@@ -127,7 +127,7 @@ export default function ReturnsPage() {
                     <section>
                         <h2 className="font-serif text-2xl text-black mb-4">How to Return</h2>
                         <ol className="list-decimal pl-5 space-y-4">
-                            <li><strong>Initiate your return:</strong> Click the button below and enter your order number and email address to start the process.</li>
+                            <li><strong>Initiate your return:</strong> Click the button below and enter your order number and contact number that was used to place the order to start the process.</li>
                             <li><strong>Approval:</strong> Once your return is approved, we will email you detailed return instructions.</li>
                             <li><strong>Pack your items:</strong> Securely package the shoes in their original box.</li>
                             <li><strong>Ship it back:</strong> Drop off your package at the designated courier location or schedule a pickup within 7 days.</li>

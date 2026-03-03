@@ -1,4 +1,4 @@
-globalThis.__VINEXT_LAZY_CHUNKS__ = ["assets/worker-entry-DvsJgTZf.js"];
+globalThis.__VINEXT_LAZY_CHUNKS__ = ["assets/worker-entry-BMoXqOV5.js"];
 import require$$0, { AsyncLocalStorage as AsyncLocalStorage$1 } from "node:async_hooks";
 import assetsManifest from "./__vite_rsc_assets_manifest.js";
 function _mergeNamespaces(n, m) {
@@ -12555,15 +12555,15 @@ async function getPopularPicks() {
 async function Home() {
   const curatedProducts = await getCuratedEssentials();
   const popularProducts = await getPopularPicks();
-  return /* @__PURE__ */ jsxRuntime_reactServerExports.jsxs("div", { className: "min-h-screen bg-white selection:bg-zinc-200 pt-20", children: [
-    /* @__PURE__ */ jsxRuntime_reactServerExports.jsxs("section", { className: "relative h-[calc(100vh-80px)] xl:h-screen flex flex-col items-center justify-center overflow-hidden px-4 md:pt-0", children: [
-      /* @__PURE__ */ jsxRuntime_reactServerExports.jsxs("div", { className: "z-10 md:text-center max-w-4xl mr-auto md:mx-auto flex flex-col items-start md:items-center gap-8 mix-blend-difference text-white", children: [
-        /* @__PURE__ */ jsxRuntime_reactServerExports.jsxs("h1", { className: "font-serif text-5xl md:text-8xl leading-[1.1] tracking-tight", children: [
+  return /* @__PURE__ */ jsxRuntime_reactServerExports.jsxs("div", { className: "min-h-screen bg-white selection:bg-zinc-200", children: [
+    /* @__PURE__ */ jsxRuntime_reactServerExports.jsxs("section", { className: "relative h-screen flex flex-col items-center justify-center overflow-hidden px-4 pt-20 transition-all duration-700", children: [
+      /* @__PURE__ */ jsxRuntime_reactServerExports.jsxs("div", { className: "z-10 md:text-center max-w-4xl mr-auto md:mx-auto flex flex-col items-start md:items-center gap-4 md:gap-8 mix-blend-difference text-white", children: [
+        /* @__PURE__ */ jsxRuntime_reactServerExports.jsxs("h1", { className: "font-serif text-4xl sm:text-5xl md:text-8xl leading-[1.1] tracking-tight", children: [
           "The Art of",
           /* @__PURE__ */ jsxRuntime_reactServerExports.jsx("br", {}),
           /* @__PURE__ */ jsxRuntime_reactServerExports.jsx("span", { className: "italic font-light", children: "Custom Fit" })
         ] }),
-        /* @__PURE__ */ jsxRuntime_reactServerExports.jsx("p", { className: "font-sans text-lg md:text-xl font-light tracking-wide max-w-lg mx-auto opacity-90", children: "Handcrafted leather shoes and elevated sneakers, designed precisely for your journey." }),
+        /* @__PURE__ */ jsxRuntime_reactServerExports.jsx("p", { className: "font-sans text-base md:text-xl font-light tracking-wide max-w-lg mx-auto opacity-90", children: "Handcrafted leather shoes and elevated sneakers, designed precisely for your journey." }),
         /* @__PURE__ */ jsxRuntime_reactServerExports.jsx("a", { href: "/collections", children: /* @__PURE__ */ jsxRuntime_reactServerExports.jsx(Button, { variant: "outline", className: "mt-8 rounded-none border-white text-white hover:bg-white hover:text-black px-8 py-6 text-sm tracking-widest uppercase transition-all duration-500 bg-transparent", children: "Explore Collection" }) })
       ] }),
       /* @__PURE__ */ jsxRuntime_reactServerExports.jsxs("div", { className: "absolute inset-0 w-full h-full bg-zinc-100 flex items-center justify-center overflow-hidden", children: [
@@ -12580,15 +12580,15 @@ async function Home() {
         )
       ] })
     ] }),
-    /* @__PURE__ */ jsxRuntime_reactServerExports.jsx("section", { className: "py-16 md:py-32 px-4 md:px-12 max-w-screen-2xl mx-auto", children: /* @__PURE__ */ jsxRuntime_reactServerExports.jsx(CuratedCarousel, { products: curatedProducts }) }),
-    /* @__PURE__ */ jsxRuntime_reactServerExports.jsx("section", { className: "py-16 md:py-24 px-4 bg-zinc-50", children: /* @__PURE__ */ jsxRuntime_reactServerExports.jsxs("div", { className: "max-w-4xl mx-auto md:text-center text-left space-y-8", children: [
+    /* @__PURE__ */ jsxRuntime_reactServerExports.jsx("section", { className: "py-8 md:py-32 px-4 md:px-12 max-w-screen-2xl mx-auto", children: /* @__PURE__ */ jsxRuntime_reactServerExports.jsx(CuratedCarousel, { products: curatedProducts }) }),
+    /* @__PURE__ */ jsxRuntime_reactServerExports.jsx("section", { className: "py-8 md:py-24 px-4 bg-zinc-50", children: /* @__PURE__ */ jsxRuntime_reactServerExports.jsxs("div", { className: "max-w-4xl mx-auto md:text-center text-left space-y-8", children: [
       /* @__PURE__ */ jsxRuntime_reactServerExports.jsx("p", { className: "font-serif text-2xl md:text-3xl lg:text-4xl leading-snug font-light text-zinc-900", children: `"True luxury is not just what you wear, but how it makes you feel. Every pair of Coseli shoes is a testament to the artisan's touch, designed to move with you."` }),
       /* @__PURE__ */ jsxRuntime_reactServerExports.jsx("div", { className: "w-12 h-[1px] bg-black mr-auto md:mx-auto" }),
       /* @__PURE__ */ jsxRuntime_reactServerExports.jsx("p", { className: "text-sm font-sans tracking-widest uppercase text-zinc-500", children: "The Atelier" })
     ] }) }),
-    /* @__PURE__ */ jsxRuntime_reactServerExports.jsx("section", { className: "py-16 md:py-32 px-4 md:px-12 max-w-screen-2xl mx-auto", children: /* @__PURE__ */ jsxRuntime_reactServerExports.jsx(CuratedCarousel, { products: popularProducts, title: "Top Picks" }) }),
-    /* @__PURE__ */ jsxRuntime_reactServerExports.jsx("section", { className: "py-24 px-4 bg-white border-t border-zinc-100", children: /* @__PURE__ */ jsxRuntime_reactServerExports.jsxs("div", { className: "max-w-3xl mx-auto text-center space-y-12", children: [
-      /* @__PURE__ */ jsxRuntime_reactServerExports.jsx("h2", { className: "font-sans text-xs font-semibold tracking-widest uppercase text-zinc-400 mb-8", children: "Client Stories" }),
+    /* @__PURE__ */ jsxRuntime_reactServerExports.jsx("section", { className: "py-8 md:py-32 px-4 md:px-12 max-w-screen-2xl mx-auto", children: /* @__PURE__ */ jsxRuntime_reactServerExports.jsx(CuratedCarousel, { products: popularProducts, title: "Top Picks" }) }),
+    /* @__PURE__ */ jsxRuntime_reactServerExports.jsx("section", { className: "py-12 md:py-24 px-4 bg-white border-t border-zinc-100", children: /* @__PURE__ */ jsxRuntime_reactServerExports.jsxs("div", { className: "max-w-3xl mx-auto text-center space-y-8 md:space-y-12", children: [
+      /* @__PURE__ */ jsxRuntime_reactServerExports.jsx("h2", { className: "font-sans text-xs font-semibold tracking-widest uppercase text-zinc-400 mb-6 md:mb-8", children: "Client Stories" }),
       /* @__PURE__ */ jsxRuntime_reactServerExports.jsx(TestimonialCarousel, {})
     ] }) })
   ] });

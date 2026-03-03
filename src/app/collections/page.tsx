@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import { SlidersHorizontal, ChevronDown, ChevronUp, Check, X } from "lucide-react";
-import { useProducts, useCollectionCounts, Product } from "@/lib/hooks/useProducts";
+import { useProducts, useCollectionCounts, useShowcases, Product } from "@/lib/hooks/useProducts";
 
 const filterCategories = [
     { id: "collection", name: "Collection", options: ["Chukka", "Shamba", "Oxford", "Sneaker", "Loafer", "Boot"] },
@@ -51,6 +51,9 @@ export default function CollectionsPage() {
 
     const totalActiveFilters = Object.values(selectedFilters).flat().length;
 
+    const { counts: collectionCounts } = useCollectionCounts();
+    const { showcases } = useShowcases();
+
     // Map selected filters -> API query params
     const getHookOptions = () => {
         let min_price: number | undefined = undefined;
@@ -70,12 +73,21 @@ export default function CollectionsPage() {
         }
 
         let sortParam = undefined;
-        if (selectedSort === "Price: Low to High") sortParam = "price_asc";
-        else if (selectedSort === "Price: High to Low") sortParam = "price_desc";
-        else if (selectedSort === "Newest") sortParam = "newest";
-        else if (selectedSort === "Recommended") sortParam = "recommended";
-        else if (selectedSort === "Trending") sortParam = "trending";
-        else if (selectedSort === "Popular") sortParam = "popular";
+        let showcaseParam = undefined;
+
+        // Check if selectedSort is a showcase
+        const selectedShowcase = showcases.find(s => s.name === selectedSort);
+
+        if (selectedShowcase) {
+            showcaseParam = selectedShowcase.slug;
+        } else {
+            if (selectedSort === "Price: Low to High") sortParam = "price_asc";
+            else if (selectedSort === "Price: High to Low") sortParam = "price_desc";
+            else if (selectedSort === "Newest") sortParam = "newest";
+            else if (selectedSort === "Recommended") sortParam = "recommended";
+            else if (selectedSort === "Trending") sortParam = "trending";
+            else if (selectedSort === "Popular") sortParam = "popular";
+        }
 
         return {
             category: selectedFilters.collection,
@@ -83,12 +95,12 @@ export default function CollectionsPage() {
             color: selectedFilters.color,
             min_price,
             max_price,
-            sort: sortParam
+            sort: sortParam,
+            showcase: showcaseParam
         };
     };
 
     const { products, loading, loadingMore, hasMore, error, loadMore } = useProducts(getHookOptions());
-    const { counts: collectionCounts } = useCollectionCounts();
 
     // Dynamically build filter categories based on DB collections
     const dynamicFilterCategories = filterCategories.map(cat => {
@@ -190,8 +202,14 @@ export default function CollectionsPage() {
                             <ChevronDown className="w-4 h-4 shrink-0" />
                         </button>
                         {/* Sort Dropdown (Hover) */}
-                        <div className="absolute right-0 top-full mt-2 w-48 bg-white border border-zinc-200 shadow-xl opacity-0 invisible group-hover/sort:opacity-100 group-hover/sort:visible transition-all duration-200 z-40 py-2">
-                            {["Recommended", "Trending", "Popular", "Newest", "Price: Low to High", "Price: High to Low"].map((option) => (
+                        <div className="absolute right-0 top-full mt-2 w-56 bg-white border border-zinc-200 shadow-xl opacity-0 invisible group-hover/sort:opacity-100 group-hover/sort:visible transition-all duration-200 z-40 py-2">
+                            {/* Recommended/Standard options + Dynamically added showcases */}
+                            {[
+                                "Recommended",
+                                ...showcases.map(s => s.name),
+                                "Price: Low to High",
+                                "Price: High to Low"
+                            ].map((option) => (
                                 <button
                                     key={option}
                                     onClick={() => setSelectedSort(option)}

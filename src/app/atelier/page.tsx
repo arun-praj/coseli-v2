@@ -1,4 +1,15 @@
+import type { Metadata } from "next";
 import Image from "next/image";
+
+export const metadata: Metadata = {
+    title: "The Atelier | Coseli - Masterful Craftsmanship",
+    description: "Step into the heart of Coseli. Discover our traditional shoemaking process, where heritage meets precision in every hand-stitched detail.",
+    openGraph: {
+        title: "The Atelier | Inside Coseli's Craft",
+        description: "A look into the slow, meticulous art of handcrafted leather shoemaking.",
+        images: ["https://images.unsplash.com/photo-1542451368-80f2d1ab31f5?q=80&w=2070&auto=format&fit=crop"],
+    },
+};
 
 export default function AtelierPage() {
     return (

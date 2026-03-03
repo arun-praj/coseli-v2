@@ -50,7 +50,7 @@ class ErrorBoundary extends React.Component {
     if (error && typeof error === "object" && "digest" in error) {
       const digest = String(error.digest);
       if (digest === "NEXT_NOT_FOUND" || // legacy compat
-      digest.startsWith("NEXT_HTTP_ERROR_FALLBACK;") || digest.startsWith("NEXT_REDIRECT;")) {
+        digest.startsWith("NEXT_HTTP_ERROR_FALLBACK;") || digest.startsWith("NEXT_REDIRECT;")) {
         throw error;
       }
     }
@@ -306,16 +306,16 @@ function transformSharedProps({
   }
   if (aspectRatio) {
     if (width) {
-      if (height) ;
+      if (height);
       else {
         height = Math.round(width / aspectRatio);
       }
     } else if (height) {
       width = Math.round(height * aspectRatio);
-    } else ;
+    } else;
   } else if (width && height) {
     aspectRatio = width / height;
-  } else ;
+  } else;
   return {
     width,
     height,
@@ -2171,49 +2171,49 @@ const createLucideIcon = (iconName, iconNode) => {
   Component.displayName = toPascalCase(iconName);
   return Component;
 };
-const __iconNode$r = [
+const __iconNode$s = [
   ["path", { d: "M12 5v14", key: "s699le" }],
   ["path", { d: "m19 12-7 7-7-7", key: "1idqje" }]
 ];
-const ArrowDown = createLucideIcon("arrow-down", __iconNode$r);
-const __iconNode$q = [
+const ArrowDown = createLucideIcon("arrow-down", __iconNode$s);
+const __iconNode$r = [
   ["path", { d: "m12 19-7-7 7-7", key: "1l729n" }],
   ["path", { d: "M19 12H5", key: "x3x0zl" }]
 ];
-const ArrowLeft = createLucideIcon("arrow-left", __iconNode$q);
-const __iconNode$p = [
+const ArrowLeft = createLucideIcon("arrow-left", __iconNode$r);
+const __iconNode$q = [
   ["path", { d: "M5 12h14", key: "1ays0h" }],
   ["path", { d: "m12 5 7 7-7 7", key: "xquz4c" }]
 ];
-const ArrowRight = createLucideIcon("arrow-right", __iconNode$p);
-const __iconNode$o = [["path", { d: "M20 6 9 17l-5-5", key: "1gmf2c" }]];
-const Check = createLucideIcon("check", __iconNode$o);
-const __iconNode$n = [["path", { d: "m6 9 6 6 6-6", key: "qrunsl" }]];
-const ChevronDown = createLucideIcon("chevron-down", __iconNode$n);
-const __iconNode$m = [["path", { d: "m15 18-6-6 6-6", key: "1wnfg3" }]];
-const ChevronLeft = createLucideIcon("chevron-left", __iconNode$m);
-const __iconNode$l = [["path", { d: "m9 18 6-6-6-6", key: "mthhwq" }]];
-const ChevronRight = createLucideIcon("chevron-right", __iconNode$l);
-const __iconNode$k = [["path", { d: "m18 15-6-6-6 6", key: "153udz" }]];
-const ChevronUp = createLucideIcon("chevron-up", __iconNode$k);
-const __iconNode$j = [
+const ArrowRight = createLucideIcon("arrow-right", __iconNode$q);
+const __iconNode$p = [["path", { d: "M20 6 9 17l-5-5", key: "1gmf2c" }]];
+const Check = createLucideIcon("check", __iconNode$p);
+const __iconNode$o = [["path", { d: "m6 9 6 6 6-6", key: "qrunsl" }]];
+const ChevronDown = createLucideIcon("chevron-down", __iconNode$o);
+const __iconNode$n = [["path", { d: "m15 18-6-6 6-6", key: "1wnfg3" }]];
+const ChevronLeft = createLucideIcon("chevron-left", __iconNode$n);
+const __iconNode$m = [["path", { d: "m9 18 6-6-6-6", key: "mthhwq" }]];
+const ChevronRight = createLucideIcon("chevron-right", __iconNode$m);
+const __iconNode$l = [["path", { d: "m18 15-6-6-6 6", key: "153udz" }]];
+const ChevronUp = createLucideIcon("chevron-up", __iconNode$l);
+const __iconNode$k = [
   ["circle", { cx: "12", cy: "12", r: "10", key: "1mglay" }],
   ["line", { x1: "12", x2: "12", y1: "8", y2: "12", key: "1pkeuh" }],
   ["line", { x1: "12", x2: "12.01", y1: "16", y2: "16", key: "4dfq90" }]
 ];
-const CircleAlert = createLucideIcon("circle-alert", __iconNode$j);
-const __iconNode$i = [
+const CircleAlert = createLucideIcon("circle-alert", __iconNode$k);
+const __iconNode$j = [
   ["circle", { cx: "12", cy: "12", r: "10", key: "1mglay" }],
   ["path", { d: "m9 12 2 2 4-4", key: "dzmm74" }]
 ];
-const CircleCheck = createLucideIcon("circle-check", __iconNode$i);
-const __iconNode$h = [
+const CircleCheck = createLucideIcon("circle-check", __iconNode$j);
+const __iconNode$i = [
   ["circle", { cx: "12", cy: "12", r: "10", key: "1mglay" }],
   ["path", { d: "m15 9-6 6", key: "1uzhvr" }],
   ["path", { d: "m9 9 6 6", key: "z0biqf" }]
 ];
-const CircleX = createLucideIcon("circle-x", __iconNode$h);
-const __iconNode$g = [
+const CircleX = createLucideIcon("circle-x", __iconNode$i);
+const __iconNode$h = [
   [
     "path",
     {
@@ -2231,20 +2231,27 @@ const __iconNode$g = [
   ["path", { d: "M16 17h4", key: "1dejxt" }],
   ["path", { d: "M4 13h4", key: "1bwh8b" }]
 ];
-const Footprints = createLucideIcon("footprints", __iconNode$g);
-const __iconNode$f = [
+const Footprints = createLucideIcon("footprints", __iconNode$h);
+const __iconNode$g = [
   ["circle", { cx: "12", cy: "12", r: "10", key: "1mglay" }],
   ["path", { d: "M12 16v-4", key: "1dtifu" }],
   ["path", { d: "M12 8h.01", key: "e9boi3" }]
 ];
-const Info = createLucideIcon("info", __iconNode$f);
-const __iconNode$e = [["path", { d: "M21 12a9 9 0 1 1-6.219-8.56", key: "13zald" }]];
-const LoaderCircle = createLucideIcon("loader-circle", __iconNode$e);
-const __iconNode$d = [
+const Info = createLucideIcon("info", __iconNode$g);
+const __iconNode$f = [["path", { d: "M21 12a9 9 0 1 1-6.219-8.56", key: "13zald" }]];
+const LoaderCircle = createLucideIcon("loader-circle", __iconNode$f);
+const __iconNode$e = [
   ["rect", { width: "18", height: "11", x: "3", y: "11", rx: "2", ry: "2", key: "1w4ew1" }],
   ["path", { d: "M7 11V7a5 5 0 0 1 10 0v4", key: "fwvmzm" }]
 ];
-const Lock = createLucideIcon("lock", __iconNode$d);
+const Lock = createLucideIcon("lock", __iconNode$e);
+const __iconNode$d = [
+  ["path", { d: "M15 3h6v6", key: "1q9fwt" }],
+  ["path", { d: "m21 3-7 7", key: "1l2asr" }],
+  ["path", { d: "m3 21 7-7", key: "tjx5ai" }],
+  ["path", { d: "M9 21H3v-6", key: "wtvkvv" }]
+];
+const Maximize2 = createLucideIcon("maximize-2", __iconNode$d);
 const __iconNode$c = [
   ["path", { d: "M4 5h16", key: "1tepv9" }],
   ["path", { d: "M4 12h16", key: "1lakjw" }],
@@ -2994,7 +3001,7 @@ function usePointerDownOutside(onPointerDownOutside, ownerDocument = globalThis?
   reactExports.useEffect(() => {
     const handlePointerDown = (event) => {
       if (event.target && !isPointerInsideReactTreeRef.current) {
-        let handleAndDispatchPointerDownOutsideEvent2 = function() {
+        let handleAndDispatchPointerDownOutsideEvent2 = function () {
           handleAndDispatchCustomEvent(
             POINTER_DOWN_OUTSIDE,
             handlePointerDownOutside,
@@ -3091,7 +3098,7 @@ var FocusScope = reactExports.forwardRef((props, forwardedRef) => {
   }).current;
   reactExports.useEffect(() => {
     if (trapped) {
-      let handleFocusIn2 = function(event) {
+      let handleFocusIn2 = function (event) {
         if (focusScope.paused || !container) return;
         const target = event.target;
         if (container.contains(target)) {
@@ -3099,14 +3106,14 @@ var FocusScope = reactExports.forwardRef((props, forwardedRef) => {
         } else {
           focus(lastFocusedElementRef.current, { select: true });
         }
-      }, handleFocusOut2 = function(event) {
+      }, handleFocusOut2 = function (event) {
         if (focusScope.paused || !container) return;
         const relatedTarget = event.relatedTarget;
         if (relatedTarget === null) return;
         if (!container.contains(relatedTarget)) {
           focus(lastFocusedElementRef.current, { select: true });
         }
-      }, handleMutations2 = function(mutations) {
+      }, handleMutations2 = function (mutations) {
         const focusedElement = document.activeElement;
         if (focusedElement !== document.body) return;
         for (const mutation of mutations) {
@@ -3296,7 +3303,7 @@ function createFocusGuard() {
   element.style.pointerEvents = "none";
   return element;
 }
-var __assign = function() {
+var __assign = function () {
   __assign = Object.assign || function __assign2(t) {
     for (var s, i = 1, n = arguments.length; i < n; i++) {
       s = arguments[i];
@@ -3326,7 +3333,7 @@ function __spreadArray(to, from, pack) {
   }
   return to.concat(ar || Array.prototype.slice.call(from));
 }
-typeof SuppressedError === "function" ? SuppressedError : function(error, suppressed, message) {
+typeof SuppressedError === "function" ? SuppressedError : function (error, suppressed, message) {
   var e = new Error(message);
   return e.name = "SuppressedError", e.error = error, e.suppressed = suppressed, e;
 };
@@ -3343,7 +3350,7 @@ function assignRef(ref, value) {
   return ref;
 }
 function useCallbackRef(initialValue, callback) {
-  var ref = reactExports.useState(function() {
+  var ref = reactExports.useState(function () {
     return {
       // value
       value: initialValue,
@@ -3370,23 +3377,23 @@ function useCallbackRef(initialValue, callback) {
 var useIsomorphicLayoutEffect = typeof window !== "undefined" ? reactExports.useLayoutEffect : reactExports.useEffect;
 var currentValues = /* @__PURE__ */ new WeakMap();
 function useMergeRefs(refs, defaultValue) {
-  var callbackRef = useCallbackRef(null, function(newValue) {
-    return refs.forEach(function(ref) {
+  var callbackRef = useCallbackRef(null, function (newValue) {
+    return refs.forEach(function (ref) {
       return assignRef(ref, newValue);
     });
   });
-  useIsomorphicLayoutEffect(function() {
+  useIsomorphicLayoutEffect(function () {
     var oldValue = currentValues.get(callbackRef);
     if (oldValue) {
       var prevRefs_1 = new Set(oldValue);
       var nextRefs_1 = new Set(refs);
       var current_1 = callbackRef.current;
-      prevRefs_1.forEach(function(ref) {
+      prevRefs_1.forEach(function (ref) {
         if (!nextRefs_1.has(ref)) {
           assignRef(ref, null);
         }
       });
-      nextRefs_1.forEach(function(ref) {
+      nextRefs_1.forEach(function (ref) {
         if (!prevRefs_1.has(ref)) {
           assignRef(ref, current_1);
         }
@@ -3406,7 +3413,7 @@ function innerCreateMedium(defaults, middleware) {
   var buffer = [];
   var assigned = false;
   var medium = {
-    read: function() {
+    read: function () {
       if (assigned) {
         throw new Error("Sidecar: could not `read` from an `assigned` medium. `read` could be used only with `useMedium`.");
       }
@@ -3415,16 +3422,16 @@ function innerCreateMedium(defaults, middleware) {
       }
       return defaults;
     },
-    useMedium: function(data) {
+    useMedium: function (data) {
       var item = middleware(data, assigned);
       buffer.push(item);
-      return function() {
-        buffer = buffer.filter(function(x) {
+      return function () {
+        buffer = buffer.filter(function (x) {
           return x !== item;
         });
       };
     },
-    assignSyncMedium: function(cb) {
+    assignSyncMedium: function (cb) {
       assigned = true;
       while (buffer.length) {
         var cbs = buffer;
@@ -3432,15 +3439,15 @@ function innerCreateMedium(defaults, middleware) {
         cbs.forEach(cb);
       }
       buffer = {
-        push: function(x) {
+        push: function (x) {
           return cb(x);
         },
-        filter: function() {
+        filter: function () {
           return buffer;
         }
       };
     },
-    assignMedium: function(cb) {
+    assignMedium: function (cb) {
       assigned = true;
       var pendingQueue = [];
       if (buffer.length) {
@@ -3449,21 +3456,21 @@ function innerCreateMedium(defaults, middleware) {
         cbs.forEach(cb);
         pendingQueue = buffer;
       }
-      var executeQueue = function() {
+      var executeQueue = function () {
         var cbs2 = pendingQueue;
         pendingQueue = [];
         cbs2.forEach(cb);
       };
-      var cycle = function() {
+      var cycle = function () {
         return Promise.resolve().then(executeQueue);
       };
       cycle();
       buffer = {
-        push: function(x) {
+        push: function (x) {
           pendingQueue.push(x);
           cycle();
         },
-        filter: function(filter) {
+        filter: function (filter) {
           pendingQueue = pendingQueue.filter(filter);
           return buffer;
         }
@@ -3480,7 +3487,7 @@ function createSidecarMedium(options) {
   medium.options = __assign({ async: true, ssr: false }, options);
   return medium;
 }
-var SideCar$1 = function(_a) {
+var SideCar$1 = function (_a) {
   var sideCar = _a.sideCar, rest = __rest(_a, ["sideCar"]);
   if (!sideCar) {
     throw new Error("Sidecar: please provide `sideCar` property to import the right car");
@@ -3497,10 +3504,10 @@ function exportSidecar(medium, exported) {
   return SideCar$1;
 }
 var effectCar = createSidecarMedium();
-var nothing = function() {
+var nothing = function () {
   return;
 };
-var RemoveScroll = reactExports.forwardRef(function(props, parentRef) {
+var RemoveScroll = reactExports.forwardRef(function (props, parentRef) {
   var ref = reactExports.useRef(null);
   var _a = reactExports.useState({
     onScrollCapture: nothing,
@@ -3527,7 +3534,7 @@ RemoveScroll.classNames = {
   fullWidth: fullWidthClassName,
   zeroRight: zeroRightClassName
 };
-var getNonce = function() {
+var getNonce = function () {
   if (typeof __webpack_nonce__ !== "undefined") {
     return __webpack_nonce__;
   }
@@ -3555,11 +3562,11 @@ function insertStyleTag(tag) {
   var head = document.head || document.getElementsByTagName("head")[0];
   head.appendChild(tag);
 }
-var stylesheetSingleton = function() {
+var stylesheetSingleton = function () {
   var counter = 0;
   var stylesheet = null;
   return {
-    add: function(style) {
+    add: function (style) {
       if (counter == 0) {
         if (stylesheet = makeStyleTag()) {
           injectStyles(stylesheet, style);
@@ -3568,7 +3575,7 @@ var stylesheetSingleton = function() {
       }
       counter++;
     },
-    remove: function() {
+    remove: function () {
       counter--;
       if (!counter && stylesheet) {
         stylesheet.parentNode && stylesheet.parentNode.removeChild(stylesheet);
@@ -3577,20 +3584,20 @@ var stylesheetSingleton = function() {
     }
   };
 };
-var styleHookSingleton = function() {
+var styleHookSingleton = function () {
   var sheet = stylesheetSingleton();
-  return function(styles, isDynamic) {
-    reactExports.useEffect(function() {
+  return function (styles, isDynamic) {
+    reactExports.useEffect(function () {
       sheet.add(styles);
-      return function() {
+      return function () {
         sheet.remove();
       };
     }, [styles && isDynamic]);
   };
 };
-var styleSingleton = function() {
+var styleSingleton = function () {
   var useStyle = styleHookSingleton();
-  var Sheet = function(_a) {
+  var Sheet = function (_a) {
     var styles = _a.styles, dynamic = _a.dynamic;
     useStyle(styles, dynamic);
     return null;
@@ -3603,17 +3610,17 @@ var zeroGap = {
   right: 0,
   gap: 0
 };
-var parse = function(x) {
+var parse = function (x) {
   return parseInt(x || "", 10) || 0;
 };
-var getOffset = function(gapMode) {
+var getOffset = function (gapMode) {
   var cs = window.getComputedStyle(document.body);
   var left = cs[gapMode === "padding" ? "paddingLeft" : "marginLeft"];
   var top = cs[gapMode === "padding" ? "paddingTop" : "marginTop"];
   var right = cs[gapMode === "padding" ? "paddingRight" : "marginRight"];
   return [parse(left), parse(top), parse(right)];
 };
-var getGapWidth = function(gapMode) {
+var getGapWidth = function (gapMode) {
   if (gapMode === void 0) {
     gapMode = "margin";
   }
@@ -3632,7 +3639,7 @@ var getGapWidth = function(gapMode) {
 };
 var Style = styleSingleton();
 var lockAttribute = "data-scroll-locked";
-var getStyles = function(_a, allowRelative, gapMode, important) {
+var getStyles = function (_a, allowRelative, gapMode, important) {
   var left = _a.left, top = _a.top, right = _a.right, gap = _a.gap;
   if (gapMode === void 0) {
     gapMode = "margin";
@@ -3643,14 +3650,14 @@ var getStyles = function(_a, allowRelative, gapMode, important) {
     gapMode === "padding" && "padding-right: ".concat(gap, "px ").concat(important, ";")
   ].filter(Boolean).join(""), "\n  }\n  \n  .").concat(zeroRightClassName, " {\n    right: ").concat(gap, "px ").concat(important, ";\n  }\n  \n  .").concat(fullWidthClassName, " {\n    margin-right: ").concat(gap, "px ").concat(important, ";\n  }\n  \n  .").concat(zeroRightClassName, " .").concat(zeroRightClassName, " {\n    right: 0 ").concat(important, ";\n  }\n  \n  .").concat(fullWidthClassName, " .").concat(fullWidthClassName, " {\n    margin-right: 0 ").concat(important, ";\n  }\n  \n  body[").concat(lockAttribute, "] {\n    ").concat(removedBarSizeVariable, ": ").concat(gap, "px;\n  }\n");
 };
-var getCurrentUseCounter = function() {
+var getCurrentUseCounter = function () {
   var counter = parseInt(document.body.getAttribute(lockAttribute) || "0", 10);
   return isFinite(counter) ? counter : 0;
 };
-var useLockAttribute = function() {
-  reactExports.useEffect(function() {
+var useLockAttribute = function () {
+  reactExports.useEffect(function () {
     document.body.setAttribute(lockAttribute, (getCurrentUseCounter() + 1).toString());
-    return function() {
+    return function () {
       var newCounter = getCurrentUseCounter() - 1;
       if (newCounter <= 0) {
         document.body.removeAttribute(lockAttribute);
@@ -3660,10 +3667,10 @@ var useLockAttribute = function() {
     };
   }, []);
 };
-var RemoveScrollBar = function(_a) {
+var RemoveScrollBar = function (_a) {
   var noRelative = _a.noRelative, noImportant = _a.noImportant, _b = _a.gapMode, gapMode = _b === void 0 ? "margin" : _b;
   useLockAttribute();
-  var gap = reactExports.useMemo(function() {
+  var gap = reactExports.useMemo(function () {
     return getGapWidth(gapMode);
   }, [gapMode]);
   return reactExports.createElement(Style, { styles: getStyles(gap, !noRelative, gapMode, !noImportant ? "!important" : "") });
@@ -3672,7 +3679,7 @@ var passiveSupported = false;
 if (typeof window !== "undefined") {
   try {
     var options = Object.defineProperty({}, "passive", {
-      get: function() {
+      get: function () {
         passiveSupported = true;
         return true;
       }
@@ -3684,10 +3691,10 @@ if (typeof window !== "undefined") {
   }
 }
 var nonPassive = passiveSupported ? { passive: false } : false;
-var alwaysContainsScroll = function(node) {
+var alwaysContainsScroll = function (node) {
   return node.tagName === "TEXTAREA";
 };
-var elementCanBeScrolled = function(node, overflow) {
+var elementCanBeScrolled = function (node, overflow) {
   if (!(node instanceof Element)) {
     return false;
   }
@@ -3698,13 +3705,13 @@ var elementCanBeScrolled = function(node, overflow) {
     !(styles.overflowY === styles.overflowX && !alwaysContainsScroll(node) && styles[overflow] === "visible")
   );
 };
-var elementCouldBeVScrolled = function(node) {
+var elementCouldBeVScrolled = function (node) {
   return elementCanBeScrolled(node, "overflowY");
 };
-var elementCouldBeHScrolled = function(node) {
+var elementCouldBeHScrolled = function (node) {
   return elementCanBeScrolled(node, "overflowX");
 };
-var locationCouldBeScrolled = function(axis, node) {
+var locationCouldBeScrolled = function (axis, node) {
   var ownerDocument = node.ownerDocument;
   var current = node;
   do {
@@ -3722,7 +3729,7 @@ var locationCouldBeScrolled = function(axis, node) {
   } while (current && current !== ownerDocument.body);
   return false;
 };
-var getVScrollVariables = function(_a) {
+var getVScrollVariables = function (_a) {
   var scrollTop = _a.scrollTop, scrollHeight = _a.scrollHeight, clientHeight = _a.clientHeight;
   return [
     scrollTop,
@@ -3730,7 +3737,7 @@ var getVScrollVariables = function(_a) {
     clientHeight
   ];
 };
-var getHScrollVariables = function(_a) {
+var getHScrollVariables = function (_a) {
   var scrollLeft = _a.scrollLeft, scrollWidth = _a.scrollWidth, clientWidth = _a.clientWidth;
   return [
     scrollLeft,
@@ -3738,16 +3745,16 @@ var getHScrollVariables = function(_a) {
     clientWidth
   ];
 };
-var elementCouldBeScrolled = function(axis, node) {
+var elementCouldBeScrolled = function (axis, node) {
   return axis === "v" ? elementCouldBeVScrolled(node) : elementCouldBeHScrolled(node);
 };
-var getScrollVariables = function(axis, node) {
+var getScrollVariables = function (axis, node) {
   return axis === "v" ? getVScrollVariables(node) : getHScrollVariables(node);
 };
-var getDirectionFactor = function(axis, direction) {
+var getDirectionFactor = function (axis, direction) {
   return axis === "h" && direction === "rtl" ? -1 : 1;
 };
-var handleScroll = function(axis, endTarget, event, sourceDelta, noOverscroll) {
+var handleScroll = function (axis, endTarget, event, sourceDelta, noOverscroll) {
   var directionFactor = getDirectionFactor(axis, window.getComputedStyle(endTarget).direction);
   var delta = directionFactor * sourceDelta;
   var target = event.target;
@@ -3782,19 +3789,19 @@ var handleScroll = function(axis, endTarget, event, sourceDelta, noOverscroll) {
   }
   return shouldCancelScroll;
 };
-var getTouchXY = function(event) {
+var getTouchXY = function (event) {
   return "changedTouches" in event ? [event.changedTouches[0].clientX, event.changedTouches[0].clientY] : [0, 0];
 };
-var getDeltaXY = function(event) {
+var getDeltaXY = function (event) {
   return [event.deltaX, event.deltaY];
 };
-var extractRef = function(ref) {
+var extractRef = function (ref) {
   return ref && "current" in ref ? ref.current : ref;
 };
-var deltaCompare = function(x, y) {
+var deltaCompare = function (x, y) {
   return x[0] === y[0] && x[1] === y[1];
 };
-var generateStyle = function(id) {
+var generateStyle = function (id) {
   return "\n  .block-interactivity-".concat(id, " {pointer-events: none;}\n  .allow-interactivity-").concat(id, " {pointer-events: all;}\n");
 };
 var idCounter = 0;
@@ -3806,26 +3813,26 @@ function RemoveScrollSideCar(props) {
   var id = reactExports.useState(idCounter++)[0];
   var Style2 = reactExports.useState(styleSingleton)[0];
   var lastProps = reactExports.useRef(props);
-  reactExports.useEffect(function() {
+  reactExports.useEffect(function () {
     lastProps.current = props;
   }, [props]);
-  reactExports.useEffect(function() {
+  reactExports.useEffect(function () {
     if (props.inert) {
       document.body.classList.add("block-interactivity-".concat(id));
       var allow_1 = __spreadArray([props.lockRef.current], (props.shards || []).map(extractRef), true).filter(Boolean);
-      allow_1.forEach(function(el) {
+      allow_1.forEach(function (el) {
         return el.classList.add("allow-interactivity-".concat(id));
       });
-      return function() {
+      return function () {
         document.body.classList.remove("block-interactivity-".concat(id));
-        allow_1.forEach(function(el) {
+        allow_1.forEach(function (el) {
           return el.classList.remove("allow-interactivity-".concat(id));
         });
       };
     }
     return;
   }, [props.inert, props.lockRef.current, props.shards]);
-  var shouldCancelEvent = reactExports.useCallback(function(event, parent) {
+  var shouldCancelEvent = reactExports.useCallback(function (event, parent) {
     if ("touches" in event && event.touches.length === 2 || event.type === "wheel" && event.ctrlKey) {
       return !lastProps.current.allowPinchZoom;
     }
@@ -3867,13 +3874,13 @@ function RemoveScrollSideCar(props) {
     var cancelingAxis = activeAxis.current || currentAxis;
     return handleScroll(cancelingAxis, parent, event, cancelingAxis === "h" ? deltaX : deltaY);
   }, []);
-  var shouldPrevent = reactExports.useCallback(function(_event) {
+  var shouldPrevent = reactExports.useCallback(function (_event) {
     var event = _event;
     if (!lockStack.length || lockStack[lockStack.length - 1] !== Style2) {
       return;
     }
     var delta = "deltaY" in event ? getDeltaXY(event) : getTouchXY(event);
-    var sourceEvent = shouldPreventQueue.current.filter(function(e) {
+    var sourceEvent = shouldPreventQueue.current.filter(function (e) {
       return e.name === event.type && (e.target === event.target || event.target === e.shadowParent) && deltaCompare(e.delta, delta);
     })[0];
     if (sourceEvent && sourceEvent.should) {
@@ -3883,7 +3890,7 @@ function RemoveScrollSideCar(props) {
       return;
     }
     if (!sourceEvent) {
-      var shardNodes = (lastProps.current.shards || []).map(extractRef).filter(Boolean).filter(function(node) {
+      var shardNodes = (lastProps.current.shards || []).map(extractRef).filter(Boolean).filter(function (node) {
         return node.contains(event.target);
       });
       var shouldStop = shardNodes.length > 0 ? shouldCancelEvent(event, shardNodes[0]) : !lastProps.current.noIsolation;
@@ -3894,26 +3901,26 @@ function RemoveScrollSideCar(props) {
       }
     }
   }, []);
-  var shouldCancel = reactExports.useCallback(function(name, delta, target, should) {
+  var shouldCancel = reactExports.useCallback(function (name, delta, target, should) {
     var event = { name, delta, target, should, shadowParent: getOutermostShadowParent(target) };
     shouldPreventQueue.current.push(event);
-    setTimeout(function() {
-      shouldPreventQueue.current = shouldPreventQueue.current.filter(function(e) {
+    setTimeout(function () {
+      shouldPreventQueue.current = shouldPreventQueue.current.filter(function (e) {
         return e !== event;
       });
     }, 1);
   }, []);
-  var scrollTouchStart = reactExports.useCallback(function(event) {
+  var scrollTouchStart = reactExports.useCallback(function (event) {
     touchStartRef.current = getTouchXY(event);
     activeAxis.current = void 0;
   }, []);
-  var scrollWheel = reactExports.useCallback(function(event) {
+  var scrollWheel = reactExports.useCallback(function (event) {
     shouldCancel(event.type, getDeltaXY(event), event.target, shouldCancelEvent(event, props.lockRef.current));
   }, []);
-  var scrollTouchMove = reactExports.useCallback(function(event) {
+  var scrollTouchMove = reactExports.useCallback(function (event) {
     shouldCancel(event.type, getTouchXY(event), event.target, shouldCancelEvent(event, props.lockRef.current));
   }, []);
-  reactExports.useEffect(function() {
+  reactExports.useEffect(function () {
     lockStack.push(Style2);
     props.setCallbacks({
       onScrollCapture: scrollWheel,
@@ -3923,8 +3930,8 @@ function RemoveScrollSideCar(props) {
     document.addEventListener("wheel", shouldPrevent, nonPassive);
     document.addEventListener("touchmove", shouldPrevent, nonPassive);
     document.addEventListener("touchstart", scrollTouchStart, nonPassive);
-    return function() {
-      lockStack = lockStack.filter(function(inst) {
+    return function () {
+      lockStack = lockStack.filter(function (inst) {
         return inst !== Style2;
       });
       document.removeEventListener("wheel", shouldPrevent, nonPassive);
@@ -3952,11 +3959,11 @@ function getOutermostShadowParent(node) {
   return shadowParent;
 }
 const SideCar = exportSidecar(effectCar, RemoveScrollSideCar);
-var ReactRemoveScroll = reactExports.forwardRef(function(props, ref) {
+var ReactRemoveScroll = reactExports.forwardRef(function (props, ref) {
   return reactExports.createElement(RemoveScroll, __assign({}, props, { ref, sideCar: SideCar }));
 });
 ReactRemoveScroll.classNames = RemoveScroll.classNames;
-var getDefaultParent = function(originalTarget) {
+var getDefaultParent = function (originalTarget) {
   if (typeof document === "undefined") {
     return null;
   }
@@ -3967,11 +3974,11 @@ var counterMap = /* @__PURE__ */ new WeakMap();
 var uncontrolledNodes = /* @__PURE__ */ new WeakMap();
 var markerMap = {};
 var lockCount = 0;
-var unwrapHost = function(node) {
+var unwrapHost = function (node) {
   return node && (node.host || unwrapHost(node.parentNode));
 };
-var correctTargets = function(parent, targets) {
-  return targets.map(function(target) {
+var correctTargets = function (parent, targets) {
+  return targets.map(function (target) {
     if (parent.contains(target)) {
       return target;
     }
@@ -3981,11 +3988,11 @@ var correctTargets = function(parent, targets) {
     }
     console.error("aria-hidden", target, "in not contained inside", parent, ". Doing nothing");
     return null;
-  }).filter(function(x) {
+  }).filter(function (x) {
     return Boolean(x);
   });
 };
-var applyAttributeToOthers = function(originalTarget, parentNode, markerName, controlAttribute) {
+var applyAttributeToOthers = function (originalTarget, parentNode, markerName, controlAttribute) {
   var targets = correctTargets(parentNode, Array.isArray(originalTarget) ? originalTarget : [originalTarget]);
   if (!markerMap[markerName]) {
     markerMap[markerName] = /* @__PURE__ */ new WeakMap();
@@ -3994,7 +4001,7 @@ var applyAttributeToOthers = function(originalTarget, parentNode, markerName, co
   var hiddenNodes = [];
   var elementsToKeep = /* @__PURE__ */ new Set();
   var elementsToStop = new Set(targets);
-  var keep = function(el) {
+  var keep = function (el) {
     if (!el || elementsToKeep.has(el)) {
       return;
     }
@@ -4002,11 +4009,11 @@ var applyAttributeToOthers = function(originalTarget, parentNode, markerName, co
     keep(el.parentNode);
   };
   targets.forEach(keep);
-  var deep = function(parent) {
+  var deep = function (parent) {
     if (!parent || elementsToStop.has(parent)) {
       return;
     }
-    Array.prototype.forEach.call(parent.children, function(node) {
+    Array.prototype.forEach.call(parent.children, function (node) {
       if (elementsToKeep.has(node)) {
         deep(node);
       } else {
@@ -4036,8 +4043,8 @@ var applyAttributeToOthers = function(originalTarget, parentNode, markerName, co
   deep(parentNode);
   elementsToKeep.clear();
   lockCount++;
-  return function() {
-    hiddenNodes.forEach(function(node) {
+  return function () {
+    hiddenNodes.forEach(function (node) {
       var counterValue = counterMap.get(node) - 1;
       var markerValue = markerCounter.get(node) - 1;
       counterMap.set(node, counterValue);
@@ -4061,14 +4068,14 @@ var applyAttributeToOthers = function(originalTarget, parentNode, markerName, co
     }
   };
 };
-var hideOthers = function(originalTarget, parentNode, markerName) {
+var hideOthers = function (originalTarget, parentNode, markerName) {
   if (markerName === void 0) {
     markerName = "data-aria-hidden";
   }
   var targets = Array.from(Array.isArray(originalTarget) ? originalTarget : [originalTarget]);
   var activeParentNode = getDefaultParent(originalTarget);
   if (!activeParentNode) {
-    return function() {
+    return function () {
       return null;
     };
   }
@@ -4163,7 +4170,8 @@ var DialogOverlayImpl = reactExports.forwardRef(
     return (
       // Make sure `Content` is scrollable even when it doesn't live inside `RemoveScroll`
       // ie. when `Overlay` and `Content` are siblings
-      /* @__PURE__ */ jsxRuntimeExports.jsx(ReactRemoveScroll, { as: Slot, allowPinchZoom: true, shards: [context.contentRef], children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+      /* @__PURE__ */ jsxRuntimeExports.jsx(ReactRemoveScroll, {
+      as: Slot, allowPinchZoom: true, shards: [context.contentRef], children: /* @__PURE__ */ jsxRuntimeExports.jsx(
         Primitive.div,
         {
           "data-state": getState(context.open),
@@ -4171,7 +4179,8 @@ var DialogOverlayImpl = reactExports.forwardRef(
           ref: forwardedRef,
           style: { pointerEvents: "auto", ...overlayProps.style }
         }
-      ) })
+      )
+    })
     );
   }
 );
@@ -4266,7 +4275,8 @@ var DialogContentImpl = reactExports.forwardRef(
     const contentRef = reactExports.useRef(null);
     const composedRefs = useComposedRefs(forwardedRef, contentRef);
     useFocusGuards();
-    return /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
+    return /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, {
+      children: [
       /* @__PURE__ */ jsxRuntimeExports.jsx(
         FocusScope,
         {
@@ -4290,11 +4300,14 @@ var DialogContentImpl = reactExports.forwardRef(
           )
         }
       ),
-      /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, {
+        children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx(TitleWarning, { titleId: context.titleId }),
         /* @__PURE__ */ jsxRuntimeExports.jsx(DescriptionWarning, { contentRef, descriptionId: context.descriptionId })
-      ] })
-    ] });
+        ]
+      })
+      ]
+    });
   }
 );
 var TITLE_NAME = "DialogTitle";
@@ -7608,10 +7621,14 @@ function CheckoutButton({ className = "", text = "Checkout", onClick, href, icon
   else if (!icon && text.toLowerCase().includes("order")) IconComponent = ShoppingBag;
   else if (!icon && text.toLowerCase().includes("shopping")) IconComponent = ArrowRight;
   if (href) {
-    return /* @__PURE__ */ jsxRuntimeExports.jsx(Button, { asChild: true, className: `${defaultClasses} ${className}`, onClick, children: /* @__PURE__ */ jsxRuntimeExports.jsxs("a", { href, children: [
+    return /* @__PURE__ */ jsxRuntimeExports.jsx(Button, {
+      asChild: true, className: `${defaultClasses} ${className}`, onClick, children: /* @__PURE__ */ jsxRuntimeExports.jsxs("a", {
+        href, children: [
       /* @__PURE__ */ jsxRuntimeExports.jsx(IconComponent, { className: "w-4 h-4 shrink-0" }),
       /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: text })
-    ] }) });
+        ]
+      })
+    });
   }
   return /* @__PURE__ */ jsxRuntimeExports.jsxs(
     Button,
@@ -7906,195 +7923,278 @@ function CartPage() {
   const [isMounted, setIsMounted] = reactExports.useState(false);
   const { items, updateQuantity, removeItem, getCartTotal } = useCartStore();
   reactExports.useEffect(() => {
+    window.scrollTo(0, 0);
     setIsMounted(true);
   }, []);
   const subtotal = getCartTotal();
   if (!isMounted) {
     return null;
   }
-  return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "min-h-screen bg-white pt-24 md:pt-32 pb-24 md:pb-32", children: [
-    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "max-w-screen-xl mx-auto px-4 md:px-12", children: [
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+    className: "min-h-screen bg-white pt-20 md:pt-32 pb-24 md:pb-32", children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+      className: "max-w-screen-xl mx-auto px-4 md:px-12", children: [
       /* @__PURE__ */ jsxRuntimeExports.jsx("h1", { className: "font-serif text-4xl md:text-5xl text-black mb-12 tracking-tight", children: "Shopping Bag" }),
-      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-col lg:flex-row gap-16 lg:gap-24 relative", children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "w-full lg:w-[60%] flex flex-col", children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "hidden md:grid grid-cols-12 gap-4 pb-4 border-b border-zinc-200 text-xs font-semibold tracking-widest uppercase text-zinc-400 mb-8", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+        className: "flex flex-col lg:flex-row gap-16 lg:gap-24 relative", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+          className: "w-full lg:w-[60%] flex flex-col", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+            className: "hidden md:grid grid-cols-12 gap-4 pb-4 border-b border-zinc-200 text-xs font-semibold tracking-widest uppercase text-zinc-400 mb-8", children: [
             /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "col-span-6", children: "Product" }),
             /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "col-span-3 text-center", children: "Quantity" }),
             /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "col-span-3 text-right", children: "Total" })
-          ] }),
-          items.length === 0 ? /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "py-12 text-center text-zinc-500 font-sans border-b border-zinc-100", children: "Your shopping bag is empty." }) : items.map((item) => /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-row md:grid md:grid-cols-12 gap-4 md:gap-6 items-start md:items-center py-6 border-b border-zinc-100", children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "col-span-6 flex w-full gap-4 md:gap-6", children: [
-              /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "relative w-24 md:w-32 aspect-[4/5] bg-zinc-50 overflow-hidden shrink-0", children: /* @__PURE__ */ jsxRuntimeExports.jsx(
-                Image,
-                {
-                  src: item.image,
-                  alt: item.name,
-                  fill: true,
-                  className: "object-cover object-center"
-                }
-              ) }),
-              /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-col w-full pt-1", children: [
-                /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex justify-between items-start mb-1", children: [
+            ]
+          }),
+            items.length === 0 ? /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "py-12 text-center text-zinc-500 font-sans border-b border-zinc-100", children: "Your shopping bag is empty." }) : items.map((item) => /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+              className: "flex flex-row md:grid md:grid-cols-12 gap-4 md:gap-6 items-start md:items-center py-6 border-b border-zinc-100", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+                className: "col-span-6 flex w-full gap-4 md:gap-6", children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx("div", {
+                  className: "relative w-24 md:w-32 aspect-[4/5] bg-zinc-50 overflow-hidden shrink-0", children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+                    Image,
+                    {
+                      src: item.image,
+                      alt: item.name,
+                      fill: true,
+                      className: "object-cover object-center"
+                    }
+                  )
+                }),
+              /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+                  className: "flex flex-col w-full pt-1", children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+                    className: "flex justify-between items-start mb-1", children: [
                   /* @__PURE__ */ jsxRuntimeExports.jsx("a", { href: `/products/${item.productId}`, className: "font-serif text-lg md:text-xl text-black leading-tight hover:opacity-70 transition-opacity pr-4", children: item.name }),
                   /* @__PURE__ */ jsxRuntimeExports.jsx("button", { onClick: () => removeItem(item.id), className: "md:hidden text-zinc-400 hover:text-red-500 transition-colors pt-1", "aria-label": "Remove item", children: /* @__PURE__ */ jsxRuntimeExports.jsx(Trash2, { className: "w-4 h-4" }) })
-                ] }),
-                /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex justify-between items-center mb-3", children: [
-                  /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { className: "text-xs md:text-sm text-zinc-500", children: [
-                    item.color,
-                    " / ",
-                    item.size
-                  ] }),
-                  /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "md:hidden font-medium text-sm text-black", children: [
-                    "NPR ",
-                    item.price.toFixed(2)
-                  ] })
-                ] }),
-                /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "hidden md:block font-medium text-black mb-4", children: [
-                  "NPR ",
-                  item.price.toFixed(2)
-                ] }),
-                /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex md:hidden items-center border border-zinc-200 w-fit mt-auto cursor-pointer", children: [
+                    ]
+                  }),
+                /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+                    className: "flex justify-between items-center mb-3", children: [
+                  /* @__PURE__ */ jsxRuntimeExports.jsxs("p", {
+                      className: "text-xs md:text-sm text-zinc-500", children: [
+                        item.color,
+                        " / ",
+                        item.size
+                      ]
+                    }),
+                  /* @__PURE__ */ jsxRuntimeExports.jsxs("span", {
+                      className: "md:hidden font-medium text-sm text-black", children: [
+                        "NPR ",
+                        item.price.toFixed(2)
+                      ]
+                    })
+                    ]
+                  }),
+                /* @__PURE__ */ jsxRuntimeExports.jsxs("span", {
+                    className: "hidden md:block font-medium text-black mb-4", children: [
+                      "NPR ",
+                      item.price.toFixed(2)
+                    ]
+                  }),
+                /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+                    className: "flex md:hidden items-center border border-zinc-200 w-fit mt-auto cursor-pointer", children: [
                   /* @__PURE__ */ jsxRuntimeExports.jsx(
+                      "button",
+                      {
+                        onClick: () => updateQuantity(item.id, -1),
+                        className: "w-8 h-8 flex items-center justify-center text-zinc-500 hover:text-black hover:bg-zinc-50 transition-colors",
+                        "aria-label": "Decrease quantity",
+                        children: /* @__PURE__ */ jsxRuntimeExports.jsx(Minus, { className: "w-3 h-3" })
+                      }
+                    ),
+                  /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "w-8 text-center text-xs font-medium text-black", children: item.quantity }),
+                  /* @__PURE__ */ jsxRuntimeExports.jsx(
+                      "button",
+                      {
+                        onClick: () => updateQuantity(item.id, 1),
+                        className: "w-8 h-8 flex items-center justify-center text-zinc-500 hover:text-black hover:bg-zinc-50 transition-colors",
+                        "aria-label": "Increase quantity",
+                        children: /* @__PURE__ */ jsxRuntimeExports.jsx(Plus, { className: "w-3 h-3" })
+                      }
+                    )
+                    ]
+                  })
+                  ]
+                })
+                ]
+              }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("div", {
+                className: "col-span-3 hidden md:flex w-full justify-center items-center", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+                  className: "flex items-center border border-zinc-200", children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx(
                     "button",
                     {
                       onClick: () => updateQuantity(item.id, -1),
-                      className: "w-8 h-8 flex items-center justify-center text-zinc-500 hover:text-black hover:bg-zinc-50 transition-colors",
+                      className: "w-10 h-10 flex items-center justify-center text-zinc-500 hover:text-black hover:bg-zinc-50 transition-colors",
                       "aria-label": "Decrease quantity",
-                      children: /* @__PURE__ */ jsxRuntimeExports.jsx(Minus, { className: "w-3 h-3" })
+                      children: /* @__PURE__ */ jsxRuntimeExports.jsx(Minus, { className: "w-4 h-4" })
                     }
                   ),
-                  /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "w-8 text-center text-xs font-medium text-black", children: item.quantity }),
-                  /* @__PURE__ */ jsxRuntimeExports.jsx(
+              /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "w-10 text-center text-sm font-medium text-black", children: item.quantity }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx(
                     "button",
                     {
                       onClick: () => updateQuantity(item.id, 1),
-                      className: "w-8 h-8 flex items-center justify-center text-zinc-500 hover:text-black hover:bg-zinc-50 transition-colors",
+                      className: "w-10 h-10 flex items-center justify-center text-zinc-500 hover:text-black hover:bg-zinc-50 transition-colors",
                       "aria-label": "Increase quantity",
-                      children: /* @__PURE__ */ jsxRuntimeExports.jsx(Plus, { className: "w-3 h-3" })
+                      children: /* @__PURE__ */ jsxRuntimeExports.jsx(Plus, { className: "w-4 h-4" })
                     }
                   )
-                ] })
-              ] })
-            ] }),
-            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "col-span-3 hidden md:flex w-full justify-center items-center", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center border border-zinc-200", children: [
-              /* @__PURE__ */ jsxRuntimeExports.jsx(
-                "button",
-                {
-                  onClick: () => updateQuantity(item.id, -1),
-                  className: "w-10 h-10 flex items-center justify-center text-zinc-500 hover:text-black hover:bg-zinc-50 transition-colors",
-                  "aria-label": "Decrease quantity",
-                  children: /* @__PURE__ */ jsxRuntimeExports.jsx(Minus, { className: "w-4 h-4" })
-                }
-              ),
-              /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "w-10 text-center text-sm font-medium text-black", children: item.quantity }),
-              /* @__PURE__ */ jsxRuntimeExports.jsx(
-                "button",
-                {
-                  onClick: () => updateQuantity(item.id, 1),
-                  className: "w-10 h-10 flex items-center justify-center text-zinc-500 hover:text-black hover:bg-zinc-50 transition-colors",
-                  "aria-label": "Increase quantity",
-                  children: /* @__PURE__ */ jsxRuntimeExports.jsx(Plus, { className: "w-4 h-4" })
-                }
-              )
-            ] }) }),
-            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "col-span-3 hidden md:flex w-full justify-end items-center", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-6", children: [
-              /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "font-medium text-lg text-black", children: [
-                "NPR ",
-                (item.price * item.quantity).toFixed(2)
-              ] }),
+                  ]
+                })
+              }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("div", {
+                className: "col-span-3 hidden md:flex w-full justify-end items-center", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+                  className: "flex items-center gap-6", children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsxs("span", {
+                    className: "font-medium text-lg text-black", children: [
+                      "NPR ",
+                      (item.price * item.quantity).toFixed(2)
+                    ]
+                  }),
               /* @__PURE__ */ jsxRuntimeExports.jsx("button", { onClick: () => removeItem(item.id), className: "text-zinc-400 hover:text-red-500 transition-colors", "aria-label": "Remove item", children: /* @__PURE__ */ jsxRuntimeExports.jsx(Trash2, { className: "w-5 h-5" }) })
-            ] }) })
-          ] }, item.id))
-        ] }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "w-full lg:w-[40%] flex flex-col pt-8 lg:pt-0", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "lg:sticky lg:top-32 bg-zinc-50 p-8 rounded-sm", children: [
+                  ]
+                })
+              })
+              ]
+            }, item.id))
+          ]
+        }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("div", {
+          className: "w-full lg:w-[40%] flex flex-col pt-8 lg:pt-0", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+            className: "lg:sticky lg:top-32 bg-zinc-50 p-8 rounded-sm", children: [
           /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "font-serif text-2xl text-black mb-8 border-b border-zinc-200 pb-4", children: "Summary" }),
-          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-col gap-4 font-sans text-sm text-zinc-600 mb-8", children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex justify-between items-center", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+              className: "flex flex-col gap-4 font-sans text-sm text-zinc-600 mb-8", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+                className: "flex justify-between items-center", children: [
               /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: "Subtotal" }),
-              /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "text-black font-medium text-base", children: [
-                "NPR ",
-                subtotal.toFixed(2)
-              ] })
-            ] }),
-            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex justify-between items-center", children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsxs("span", {
+                  className: "text-black font-medium text-base", children: [
+                    "NPR ",
+                    subtotal.toFixed(2)
+                  ]
+                })
+                ]
+              }),
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+                className: "flex justify-between items-center", children: [
               /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: "Shipping Estimate" }),
               /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-zinc-500 italic", children: "Calculated at checkout" })
-            ] }),
+                ]
+              }),
             /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "w-full h-[1px] bg-zinc-200 my-4" }),
-            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex justify-between items-center", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+                className: "flex justify-between items-center", children: [
               /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-lg text-black font-medium", children: "Estimated Total" }),
-              /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "font-serif text-2xl text-black font-medium tracking-tight", children: [
-                "NPR ",
-                subtotal.toFixed(2)
-              ] })
-            ] })
-          ] }),
-          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "opacity-100", children: /* @__PURE__ */ jsxRuntimeExports.jsx(
-            CheckoutButton,
-            {
-              className: "w-full py-7 text-base shadow-lg shadow-black/10",
-              href: items.length > 0 ? "/checkout" : "#",
-              text: "Checkout"
-            }
-          ) }),
+              /* @__PURE__ */ jsxRuntimeExports.jsxs("span", {
+                  className: "font-serif text-2xl text-black font-medium tracking-tight", children: [
+                    "NPR ",
+                    subtotal.toFixed(2)
+                  ]
+                })
+                ]
+              })
+              ]
+            }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("div", {
+              className: "opacity-100", children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+                CheckoutButton,
+                {
+                  className: "w-full py-7 text-base shadow-lg shadow-black/10",
+                  href: items.length > 0 ? "/checkout" : "#",
+                  text: "Checkout"
+                }
+              )
+            }),
           /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "mt-6 text-left lg:text-center", children: /* @__PURE__ */ jsxRuntimeExports.jsx("a", { href: "/collections", className: "text-sm text-zinc-500 hover:text-black transition-colors underline underline-offset-4", children: "Continue Shopping" }) })
-        ] }) })
-      ] })
-    ] }),
-    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "max-w-screen-2xl mx-auto px-4 md:px-12 mt-16 md:mt-32 border-t border-zinc-100 pt-16 md:pt-24", children: [
+            ]
+          })
+        })
+        ]
+      })
+      ]
+    }),
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+      className: "max-w-screen-2xl mx-auto px-4 md:px-12 mt-16 md:mt-32 border-t border-zinc-100 pt-16 md:pt-24", children: [
       /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex flex-col md:flex-row justify-between items-start mb-12 gap-8", children: /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "font-serif text-3xl md:text-5xl tracking-tight text-black max-w-md", children: "Customers also bought" }) }),
-      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "grid grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-12", children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "group cursor-pointer block", children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "relative w-full aspect-square overflow-hidden bg-white border border-zinc-200 mb-4 mix-blend-multiply", children: /* @__PURE__ */ jsxRuntimeExports.jsx(
-            Image,
-            {
-              src: "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?q=80&w=800&auto=format&fit=crop",
-              alt: "Premium Wax Polish",
-              fill: true,
-              className: "object-cover object-center transition-transform duration-700 group-hover:scale-105"
-            }
-          ) }),
-          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-col sm:flex-row justify-between items-start sm:items-center", children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+        className: "grid grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-12", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+          className: "group cursor-pointer block", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("div", {
+            className: "relative w-full aspect-square overflow-hidden bg-white border border-zinc-200 mb-4 mix-blend-multiply", children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+              Image,
+              {
+                src: "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?q=80&w=800&auto=format&fit=crop",
+                alt: "Premium Wax Polish",
+                fill: true,
+                className: "object-cover object-center transition-transform duration-700 group-hover:scale-105"
+              }
+            )
+          }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+            className: "flex flex-col sm:flex-row justify-between items-start sm:items-center", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+              children: [
               /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "font-serif text-lg mb-1 mt-2 text-black leading-tight", children: "Premium Wax Polish" }),
               /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-zinc-500 text-xs", children: "Neutral Color" })
-            ] }),
-            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-col items-start sm:items-end mt-2 sm:mt-0", children: [
+              ]
+            }),
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+              className: "flex flex-col items-start sm:items-end mt-2 sm:mt-0", children: [
               /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "font-sans text-sm text-black mb-1", children: "NPR 18.00" }),
               /* @__PURE__ */ jsxRuntimeExports.jsx("button", { className: "text-[10px] font-semibold tracking-widest uppercase border-b border-black text-black hover:text-zinc-500 hover:border-zinc-500 transition-colors pb-0.5", children: "Add to Cart" })
-            ] })
-          ] })
-        ] }),
-        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "group cursor-pointer block", children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "relative w-full aspect-square overflow-hidden bg-white border border-zinc-200 mb-4 mix-blend-multiply", children: /* @__PURE__ */ jsxRuntimeExports.jsx(
-            Image,
-            {
-              src: "https://images.unsplash.com/photo-1563725585-61ec1f8e1fb4?q=80&w=800&auto=format&fit=crop",
-              alt: "Horsehair Brush",
-              fill: true,
-              className: "object-cover object-center transition-transform duration-700 group-hover:scale-105"
-            }
-          ) }),
-          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-col sm:flex-row justify-between items-start sm:items-center", children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
+              ]
+            })
+            ]
+          })
+          ]
+        }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+          className: "group cursor-pointer block", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("div", {
+            className: "relative w-full aspect-square overflow-hidden bg-white border border-zinc-200 mb-4 mix-blend-multiply", children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+              Image,
+              {
+                src: "https://images.unsplash.com/photo-1563725585-61ec1f8e1fb4?q=80&w=800&auto=format&fit=crop",
+                alt: "Horsehair Brush",
+                fill: true,
+                className: "object-cover object-center transition-transform duration-700 group-hover:scale-105"
+              }
+            )
+          }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+            className: "flex flex-col sm:flex-row justify-between items-start sm:items-center", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+              children: [
               /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "font-serif text-lg mb-1 mt-2 text-black leading-tight", children: "Horsehair Brush" }),
               /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-zinc-500 text-xs", children: "Soft Bristle" })
-            ] }),
-            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-col items-start sm:items-end mt-2 sm:mt-0", children: [
+              ]
+            }),
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+              className: "flex flex-col items-start sm:items-end mt-2 sm:mt-0", children: [
               /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "font-sans text-sm text-black mb-1", children: "NPR 24.00" }),
               /* @__PURE__ */ jsxRuntimeExports.jsx("button", { className: "text-[10px] font-semibold tracking-widest uppercase border-b border-black text-black hover:text-zinc-500 hover:border-zinc-500 transition-colors pb-0.5", children: "Add to Cart" })
-            ] })
-          ] })
-        ] })
-      ] })
-    ] })
-  ] });
+              ]
+            })
+            ]
+          })
+          ]
+        })
+        ]
+      })
+      ]
+    })
+    ]
+  });
 }
 var module$1 = {};
 (function main(global, module, isWorker, workerSize) {
   var canUseWorker = !!(global.Worker && global.Blob && global.Promise && global.OffscreenCanvas && global.OffscreenCanvasRenderingContext2D && global.HTMLCanvasElement && global.HTMLCanvasElement.prototype.transferControlToOffscreen && global.URL && global.URL.createObjectURL);
   var canUsePaths = typeof Path2D === "function" && typeof DOMMatrix === "function";
-  var canDrawBitmap = (function() {
+  var canDrawBitmap = (function () {
     if (!global.OffscreenCanvas) {
       return false;
     }
@@ -8120,9 +8220,9 @@ var module$1 = {};
     func(noop, noop);
     return null;
   }
-  var bitmapMapper = /* @__PURE__ */ (function(skipTransform, map) {
+  var bitmapMapper = /* @__PURE__ */ (function (skipTransform, map) {
     return {
-      transform: function(bitmap) {
+      transform: function (bitmap) {
         if (skipTransform) {
           return bitmap;
         }
@@ -8135,18 +8235,18 @@ var module$1 = {};
         map.set(bitmap, canvas);
         return canvas;
       },
-      clear: function() {
+      clear: function () {
         map.clear();
       }
     };
   })(canDrawBitmap, /* @__PURE__ */ new Map());
-  var raf = (function() {
+  var raf = (function () {
     var TIME = Math.floor(1e3 / 60);
     var frame, cancel;
     var frames = {};
     var lastFrameTime = 0;
     if (typeof requestAnimationFrame === "function" && typeof cancelAnimationFrame === "function") {
-      frame = function(cb) {
+      frame = function (cb) {
         var id = Math.random();
         frames[id] = requestAnimationFrame(function onFrame(time) {
           if (lastFrameTime === time || lastFrameTime + TIME - 1 < time) {
@@ -8159,22 +8259,22 @@ var module$1 = {};
         });
         return id;
       };
-      cancel = function(id) {
+      cancel = function (id) {
         if (frames[id]) {
           cancelAnimationFrame(frames[id]);
         }
       };
     } else {
-      frame = function(cb) {
+      frame = function (cb) {
         return setTimeout(cb, TIME);
       };
-      cancel = function(timer) {
+      cancel = function (timer) {
         return clearTimeout(timer);
       };
     }
     return { frame, cancel };
   })();
-  var getWorker = /* @__PURE__ */ (function() {
+  var getWorker = /* @__PURE__ */ (function () {
     var worker;
     var prom;
     var resolves = {};
@@ -8192,7 +8292,7 @@ var module$1 = {};
           return prom;
         }
         var id = Math.random().toString(36).slice(2);
-        prom = promise(function(resolve) {
+        prom = promise(function (resolve) {
           function workerDone(msg) {
             if (msg.data.callback !== id) {
               return;
@@ -8218,7 +8318,7 @@ var module$1 = {};
         }
       };
     }
-    return function() {
+    return function () {
       if (worker) {
         return worker;
       }
@@ -8475,7 +8575,7 @@ var module$1 = {};
     var context = canvas.getContext("2d");
     var animationFrame;
     var destroy;
-    var prom = promise(function(resolve) {
+    var prom = promise(function (resolve) {
       function onDone() {
         animationFrame = destroy = null;
         context.clearRect(0, 0, size.width, size.height);
@@ -8494,7 +8594,7 @@ var module$1 = {};
           size.height = canvas.height;
         }
         context.clearRect(0, 0, size.width, size.height);
-        animatingFettis = animatingFettis.filter(function(fetti) {
+        animatingFettis = animatingFettis.filter(function (fetti) {
           return updateFetti(context, fetti);
         });
         if (animatingFettis.length) {
@@ -8507,13 +8607,13 @@ var module$1 = {};
       destroy = onDone;
     });
     return {
-      addFettis: function(fettis2) {
+      addFettis: function (fettis2) {
         animatingFettis = animatingFettis.concat(fettis2);
         return prom;
       },
       canvas,
       promise: prom,
-      reset: function() {
+      reset: function () {
         if (animationFrame) {
           raf.cancel(animationFrame);
         }
@@ -8581,7 +8681,7 @@ var module$1 = {};
       var disableForReducedMotion = globalDisableForReducedMotion || prop(options, "disableForReducedMotion", Boolean);
       var zIndex = prop(options, "zIndex", Number);
       if (disableForReducedMotion && preferLessMotion) {
-        return promise(function(resolve) {
+        return promise(function (resolve) {
           resolve();
         });
       }
@@ -8608,7 +8708,7 @@ var module$1 = {};
       function onResize() {
         if (worker) {
           var obj = {
-            getBoundingClientRect: function() {
+            getBoundingClientRect: function () {
               if (!isLibCanvas) {
                 return canvas.getBoundingClientRect();
               }
@@ -8648,7 +8748,7 @@ var module$1 = {};
       }
       return fireLocal(options, size, done);
     }
-    fire.reset = function() {
+    fire.reset = function () {
       if (worker) {
         worker.reset();
       }
@@ -8766,16 +8866,16 @@ var module$1 = {};
       matrix: [scale, 0, 0, scale, -width * scale / 2, -height * scale / 2]
     };
   }
-  module.exports = function() {
+  module.exports = function () {
     return getDefaultFire().apply(this, arguments);
   };
-  module.exports.reset = function() {
+  module.exports.reset = function () {
     getDefaultFire().reset();
   };
   module.exports.create = confettiCannon;
   module.exports.shapeFromPath = shapeFromPath;
   module.exports.shapeFromText = shapeFromText;
-})((function() {
+})((function () {
   if (typeof window !== "undefined") {
     return window;
   }
@@ -8834,6 +8934,7 @@ function CheckoutPage() {
     fetchPaymentMethods();
   }, []);
   reactExports.useEffect(() => {
+    window.scrollTo(0, 0);
     setIsMounted(true);
   }, []);
   reactExports.useEffect(() => {
@@ -9015,387 +9116,535 @@ function CheckoutPage() {
     }
   };
   if (submitSuccess) {
-    return /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "min-h-screen bg-white pt-24 md:pt-32 pb-24 md:pb-32 flex items-center justify-center", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "max-w-md mx-auto px-4 text-center", children: [
+    return /* @__PURE__ */ jsxRuntimeExports.jsx("div", {
+      className: "min-h-screen bg-white pt-24 md:pt-32 pb-24 md:pb-32 flex items-center justify-center", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+        className: "max-w-md mx-auto px-4 text-center", children: [
       /* @__PURE__ */ jsxRuntimeExports.jsx("h1", { className: "font-serif text-4xl text-black mb-6", children: "Order Placed" }),
-      trackingNumber && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "mb-6 p-4 border border-zinc-200 bg-zinc-50", children: [
+          trackingNumber && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+            className: "mb-6 p-4 border border-zinc-200 bg-zinc-50", children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-xs text-zinc-500 uppercase tracking-widest block mb-1", children: "Your Tracking Number" }),
         /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "font-mono text-lg font-medium tracking-wider text-black", children: trackingNumber })
-      ] }),
+            ]
+          }),
       /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-zinc-500 font-sans mb-12", children: "Thank you! Your order has been successfully placed. We will contact you shortly to coordinate delivery." }),
       /* @__PURE__ */ jsxRuntimeExports.jsx(CheckoutButton, { href: "/collections", text: "Continue Shopping", className: "w-full py-6 text-base" })
-    ] }) });
+        ]
+      })
+    });
   }
-  return /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "min-h-screen bg-white pt-24 md:pt-32 pb-24 md:pb-32 selection:bg-zinc-200", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "max-w-screen-xl mx-auto px-4 md:px-12", children: [
-    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "mb-12 text-sm text-zinc-500 font-sans tracking-wide", children: [
+  return /* @__PURE__ */ jsxRuntimeExports.jsx("div", {
+    className: "min-h-screen bg-white pt-20 md:pt-32 pb-24 md:pb-32 selection:bg-zinc-200", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+      className: "max-w-screen-xl mx-auto px-4 md:px-12", children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+        className: "mb-12 text-sm text-zinc-500 font-sans tracking-wide", children: [
       /* @__PURE__ */ jsxRuntimeExports.jsx("a", { href: "/cart", className: "hover:text-black transition-colors", children: "CART" }),
       /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "mx-2", children: "/" }),
       /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-black uppercase", children: "INFORMATION & SECURE CHECKOUT" })
-    ] }),
-    !isStartingSession && !sessionError && !submitSuccess && checkoutSession && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: `mb-8 p-4 border flex items-center justify-between transition-colors ${isExpired ? "bg-red-50 border-red-200" : timeLeft < 6e4 ? "bg-amber-50 border-amber-200" : "bg-zinc-50 border-zinc-200"}`, children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-3", children: [
+        ]
+      }),
+        !isStartingSession && !sessionError && !submitSuccess && checkoutSession && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+          className: `mb-8 p-4 border flex items-center justify-between transition-colors ${isExpired ? "bg-red-50 border-red-200" : timeLeft < 6e4 ? "bg-amber-50 border-amber-200" : "bg-zinc-50 border-zinc-200"}`, children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+            className: "flex items-center gap-3", children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: `w-2 h-2 rounded-full ${isExpired ? "bg-red-500 animate-pulse" : "bg-green-500"}` }),
         /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: `text-xs font-medium tracking-widest uppercase ${isExpired ? "text-red-600" : "text-zinc-600"}`, children: isExpired ? "Inventory Released" : "Inventory Reserved" })
-      ] }),
-      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-2", children: [
+            ]
+          }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+            className: "flex items-center gap-2", children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-[10px] text-zinc-400 font-sans uppercase tracking-[0.2em]", children: "Expires In" }),
         /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: `font-mono text-sm font-medium ${isExpired ? "text-red-600" : timeLeft < 6e4 ? "text-amber-600" : "text-black"}`, children: formatTimeLeft(timeLeft) })
-      ] })
-    ] }),
-    (sessionError || timeLeft === 0 && isExpired && !submitSuccess && checkoutSession) && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "mb-12 p-6 border border-red-200 bg-red-50/50 flex flex-col items-center text-center animate-in fade-in slide-in-from-top-4 duration-500", children: [
+            ]
+          })
+          ]
+        }),
+        (sessionError || timeLeft === 0 && isExpired && !submitSuccess && checkoutSession) && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+          className: "mb-12 p-6 border border-red-200 bg-red-50/50 flex flex-col items-center text-center animate-in fade-in slide-in-from-top-4 duration-500", children: [
       /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "font-serif text-xl text-red-600 mb-2", children: sessionError ? "Inventory Reservation Failed" : "Checkout Session Expired" }),
       /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-sm text-red-500/80 mb-6 max-w-sm", children: sessionError || "We've released your items so others can purchase them. Please refresh to re-reserve and continue." }),
       /* @__PURE__ */ jsxRuntimeExports.jsx(
-        Button,
-        {
-          onClick: () => window.location.reload(),
-          className: "bg-black text-white hover:bg-zinc-800 rounded-none uppercase text-xs tracking-widest px-8",
-          children: "Refresh Checkout"
-        }
-      )
-    ] }),
-    isStartingSession && !submitSuccess && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "mb-12 py-12 flex flex-col items-center animate-pulse", children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "w-8 h-8 border-2 border-black border-t-transparent rounded-full animate-spin mb-4" }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-xs text-zinc-400 uppercase tracking-widest", children: "Reserving Inventory..." })
-    ] }),
-    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: `flex flex-col-reverse lg:flex-row gap-16 lg:gap-24 relative ${isStartingSession || sessionError || isExpired && !submitSuccess ? "opacity-30 pointer-events-none grayscale" : ""}`, children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "w-full lg:w-[55%] flex flex-col gap-12", children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsxs("section", { children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "font-serif text-3xl text-black mb-6", children: "Contact" }),
-          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "space-y-6", children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
-              /* @__PURE__ */ jsxRuntimeExports.jsx(
-                "input",
-                {
-                  type: "email",
-                  placeholder: "Email (Optional)",
-                  className: "w-full border border-zinc-300 px-4 py-3 text-sm focus:outline-none focus:border-black transition-colors placeholder:text-zinc-400",
-                  value: email,
-                  onChange: (e) => setEmail(e.target.value)
-                }
-              ),
-              email && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-3 mt-4 animate-in fade-in slide-in-from-top-2 duration-300 text-black", children: [
-                /* @__PURE__ */ jsxRuntimeExports.jsx("input", { type: "checkbox", id: "newsletter", defaultChecked: false, className: "w-4 h-4 rounded border-zinc-300 text-black focus:ring-black accent-black" }),
-                /* @__PURE__ */ jsxRuntimeExports.jsx("label", { htmlFor: "newsletter", className: "text-sm cursor-pointer select-none", children: "Email me with news and offers" })
-              ] })
-            ] }),
-            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
-              /* @__PURE__ */ jsxRuntimeExports.jsxs("label", { className: "text-xs font-semibold tracking-widest uppercase text-zinc-500 mb-2 block", children: [
-                "Phone Number ",
-                /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-red-500", children: "*" })
-              ] }),
-              /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex group", children: [
-                /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "inline-flex items-center px-4 border border-r-0 border-zinc-300 bg-zinc-50 text-sm font-medium text-zinc-600 transition-colors group-focus-within:border-black", children: "+977" }),
-                /* @__PURE__ */ jsxRuntimeExports.jsx(
-                  "input",
-                  {
-                    type: "tel",
-                    placeholder: "Mobile Number",
-                    className: "w-full border border-zinc-300 px-4 py-3 text-sm focus:outline-none focus:border-black transition-colors placeholder:text-zinc-400",
-                    required: true,
-                    value: phone,
-                    onChange: (e) => setPhone(e.target.value)
-                  }
-                )
-              ] }),
-              /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-xs text-zinc-400 mt-2", children: "Required for delivery coordination. Currently supporting Nepal region only." })
-            ] })
-          ] })
-        ] }),
-        /* @__PURE__ */ jsxRuntimeExports.jsxs("section", { children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "font-serif text-3xl text-black mb-6", children: "Delivery" }),
-          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "grid grid-cols-2 gap-4 mb-4", children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsx(
-              "input",
-              {
-                type: "text",
-                placeholder: "First Name *",
-                className: "w-full border border-zinc-300 px-4 py-3 text-sm focus:outline-none focus:border-black transition-colors placeholder:text-zinc-400",
-                required: true,
-                value: firstName,
-                onChange: (e) => setFirstName(e.target.value)
-              }
-            ),
-            /* @__PURE__ */ jsxRuntimeExports.jsx(
-              "input",
-              {
-                type: "text",
-                placeholder: "Last Name *",
-                className: "w-full border border-zinc-300 px-4 py-3 text-sm focus:outline-none focus:border-black transition-colors placeholder:text-zinc-400",
-                required: true,
-                value: lastName,
-                onChange: (e) => setLastName(e.target.value)
-              }
-            )
-          ] }),
-          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "space-y-4", children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsx(
-              "input",
-              {
-                type: "text",
-                placeholder: "City *",
-                className: "w-full border border-zinc-300 px-4 py-3 text-sm focus:outline-none focus:border-black transition-colors placeholder:text-zinc-400",
-                required: true,
-                value: city,
-                onChange: (e) => setCity(e.target.value)
-              }
-            ),
-            /* @__PURE__ */ jsxRuntimeExports.jsx(
-              "input",
-              {
-                type: "text",
-                placeholder: "Apartment, House No, Street name, etc. *",
-                className: "w-full border border-zinc-300 px-4 py-3 text-sm focus:outline-none focus:border-black transition-colors placeholder:text-zinc-400",
-                required: true,
-                value: address,
-                onChange: (e) => setAddress(e.target.value)
-              }
-            )
-          ] })
-        ] }),
-        /* @__PURE__ */ jsxRuntimeExports.jsxs("section", { children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "font-serif text-3xl text-black mb-6", children: "Payment Method" }),
-          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "space-y-3", children: isLoadingPaymentMethods ? /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "animate-pulse space-y-3", children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "h-16 bg-zinc-50 border border-zinc-200" }),
-            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "h-16 bg-zinc-50 border border-zinc-200" })
-          ] }) : paymentMethods.length > 0 ? paymentMethods.map((method) => /* @__PURE__ */ jsxRuntimeExports.jsxs(
-            "div",
+            Button,
             {
-              onClick: () => setSelectedPaymentMethod(method.code),
-              className: `group relative border px-5 py-4 flex items-center justify-between cursor-pointer transition-all duration-300 ${selectedPaymentMethod === method.code ? "border-black bg-white ring-1 ring-black shadow-[0_4px_20px_-5px_rgba(0,0,0,0.05)]" : "border-zinc-200 bg-white hover:border-zinc-300"}`,
-              children: [
-                /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-4", children: [
-                  /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: `w-5 h-5 rounded-full border transition-all duration-300 flex items-center justify-center shrink-0 ${selectedPaymentMethod === method.code ? "border-black" : "border-zinc-300 group-hover:border-zinc-400"}`, children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: `w-2.5 h-2.5 rounded-full bg-black transition-all duration-300 transform ${selectedPaymentMethod === method.code ? "scale-100 opacity-100" : "scale-0 opacity-0"}` }) }),
-                  /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-col", children: [
-                    /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-sm font-semibold tracking-tight text-black", children: method.name }),
-                    method.description && /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-xs text-zinc-500 mt-0.5 font-normal leading-relaxed", children: method.description })
-                  ] })
-                ] }),
-                method.icon_url && /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "w-10 h-10 rounded-lg bg-zinc-50 border border-zinc-100 p-1.5 flex-shrink-0", children: /* @__PURE__ */ jsxRuntimeExports.jsx("img", { src: method.icon_url, alt: method.name, className: "w-full h-full object-contain grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300" }) })
-              ]
-            },
-            method.id
-          )) : /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-sm text-zinc-500 italic", children: "No payment methods available right now." }) })
-        ] }),
-        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "pt-8 mt-2 border-t border-zinc-200", children: [
-          submitError && /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "mb-6 p-4 border border-red-500 bg-red-50 text-red-500 text-sm font-medium", children: submitError }),
-          /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { className: "text-xs text-zinc-500 leading-relaxed mb-8", children: [
-            "By clicking on continue, you agree to place your order and accept our ",
-            /* @__PURE__ */ jsxRuntimeExports.jsx("a", { href: "#", className: "underline underline-offset-2 hover:text-black transition-colors", children: "Terms and Conditions" }),
-            ", as well as our ",
-            /* @__PURE__ */ jsxRuntimeExports.jsx("a", { href: "/privacy", className: "underline underline-offset-2 hover:text-black transition-colors", target: "_blank", rel: "noopener noreferrer", children: "Privacy Policy" }),
-            ". Your personal data will be used to process your order, support your experience throughout this website, and for other purposes described in our privacy policy."
-          ] }),
-          /* @__PURE__ */ jsxRuntimeExports.jsx(
-            CheckoutButton,
-            {
-              className: "w-full py-7 text-base shadow-lg shadow-black/10 mt-4",
-              text: isSubmitting ? "Placing Order..." : "Place Order",
-              onClick: handlePlaceOrder
+              onClick: () => window.location.reload(),
+              className: "bg-black text-white hover:bg-zinc-800 rounded-none uppercase text-xs tracking-widest px-8",
+              children: "Refresh Checkout"
             }
           )
-        ] }),
-        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "block lg:hidden bg-zinc-50 border border-zinc-200 p-4 rounded-sm mt-8", children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsxs("h2", { className: "font-serif text-lg text-black mb-4 border-b border-zinc-200 pb-3", children: [
-            "Order Summary (",
-            totalItems,
-            " ",
-            totalItems === 1 ? "item" : "items",
-            ")"
-          ] }),
-          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex flex-col gap-3 mb-4", children: cartItems.map((item, idx) => /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex gap-3 items-center group", children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "relative w-12 aspect-[4/5] bg-white overflow-hidden shrink-0 border border-zinc-200 mix-blend-multiply", children: /* @__PURE__ */ jsxRuntimeExports.jsx(
-              Image,
-              {
-                src: item.image,
-                alt: item.name,
-                fill: true,
-                className: "object-cover object-center group-hover:scale-105 transition-transform duration-500"
-              }
-            ) }),
-            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex-1 flex flex-col", children: [
-              /* @__PURE__ */ jsxRuntimeExports.jsxs("h4", { className: "font-serif text-sm text-black leading-tight", children: [
-                item.name,
-                " (",
-                item.quantity,
-                ")"
-              ] }),
-              /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { className: "text-[10px] text-zinc-500", children: [
-                item.color,
-                " / ",
-                item.size
-              ] })
-            ] }),
-            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "text-sm font-medium text-black", children: [
-              "NPR ",
-              item.price.toFixed(2)
-            ] })
-          ] }, idx)) }),
-          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "w-full h-[1px] bg-zinc-200 mb-4" }),
-          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-col gap-2 font-sans text-xs text-zinc-600 mb-4", children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex justify-between items-center", children: [
-              /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: "Subtotal" }),
-              /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "text-black font-medium", children: [
-                "NPR ",
-                subtotal.toFixed(2)
-              ] })
-            ] }),
-            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex justify-between items-center", children: [
-              /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: "Shipping" }),
-              /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "text-black font-medium", children: [
-                "NPR ",
-                shipping.toFixed(2)
-              ] })
-            ] }),
-            discount > 0 && appliedCoupon && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex justify-between items-center text-green-600 font-medium tracking-tight", children: [
-              /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { children: [
-                "Discount (",
-                appliedCoupon.code,
-                ")"
-              ] }),
-              /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { children: [
-                "- NPR ",
-                discount.toFixed(2)
-              ] })
-            ] }),
-            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex justify-between items-center mt-2 pt-2 border-t border-zinc-200", children: [
-              /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-sm text-black font-medium", children: "Total" }),
-              /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-end gap-1.5 text-black", children: [
-                /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-[9px] text-zinc-500 font-medium mb-0.5", children: "NPR" }),
-                /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "font-serif text-lg font-medium tracking-tight", children: [
-                  "NPR ",
-                  total.toFixed(2)
-                ] })
-              ] })
-            ] })
-          ] })
-        ] })
-      ] }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "hidden lg:flex w-full lg:w-[45%] flex-col pt-8 lg:pt-0", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "lg:sticky lg:top-32 bg-zinc-50 p-6 md:p-8 rounded-sm", children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsxs("h2", { className: "font-serif text-xl md:text-2xl text-black mb-6 border-b border-zinc-200 pb-4", children: [
-          "Order Summary (",
-          totalItems,
-          " ",
-          totalItems === 1 ? "item" : "items",
-          ")"
-        ] }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex flex-col gap-4 mb-6", children: cartItems.map((item, idx) => /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex gap-4 items-center group", children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "relative w-16 aspect-[4/5] bg-white overflow-hidden shrink-0 border border-zinc-200 mix-blend-multiply", children: /* @__PURE__ */ jsxRuntimeExports.jsx(
-            Image,
-            {
-              src: item.image,
-              alt: item.name,
-              fill: true,
-              className: "object-cover object-center group-hover:scale-105 transition-transform duration-500"
-            }
-          ) }),
-          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex-1 flex flex-col", children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsxs("h4", { className: "font-serif text-sm md:text-base text-black leading-tight mb-0.5", children: [
-              item.name,
-              " (",
-              item.quantity,
-              ")"
-            ] }),
-            /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { className: "text-xs text-zinc-500", children: [
-              item.color,
-              " / ",
-              item.size
-            ] })
-          ] }),
-          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "text-sm font-medium text-black", children: [
-            "NPR ",
-            item.price.toFixed(2)
-          ] })
-        ] }, idx)) }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "w-full h-[1px] bg-zinc-200 mb-6" }),
-        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "mb-6", children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsx(
-            "button",
-            {
-              onClick: () => setIsCouponExpanded(!isCouponExpanded),
-              className: "text-sm text-black hover:text-zinc-600 transition-colors underline underline-offset-4 font-medium",
-              children: isCouponExpanded ? "Hide coupon form" : "Add coupon"
-            }
-          ),
-          isCouponExpanded && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-col gap-2 mt-4 animate-in fade-in slide-in-from-top-2 duration-300", children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex gap-3", children: [
+          ]
+        }),
+        isStartingSession && !submitSuccess && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+          className: "mb-12 py-12 flex flex-col items-center animate-pulse", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "w-8 h-8 border-2 border-black border-t-transparent rounded-full animate-spin mb-4" }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-xs text-zinc-400 uppercase tracking-widest", children: "Reserving Inventory..." })
+          ]
+        }),
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+          className: `flex flex-col-reverse lg:flex-row gap-16 lg:gap-24 relative ${isStartingSession || sessionError || isExpired && !submitSuccess ? "opacity-30 pointer-events-none grayscale" : ""}`, children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+            className: "w-full lg:w-[55%] flex flex-col gap-12", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("section", {
+              children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "font-serif text-3xl text-black mb-6", children: "Contact" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+                className: "space-y-6", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+                  children: [
               /* @__PURE__ */ jsxRuntimeExports.jsx(
-                "input",
-                {
-                  type: "text",
-                  placeholder: "Coupon code",
-                  className: "flex-1 border border-zinc-300 px-4 py-2.5 text-sm focus:outline-none focus:border-black transition-colors placeholder:text-zinc-400 bg-white uppercase",
-                  value: couponCode,
-                  onChange: (e) => setCouponCode(e.target.value.toUpperCase()),
-                  disabled: isValidatingCoupon || !!appliedCoupon
-                }
-              ),
-              appliedCoupon ? /* @__PURE__ */ jsxRuntimeExports.jsx(
-                Button,
-                {
-                  variant: "outline",
-                  onClick: () => {
-                    setAppliedCoupon(null);
-                    setCouponCode("");
+                    "input",
+                    {
+                      type: "email",
+                      placeholder: "Email (Optional)",
+                      className: "w-full border border-zinc-300 px-4 py-3 text-sm focus:outline-none focus:border-black transition-colors placeholder:text-zinc-400",
+                      value: email,
+                      onChange: (e) => setEmail(e.target.value)
+                    }
+                  ),
+                    email && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+                      className: "flex items-center gap-3 mt-4 animate-in fade-in slide-in-from-top-2 duration-300 text-black", children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsx("input", { type: "checkbox", id: "newsletter", defaultChecked: false, className: "w-4 h-4 rounded border-zinc-300 text-black focus:ring-black accent-black" }),
+                /* @__PURE__ */ jsxRuntimeExports.jsx("label", { htmlFor: "newsletter", className: "text-sm cursor-pointer select-none", children: "Email me with news and offers" })
+                      ]
+                    })
+                  ]
+                }),
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+                  children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsxs("label", {
+                    className: "text-xs font-semibold tracking-widest uppercase text-zinc-500 mb-2 block", children: [
+                      "Phone Number ",
+                /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-red-500", children: "*" })
+                    ]
+                  }),
+              /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+                    className: "flex group", children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "inline-flex items-center px-4 border border-r-0 border-zinc-300 bg-zinc-50 text-sm font-medium text-zinc-600 transition-colors group-focus-within:border-black", children: "+977" }),
+                /* @__PURE__ */ jsxRuntimeExports.jsx(
+                      "input",
+                      {
+                        type: "tel",
+                        placeholder: "Mobile Number",
+                        className: "w-full border border-zinc-300 px-4 py-3 text-sm focus:outline-none focus:border-black transition-colors placeholder:text-zinc-400",
+                        required: true,
+                        value: phone,
+                        onChange: (e) => setPhone(e.target.value)
+                      }
+                    )
+                    ]
+                  }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-xs text-zinc-400 mt-2", children: "Required for delivery coordination. Currently supporting Nepal region only." })
+                  ]
+                })
+                ]
+              })
+              ]
+            }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("section", {
+              children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "font-serif text-3xl text-black mb-6", children: "Delivery" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+                className: "grid grid-cols-2 gap-4 mb-4", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx(
+                  "input",
+                  {
+                    type: "text",
+                    placeholder: "First Name *",
+                    className: "w-full border border-zinc-300 px-4 py-3 text-sm focus:outline-none focus:border-black transition-colors placeholder:text-zinc-400",
+                    required: true,
+                    value: firstName,
+                    onChange: (e) => setFirstName(e.target.value)
+                  }
+                ),
+            /* @__PURE__ */ jsxRuntimeExports.jsx(
+                  "input",
+                  {
+                    type: "text",
+                    placeholder: "Last Name *",
+                    className: "w-full border border-zinc-300 px-4 py-3 text-sm focus:outline-none focus:border-black transition-colors placeholder:text-zinc-400",
+                    required: true,
+                    value: lastName,
+                    onChange: (e) => setLastName(e.target.value)
+                  }
+                )
+                ]
+              }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+                className: "space-y-4", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx(
+                  "input",
+                  {
+                    type: "text",
+                    placeholder: "City *",
+                    className: "w-full border border-zinc-300 px-4 py-3 text-sm focus:outline-none focus:border-black transition-colors placeholder:text-zinc-400",
+                    required: true,
+                    value: city,
+                    onChange: (e) => setCity(e.target.value)
+                  }
+                ),
+            /* @__PURE__ */ jsxRuntimeExports.jsx(
+                  "input",
+                  {
+                    type: "text",
+                    placeholder: "Apartment, House No, Street name, etc. *",
+                    className: "w-full border border-zinc-300 px-4 py-3 text-sm focus:outline-none focus:border-black transition-colors placeholder:text-zinc-400",
+                    required: true,
+                    value: address,
+                    onChange: (e) => setAddress(e.target.value)
+                  }
+                )
+                ]
+              })
+              ]
+            }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("section", {
+              children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "font-serif text-3xl text-black mb-6", children: "Payment Method" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("div", {
+                className: "space-y-3", children: isLoadingPaymentMethods ? /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+                  className: "animate-pulse space-y-3", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "h-16 bg-zinc-50 border border-zinc-200" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "h-16 bg-zinc-50 border border-zinc-200" })
+                  ]
+                }) : paymentMethods.length > 0 ? paymentMethods.map((method) => /* @__PURE__ */ jsxRuntimeExports.jsxs(
+                  "div",
+                  {
+                    onClick: () => setSelectedPaymentMethod(method.code),
+                    className: `group relative border px-5 py-4 flex items-center justify-between cursor-pointer transition-all duration-300 ${selectedPaymentMethod === method.code ? "border-black bg-white ring-1 ring-black shadow-[0_4px_20px_-5px_rgba(0,0,0,0.05)]" : "border-zinc-200 bg-white hover:border-zinc-300"}`,
+                    children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+                      className: "flex items-center gap-4", children: [
+                  /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: `w-5 h-5 rounded-full border transition-all duration-300 flex items-center justify-center shrink-0 ${selectedPaymentMethod === method.code ? "border-black" : "border-zinc-300 group-hover:border-zinc-400"}`, children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: `w-2.5 h-2.5 rounded-full bg-black transition-all duration-300 transform ${selectedPaymentMethod === method.code ? "scale-100 opacity-100" : "scale-0 opacity-0"}` }) }),
+                  /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+                        className: "flex flex-col", children: [
+                    /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-sm font-semibold tracking-tight text-black", children: method.name }),
+                          method.description && /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-xs text-zinc-500 mt-0.5 font-normal leading-relaxed", children: method.description })
+                        ]
+                      })
+                      ]
+                    }),
+                      method.icon_url && /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "w-10 h-10 rounded-lg bg-zinc-50 border border-zinc-100 p-1.5 flex-shrink-0", children: /* @__PURE__ */ jsxRuntimeExports.jsx("img", { src: method.icon_url, alt: method.name, className: "w-full h-full object-contain grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300" }) })
+                    ]
                   },
-                  className: "rounded-none border-red-200 text-red-500 hover:bg-red-50 hover:text-red-600 px-6 text-sm tracking-wide transition-colors",
-                  children: "Remove"
-                }
-              ) : /* @__PURE__ */ jsxRuntimeExports.jsx(
-                Button,
-                {
-                  onClick: handleApplyCoupon,
-                  disabled: isValidatingCoupon || !couponCode.trim(),
-                  variant: "outline",
-                  className: "rounded-none border-zinc-300 hover:border-black bg-white hover:bg-zinc-50 text-black px-6 text-sm tracking-wide transition-colors",
-                  children: isValidatingCoupon ? "..." : "Apply"
-                }
-              )
-            ] }),
-            couponError && /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-xs text-red-500 font-medium", children: couponError }),
-            appliedCoupon && /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { className: "text-xs text-green-600 font-medium italic", children: [
-              "Coupon applied! You saved NPR ",
-              appliedCoupon.discount_amount.toFixed(2)
-            ] })
-          ] })
-        ] }),
+                  method.id
+                )) : /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-sm text-zinc-500 italic", children: "No payment methods available right now." })
+              })
+              ]
+            }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+              className: "pt-8 mt-2 border-t border-zinc-200", children: [
+                submitError && /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "mb-6 p-4 border border-red-500 bg-red-50 text-red-500 text-sm font-medium", children: submitError }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("p", {
+                  className: "text-xs text-zinc-500 leading-relaxed mb-8", children: [
+                    "By clicking on continue, you agree to place your order and accept our ",
+            /* @__PURE__ */ jsxRuntimeExports.jsx("a", { href: "#", className: "underline underline-offset-2 hover:text-black transition-colors", children: "Terms and Conditions" }),
+                    ", as well as our ",
+            /* @__PURE__ */ jsxRuntimeExports.jsx("a", { href: "/privacy", className: "underline underline-offset-2 hover:text-black transition-colors", target: "_blank", rel: "noopener noreferrer", children: "Privacy Policy" }),
+                    ". Your personal data will be used to process your order, support your experience throughout this website, and for other purposes described in our privacy policy."
+                  ]
+                }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx(
+                  CheckoutButton,
+                  {
+                    className: "w-full py-7 text-base shadow-lg shadow-black/10 mt-4",
+                    text: isSubmitting ? "Placing Order..." : "Place Order",
+                    onClick: handlePlaceOrder
+                  }
+                )
+              ]
+            }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+              className: "block lg:hidden bg-zinc-50 border border-zinc-200 p-4 rounded-sm mt-8", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("h2", {
+                className: "font-serif text-lg text-black mb-4 border-b border-zinc-200 pb-3", children: [
+                  "Order Summary (",
+                  totalItems,
+                  " ",
+                  totalItems === 1 ? "item" : "items",
+                  ")"
+                ]
+              }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("div", {
+                className: "flex flex-col gap-3 mb-4", children: cartItems.map((item, idx) => /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+                  className: "flex gap-3 items-center group", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("div", {
+                    className: "relative w-12 aspect-[4/5] bg-white overflow-hidden shrink-0 border border-zinc-200 mix-blend-multiply", children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+                      Image,
+                      {
+                        src: item.image,
+                        alt: item.name,
+                        fill: true,
+                        className: "object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                      }
+                    )
+                  }),
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+                    className: "flex-1 flex flex-col", children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsxs("h4", {
+                      className: "font-serif text-sm text-black leading-tight", children: [
+                        item.name,
+                        " (",
+                        item.quantity,
+                        ")"
+                      ]
+                    }),
+              /* @__PURE__ */ jsxRuntimeExports.jsxs("p", {
+                      className: "text-[10px] text-zinc-500", children: [
+                        item.color,
+                        " / ",
+                        item.size
+                      ]
+                    })
+                    ]
+                  }),
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+                    className: "text-sm font-medium text-black", children: [
+                      "NPR ",
+                      item.price.toFixed(2)
+                    ]
+                  })
+                  ]
+                }, idx))
+              }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "w-full h-[1px] bg-zinc-200 mb-4" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+                className: "flex flex-col gap-2 font-sans text-xs text-zinc-600 mb-4", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+                  className: "flex justify-between items-center", children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: "Subtotal" }),
+              /* @__PURE__ */ jsxRuntimeExports.jsxs("span", {
+                    className: "text-black font-medium", children: [
+                      "NPR ",
+                      subtotal.toFixed(2)
+                    ]
+                  })
+                  ]
+                }),
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+                  className: "flex justify-between items-center", children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: "Shipping" }),
+              /* @__PURE__ */ jsxRuntimeExports.jsxs("span", {
+                    className: "text-black font-medium", children: [
+                      "NPR ",
+                      shipping.toFixed(2)
+                    ]
+                  })
+                  ]
+                }),
+                  discount > 0 && appliedCoupon && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+                    className: "flex justify-between items-center text-green-600 font-medium tracking-tight", children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsxs("span", {
+                      children: [
+                        "Discount (",
+                        appliedCoupon.code,
+                        ")"
+                      ]
+                    }),
+              /* @__PURE__ */ jsxRuntimeExports.jsxs("span", {
+                      children: [
+                        "- NPR ",
+                        discount.toFixed(2)
+                      ]
+                    })
+                    ]
+                  }),
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+                    className: "flex justify-between items-center mt-2 pt-2 border-t border-zinc-200", children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-sm text-black font-medium", children: "Total" }),
+              /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+                      className: "flex items-end gap-1.5 text-black", children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-[9px] text-zinc-500 font-medium mb-0.5", children: "NPR" }),
+                /* @__PURE__ */ jsxRuntimeExports.jsxs("span", {
+                        className: "font-serif text-lg font-medium tracking-tight", children: [
+                          "NPR ",
+                          total.toFixed(2)
+                        ]
+                      })
+                      ]
+                    })
+                    ]
+                  })
+                ]
+              })
+              ]
+            })
+            ]
+          }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", {
+            className: "hidden lg:flex w-full lg:w-[45%] flex-col pt-8 lg:pt-0", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+              className: "lg:sticky lg:top-32 bg-zinc-50 p-6 md:p-8 rounded-sm", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("h2", {
+                className: "font-serif text-xl md:text-2xl text-black mb-6 border-b border-zinc-200 pb-4", children: [
+                  "Order Summary (",
+                  totalItems,
+                  " ",
+                  totalItems === 1 ? "item" : "items",
+                  ")"
+                ]
+              }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("div", {
+                className: "flex flex-col gap-4 mb-6", children: cartItems.map((item, idx) => /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+                  className: "flex gap-4 items-center group", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("div", {
+                    className: "relative w-16 aspect-[4/5] bg-white overflow-hidden shrink-0 border border-zinc-200 mix-blend-multiply", children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+                      Image,
+                      {
+                        src: item.image,
+                        alt: item.name,
+                        fill: true,
+                        className: "object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                      }
+                    )
+                  }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+                    className: "flex-1 flex flex-col", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("h4", {
+                      className: "font-serif text-sm md:text-base text-black leading-tight mb-0.5", children: [
+                        item.name,
+                        " (",
+                        item.quantity,
+                        ")"
+                      ]
+                    }),
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("p", {
+                      className: "text-xs text-zinc-500", children: [
+                        item.color,
+                        " / ",
+                        item.size
+                      ]
+                    })
+                    ]
+                  }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+                    className: "text-sm font-medium text-black", children: [
+                      "NPR ",
+                      item.price.toFixed(2)
+                    ]
+                  })
+                  ]
+                }, idx))
+              }),
         /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "w-full h-[1px] bg-zinc-200 mb-6" }),
-        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-col gap-3 font-sans text-sm text-zinc-600 mb-6", children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex justify-between items-center", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+                className: "mb-6", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx(
+                  "button",
+                  {
+                    onClick: () => setIsCouponExpanded(!isCouponExpanded),
+                    className: "text-sm text-black hover:text-zinc-600 transition-colors underline underline-offset-4 font-medium",
+                    children: isCouponExpanded ? "Hide coupon form" : "Add coupon"
+                  }
+                ),
+                  isCouponExpanded && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+                    className: "flex flex-col gap-2 mt-4 animate-in fade-in slide-in-from-top-2 duration-300", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+                      className: "flex gap-3", children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx(
+                        "input",
+                        {
+                          type: "text",
+                          placeholder: "Coupon code",
+                          className: "flex-1 border border-zinc-300 px-4 py-2.5 text-sm focus:outline-none focus:border-black transition-colors placeholder:text-zinc-400 bg-white uppercase",
+                          value: couponCode,
+                          onChange: (e) => setCouponCode(e.target.value.toUpperCase()),
+                          disabled: isValidatingCoupon || !!appliedCoupon
+                        }
+                      ),
+                        appliedCoupon ? /* @__PURE__ */ jsxRuntimeExports.jsx(
+                          Button,
+                          {
+                            variant: "outline",
+                            onClick: () => {
+                              setAppliedCoupon(null);
+                              setCouponCode("");
+                            },
+                            className: "rounded-none border-red-200 text-red-500 hover:bg-red-50 hover:text-red-600 px-6 text-sm tracking-wide transition-colors",
+                            children: "Remove"
+                          }
+                        ) : /* @__PURE__ */ jsxRuntimeExports.jsx(
+                          Button,
+                          {
+                            onClick: handleApplyCoupon,
+                            disabled: isValidatingCoupon || !couponCode.trim(),
+                            variant: "outline",
+                            className: "rounded-none border-zinc-300 hover:border-black bg-white hover:bg-zinc-50 text-black px-6 text-sm tracking-wide transition-colors",
+                            children: isValidatingCoupon ? "..." : "Apply"
+                          }
+                        )
+                      ]
+                    }),
+                      couponError && /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-xs text-red-500 font-medium", children: couponError }),
+                      appliedCoupon && /* @__PURE__ */ jsxRuntimeExports.jsxs("p", {
+                        className: "text-xs text-green-600 font-medium italic", children: [
+                          "Coupon applied! You saved NPR ",
+                          appliedCoupon.discount_amount.toFixed(2)
+                        ]
+                      })
+                    ]
+                  })
+                ]
+              }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "w-full h-[1px] bg-zinc-200 mb-6" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+                className: "flex flex-col gap-3 font-sans text-sm text-zinc-600 mb-6", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+                  className: "flex justify-between items-center", children: [
             /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: "Subtotal" }),
-            /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "text-black font-medium", children: [
-              "NPR ",
-              subtotal.toFixed(2)
-            ] })
-          ] }),
-          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex justify-between items-center", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("span", {
+                    className: "text-black font-medium", children: [
+                      "NPR ",
+                      subtotal.toFixed(2)
+                    ]
+                  })
+                  ]
+                }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+                  className: "flex justify-between items-center", children: [
             /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: "Shipping" }),
-            /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "text-black font-medium", children: [
-              "NPR ",
-              shipping.toFixed(2)
-            ] })
-          ] }),
-          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex justify-between items-center text-zinc-400", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("span", {
+                    className: "text-black font-medium", children: [
+                      "NPR ",
+                      shipping.toFixed(2)
+                    ]
+                  })
+                  ]
+                }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+                  className: "flex justify-between items-center text-zinc-400", children: [
             /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: "Coupon Discount" }),
-            discount > 0 ? /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "text-green-600 font-medium", children: [
-              "- NPR ",
-              discount.toFixed(2)
-            ] }) : /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: "NPR 0.00" })
-          ] }),
-          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex justify-between items-center mt-3 pt-3 border-t border-zinc-200", children: [
+                    discount > 0 ? /* @__PURE__ */ jsxRuntimeExports.jsxs("span", {
+                      className: "text-green-600 font-medium", children: [
+                        "- NPR ",
+                        discount.toFixed(2)
+                      ]
+                    }) : /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: "NPR 0.00" })
+                  ]
+                }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+                  className: "flex justify-between items-center mt-3 pt-3 border-t border-zinc-200", children: [
             /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-base text-black font-medium", children: "Total" }),
-            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-end gap-2 text-black", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+                    className: "flex items-end gap-2 text-black", children: [
               /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-[10px] text-zinc-500 font-medium mb-1", children: "NPR" }),
-              /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "font-serif text-2xl font-medium tracking-tight", children: [
-                "NPR ",
-                total.toFixed(2)
-              ] })
-            ] })
-          ] })
-        ] }),
+              /* @__PURE__ */ jsxRuntimeExports.jsxs("span", {
+                      className: "font-serif text-2xl font-medium tracking-tight", children: [
+                        "NPR ",
+                        total.toFixed(2)
+                      ]
+                    })
+                    ]
+                  })
+                  ]
+                })
+                ]
+              }),
         /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "bg-zinc-100 p-2.5 rounded-sm", children: /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-[10px] text-left md:text-center text-zinc-500 font-medium uppercase tracking-widest", children: "Pricing are inclusive of Tax" }) })
-      ] }) })
-    ] })
-  ] }) });
+              ]
+            })
+          })
+          ]
+        })
+      ]
+    })
+  });
 }
 function useProducts(options) {
   const [products, setProducts] = reactExports.useState([]);
@@ -9612,12 +9861,16 @@ function CollectionsPage() {
       };
     });
   };
-  return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "pt-32 pb-24 px-4 md:px-12 max-w-[1800px] mx-auto min-h-screen", children: [
-    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "mb-12 text-center md:text-left", children: [
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+    className: "pt-24 md:pt-32 pb-24 px-4 md:px-12 max-w-[1800px] mx-auto min-h-screen", children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+      className: "mb-12 text-center md:text-left", children: [
       /* @__PURE__ */ jsxRuntimeExports.jsx("h1", { className: "font-serif text-4xl md:text-5xl lg:text-6xl text-black tracking-tight mb-4", children: "All Collections" }),
       /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-zinc-500 max-w-xl text-sm md:text-base leading-relaxed hidden md:block", children: "Discover our handcrafted range of luxury minimal footwear, designed for the purest comfort and timeless aesthetics." })
-    ] }),
-    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-row justify-between items-center py-6 border-b border-t border-zinc-200 mb-8 gap-4", children: [
+      ]
+    }),
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+      className: "flex flex-row justify-between items-center py-6 border-b border-t border-zinc-200 mb-8 gap-4", children: [
       /* @__PURE__ */ jsxRuntimeExports.jsxs(
         "button",
         {
@@ -9639,289 +9892,361 @@ function CollectionsPage() {
           className: "flex lg:hidden items-center gap-2 group hover:text-black text-zinc-600 transition-colors",
           children: [
             /* @__PURE__ */ jsxRuntimeExports.jsx(SlidersHorizontal, { className: "w-4 h-4 shrink-0" }),
-            /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "text-sm font-medium tracking-wide uppercase", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("span", {
+            className: "text-sm font-medium tracking-wide uppercase", children: [
               "Filters ",
               totalActiveFilters > 0 && `(${totalActiveFilters})`
-            ] })
+            ]
+          })
           ]
         }
       ),
-      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-2 sm:gap-4 flex-shrink-0", children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "text-sm text-zinc-500 hidden sm:block", children: [
-          loading ? "..." : products.length,
-          " Results"
-        ] }),
-        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "relative group/sort", children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsxs("button", { className: "flex items-center gap-1 sm:gap-2 text-sm font-medium text-black group-hover/sort:text-zinc-600 transition-colors py-2", children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "hidden sm:inline", children: [
-              "Sort By: ",
-              selectedSort
-            ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+        className: "flex items-center gap-2 sm:gap-4 flex-shrink-0", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("span", {
+          className: "text-sm text-zinc-500 hidden sm:block", children: [
+            loading ? "..." : products.length,
+            " Results"
+          ]
+        }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+          className: "relative group/sort", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("button", {
+            className: "flex items-center gap-1 sm:gap-2 text-sm font-medium text-black group-hover/sort:text-zinc-600 transition-colors py-2", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("span", {
+              className: "hidden sm:inline", children: [
+                "Sort By: ",
+                selectedSort
+              ]
+            }),
             /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "sm:hidden", children: "Sort" }),
             /* @__PURE__ */ jsxRuntimeExports.jsx(ChevronDown, { className: "w-4 h-4 shrink-0" })
-          ] }),
-          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute right-0 top-full mt-2 w-48 bg-white border border-zinc-200 shadow-xl opacity-0 invisible group-hover/sort:opacity-100 group-hover/sort:visible transition-all duration-200 z-40 py-2", children: ["Recommended", "Trending", "Popular", "Newest", "Price: Low to High", "Price: High to Low"].map((option) => /* @__PURE__ */ jsxRuntimeExports.jsx(
-            "button",
-            {
-              onClick: () => setSelectedSort(option),
-              className: `block w-full text-left px-4 py-2 text-sm hover:bg-zinc-50 transition-colors ${selectedSort === option ? "text-black font-medium" : "text-zinc-600 hover:text-black"}`,
-              children: option
-            },
-            option
-          )) })
-        ] })
-      ] })
-    ] }),
-    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: `flex flex-col lg:flex-row ${isFilterSidebarVisible ? "gap-8 lg:gap-12" : "gap-0"} items-start transition-all duration-500 relative lg:pl-4`, children: [
+            ]
+          }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("div", {
+            className: "absolute right-0 top-full mt-2 w-48 bg-white border border-zinc-200 shadow-xl opacity-0 invisible group-hover/sort:opacity-100 group-hover/sort:visible transition-all duration-200 z-40 py-2", children: ["Recommended", "Trending", "Popular", "Newest", "Price: Low to High", "Price: High to Low"].map((option) => /* @__PURE__ */ jsxRuntimeExports.jsx(
+              "button",
+              {
+                onClick: () => setSelectedSort(option),
+                className: `block w-full text-left px-4 py-2 text-sm hover:bg-zinc-50 transition-colors ${selectedSort === option ? "text-black font-medium" : "text-zinc-600 hover:text-black"}`,
+                children: option
+              },
+              option
+            ))
+          })
+          ]
+        })
+        ]
+      })
+      ]
+    }),
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+      className: `flex flex-col lg:flex-row ${isFilterSidebarVisible ? "gap-8 lg:gap-12" : "gap-0"} items-start transition-all duration-500 relative lg:pl-4`, children: [
       /* @__PURE__ */ jsxRuntimeExports.jsx(
         "div",
         {
           className: `hidden lg:block shrink-0 overflow-y-auto pr-3 [&::-webkit-scrollbar]:w-1 [&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar-thumb]:bg-zinc-200 [&::-webkit-scrollbar-thumb]:rounded-full transition-all duration-500 ease-in-out lg:sticky lg:top-32 lg:h-[calc(100vh-120px)] ${isFilterSidebarVisible ? "w-full lg:w-[15rem] opacity-100" : "w-0 opacity-0 lg:h-0"}`,
-          children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "w-full flex flex-col gap-6 pb-8", children: dynamicFilterCategories.map((category) => {
-            const isOpen = openFilterSections.includes(category.id);
-            return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "border-b border-zinc-200 pb-6", children: [
+          children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", {
+            className: "w-full flex flex-col gap-6 pb-8", children: dynamicFilterCategories.map((category) => {
+              const isOpen = openFilterSections.includes(category.id);
+              return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+                className: "border-b border-zinc-200 pb-6", children: [
               /* @__PURE__ */ jsxRuntimeExports.jsxs(
-                "button",
-                {
-                  onClick: () => toggleFilterAccordion(category.id),
-                  className: "w-full flex justify-between items-center text-left py-1 group",
-                  children: [
+                  "button",
+                  {
+                    onClick: () => toggleFilterAccordion(category.id),
+                    className: "w-full flex justify-between items-center text-left py-1 group",
+                    children: [
                     /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "font-medium text-sm text-black uppercase tracking-widest", children: category.name }),
-                    isOpen ? /* @__PURE__ */ jsxRuntimeExports.jsx(ChevronUp, { className: "w-4 h-4 text-zinc-400 group-hover:text-black transition-colors" }) : /* @__PURE__ */ jsxRuntimeExports.jsx(ChevronDown, { className: "w-4 h-4 text-zinc-400 group-hover:text-black transition-colors" })
-                  ]
-                }
-              ),
+                      isOpen ? /* @__PURE__ */ jsxRuntimeExports.jsx(ChevronUp, { className: "w-4 h-4 text-zinc-400 group-hover:text-black transition-colors" }) : /* @__PURE__ */ jsxRuntimeExports.jsx(ChevronDown, { className: "w-4 h-4 text-zinc-400 group-hover:text-black transition-colors" })
+                    ]
+                  }
+                ),
               /* @__PURE__ */ jsxRuntimeExports.jsx(
-                "div",
-                {
-                  className: `overflow-hidden transition-all duration-300 ease-in-out ${isOpen ? "max-h-[800px] mt-4 opacity-100" : "max-h-0 opacity-0"}`,
-                  children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-col gap-3", children: [
-                    category.options.map((option, index) => {
-                      const isSelected = (selectedFilters[category.id] || []).includes(option);
-                      const isVisible = index < 4 || expandedCategories.includes(category.id);
-                      return /* @__PURE__ */ jsxRuntimeExports.jsxs(
-                        "label",
-                        {
-                          className: `flex items-center gap-3 cursor-pointer group transition-all duration-300 ease-in-out origin-top ${isVisible ? "max-h-12 opacity-100 mb-0 pointer-events-auto" : "max-h-0 opacity-0 mb-0 overflow-hidden pointer-events-none"}`,
-                          children: [
+                  "div",
+                  {
+                    className: `overflow-hidden transition-all duration-300 ease-in-out ${isOpen ? "max-h-[800px] mt-4 opacity-100" : "max-h-0 opacity-0"}`,
+                    children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+                      className: "flex flex-col gap-3", children: [
+                        category.options.map((option, index) => {
+                          const isSelected = (selectedFilters[category.id] || []).includes(option);
+                          const isVisible = index < 4 || expandedCategories.includes(category.id);
+                          return /* @__PURE__ */ jsxRuntimeExports.jsxs(
+                            "label",
+                            {
+                              className: `flex items-center gap-3 cursor-pointer group transition-all duration-300 ease-in-out origin-top ${isVisible ? "max-h-12 opacity-100 mb-0 pointer-events-auto" : "max-h-0 opacity-0 mb-0 overflow-hidden pointer-events-none"}`,
+                              children: [
                             /* @__PURE__ */ jsxRuntimeExports.jsx(
-                              "input",
-                              {
-                                type: "checkbox",
-                                className: "hidden",
-                                checked: isSelected,
-                                onChange: () => toggleFilterOption(category.id, option)
-                              }
-                            ),
-                            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: `w-4 h-4 border flex items-center justify-center transition-colors shrink-0 ${isSelected ? "bg-black border-black" : "border-zinc-300 bg-white group-hover:border-black"}`, children: isSelected && /* @__PURE__ */ jsxRuntimeExports.jsx(Check, { className: "w-3 h-3 text-white", strokeWidth: 3 }) }),
-                            category.id === "color" && /* @__PURE__ */ jsxRuntimeExports.jsx(
-                              "div",
-                              {
-                                className: "w-4 h-4 rounded-full border border-zinc-200 shrink-0 shadow-sm",
-                                style: {
-                                  backgroundColor: option === "Black" ? "#000000" : option === "Brown" ? "#5C4033" : option === "Tan" ? "#D2B48C" : option === "White" ? "#FFFFFF" : option === "Navy" ? "#000080" : "#E5E5E5"
+                                "input",
+                                {
+                                  type: "checkbox",
+                                  className: "hidden",
+                                  checked: isSelected,
+                                  onChange: () => toggleFilterOption(category.id, option)
                                 }
-                              }
-                            ),
-                            /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: `text-sm transition-colors truncate ${isSelected ? "text-black font-medium" : "text-zinc-600 group-hover:text-black"}`, children: [
-                              option,
-                              " ",
-                              category.id === "collection" && collectionCounts[option] !== void 0 && /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "text-zinc-400 font-normal text-xs ml-1", children: [
-                                "(",
-                                collectionCounts[option],
-                                ")"
-                              ] })
-                            ] })
-                          ]
-                        },
-                        option
-                      );
-                    }),
-                    category.options.length > 4 && /* @__PURE__ */ jsxRuntimeExports.jsx(
-                      "button",
-                      {
-                        onClick: () => toggleShowMore(category.id),
-                        className: "text-left text-xs font-medium text-zinc-500 hover:text-black transition-colors mt-0 sm:-mt-1 flex items-center gap-1 w-fit",
-                        children: expandedCategories.includes(category.id) ? /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
-                          "Show Less ",
+                              ),
+                            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: `w-4 h-4 border flex items-center justify-center transition-colors shrink-0 ${isSelected ? "bg-black border-black" : "border-zinc-300 bg-white group-hover:border-black"}`, children: isSelected && /* @__PURE__ */ jsxRuntimeExports.jsx(Check, { className: "w-3 h-3 text-white", strokeWidth: 3 }) }),
+                                category.id === "color" && /* @__PURE__ */ jsxRuntimeExports.jsx(
+                                  "div",
+                                  {
+                                    className: "w-4 h-4 rounded-full border border-zinc-200 shrink-0 shadow-sm",
+                                    style: {
+                                      backgroundColor: option === "Black" ? "#000000" : option === "Brown" ? "#5C4033" : option === "Tan" ? "#D2B48C" : option === "White" ? "#FFFFFF" : option === "Navy" ? "#000080" : "#E5E5E5"
+                                    }
+                                  }
+                                ),
+                            /* @__PURE__ */ jsxRuntimeExports.jsxs("span", {
+                                  className: `text-sm transition-colors truncate ${isSelected ? "text-black font-medium" : "text-zinc-600 group-hover:text-black"}`, children: [
+                                    option,
+                                    " ",
+                                    category.id === "collection" && collectionCounts[option] !== void 0 && /* @__PURE__ */ jsxRuntimeExports.jsxs("span", {
+                                      className: "text-zinc-400 font-normal text-xs ml-1", children: [
+                                        "(",
+                                        collectionCounts[option],
+                                        ")"
+                                      ]
+                                    })
+                                  ]
+                                })
+                              ]
+                            },
+                            option
+                          );
+                        }),
+                        category.options.length > 4 && /* @__PURE__ */ jsxRuntimeExports.jsx(
+                          "button",
+                          {
+                            onClick: () => toggleShowMore(category.id),
+                            className: "text-left text-xs font-medium text-zinc-500 hover:text-black transition-colors mt-0 sm:-mt-1 flex items-center gap-1 w-fit",
+                            children: expandedCategories.includes(category.id) ? /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, {
+                              children: [
+                                "Show Less ",
                           /* @__PURE__ */ jsxRuntimeExports.jsx(ChevronUp, { className: "w-3 h-3" })
-                        ] }) : /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
-                          "Show More (",
-                          category.options.length - 4,
-                          ") ",
+                              ]
+                            }) : /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, {
+                              children: [
+                                "Show More (",
+                                category.options.length - 4,
+                                ") ",
                           /* @__PURE__ */ jsxRuntimeExports.jsx(ChevronDown, { className: "w-3 h-3" })
-                        ] })
-                      }
-                    )
-                  ] })
-                }
-              )
-            ] }, category.id);
-          }) })
+                              ]
+                            })
+                          }
+                        )
+                      ]
+                    })
+                  }
+                )
+                ]
+              }, category.id);
+            })
+          })
         }
       ),
-      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex-1 w-full transition-all duration-500 min-h-[50vh]", children: [
-        loading && products.length === 0 ? /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex justify-center items-center h-full w-full py-20", children: /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-zinc-400 uppercase tracking-widest text-sm animate-pulse", children: "Loading Collection..." }) }) : error ? /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex justify-center items-center h-full w-full py-20", children: /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-red-500 uppercase tracking-widest text-sm", children: "Error Loading Products" }) }) : products.length === 0 ? /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex justify-center items-center h-full w-full py-20", children: /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-zinc-400 uppercase tracking-widest text-sm", children: "No products found for these filters." }) }) : /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: `transition-all duration-500 ${loading ? "opacity-50 pointer-events-none" : ""}`, children: [
-          selectedFilters.collection && selectedFilters.collection.length > 0 && /* @__PURE__ */ jsxRuntimeExports.jsxs("h2", { className: "text-3xl font-serif mb-6 text-black border-b border-zinc-200 pb-2", children: [
-            selectedFilters.collection.join(", "),
-            " Collection",
-            selectedFilters.collection.length > 1 ? "s" : ""
-          ] }),
-          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: `grid grid-cols-2 md:grid-cols-3 ${isFilterSidebarVisible ? "lg:grid-cols-3 xl:grid-cols-3" : "lg:grid-cols-4 xl:grid-cols-5"} gap-x-4 gap-y-8 sm:gap-x-6 lg:gap-x-8 sm:gap-y-12`, children: products.map((product) => /* @__PURE__ */ jsxRuntimeExports.jsxs("a", { href: `/products/${product.id}`, className: "group cursor-pointer block", children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "relative aspect-[4/5] overflow-hidden bg-zinc-100 mb-4 sm:mb-6", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+        className: "flex-1 w-full transition-all duration-500 min-h-[50vh]", children: [
+          loading && products.length === 0 ? /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex justify-center items-center h-full w-full py-20", children: /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-zinc-400 uppercase tracking-widest text-sm animate-pulse", children: "Loading Collection..." }) }) : error ? /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex justify-center items-center h-full w-full py-20", children: /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-red-500 uppercase tracking-widest text-sm", children: "Error Loading Products" }) }) : products.length === 0 ? /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex justify-center items-center h-full w-full py-20", children: /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-zinc-400 uppercase tracking-widest text-sm", children: "No products found for these filters." }) }) : /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+            className: `transition-all duration-500 ${loading ? "opacity-50 pointer-events-none" : ""}`, children: [
+              selectedFilters.collection && selectedFilters.collection.length > 0 && /* @__PURE__ */ jsxRuntimeExports.jsxs("h2", {
+                className: "text-3xl font-serif mb-6 text-black border-b border-zinc-200 pb-2", children: [
+                  selectedFilters.collection.join(", "),
+                  " Collection",
+                  selectedFilters.collection.length > 1 ? "s" : ""
+                ]
+              }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("div", {
+                className: `grid grid-cols-2 md:grid-cols-3 ${isFilterSidebarVisible ? "lg:grid-cols-3 xl:grid-cols-3" : "lg:grid-cols-4 xl:grid-cols-5"} gap-x-4 gap-y-8 sm:gap-x-6 lg:gap-x-8 sm:gap-y-12`, children: products.map((product) => /* @__PURE__ */ jsxRuntimeExports.jsxs("a", {
+                  href: `/products/${product.id}`, className: "group cursor-pointer block", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+                    className: "relative aspect-[4/5] overflow-hidden bg-zinc-100 mb-4 sm:mb-6", children: [
               /* @__PURE__ */ jsxRuntimeExports.jsx(
-                Image,
-                {
-                  src: product.thumbnail_image_url || product.annotated_image_url || "https://images.unsplash.com/photo-1549298916-b41d501d3772?q=80&w=2012&auto=format&fit=crop",
-                  alt: product.name,
-                  fill: true,
-                  className: `object-cover object-center transition-all duration-700 group-hover:scale-105 ${product.hover_image_url ? "group-hover:opacity-0" : ""}`
-                }
-              ),
-              product.hover_image_url && /* @__PURE__ */ jsxRuntimeExports.jsx(
-                Image,
-                {
-                  src: product.hover_image_url,
-                  alt: `${product.name} hover`,
-                  fill: true,
-                  className: "object-cover object-center absolute inset-0 opacity-0 transition-all duration-700 group-hover:opacity-100 group-hover:scale-105"
-                }
-              )
-            ] }),
-            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-col xl:flex-row justify-between items-start", children: [
-              /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
+                      Image,
+                      {
+                        src: product.thumbnail_image_url || product.annotated_image_url || "https://images.unsplash.com/photo-1549298916-b41d501d3772?q=80&w=2012&auto=format&fit=crop",
+                        alt: product.name,
+                        fill: true,
+                        className: `object-cover object-center transition-all duration-700 group-hover:scale-105 ${product.hover_image_url ? "group-hover:opacity-0" : ""}`
+                      }
+                    ),
+                      product.hover_image_url && /* @__PURE__ */ jsxRuntimeExports.jsx(
+                        Image,
+                        {
+                          src: product.hover_image_url,
+                          alt: `${product.name} hover`,
+                          fill: true,
+                          className: "object-cover object-center absolute inset-0 opacity-0 transition-all duration-700 group-hover:opacity-100 group-hover:scale-105"
+                        }
+                      )
+                    ]
+                  }),
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+                    className: "flex flex-col xl:flex-row justify-between items-start", children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+                      children: [
                 /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "font-serif text-base sm:text-lg md:text-xl mb-1 mt-2 text-black", children: product.name }),
                 /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-zinc-500 text-xs sm:text-sm hidden sm:block", children: product.short_description || "Premium Quality" })
-              ] }),
-              /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "font-sans text-sm mt-1 xl:mt-2 font-medium text-black", children: [
-                "NPR ",
-                product.base_price.toFixed(2)
-              ] })
-            ] })
-          ] }, product.id)) })
-        ] }),
-        loadingMore && /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex justify-center items-center py-12 w-full", children: /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-zinc-400 uppercase tracking-widest text-sm animate-pulse", children: "Loading More..." }) })
-      ] }),
-      isMobileFilterVisible && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "fixed inset-0 z-[100] bg-white flex flex-col lg:hidden animate-in slide-in-from-bottom-[100%] duration-300", children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center justify-between p-6 border-b border-zinc-200", children: [
+                      ]
+                    }),
+              /* @__PURE__ */ jsxRuntimeExports.jsxs("span", {
+                      className: "font-sans text-sm mt-1 xl:mt-2 font-medium text-black", children: [
+                        "NPR ",
+                        product.base_price.toFixed(2)
+                      ]
+                    })
+                    ]
+                  })
+                  ]
+                }, product.id))
+              })
+            ]
+          }),
+          loadingMore && /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex justify-center items-center py-12 w-full", children: /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-zinc-400 uppercase tracking-widest text-sm animate-pulse", children: "Loading More..." }) })
+        ]
+      }),
+        isMobileFilterVisible && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+          className: "fixed inset-0 z-[100] bg-white flex flex-col lg:hidden animate-in slide-in-from-bottom-[100%] duration-300", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+            className: "flex items-center justify-between p-6 border-b border-zinc-200", children: [
           /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "font-serif text-2xl text-black", children: "Filters" }),
           /* @__PURE__ */ jsxRuntimeExports.jsx(
-            "button",
-            {
-              onClick: () => {
-                setIsMobileFilterVisible(false);
-                setMobileFiltersDirty(false);
-              },
-              className: "p-2 -mr-2 text-zinc-500 hover:text-black transition-colors",
-              children: /* @__PURE__ */ jsxRuntimeExports.jsx(X, { className: "w-6 h-6" })
-            }
-          )
-        ] }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex-1 overflow-y-auto p-4 pb-24", children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex flex-col gap-6", children: dynamicFilterCategories.map((category) => {
-          const isOpen = openFilterSections.includes(category.id);
-          return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "border-b border-zinc-200 pb-6", children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsxs(
               "button",
               {
-                onClick: () => toggleFilterAccordion(category.id),
-                className: "w-full flex justify-between items-center text-left py-1 group",
-                children: [
-                  /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "font-medium text-sm text-black uppercase tracking-widest", children: category.name }),
-                  isOpen ? /* @__PURE__ */ jsxRuntimeExports.jsx(ChevronUp, { className: "w-4 h-4 text-zinc-400 group-hover:text-black transition-colors" }) : /* @__PURE__ */ jsxRuntimeExports.jsx(ChevronDown, { className: "w-4 h-4 text-zinc-400 group-hover:text-black transition-colors" })
-                ]
-              }
-            ),
-            /* @__PURE__ */ jsxRuntimeExports.jsx(
-              "div",
-              {
-                className: `overflow-hidden transition-all duration-300 ease-in-out ${isOpen ? "max-h-[800px] mt-4 opacity-100" : "max-h-0 opacity-0"}`,
-                children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-col gap-3", children: [
-                  category.options.map((option, index) => {
-                    const isSelected = (selectedFilters[category.id] || []).includes(option);
-                    const isVisible = index < 4 || expandedCategories.includes(category.id);
-                    return /* @__PURE__ */ jsxRuntimeExports.jsxs(
-                      "label",
-                      {
-                        className: `flex items-center gap-3 cursor-pointer group transition-all duration-300 ease-in-out origin-top ${isVisible ? "max-h-12 opacity-100 mb-0 pointer-events-auto" : "max-h-0 opacity-0 mb-0 overflow-hidden pointer-events-none"}`,
-                        children: [
-                          /* @__PURE__ */ jsxRuntimeExports.jsx(
-                            "input",
-                            {
-                              type: "checkbox",
-                              className: "hidden",
-                              checked: isSelected,
-                              onChange: () => toggleFilterOption(category.id, option)
-                            }
-                          ),
-                          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: `w-4 h-4 border flex items-center justify-center transition-colors shrink-0 ${isSelected ? "bg-black border-black" : "border-zinc-300 bg-white group-hover:border-black"}`, children: isSelected && /* @__PURE__ */ jsxRuntimeExports.jsx(Check, { className: "w-3 h-3 text-white", strokeWidth: 3 }) }),
-                          category.id === "color" && /* @__PURE__ */ jsxRuntimeExports.jsx(
-                            "div",
-                            {
-                              className: "w-4 h-4 rounded-full border border-zinc-200 shrink-0 shadow-sm",
-                              style: {
-                                backgroundColor: option === "Black" ? "#000000" : option === "Brown" ? "#5C4033" : option === "Tan" ? "#D2B48C" : option === "White" ? "#FFFFFF" : option === "Navy" ? "#000080" : "#E5E5E5"
-                              }
-                            }
-                          ),
-                          /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: `text-sm transition-colors truncate ${isSelected ? "text-black font-medium" : "text-zinc-600 group-hover:text-black"}`, children: [
-                            option,
-                            " ",
-                            category.id === "collection" && collectionCounts[option] !== void 0 && /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "text-zinc-400 font-normal text-xs ml-1", children: [
-                              "(",
-                              collectionCounts[option],
-                              ")"
-                            ] })
-                          ] })
-                        ]
-                      },
-                      option
-                    );
-                  }),
-                  category.options.length > 4 && /* @__PURE__ */ jsxRuntimeExports.jsx(
-                    "button",
-                    {
-                      onClick: () => toggleShowMore(category.id),
-                      className: "text-left text-xs font-medium text-zinc-500 hover:text-black transition-colors mt-0 sm:-mt-1 flex items-center gap-1 w-fit",
-                      children: expandedCategories.includes(category.id) ? /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
-                        "Show Less ",
-                        /* @__PURE__ */ jsxRuntimeExports.jsx(ChevronUp, { className: "w-3 h-3" })
-                      ] }) : /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
-                        "Show More (",
-                        category.options.length - 4,
-                        ") ",
-                        /* @__PURE__ */ jsxRuntimeExports.jsx(ChevronDown, { className: "w-3 h-3" })
-                      ] })
-                    }
-                  )
-                ] })
+                onClick: () => {
+                  setIsMobileFilterVisible(false);
+                  setMobileFiltersDirty(false);
+                },
+                className: "p-2 -mr-2 text-zinc-500 hover:text-black transition-colors",
+                children: /* @__PURE__ */ jsxRuntimeExports.jsx(X, { className: "w-6 h-6" })
               }
             )
-          ] }, category.id);
-        }) }) }),
-        mobileFiltersDirty && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "absolute bottom-0 w-full p-4 border-t border-zinc-200 bg-white flex gap-4 mt-auto", children: [
+            ]
+          }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("div", {
+            className: "flex-1 overflow-y-auto p-4 pb-24", children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", {
+              className: "flex flex-col gap-6", children: dynamicFilterCategories.map((category) => {
+                const isOpen = openFilterSections.includes(category.id);
+                return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+                  className: "border-b border-zinc-200 pb-6", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsxs(
+                    "button",
+                    {
+                      onClick: () => toggleFilterAccordion(category.id),
+                      className: "w-full flex justify-between items-center text-left py-1 group",
+                      children: [
+                  /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "font-medium text-sm text-black uppercase tracking-widest", children: category.name }),
+                        isOpen ? /* @__PURE__ */ jsxRuntimeExports.jsx(ChevronUp, { className: "w-4 h-4 text-zinc-400 group-hover:text-black transition-colors" }) : /* @__PURE__ */ jsxRuntimeExports.jsx(ChevronDown, { className: "w-4 h-4 text-zinc-400 group-hover:text-black transition-colors" })
+                      ]
+                    }
+                  ),
+            /* @__PURE__ */ jsxRuntimeExports.jsx(
+                    "div",
+                    {
+                      className: `overflow-hidden transition-all duration-300 ease-in-out ${isOpen ? "max-h-[800px] mt-4 opacity-100" : "max-h-0 opacity-0"}`,
+                      children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+                        className: "flex flex-col gap-3", children: [
+                          category.options.map((option, index) => {
+                            const isSelected = (selectedFilters[category.id] || []).includes(option);
+                            const isVisible = index < 4 || expandedCategories.includes(category.id);
+                            return /* @__PURE__ */ jsxRuntimeExports.jsxs(
+                              "label",
+                              {
+                                className: `flex items-center gap-3 cursor-pointer group transition-all duration-300 ease-in-out origin-top ${isVisible ? "max-h-12 opacity-100 mb-0 pointer-events-auto" : "max-h-0 opacity-0 mb-0 overflow-hidden pointer-events-none"}`,
+                                children: [
+                          /* @__PURE__ */ jsxRuntimeExports.jsx(
+                                  "input",
+                                  {
+                                    type: "checkbox",
+                                    className: "hidden",
+                                    checked: isSelected,
+                                    onChange: () => toggleFilterOption(category.id, option)
+                                  }
+                                ),
+                          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: `w-4 h-4 border flex items-center justify-center transition-colors shrink-0 ${isSelected ? "bg-black border-black" : "border-zinc-300 bg-white group-hover:border-black"}`, children: isSelected && /* @__PURE__ */ jsxRuntimeExports.jsx(Check, { className: "w-3 h-3 text-white", strokeWidth: 3 }) }),
+                                  category.id === "color" && /* @__PURE__ */ jsxRuntimeExports.jsx(
+                                    "div",
+                                    {
+                                      className: "w-4 h-4 rounded-full border border-zinc-200 shrink-0 shadow-sm",
+                                      style: {
+                                        backgroundColor: option === "Black" ? "#000000" : option === "Brown" ? "#5C4033" : option === "Tan" ? "#D2B48C" : option === "White" ? "#FFFFFF" : option === "Navy" ? "#000080" : "#E5E5E5"
+                                      }
+                                    }
+                                  ),
+                          /* @__PURE__ */ jsxRuntimeExports.jsxs("span", {
+                                    className: `text-sm transition-colors truncate ${isSelected ? "text-black font-medium" : "text-zinc-600 group-hover:text-black"}`, children: [
+                                      option,
+                                      " ",
+                                      category.id === "collection" && collectionCounts[option] !== void 0 && /* @__PURE__ */ jsxRuntimeExports.jsxs("span", {
+                                        className: "text-zinc-400 font-normal text-xs ml-1", children: [
+                                          "(",
+                                          collectionCounts[option],
+                                          ")"
+                                        ]
+                                      })
+                                    ]
+                                  })
+                                ]
+                              },
+                              option
+                            );
+                          }),
+                          category.options.length > 4 && /* @__PURE__ */ jsxRuntimeExports.jsx(
+                            "button",
+                            {
+                              onClick: () => toggleShowMore(category.id),
+                              className: "text-left text-xs font-medium text-zinc-500 hover:text-black transition-colors mt-0 sm:-mt-1 flex items-center gap-1 w-fit",
+                              children: expandedCategories.includes(category.id) ? /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, {
+                                children: [
+                                  "Show Less ",
+                        /* @__PURE__ */ jsxRuntimeExports.jsx(ChevronUp, { className: "w-3 h-3" })
+                                ]
+                              }) : /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, {
+                                children: [
+                                  "Show More (",
+                                  category.options.length - 4,
+                                  ") ",
+                        /* @__PURE__ */ jsxRuntimeExports.jsx(ChevronDown, { className: "w-3 h-3" })
+                                ]
+                              })
+                            }
+                          )
+                        ]
+                      })
+                    }
+                  )
+                  ]
+                }, category.id);
+              })
+            })
+          }),
+            mobileFiltersDirty && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+              className: "absolute bottom-0 w-full p-4 border-t border-zinc-200 bg-white flex gap-4 mt-auto", children: [
           /* @__PURE__ */ jsxRuntimeExports.jsx(
-            "button",
-            {
-              onClick: () => setSelectedFilters({}),
-              className: "flex-1 py-4 text-sm font-medium border border-zinc-200 text-zinc-600 hover:bg-zinc-50 transition-colors uppercase tracking-widest",
-              children: totalActiveFilters > 0 ? `Clear (${totalActiveFilters})` : "Clear"
-            }
-          ),
+                "button",
+                {
+                  onClick: () => setSelectedFilters({}),
+                  className: "flex-1 py-4 text-sm font-medium border border-zinc-200 text-zinc-600 hover:bg-zinc-50 transition-colors uppercase tracking-widest",
+                  children: totalActiveFilters > 0 ? `Clear (${totalActiveFilters})` : "Clear"
+                }
+              ),
           /* @__PURE__ */ jsxRuntimeExports.jsx(
-            "button",
-            {
-              onClick: () => {
-                setIsMobileFilterVisible(false);
-                setMobileFiltersDirty(false);
-              },
-              className: "flex-1 py-4 text-sm font-medium bg-black text-white hover:bg-zinc-800 transition-colors uppercase tracking-widest",
-              children: "Apply"
-            }
-          )
-        ] })
-      ] })
-    ] })
-  ] });
+                "button",
+                {
+                  onClick: () => {
+                    setIsMobileFilterVisible(false);
+                    setMobileFiltersDirty(false);
+                  },
+                  className: "flex-1 py-4 text-sm font-medium bg-black text-white hover:bg-zinc-800 transition-colors uppercase tracking-widest",
+                  children: "Apply"
+                }
+              )
+              ]
+            })
+          ]
+        })
+      ]
+    })
+    ]
+  });
 }
 const faqs = [
   {
@@ -9992,7 +10317,8 @@ const faqs = [
 ];
 function AccordionItem({ question, answer }) {
   const [isOpen, setIsOpen] = reactExports.useState(false);
-  return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "border-b border-zinc-200", children: [
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+    className: "border-b border-zinc-200", children: [
     /* @__PURE__ */ jsxRuntimeExports.jsxs(
       "button",
       {
@@ -10011,19 +10337,28 @@ function AccordionItem({ question, answer }) {
         children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "overflow-hidden", children: /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-zinc-500 text-sm md:text-base leading-relaxed pl-4 md:pl-8 border-l-2 border-zinc-100", children: answer }) })
       }
     )
-  ] });
+    ]
+  });
 }
 function FAQPage() {
-  return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "min-h-screen bg-white pt-32 pb-24 px-4 md:px-12 max-w-[1000px] mx-auto", children: [
-    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "mb-20 text-center", children: [
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+    className: "min-h-screen bg-white pt-32 pb-24 px-4 md:px-12 max-w-[1000px] mx-auto", children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+      className: "mb-20 text-center", children: [
       /* @__PURE__ */ jsxRuntimeExports.jsx("h1", { className: "font-serif text-5xl md:text-6xl text-black tracking-tight mb-6", children: "FAQ" }),
       /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-zinc-500 text-sm md:text-base leading-relaxed", children: "Answers to common inquiries regarding our atelier, orders, and services." })
-    ] }),
-    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "space-y-16", children: faqs.map((categoryBlock, index) => /* @__PURE__ */ jsxRuntimeExports.jsxs("section", { children: [
+      ]
+    }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx("div", {
+      className: "space-y-16", children: faqs.map((categoryBlock, index) => /* @__PURE__ */ jsxRuntimeExports.jsxs("section", {
+        children: [
       /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "font-sans text-xs font-semibold tracking-widest uppercase text-black mb-6", children: categoryBlock.category }),
       /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "border-t border-zinc-200", children: categoryBlock.questions.map((item, qIndex) => /* @__PURE__ */ jsxRuntimeExports.jsx(AccordionItem, { question: item.q, answer: item.a }, qIndex)) })
-    ] }, index)) }),
-    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "mt-24 pt-16 border-t border-zinc-100 text-center", children: [
+        ]
+      }, index))
+    }),
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+      className: "mt-24 pt-16 border-t border-zinc-100 text-center", children: [
       /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "font-serif text-2xl text-black mb-4", children: "Still have questions?" }),
       /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-zinc-500 text-sm mb-8", children: "Our concierge team is available to assist you with any bespoke requests or detailed inquiries." }),
       /* @__PURE__ */ jsxRuntimeExports.jsx(
@@ -10034,8 +10369,10 @@ function FAQPage() {
           children: "Contact the Atelier"
         }
       )
-    ] })
-  ] });
+      ]
+    })
+    ]
+  });
 }
 const Dialog = Root;
 const DialogTrigger = Trigger;
@@ -10052,7 +10389,8 @@ const DialogOverlay = reactExports.forwardRef(({ className, ...props }, ref) => 
   }
 ));
 DialogOverlay.displayName = Overlay.displayName;
-const DialogContent = reactExports.forwardRef(({ className, children, ...props }, ref) => /* @__PURE__ */ jsxRuntimeExports.jsxs(DialogPortal, { children: [
+const DialogContent = reactExports.forwardRef(({ className, children, ...props }, ref) => /* @__PURE__ */ jsxRuntimeExports.jsxs(DialogPortal, {
+  children: [
   /* @__PURE__ */ jsxRuntimeExports.jsx(DialogOverlay, {}),
   /* @__PURE__ */ jsxRuntimeExports.jsxs(
     Content,
@@ -10065,14 +10403,17 @@ const DialogContent = reactExports.forwardRef(({ className, children, ...props }
       ...props,
       children: [
         children,
-        /* @__PURE__ */ jsxRuntimeExports.jsxs(Close, { className: "absolute right-4 top-4 rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-accent data-[state=open]:text-muted-foreground", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs(Close, {
+          className: "absolute right-4 top-4 rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-accent data-[state=open]:text-muted-foreground", children: [
           /* @__PURE__ */ jsxRuntimeExports.jsx(X, { className: "h-4 w-4 text-black" }),
           /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "sr-only", children: "Close" })
-        ] })
+          ]
+        })
       ]
     }
   )
-] }));
+  ]
+}));
 DialogContent.displayName = Content.displayName;
 const DialogHeader = ({
   className,
@@ -10135,122 +10476,184 @@ function SizeGuide() {
     const found = SIZES.find((s) => s.cm >= cm);
     setRecommendedSize(found || SIZES[SIZES.length - 1]);
   };
-  return /* @__PURE__ */ jsxRuntimeExports.jsxs(Dialog, { children: [
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs(Dialog, {
+    children: [
     /* @__PURE__ */ jsxRuntimeExports.jsx(DialogTrigger, { asChild: true, children: /* @__PURE__ */ jsxRuntimeExports.jsx("button", { className: "text-xs text-zinc-500 hover:text-black transition-colors underline underline-offset-4", children: "Size Guide" }) }),
-    /* @__PURE__ */ jsxRuntimeExports.jsx(DialogContent, { className: "max-w-2xl bg-white rounded-none border-none p-0 overflow-hidden sm:max-h-[90vh]", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-col h-full", children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsx(DialogHeader, { className: "p-8 pb-4 border-b border-zinc-100 flex flex-row justify-between items-center space-y-0", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsx(DialogTitle, { className: "font-serif text-3xl tracking-tight text-black mb-1", children: "Interactive Size Guide" }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-zinc-500 text-sm font-sans tracking-wide", children: "Standard sizing used in Nepal (EU/UK)" })
-      ] }) }),
-      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex border-b border-zinc-100 bg-zinc-50/50", children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsx(DialogContent, {
+      className: "w-[95vw] sm:max-w-2xl bg-white rounded-none border-none p-0 overflow-hidden h-[90vh] sm:h-auto flex flex-col", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+        className: "flex flex-col h-full overflow-y-auto", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx(DialogHeader, {
+          className: "p-6 md:p-8 pb-4 border-b border-zinc-100 flex flex-row justify-between items-center space-y-0", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+            children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx(DialogTitle, { className: "font-serif text-2xl md:text-3xl tracking-tight text-black mb-1", children: "Interactive Size Guide" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-zinc-500 text-[10px] md:text-sm font-sans tracking-wide", children: "Standard sizing used in Nepal (EU/UK)" })
+            ]
+          })
+        }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+          className: "flex border-b border-zinc-100 bg-zinc-50/50", children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx(
-          "button",
-          {
-            onClick: () => setActiveTab("chart"),
-            className: `flex-1 py-4 text-xs font-bold uppercase tracking-widest transition-all ${activeTab === "chart" ? "bg-white text-black border-b-2 border-black" : "text-zinc-400 hover:text-zinc-600"}`,
-            children: "Size Chart"
-          }
-        ),
+            "button",
+            {
+              onClick: () => setActiveTab("chart"),
+              className: `flex-1 py-4 text-xs font-bold uppercase tracking-widest transition-all ${activeTab === "chart" ? "bg-white text-black border-b-2 border-black" : "text-zinc-400 hover:text-zinc-600"}`,
+              children: "Size Chart"
+            }
+          ),
         /* @__PURE__ */ jsxRuntimeExports.jsx(
-          "button",
-          {
-            onClick: () => setActiveTab("measure"),
-            className: `flex-1 py-4 text-xs font-bold uppercase tracking-widest transition-all ${activeTab === "measure" ? "bg-white text-black border-b-2 border-black" : "text-zinc-400 hover:text-zinc-600"}`,
-            children: "How to Measure"
-          }
-        )
-      ] }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "p-8 overflow-y-auto", children: activeTab === "chart" ? /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "space-y-8 animate-in fade-in duration-500", children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "bg-white border border-zinc-200 p-6 rounded-none space-y-4 shadow-sm", children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-3", children: [
+            "button",
+            {
+              onClick: () => setActiveTab("measure"),
+              className: `flex-1 py-4 text-xs font-bold uppercase tracking-widest transition-all ${activeTab === "measure" ? "bg-white text-black border-b-2 border-black" : "text-zinc-400 hover:text-zinc-600"}`,
+              children: "How to Measure"
+            }
+          )
+          ]
+        }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", {
+          className: "p-6 md:p-8 overflow-y-auto", children: activeTab === "chart" ? /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+            className: "space-y-8 animate-in fade-in duration-500", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+              className: "bg-white border border-zinc-200 p-6 rounded-none space-y-4 shadow-sm", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+                className: "flex items-center gap-3", children: [
             /* @__PURE__ */ jsxRuntimeExports.jsx(Ruler, { className: "w-5 h-5 text-zinc-500" }),
             /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "text-sm font-semibold uppercase tracking-widest text-black", children: "Find My Perfect Size" })
-          ] }),
-          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex gap-4 items-end", children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex-1", children: [
+                ]
+              }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+                className: "flex gap-4 items-end", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+                  className: "flex-1", children: [
               /* @__PURE__ */ jsxRuntimeExports.jsx("label", { className: "text-[10px] uppercase tracking-widest text-zinc-500 mb-2 block font-medium", children: "Foot Length (CM)" }),
               /* @__PURE__ */ jsxRuntimeExports.jsx(
-                "input",
-                {
-                  type: "number",
-                  value: cmInput,
-                  onChange: (e) => calculateSize(e.target.value),
-                  placeholder: "e.g. 25.5",
-                  className: "w-full bg-zinc-50 border-zinc-200 text-black px-4 py-3 text-sm focus:outline-none focus:ring-1 focus:ring-black transition-all rounded-none placeholder:text-zinc-400"
-                }
-              )
-            ] }),
-            recommendedSize && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex-1 bg-zinc-900 text-white px-4 py-[11px] border border-zinc-900 animate-in zoom-in-95 duration-300", children: [
+                    "input",
+                    {
+                      type: "number",
+                      value: cmInput,
+                      onChange: (e) => calculateSize(e.target.value),
+                      placeholder: "e.g. 25.5",
+                      className: "w-full bg-zinc-50 border-zinc-200 text-black px-4 py-3 text-sm focus:outline-none focus:ring-1 focus:ring-black transition-all rounded-none placeholder:text-zinc-400"
+                    }
+                  )
+                  ]
+                }),
+                  recommendedSize && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+                    className: "flex-1 bg-zinc-900 text-white px-4 py-[11px] border border-zinc-900 animate-in zoom-in-95 duration-300", children: [
               /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-[9px] uppercase tracking-widest text-zinc-400 mb-1", children: "Recommended Size" }),
-              /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { className: "font-serif text-xl tracking-wide", children: [
-                "EU ",
-                recommendedSize.eu,
-                " / UK ",
-                recommendedSize.uk
-              ] })
-            ] })
-          ] })
-        ] }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "border border-zinc-100", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("table", { className: "w-full text-left text-sm", children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsx("thead", { children: /* @__PURE__ */ jsxRuntimeExports.jsxs("tr", { className: "bg-zinc-50 border-b border-zinc-100", children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsxs("p", {
+                      className: "font-serif text-xl tracking-wide", children: [
+                        "EU ",
+                        recommendedSize.eu,
+                        " / UK ",
+                        recommendedSize.uk
+                      ]
+                    })
+                    ]
+                  })
+                ]
+              })
+              ]
+            }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("div", {
+              className: "border border-zinc-100", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("table", {
+                className: "w-full text-left text-sm", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("thead", {
+                  children: /* @__PURE__ */ jsxRuntimeExports.jsxs("tr", {
+                    className: "bg-zinc-50 border-b border-zinc-100", children: [
             /* @__PURE__ */ jsxRuntimeExports.jsx("th", { className: "px-4 py-3 font-semibold uppercase tracking-widest text-[10px]", children: "EU" }),
             /* @__PURE__ */ jsxRuntimeExports.jsx("th", { className: "px-4 py-3 font-semibold uppercase tracking-widest text-[10px]", children: "UK" }),
             /* @__PURE__ */ jsxRuntimeExports.jsx("th", { className: "px-4 py-3 font-semibold uppercase tracking-widest text-[10px]", children: "US (Mens)" }),
             /* @__PURE__ */ jsxRuntimeExports.jsx("th", { className: "px-4 py-3 font-semibold uppercase tracking-widest text-[10px]", children: "Foot Length (CM)" })
-          ] }) }),
-          /* @__PURE__ */ jsxRuntimeExports.jsx("tbody", { children: SIZES.map((s, idx) => /* @__PURE__ */ jsxRuntimeExports.jsxs(
-            "tr",
-            {
-              className: `border-b border-zinc-50 transition-colors ${recommendedSize?.eu === s.eu ? "bg-zinc-900 text-white font-bold" : "hover:bg-zinc-50"}`,
-              children: [
+                    ]
+                  })
+                }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("tbody", {
+                  children: SIZES.map((s, idx) => /* @__PURE__ */ jsxRuntimeExports.jsxs(
+                    "tr",
+                    {
+                      className: `border-b border-zinc-50 transition-colors ${recommendedSize?.eu === s.eu ? "bg-zinc-900 text-white font-bold" : "hover:bg-zinc-50"}`,
+                      children: [
                 /* @__PURE__ */ jsxRuntimeExports.jsx("td", { className: "px-4 py-3", children: s.eu }),
                 /* @__PURE__ */ jsxRuntimeExports.jsx("td", { className: "px-4 py-3", children: s.uk }),
                 /* @__PURE__ */ jsxRuntimeExports.jsx("td", { className: "px-4 py-3", children: s.us }),
-                /* @__PURE__ */ jsxRuntimeExports.jsxs("td", { className: "px-4 py-3", children: [
-                  s.cm,
-                  " cm"
-                ] })
-              ]
-            },
-            idx
-          )) })
-        ] }) }),
-        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex gap-2 items-start text-xs text-zinc-400 bg-zinc-50 p-4 leading-relaxed", children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsxs("td", {
+                        className: "px-4 py-3", children: [
+                          s.cm,
+                          " cm"
+                        ]
+                      })
+                      ]
+                    },
+                    idx
+                  ))
+                })
+                ]
+              })
+            }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+              className: "flex gap-2 items-start text-xs text-zinc-400 bg-zinc-50 p-4 leading-relaxed", children: [
           /* @__PURE__ */ jsxRuntimeExports.jsx(Info, { className: "w-4 h-4 shrink-0 mt-0.5" }),
           /* @__PURE__ */ jsxRuntimeExports.jsx("p", { children: "Our shoes typically fit true to size. If you are between sizes, we recommend selecting the larger size for a more comfortable fit, especially for leather shoes that may slightly adjust to your foot shape over time." })
-        ] })
-      ] }) : /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "space-y-8 animate-in slide-in-from-bottom-2 duration-500", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "grid grid-cols-1 md:grid-cols-2 gap-8", children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "space-y-6", children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "space-y-4", children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-3", children: [
+              ]
+            })
+            ]
+          }) : /* @__PURE__ */ jsxRuntimeExports.jsx("div", {
+            className: "space-y-8 animate-in slide-in-from-bottom-2 duration-500", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+              className: "grid grid-cols-1 md:grid-cols-2 gap-8", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+                className: "space-y-6", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+                  className: "space-y-4", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+                    className: "flex items-center gap-3", children: [
               /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "w-8 h-8 bg-black text-white rounded-full flex items-center justify-center text-xs font-bold", children: "1" }),
               /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "font-serif text-lg tracking-tight", children: "Trace Your Foot" })
-            ] }),
+                    ]
+                  }),
             /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-zinc-500 text-sm leading-relaxed", children: "Place a sheet of paper on the floor against a wall. Put your foot on it with your heel against the wall and trace the outline of your foot." })
-          ] }),
-          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "space-y-4", children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-3", children: [
+                  ]
+                }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+                  className: "space-y-4", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+                    className: "flex items-center gap-3", children: [
               /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "w-8 h-8 bg-black text-white rounded-full flex items-center justify-center text-xs font-bold", children: "2" }),
               /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "font-serif text-lg tracking-tight", children: "Measure Length" })
-            ] }),
+                    ]
+                  }),
             /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-zinc-500 text-sm leading-relaxed", children: "Use a ruler to measure the distance from the heel (at the edge of the paper) to your longest toe." })
-          ] }),
-          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "space-y-4", children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-3", children: [
+                  ]
+                }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+                  className: "space-y-4", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+                    className: "flex items-center gap-3", children: [
               /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "w-8 h-8 bg-black text-white rounded-full flex items-center justify-center text-xs font-bold", children: "3" }),
               /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "font-serif text-lg tracking-tight", children: "Compare to Chart" })
-            ] }),
+                    ]
+                  }),
             /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-zinc-500 text-sm leading-relaxed", children: 'Use your measurement in cm with our "Find My Size" tool or the chart to select your perfect Coseli fit.' })
-          ] })
-        ] }),
-        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "relative aspect-square bg-zinc-100 overflow-hidden flex items-center justify-center p-8", children: [
+                  ]
+                })
+                ]
+              }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+                className: "relative aspect-square bg-zinc-100 overflow-hidden flex items-center justify-center p-8", children: [
           /* @__PURE__ */ jsxRuntimeExports.jsx(Footprints, { className: "w-full h-full text-zinc-200", strokeWidth: 0.5 }),
           /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute inset-0 border-[20px] border-white/50" }),
           /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute bottom-8 left-1/2 -translate-x-1/2 text-center", children: /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-[10px] uppercase font-bold tracking-[0.3em] text-zinc-400", children: "Heel to Toe" }) })
-        ] })
-      ] }) }) })
-    ] }) })
-  ] });
+                ]
+              })
+              ]
+            })
+          })
+        })
+        ]
+      })
+    })
+    ]
+  });
 }
 function ProductDetailPage() {
   const params = useParams();
@@ -10263,6 +10666,7 @@ function ProductDetailPage() {
   const [selectedSize, setSelectedSize] = reactExports.useState(null);
   const [validationError, setValidationError] = reactExports.useState(null);
   const [isAdded, setIsAdded] = reactExports.useState(false);
+  const [isFullScreen, setIsFullScreen] = reactExports.useState(false);
   const addItem = useCartStore((state) => state.addItem);
   const router = useRouter();
   const thumbnailsRef = reactExports.useRef(null);
@@ -10284,10 +10688,26 @@ function ProductDetailPage() {
     };
     fetchProduct();
   }, [id]);
+  reactExports.useEffect(() => {
+    if (isFullScreen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+    return () => {
+      document.body.style.overflow = "unset";
+    };
+  }, [isFullScreen]);
   const handleColorChange = (idx) => {
     setSelectedColor(idx);
     setSelectedSize(null);
     setSelectedImage(0);
+    if (typeof window !== "undefined" && window.innerWidth < 1024) {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+    }
   };
   if (loading) {
     return /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "min-h-screen bg-white pt-32 pb-32 flex items-center justify-center", children: /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-zinc-400 font-sans tracking-widest uppercase text-sm animate-pulse", children: "Loading Product..." }) });
@@ -10370,18 +10790,25 @@ function ProductDetailPage() {
       setTimeout(() => setIsAdded(false), 2e3);
     }
   };
-  return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "min-h-screen bg-white pt-24 md:pt-32 pb-24 md:pb-32 selection:bg-zinc-200", children: [
-    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "max-w-screen-2xl mx-auto px-4 md:px-12", children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "mb-6 mt-6 text-sm text-zinc-500 font-sans tracking-wide", children: [
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+    className: "min-h-screen bg-white pt-20 md:pt-24 pb-24 md:pb-32 selection:bg-zinc-200", children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+      className: "max-w-screen-2xl mx-auto px-4 md:px-12", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+        className: "py-8 text-sm text-zinc-500 font-sans tracking-wide", children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx("a", { href: "/", className: "hover:text-black transition-colors", children: "HOME" }),
         /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "mx-2", children: "/" }),
         /* @__PURE__ */ jsxRuntimeExports.jsx("a", { href: "/collections", className: "hover:text-black transition-colors", children: "SHOP" }),
         /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "mx-2", children: "/" }),
         /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-black uppercase", children: product.name })
-      ] }),
-      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-col lg:flex-row gap-8 lg:gap-24", children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "w-full lg:w-3/5 flex flex-col gap-4 lg:sticky lg:top-32 lg:h-[calc(100vh-140px)]", children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "relative w-full h-[50vh] md:h-[65vh] lg:aspect-auto lg:h-full lg:flex-1 bg-zinc-50 overflow-hidden group", children: [
+        ]
+      }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+        className: "flex flex-col lg:flex-row gap-8 lg:gap-24", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+          className: "w-full lg:w-[45%] flex flex-col gap-4 lg:sticky lg:top-32 lg:h-[calc(100vh-140px)]", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+            className: "relative w-full h-[40vh] md:h-[50vh] lg:h-[500px] bg-zinc-50 overflow-hidden group", children: [
             /* @__PURE__ */ jsxRuntimeExports.jsx(
               Image,
               {
@@ -10392,290 +10819,508 @@ function ProductDetailPage() {
                 className: "object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
               }
             ),
-            images.length > 1 && /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx(
+              "button",
+              {
+                onClick: () => setIsFullScreen(true),
+                className: "absolute top-4 right-4 z-10 w-10 h-10 bg-white/30 backdrop-blur-md border border-white/50 rounded-full flex items-center justify-center text-black opacity-0 group-hover:opacity-100 transition-all duration-300 hover:bg-white/50 hover:scale-110",
+                "aria-label": "View full screen",
+                children: /* @__PURE__ */ jsxRuntimeExports.jsx(Maximize2, { className: "w-5 h-5" })
+              }
+            ),
+              images.length > 1 && /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, {
+                children: [
               /* @__PURE__ */ jsxRuntimeExports.jsx(
+                  "button",
+                  {
+                    onClick: handlePrevImage,
+                    className: "absolute left-4 top-1/2 -translate-y-1/2 z-10 w-12 h-12 bg-white/30 backdrop-blur-md border border-white/50 shadow-[0_4px_30px_rgba(0,0,0,0.1)] hover:bg-white/50 rounded-full flex items-center justify-center text-black opacity-0 group-hover:opacity-100 transition-all duration-300 hover:scale-105",
+                    "aria-label": "Previous image",
+                    children: /* @__PURE__ */ jsxRuntimeExports.jsx(ChevronLeft, { className: "w-7 h-7 stroke-[1.5]" })
+                  }
+                ),
+              /* @__PURE__ */ jsxRuntimeExports.jsx(
+                  "button",
+                  {
+                    onClick: handleNextImage,
+                    className: "absolute right-4 top-1/2 -translate-y-1/2 z-10 w-12 h-12 bg-white/30 backdrop-blur-md border border-white/50 shadow-[0_4px_30px_rgba(0,0,0,0.1)] hover:bg-white/50 rounded-full flex items-center justify-center text-black opacity-0 group-hover:opacity-100 transition-all duration-300 hover:scale-105",
+                    "aria-label": "Next image",
+                    children: /* @__PURE__ */ jsxRuntimeExports.jsx(ChevronRight, { className: "w-7 h-7 stroke-[1.5]" })
+                  }
+                )
+                ]
+              })
+            ]
+          }),
+            images.length > 1 && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+              className: "relative group/carousel", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx(
                 "button",
                 {
-                  onClick: handlePrevImage,
-                  className: "absolute left-4 top-1/2 -translate-y-1/2 z-10 w-12 h-12 bg-white/30 backdrop-blur-md border border-white/50 shadow-[0_4px_30px_rgba(0,0,0,0.1)] hover:bg-white/50 rounded-full flex items-center justify-center text-black opacity-0 group-hover:opacity-100 transition-all duration-300 hover:scale-105",
-                  "aria-label": "Previous image",
+                  onClick: () => scrollThumbnails("left"),
+                  className: "absolute left-2 top-1/2 -translate-y-1/2 z-10 w-12 h-12 bg-white/30 backdrop-blur-md border border-white/50 shadow-[0_4px_30px_rgba(0,0,0,0.1)] hover:bg-white/50 rounded-full flex items-center justify-center text-black opacity-0 group-hover/carousel:opacity-100 transition-all duration-300 hover:scale-105",
+                  "aria-label": "Scroll left",
                   children: /* @__PURE__ */ jsxRuntimeExports.jsx(ChevronLeft, { className: "w-7 h-7 stroke-[1.5]" })
                 }
               ),
-              /* @__PURE__ */ jsxRuntimeExports.jsx(
+            /* @__PURE__ */ jsxRuntimeExports.jsx(
+                "div",
+                {
+                  ref: thumbnailsRef,
+                  className: "flex gap-4 overflow-x-auto scrollbar-hide shrink-0 snap-x snap-mandatory",
+                  style: { scrollbarWidth: "none", msOverflowStyle: "none" },
+                  children: images.map((img, idx) => /* @__PURE__ */ jsxRuntimeExports.jsx(
+                    "button",
+                    {
+                      onClick: () => setSelectedImage(idx),
+                      className: `relative w-24 aspect-[4/5] shrink-0 overflow-hidden bg-zinc-50 transition-all duration-300 snap-start ${validSelectedImage === idx ? "opacity-100 ring-2 ring-inset ring-black" : "opacity-40 hover:opacity-100"}`,
+                      children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+                        Image,
+                        {
+                          src: img,
+                          alt: `Thumbnail ${idx + 1}`,
+                          fill: true,
+                          className: "object-cover object-center"
+                        }
+                      )
+                    },
+                    idx
+                  ))
+                }
+              ),
+            /* @__PURE__ */ jsxRuntimeExports.jsx(
                 "button",
                 {
-                  onClick: handleNextImage,
-                  className: "absolute right-4 top-1/2 -translate-y-1/2 z-10 w-12 h-12 bg-white/30 backdrop-blur-md border border-white/50 shadow-[0_4px_30px_rgba(0,0,0,0.1)] hover:bg-white/50 rounded-full flex items-center justify-center text-black opacity-0 group-hover:opacity-100 transition-all duration-300 hover:scale-105",
-                  "aria-label": "Next image",
+                  onClick: () => scrollThumbnails("right"),
+                  className: "absolute right-2 top-1/2 -translate-y-1/2 z-10 w-12 h-12 bg-white/30 backdrop-blur-md border border-white/50 shadow-[0_4px_30px_rgba(0,0,0,0.1)] hover:bg-white/50 rounded-full flex items-center justify-center text-black opacity-0 group-hover/carousel:opacity-100 transition-all duration-300 hover:scale-105",
+                  "aria-label": "Scroll right",
                   children: /* @__PURE__ */ jsxRuntimeExports.jsx(ChevronRight, { className: "w-7 h-7 stroke-[1.5]" })
                 }
               )
-            ] })
-          ] }),
-          images.length > 1 && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "relative group/carousel", children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsx(
-              "button",
+              ]
+            })
+          ]
+        }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+          className: "w-full lg:w-2/5 flex flex-col pt-0 md:pt-4 lg:pt-0", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("h1", { className: "font-serif text-4xl lg:text-5xl text-black md:leading-tight lg:leading-[1.1] mb-4 lg:mb-6", children: product.name }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("p", {
+            className: "font-sans text-2xl font-light text-black mb-8", children: [
+              "NPR ",
+              currentPrice.toFixed(2)
+            ]
+          }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "w-full h-[1px] bg-zinc-200 mb-8" }),
+            colors.length > 0 && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+              className: "mb-8", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+                className: "flex justify-between items-center mb-4", children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "text-sm font-semibold tracking-widest uppercase text-black", children: "Color" }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-sm text-zinc-500", children: colors[selectedColor]?.name })
+                ]
+              }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("div", {
+                className: "flex gap-4 flex-wrap", children: colors.map((color, idx) => {
+                  const oos = isColorOutOfStock(color.name);
+                  return /* @__PURE__ */ jsxRuntimeExports.jsxs(
+                    "button",
+                    {
+                      onClick: () => handleColorChange(idx),
+                      className: `relative w-16 h-20 bg-zinc-50 overflow-hidden transition-all duration-300 ${selectedColor === idx ? "opacity-100 ring-2 ring-inset ring-black" : "opacity-40 hover:opacity-100"} ${oos ? "opacity-50" : ""}`,
+                      children: [
+                    /* @__PURE__ */ jsxRuntimeExports.jsx(
+                        Image,
+                        {
+                          src: color.image,
+                          alt: color.name,
+                          fill: true,
+                          className: "object-cover object-center"
+                        }
+                      ),
+                        oos && /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute inset-0 flex items-end justify-center pb-1.5 bg-black/20", children: /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-[9px] font-bold uppercase tracking-widest text-white bg-black/70 px-1.5 py-0.5 rounded", children: "Out" }) })
+                      ]
+                    },
+                    idx
+                  );
+                })
+              })
+              ]
+            }),
+            sizes.length > 0 && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+              className: "mb-12", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+                className: "flex justify-between items-center mb-4", children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "text-sm font-semibold tracking-widest uppercase text-black", children: "Size" }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx(SizeGuide, {})
+                ]
+              }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("div", {
+                className: "grid grid-cols-3 gap-3", children: sizes.map((sizeObj, idx) => {
+                  const outOfStock = sizeObj.inventory === 0;
+                  return /* @__PURE__ */ jsxRuntimeExports.jsxs(
+                    "button",
+                    {
+                      onClick: () => !outOfStock && setSelectedSize(idx),
+                      disabled: outOfStock,
+                      title: outOfStock ? "Out of stock" : void 0,
+                      className: `relative py-3 text-sm transition-colors border ${outOfStock ? "border-zinc-100 text-zinc-300 cursor-not-allowed bg-zinc-50" : selectedSize === idx ? "border-black bg-black text-white" : "border-zinc-200 text-black hover:border-black"}`,
+                      children: [
+                        sizeObj.size,
+                        outOfStock && /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "absolute inset-0 flex items-center justify-center pointer-events-none", children: /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "block w-full h-px bg-zinc-300 absolute rotate-[-18deg]" }) })
+                      ]
+                    },
+                    idx
+                  );
+                })
+              })
+              ]
+            }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+              className: "flex flex-col gap-4 mb-12", children: [
+                validationError && /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-red-500 text-sm font-medium tracking-wide mb-2 animate-in fade-in slide-in-from-top-1", children: validationError }),
+                isSizeOutOfStock ? /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, {
+                  children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "w-full py-6 flex items-center justify-center border border-zinc-200 bg-zinc-50 uppercase tracking-widest text-sm text-zinc-400 font-medium select-none", children: "Out of Stock" }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-xs text-zinc-400 text-center -mt-1", children: "This size is currently unavailable. Please select another size." })
+                  ]
+                }) : /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, {
+                  children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx(
+                    Button,
+                    {
+                      onClick: () => handleAddToCart(true),
+                      variant: "default",
+                      className: "w-full py-6 rounded-none bg-black text-white hover:bg-zinc-800 transition-colors uppercase tracking-widest text-sm",
+                      children: "Buy Now"
+                    }
+                  ),
+              /* @__PURE__ */ jsxRuntimeExports.jsxs(
+                    Button,
+                    {
+                      onClick: () => handleAddToCart(false),
+                      variant: "outline",
+                      className: `w-full py-6 rounded-none border-zinc-200 uppercase tracking-widest text-sm flex items-center justify-center gap-2 transition-all ${isAdded ? "bg-green-50 text-green-700 border-green-200 hover:bg-green-50" : "text-black hover:bg-zinc-50"}`,
+                      children: [
+                    /* @__PURE__ */ jsxRuntimeExports.jsx(ShoppingCart, { className: "w-4 h-4" }),
+                        isAdded ? "Added to Cart" : "Add to Cart"
+                      ]
+                    }
+                  )
+                  ]
+                })
+              ]
+            }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+              className: "flex flex-col gap-6 py-8 mb-12 border-t border-b border-zinc-100", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+                className: "flex gap-4 items-start", children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "p-2 bg-zinc-50 rounded-full shrink-0", children: /* @__PURE__ */ jsxRuntimeExports.jsx(Truck, { className: "w-5 h-5 text-zinc-900", strokeWidth: 1.5 }) }),
+              /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+                  children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsx("h4", { className: "font-sans text-sm font-semibold tracking-wide text-black mb-1", children: shippingType }),
+                /* @__PURE__ */ jsxRuntimeExports.jsxs("p", {
+                    className: "text-sm text-zinc-500", children: [
+                      shippingCost === 0 ? "Complimentary shipping on this item." : `NPR ${shippingCost} shipping fee.`,
+                      " Arrives in 3-5 Business Days."
+                    ]
+                  })
+                  ]
+                })
+                ]
+              }),
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+                className: "flex gap-4 items-start", children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "p-2 bg-zinc-50 rounded-full shrink-0", children: /* @__PURE__ */ jsxRuntimeExports.jsx(RefreshCcw, { className: "w-5 h-5 text-zinc-900", strokeWidth: 1.5 }) }),
+              /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+                  children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsx("h4", { className: "font-sans text-sm font-semibold tracking-wide text-black mb-1", children: "Returns & Exchanges" }),
+                /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-sm text-zinc-500", children: returns })
+                  ]
+                })
+                ]
+              })
+              ]
+            }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+              className: "prose prose-sm text-zinc-500 font-sans leading-relaxed", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("p", { children: product.long_description || product.short_description || "Premium Quality Shoes." }),
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("ul", {
+                className: "mt-6 space-y-2", children: [
+                  product.material && /* @__PURE__ */ jsxRuntimeExports.jsxs("li", {
+                    children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-black font-medium", children: "Material:" }),
+                      " ",
+                      product.material
+                    ]
+                  }),
+                  product.lining && /* @__PURE__ */ jsxRuntimeExports.jsxs("li", {
+                    children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-black font-medium", children: "Lining:" }),
+                      " ",
+                      product.lining
+                    ]
+                  }),
+                  product.sole && /* @__PURE__ */ jsxRuntimeExports.jsxs("li", {
+                    children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-black font-medium", children: "Sole:" }),
+                      " ",
+                      product.sole
+                    ]
+                  }),
+                  product.construction_type && /* @__PURE__ */ jsxRuntimeExports.jsxs("li", {
+                    children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-black font-medium", children: "Construction:" }),
+                      " ",
+                      product.construction_type
+                    ]
+                  }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: "Handcrafted Excellence" })
+                ]
+              })
+              ]
+            })
+          ]
+        }),
+          product.showcases && product.showcases.length > 0 && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+            className: "mt-12 pt-10 border-t border-zinc-100", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("h4", { className: "font-sans text-[10px] uppercase tracking-[0.2em] font-bold text-zinc-400 mb-6", children: "Featured In" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("div", {
+              className: "flex flex-wrap gap-2", children: product.showcases.map((s) => /* @__PURE__ */ jsxRuntimeExports.jsx(
+                "button",
+                {
+                  onClick: () => router.push(`/showcases/${s.slug}`),
+                  className: "px-5 py-2.5 bg-zinc-50 border border-zinc-100 rounded-full text-[10px] uppercase tracking-widest font-bold text-zinc-600 hover:bg-black hover:text-white hover:border-black transition-all duration-300 shadow-sm hover:shadow-md",
+                  children: s.name
+                },
+                s.id
+              ))
+            })
+            ]
+          })
+        ]
+      })
+      ]
+    }),
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+      className: "max-w-screen-2xl mx-auto px-4 md:px-12 mt-16 md:mt-32 border-t border-zinc-100 pt-16 md:pt-24", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+        className: "flex flex-col md:flex-row justify-between items-start mb-12 gap-8", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "font-serif text-3xl md:text-5xl tracking-tight text-black max-w-md", children: "You May Also Love" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("a", { href: "/collections", className: "text-sm font-medium tracking-widest uppercase border-b border-black pb-1 hover:text-zinc-500 hover:border-zinc-500 transition-colors", children: "Discover More" })
+        ]
+      }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+        className: "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-8 md:gap-y-16", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("a", {
+          href: `/products/3`, className: "group cursor-pointer block", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("div", {
+            className: "relative w-full aspect-[4/5] overflow-hidden bg-zinc-100 mb-6", children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+              Image,
               {
-                onClick: () => scrollThumbnails("left"),
-                className: "absolute left-2 top-1/2 -translate-y-1/2 z-10 w-12 h-12 bg-white/30 backdrop-blur-md border border-white/50 shadow-[0_4px_30px_rgba(0,0,0,0.1)] hover:bg-white/50 rounded-full flex items-center justify-center text-black opacity-0 group-hover/carousel:opacity-100 transition-all duration-300 hover:scale-105",
-                "aria-label": "Scroll left",
-                children: /* @__PURE__ */ jsxRuntimeExports.jsx(ChevronLeft, { className: "w-7 h-7 stroke-[1.5]" })
+                src: "https://images.unsplash.com/photo-1638247025967-b4e38f787b76?q=80&w=1964&auto=format&fit=crop",
+                alt: "The Shamba Loafer",
+                fill: true,
+                className: "object-cover object-center transition-transform duration-700 group-hover:scale-105"
               }
-            ),
-            /* @__PURE__ */ jsxRuntimeExports.jsx(
-              "div",
+            )
+          }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+            className: "flex justify-between items-start", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+              children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "font-serif text-xl mb-1 mt-2", children: "The Shamba Loafer" }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-zinc-500 text-sm", children: "Textured Leather" })
+              ]
+            }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "font-sans text-sm mt-2", children: "NPR 280" })
+            ]
+          })
+          ]
+        }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("a", {
+          href: `/products/4`, className: "group cursor-pointer block", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("div", {
+            className: "relative w-full aspect-[4/5] overflow-hidden bg-zinc-100 mb-6", children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+              Image,
               {
-                ref: thumbnailsRef,
-                className: "flex gap-4 overflow-x-auto scrollbar-hide shrink-0 snap-x snap-mandatory",
-                style: { scrollbarWidth: "none", msOverflowStyle: "none" },
-                children: images.map((img, idx) => /* @__PURE__ */ jsxRuntimeExports.jsx(
+                src: "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?q=80&w=1887&auto=format&fit=crop",
+                alt: "Coseli Sneaker 01",
+                fill: true,
+                className: "object-cover object-center transition-transform duration-700 group-hover:scale-105"
+              }
+            )
+          }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+            className: "flex justify-between items-start", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+              children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "font-serif text-xl mb-1 mt-2", children: "Coseli Sneaker 01" }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-zinc-500 text-sm", children: "Premium Canvas & Suede" })
+              ]
+            }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "font-sans text-sm mt-2", children: "NPR 240" })
+            ]
+          })
+          ]
+        }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("a", {
+          href: `/products/5`, className: "group cursor-pointer block", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("div", {
+            className: "relative w-full aspect-[4/5] overflow-hidden bg-zinc-100 mb-6", children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+              Image,
+              {
+                src: "https://images.unsplash.com/photo-1620800762635-424a6435bd78?q=80&w=1974&auto=format&fit=crop",
+                alt: "Chelsea Boot",
+                fill: true,
+                className: "object-cover object-center transition-transform duration-700 group-hover:scale-105"
+              }
+            )
+          }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+            className: "flex justify-between items-start", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+              children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "font-serif text-xl mb-1 mt-2", children: "The Chelsea Boot" }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-zinc-500 text-sm", children: "Full-Grain Leather" })
+              ]
+            }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "font-sans text-sm mt-2", children: "NPR 360" })
+            ]
+          })
+          ]
+        }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("a", {
+          href: `/products/6`, className: "group cursor-pointer block", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("div", {
+            className: "relative w-full aspect-[4/5] overflow-hidden bg-zinc-100 mb-6", children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+              Image,
+              {
+                src: "https://images.unsplash.com/photo-1549298916-b41d501d3772?q=80&w=2012&auto=format&fit=crop",
+                alt: "Weekend Loafer",
+                fill: true,
+                className: "object-cover object-center transition-transform duration-700 group-hover:scale-105"
+              }
+            )
+          }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+            className: "flex justify-between items-start", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+              children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "font-serif text-xl mb-1 mt-2", children: "Weekend Loafer" }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-zinc-500 text-sm", children: "Supple Suede" })
+              ]
+            }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "font-sans text-sm mt-2", children: "NPR 260" })
+            ]
+          })
+          ]
+        })
+        ]
+      })
+      ]
+    }),
+      isFullScreen && /* @__PURE__ */ jsxRuntimeExports.jsxs(
+        "div",
+        {
+          className: "fixed inset-0 z-[100] bg-black/80 backdrop-blur-xl flex flex-col pt-20 pb-10 transition-all duration-300",
+          onClick: () => setIsFullScreen(false),
+          children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx(
+            "button",
+            {
+              onClick: (e) => {
+                e.stopPropagation();
+                setIsFullScreen(false);
+              },
+              className: "absolute top-8 right-8 z-[110] w-12 h-12 bg-white/10 hover:bg-white/20 border border-white/20 rounded-full flex items-center justify-center text-white transition-all duration-300 hover:rotate-90",
+              "aria-label": "Close full screen",
+              children: /* @__PURE__ */ jsxRuntimeExports.jsx(X, { className: "w-6 h-6" })
+            }
+          ),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs(
+            "div",
+            {
+              className: "flex-1 relative w-full flex items-center justify-center px-4 md:px-20 overflow-hidden",
+              onClick: (e) => e.stopPropagation(),
+              children: [
+                images.length > 1 && /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, {
+                  children: [
+                  /* @__PURE__ */ jsxRuntimeExports.jsx(
+                    "button",
+                    {
+                      onClick: (e) => {
+                        e.stopPropagation();
+                        handlePrevImage();
+                      },
+                      className: "absolute left-4 md:left-8 z-[110] w-16 h-16 bg-white/5 hover:bg-white/10 border border-white/10 rounded-full flex items-center justify-center text-white transition-all duration-300 hover:scale-110 group",
+                      "aria-label": "Previous image",
+                      children: /* @__PURE__ */ jsxRuntimeExports.jsx(ChevronLeft, { className: "w-8 h-8 group-hover:-translate-x-1 transition-transform" })
+                    }
+                  ),
+                  /* @__PURE__ */ jsxRuntimeExports.jsx(
+                    "button",
+                    {
+                      onClick: (e) => {
+                        e.stopPropagation();
+                        handleNextImage();
+                      },
+                      className: "absolute right-4 md:right-8 z-[110] w-16 h-16 bg-white/5 hover:bg-white/10 border border-white/10 rounded-full flex items-center justify-center text-white transition-all duration-300 hover:scale-110 group",
+                      "aria-label": "Next image",
+                      children: /* @__PURE__ */ jsxRuntimeExports.jsx(ChevronRight, { className: "w-8 h-8 group-hover:translate-x-1 transition-transform" })
+                    }
+                  )
+                  ]
+                }),
+                /* @__PURE__ */ jsxRuntimeExports.jsx("div", {
+                  className: "relative w-full h-full flex items-center justify-center", children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+                    "img",
+                    {
+                      src: images[validSelectedImage],
+                      alt: `${product.name} - View ${validSelectedImage + 1}`,
+                      className: "max-w-full max-h-full object-contain pointer-events-none select-none transition-all duration-500 ease-in-out"
+                    }
+                  )
+                })
+              ]
+            }
+          ),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs(
+            "div",
+            {
+              className: "mt-8 flex flex-col items-center gap-6 px-4",
+              onClick: (e) => e.stopPropagation(),
+              children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsx("div", {
+                className: "flex gap-3 overflow-x-auto pb-4 max-w-full scrollbar-hide", children: images.map((img, idx) => /* @__PURE__ */ jsxRuntimeExports.jsx(
                   "button",
                   {
-                    onClick: () => setSelectedImage(idx),
-                    className: `relative w-24 aspect-[4/5] shrink-0 overflow-hidden bg-zinc-50 transition-opacity duration-300 snap-start ${validSelectedImage === idx ? "opacity-100 ring-1 ring-black" : "opacity-50 hover:opacity-100"}`,
-                    children: /* @__PURE__ */ jsxRuntimeExports.jsx(
-                      Image,
-                      {
-                        src: img,
-                        alt: `Thumbnail ${idx + 1}`,
-                        fill: true,
-                        className: "object-cover object-center"
-                      }
-                    )
+                    onClick: (e) => {
+                      e.stopPropagation();
+                      setSelectedImage(idx);
+                    },
+                    className: `relative w-16 h-16 md:w-20 md:h-20 flex-shrink-0 transition-all duration-300 ${validSelectedImage === idx ? "ring-2 ring-white scale-105" : "opacity-40 hover:opacity-100 scale-95"}`,
+                    children: /* @__PURE__ */ jsxRuntimeExports.jsx("img", { src: img, alt: `Thumb ${idx + 1}`, className: "w-full h-full object-cover" })
                   },
                   idx
                 ))
-              }
-            ),
-            /* @__PURE__ */ jsxRuntimeExports.jsx(
-              "button",
-              {
-                onClick: () => scrollThumbnails("right"),
-                className: "absolute right-2 top-1/2 -translate-y-1/2 z-10 w-12 h-12 bg-white/30 backdrop-blur-md border border-white/50 shadow-[0_4px_30px_rgba(0,0,0,0.1)] hover:bg-white/50 rounded-full flex items-center justify-center text-black opacity-0 group-hover/carousel:opacity-100 transition-all duration-300 hover:scale-105",
-                "aria-label": "Scroll right",
-                children: /* @__PURE__ */ jsxRuntimeExports.jsx(ChevronRight, { className: "w-7 h-7 stroke-[1.5]" })
-              }
-            )
-          ] })
-        ] }),
-        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "w-full lg:w-2/5 flex flex-col pt-0 md:pt-4 lg:pt-12", children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsx("h1", { className: "font-serif text-4xl lg:text-5xl text-black md:leading-tight lg:leading-[1.1] mb-4 lg:mb-6", children: product.name }),
-          /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { className: "font-sans text-2xl font-light text-black mb-8", children: [
-            "NPR ",
-            currentPrice.toFixed(2)
-          ] }),
-          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "w-full h-[1px] bg-zinc-200 mb-8" }),
-          colors.length > 0 && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "mb-8", children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex justify-between items-center mb-4", children: [
-              /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "text-sm font-semibold tracking-widest uppercase text-black", children: "Color" }),
-              /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-sm text-zinc-500", children: colors[selectedColor]?.name })
-            ] }),
-            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex gap-4 flex-wrap", children: colors.map((color, idx) => {
-              const oos = isColorOutOfStock(color.name);
-              return /* @__PURE__ */ jsxRuntimeExports.jsxs(
-                "button",
-                {
-                  onClick: () => handleColorChange(idx),
-                  className: `relative w-16 h-20 bg-zinc-50 overflow-hidden transition-all duration-300 ${selectedColor === idx ? "ring-1 ring-black ring-offset-2" : "hover:opacity-80"} ${oos ? "opacity-50" : ""}`,
-                  children: [
-                    /* @__PURE__ */ jsxRuntimeExports.jsx(
-                      Image,
-                      {
-                        src: color.image,
-                        alt: color.name,
-                        fill: true,
-                        className: "object-cover object-center"
-                      }
-                    ),
-                    oos && /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute inset-0 flex items-end justify-center pb-1.5 bg-black/20", children: /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-[9px] font-bold uppercase tracking-widest text-white bg-black/70 px-1.5 py-0.5 rounded", children: "Out" }) })
-                  ]
-                },
-                idx
-              );
-            }) })
-          ] }),
-          sizes.length > 0 && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "mb-12", children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex justify-between items-center mb-4", children: [
-              /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "text-sm font-semibold tracking-widest uppercase text-black", children: "Size" }),
-              /* @__PURE__ */ jsxRuntimeExports.jsx(SizeGuide, {})
-            ] }),
-            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "grid grid-cols-3 gap-3", children: sizes.map((sizeObj, idx) => {
-              const outOfStock = sizeObj.inventory === 0;
-              return /* @__PURE__ */ jsxRuntimeExports.jsxs(
-                "button",
-                {
-                  onClick: () => !outOfStock && setSelectedSize(idx),
-                  disabled: outOfStock,
-                  title: outOfStock ? "Out of stock" : void 0,
-                  className: `relative py-3 text-sm transition-colors border ${outOfStock ? "border-zinc-100 text-zinc-300 cursor-not-allowed bg-zinc-50" : selectedSize === idx ? "border-black bg-black text-white" : "border-zinc-200 text-black hover:border-black"}`,
-                  children: [
-                    sizeObj.size,
-                    outOfStock && /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "absolute inset-0 flex items-center justify-center pointer-events-none", children: /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "block w-full h-px bg-zinc-300 absolute rotate-[-18deg]" }) })
-                  ]
-                },
-                idx
-              );
-            }) })
-          ] }),
-          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-col gap-4 mb-12", children: [
-            validationError && /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-red-500 text-sm font-medium tracking-wide mb-2 animate-in fade-in slide-in-from-top-1", children: validationError }),
-            isSizeOutOfStock ? /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
-              /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "w-full py-6 flex items-center justify-center border border-zinc-200 bg-zinc-50 uppercase tracking-widest text-sm text-zinc-400 font-medium select-none", children: "Out of Stock" }),
-              /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-xs text-zinc-400 text-center -mt-1", children: "This size is currently unavailable. Please select another size." })
-            ] }) : /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
-              /* @__PURE__ */ jsxRuntimeExports.jsx(
-                Button,
-                {
-                  onClick: () => handleAddToCart(true),
-                  variant: "default",
-                  className: "w-full py-6 rounded-none bg-black text-white hover:bg-zinc-800 transition-colors uppercase tracking-widest text-sm",
-                  children: "Buy Now"
-                }
-              ),
-              /* @__PURE__ */ jsxRuntimeExports.jsxs(
-                Button,
-                {
-                  onClick: () => handleAddToCart(false),
-                  variant: "outline",
-                  className: `w-full py-6 rounded-none border-zinc-200 uppercase tracking-widest text-sm flex items-center justify-center gap-2 transition-all ${isAdded ? "bg-green-50 text-green-700 border-green-200 hover:bg-green-50" : "text-black hover:bg-zinc-50"}`,
-                  children: [
-                    /* @__PURE__ */ jsxRuntimeExports.jsx(ShoppingCart, { className: "w-4 h-4" }),
-                    isAdded ? "Added to Cart" : "Add to Cart"
-                  ]
-                }
-              )
-            ] })
-          ] }),
-          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-col gap-6 py-8 mb-12 border-t border-b border-zinc-100", children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex gap-4 items-start", children: [
-              /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "p-2 bg-zinc-50 rounded-full shrink-0", children: /* @__PURE__ */ jsxRuntimeExports.jsx(Truck, { className: "w-5 h-5 text-zinc-900", strokeWidth: 1.5 }) }),
-              /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
-                /* @__PURE__ */ jsxRuntimeExports.jsx("h4", { className: "font-sans text-sm font-semibold tracking-wide text-black mb-1", children: shippingType }),
-                /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { className: "text-sm text-zinc-500", children: [
-                  shippingCost === 0 ? "Complimentary shipping on this item." : `NPR ${shippingCost} shipping fee.`,
-                  " Arrives in 3-5 Business Days."
-                ] })
-              ] })
-            ] }),
-            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex gap-4 items-start", children: [
-              /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "p-2 bg-zinc-50 rounded-full shrink-0", children: /* @__PURE__ */ jsxRuntimeExports.jsx(RefreshCcw, { className: "w-5 h-5 text-zinc-900", strokeWidth: 1.5 }) }),
-              /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
-                /* @__PURE__ */ jsxRuntimeExports.jsx("h4", { className: "font-sans text-sm font-semibold tracking-wide text-black mb-1", children: "Returns & Exchanges" }),
-                /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-sm text-zinc-500", children: returns })
-              ] })
-            ] })
-          ] }),
-          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "prose prose-sm text-zinc-500 font-sans leading-relaxed", children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsx("p", { children: product.long_description || product.short_description || "Premium Quality Shoes." }),
-            /* @__PURE__ */ jsxRuntimeExports.jsxs("ul", { className: "mt-6 space-y-2", children: [
-              product.material && /* @__PURE__ */ jsxRuntimeExports.jsxs("li", { children: [
-                /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-black font-medium", children: "Material:" }),
-                " ",
-                product.material
-              ] }),
-              product.lining && /* @__PURE__ */ jsxRuntimeExports.jsxs("li", { children: [
-                /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-black font-medium", children: "Lining:" }),
-                " ",
-                product.lining
-              ] }),
-              product.sole && /* @__PURE__ */ jsxRuntimeExports.jsxs("li", { children: [
-                /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-black font-medium", children: "Sole:" }),
-                " ",
-                product.sole
-              ] }),
-              product.construction_type && /* @__PURE__ */ jsxRuntimeExports.jsxs("li", { children: [
-                /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-black font-medium", children: "Construction:" }),
-                " ",
-                product.construction_type
-              ] }),
-              /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: "Handcrafted Excellence" })
-            ] })
-          ] })
-        ] })
-      ] })
-    ] }),
-    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "max-w-screen-2xl mx-auto px-4 md:px-12 mt-16 md:mt-32 border-t border-zinc-100 pt-16 md:pt-24", children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-col md:flex-row justify-between items-start mb-12 gap-8", children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "font-serif text-3xl md:text-5xl tracking-tight text-black max-w-md", children: "You May Also Love" }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx("a", { href: "/collections", className: "text-sm font-medium tracking-widest uppercase border-b border-black pb-1 hover:text-zinc-500 hover:border-zinc-500 transition-colors", children: "Discover More" })
-      ] }),
-      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-8 md:gap-y-16", children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsxs("a", { href: `/products/3`, className: "group cursor-pointer block", children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "relative w-full aspect-[4/5] overflow-hidden bg-zinc-100 mb-6", children: /* @__PURE__ */ jsxRuntimeExports.jsx(
-            Image,
-            {
-              src: "https://images.unsplash.com/photo-1638247025967-b4e38f787b76?q=80&w=1964&auto=format&fit=crop",
-              alt: "The Shamba Loafer",
-              fill: true,
-              className: "object-cover object-center transition-transform duration-700 group-hover:scale-105"
+              }),
+                /* @__PURE__ */ jsxRuntimeExports.jsxs("span", {
+                className: "font-sans text-xs tracking-widest text-white/40 uppercase", children: [
+                  validSelectedImage + 1,
+                  " / ",
+                  images.length,
+                  " — ",
+                  product.name
+                ]
+              })
+              ]
             }
-          ) }),
-          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex justify-between items-start", children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
-              /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "font-serif text-xl mb-1 mt-2", children: "The Shamba Loafer" }),
-              /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-zinc-500 text-sm", children: "Textured Leather" })
-            ] }),
-            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "font-sans text-sm mt-2", children: "NPR 280" })
-          ] })
-        ] }),
-        /* @__PURE__ */ jsxRuntimeExports.jsxs("a", { href: `/products/4`, className: "group cursor-pointer block", children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "relative w-full aspect-[4/5] overflow-hidden bg-zinc-100 mb-6", children: /* @__PURE__ */ jsxRuntimeExports.jsx(
-            Image,
-            {
-              src: "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?q=80&w=1887&auto=format&fit=crop",
-              alt: "Coseli Sneaker 01",
-              fill: true,
-              className: "object-cover object-center transition-transform duration-700 group-hover:scale-105"
-            }
-          ) }),
-          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex justify-between items-start", children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
-              /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "font-serif text-xl mb-1 mt-2", children: "Coseli Sneaker 01" }),
-              /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-zinc-500 text-sm", children: "Premium Canvas & Suede" })
-            ] }),
-            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "font-sans text-sm mt-2", children: "NPR 240" })
-          ] })
-        ] }),
-        /* @__PURE__ */ jsxRuntimeExports.jsxs("a", { href: `/products/5`, className: "group cursor-pointer block", children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "relative w-full aspect-[4/5] overflow-hidden bg-zinc-100 mb-6", children: /* @__PURE__ */ jsxRuntimeExports.jsx(
-            Image,
-            {
-              src: "https://images.unsplash.com/photo-1620800762635-424a6435bd78?q=80&w=1974&auto=format&fit=crop",
-              alt: "Chelsea Boot",
-              fill: true,
-              className: "object-cover object-center transition-transform duration-700 group-hover:scale-105"
-            }
-          ) }),
-          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex justify-between items-start", children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
-              /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "font-serif text-xl mb-1 mt-2", children: "The Chelsea Boot" }),
-              /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-zinc-500 text-sm", children: "Full-Grain Leather" })
-            ] }),
-            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "font-sans text-sm mt-2", children: "NPR 360" })
-          ] })
-        ] }),
-        /* @__PURE__ */ jsxRuntimeExports.jsxs("a", { href: `/products/6`, className: "group cursor-pointer block", children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "relative w-full aspect-[4/5] overflow-hidden bg-zinc-100 mb-6", children: /* @__PURE__ */ jsxRuntimeExports.jsx(
-            Image,
-            {
-              src: "https://images.unsplash.com/photo-1549298916-b41d501d3772?q=80&w=2012&auto=format&fit=crop",
-              alt: "Weekend Loafer",
-              fill: true,
-              className: "object-cover object-center transition-transform duration-700 group-hover:scale-105"
-            }
-          ) }),
-          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex justify-between items-start", children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
-              /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "font-serif text-xl mb-1 mt-2", children: "Weekend Loafer" }),
-              /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-zinc-500 text-sm", children: "Supple Suede" })
-            ] }),
-            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "font-sans text-sm mt-2", children: "NPR 260" })
-          ] })
-        ] })
-      ] })
-    ] })
-  ] });
+          )
+          ]
+        }
+      )
+    ]
+  });
 }
 function ReturnsPage() {
   const [showForm, setShowForm] = reactExports.useState(false);
@@ -10745,246 +11390,326 @@ function ReturnsPage() {
       setIsReturning(false);
     }
   };
-  return /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "min-h-screen bg-white pt-32 pb-24 px-4 md:px-12 max-w-screen-xl mx-auto", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "max-w-3xl mx-auto", children: [
-    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "text-center mb-16", children: [
+  return /* @__PURE__ */ jsxRuntimeExports.jsx("div", {
+    className: "min-h-screen bg-white pt-32 pb-24 px-4 md:px-12 max-w-screen-xl mx-auto", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+      className: "max-w-3xl mx-auto", children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+        className: "text-center mb-16", children: [
       /* @__PURE__ */ jsxRuntimeExports.jsx("h1", { className: "font-serif text-4xl md:text-6xl text-black tracking-tight mb-6", children: "Returns & Exchanges" }),
       /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-zinc-500 text-sm md:text-base leading-relaxed", children: "We want you to love your custom fit. If you're not entirely satisfied with your purchase, we're here to help." })
-    ] }),
-    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "space-y-12 mb-20 text-zinc-600 font-sans leading-relaxed", children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsxs("section", { children: [
+        ]
+      }),
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+        className: "space-y-12 mb-20 text-zinc-600 font-sans leading-relaxed", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("section", {
+          children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "font-serif text-2xl text-black mb-4", children: "Our Return Policy" }),
         /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "mb-4", children: "You have 30 days from the date of delivery to return or exchange your unworn, unwashed, and unaltered items. All items must be returned in their original packaging, including the dust bag and shoe box." }),
         /* @__PURE__ */ jsxRuntimeExports.jsx("p", { children: "Please note that bespoke or fully custom-made orders are not eligible for returns or exchanges, as they are crafted specifically to your individual measurements and specifications." })
-      ] }),
-      /* @__PURE__ */ jsxRuntimeExports.jsxs("section", { children: [
+          ]
+        }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("section", {
+          children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "font-serif text-2xl text-black mb-4", children: "How to Return" }),
-        /* @__PURE__ */ jsxRuntimeExports.jsxs("ol", { className: "list-decimal pl-5 space-y-4", children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsxs("li", { children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("ol", {
+            className: "list-decimal pl-5 space-y-4", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("li", {
+              children: [
             /* @__PURE__ */ jsxRuntimeExports.jsx("strong", { children: "Initiate your return:" }),
-            " Click the button below and enter your order number and email address to start the process."
-          ] }),
-          /* @__PURE__ */ jsxRuntimeExports.jsxs("li", { children: [
+                " Click the button below and enter your order number and contact number that was used to place the order to start the process."
+              ]
+            }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("li", {
+              children: [
             /* @__PURE__ */ jsxRuntimeExports.jsx("strong", { children: "Approval:" }),
-            " Once your return is approved, we will email you detailed return instructions."
-          ] }),
-          /* @__PURE__ */ jsxRuntimeExports.jsxs("li", { children: [
+                " Once your return is approved, we will email you detailed return instructions."
+              ]
+            }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("li", {
+              children: [
             /* @__PURE__ */ jsxRuntimeExports.jsx("strong", { children: "Pack your items:" }),
-            " Securely package the shoes in their original box."
-          ] }),
-          /* @__PURE__ */ jsxRuntimeExports.jsxs("li", { children: [
+                " Securely package the shoes in their original box."
+              ]
+            }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("li", {
+              children: [
             /* @__PURE__ */ jsxRuntimeExports.jsx("strong", { children: "Ship it back:" }),
-            " Drop off your package at the designated courier location or schedule a pickup within 7 days."
-          ] })
-        ] })
-      ] }),
-      /* @__PURE__ */ jsxRuntimeExports.jsxs("section", { children: [
+                " Drop off your package at the designated courier location or schedule a pickup within 7 days."
+              ]
+            })
+            ]
+          })
+          ]
+        }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("section", {
+          children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "font-serif text-2xl text-black mb-4", children: "Refunds" }),
         /* @__PURE__ */ jsxRuntimeExports.jsx("p", { children: "Once our atelier receives and inspects your returned item (usually within 3-5 business days of receipt), we will process your refund. The funds will be credited back to your original payment method. Please allow up to 10 business days for the refund to reflect on your statement." })
-      ] })
-    ] }),
-    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "border-t border-zinc-200 pt-16 text-center bg-zinc-50 p-8 md:p-12 mb-20", children: [
-      !showForm && !isSubmitted && !orderData && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "space-y-6", children: [
+          ]
+        })
+        ]
+      }),
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+        className: "border-t border-zinc-200 pt-16 text-center bg-zinc-50 p-8 md:p-12 mb-20", children: [
+          !showForm && !isSubmitted && !orderData && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+            className: "space-y-6", children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "font-serif text-3xl text-black", children: "Ready to make a return?" }),
         /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-zinc-500 text-sm mb-8", children: "Have your order number ready." }),
         /* @__PURE__ */ jsxRuntimeExports.jsxs(
-          "button",
-          {
-            onClick: () => setShowForm(true),
-            className: "inline-flex items-center gap-2 bg-black text-white px-8 py-4 text-sm tracking-widest uppercase font-medium hover:bg-zinc-800 transition-colors",
-            children: [
-              "Initiate Return ",
+              "button",
+              {
+                onClick: () => setShowForm(true),
+                className: "inline-flex items-center gap-2 bg-black text-white px-8 py-4 text-sm tracking-widest uppercase font-medium hover:bg-zinc-800 transition-colors",
+                children: [
+                  "Initiate Return ",
               /* @__PURE__ */ jsxRuntimeExports.jsx(ChevronRight, { className: "w-4 h-4" })
+                ]
+              }
+            )
             ]
-          }
-        )
-      ] }),
-      showForm && !isSubmitted && !orderData && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "max-w-md mx-auto text-left animate-in fade-in slide-in-from-bottom-4 duration-500", children: [
+          }),
+          showForm && !isSubmitted && !orderData && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+            className: "max-w-md mx-auto text-left animate-in fade-in slide-in-from-bottom-4 duration-500", children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "font-serif text-2xl text-black mb-6 text-center", children: "Enter Order Details" }),
-        /* @__PURE__ */ jsxRuntimeExports.jsxs("form", { onSubmit: handleFindOrder, className: "space-y-6", children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "space-y-2", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("form", {
+              onSubmit: handleFindOrder, className: "space-y-6", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+                className: "space-y-2", children: [
             /* @__PURE__ */ jsxRuntimeExports.jsx("label", { htmlFor: "orderNumber", className: "block text-xs font-medium tracking-widest uppercase text-zinc-500", children: "Order/Tracking Number *" }),
             /* @__PURE__ */ jsxRuntimeExports.jsx(
-              "input",
-              {
-                type: "text",
-                id: "orderNumber",
-                value: orderNumber,
-                onChange: (e) => setOrderNumber(e.target.value.toUpperCase()),
-                required: true,
-                placeholder: "e.g. TRK-123456",
-                className: "w-full bg-transparent border-b border-zinc-300 py-3 text-sm text-black focus:outline-none focus:border-black transition-colors rounded-none placeholder:text-zinc-400 font-mono uppercase"
-              }
-            )
-          ] }),
-          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "space-y-2", children: [
+                  "input",
+                  {
+                    type: "text",
+                    id: "orderNumber",
+                    value: orderNumber,
+                    onChange: (e) => setOrderNumber(e.target.value.toUpperCase()),
+                    required: true,
+                    placeholder: "e.g. TRK-123456",
+                    className: "w-full bg-transparent border-b border-zinc-300 py-3 text-sm text-black focus:outline-none focus:border-black transition-colors rounded-none placeholder:text-zinc-400 font-mono uppercase"
+                  }
+                )
+                ]
+              }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+                className: "space-y-2", children: [
             /* @__PURE__ */ jsxRuntimeExports.jsx("label", { htmlFor: "email", className: "block text-xs font-medium tracking-widest uppercase text-zinc-500", children: "Email Address *" }),
             /* @__PURE__ */ jsxRuntimeExports.jsx(
-              "input",
-              {
-                type: "email",
-                id: "email",
-                value: email,
-                onChange: (e) => setEmail(e.target.value),
-                required: true,
-                placeholder: "Used during checkout",
-                className: "w-full bg-transparent border-b border-zinc-300 py-3 text-sm text-black focus:outline-none focus:border-black transition-colors rounded-none placeholder:text-zinc-400"
-              }
-            )
-          ] }),
-          error && /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { className: "text-red-500 text-xs mt-3 bg-red-50 p-3 flex items-start gap-2 border border-red-500 font-medium", children: [
+                  "input",
+                  {
+                    type: "email",
+                    id: "email",
+                    value: email,
+                    onChange: (e) => setEmail(e.target.value),
+                    required: true,
+                    placeholder: "Used during checkout",
+                    className: "w-full bg-transparent border-b border-zinc-300 py-3 text-sm text-black focus:outline-none focus:border-black transition-colors rounded-none placeholder:text-zinc-400"
+                  }
+                )
+                ]
+              }),
+                error && /* @__PURE__ */ jsxRuntimeExports.jsxs("p", {
+                  className: "text-red-500 text-xs mt-3 bg-red-50 p-3 flex items-start gap-2 border border-red-500 font-medium", children: [
             /* @__PURE__ */ jsxRuntimeExports.jsx(CircleAlert, { className: "w-4 h-4 shrink-0 mt-0.5" }),
-            " ",
-            error
-          ] }),
-          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "pt-4 flex justify-between items-center", children: [
+                    " ",
+                    error
+                  ]
+                }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+                  className: "pt-4 flex justify-between items-center", children: [
             /* @__PURE__ */ jsxRuntimeExports.jsx(
-              "button",
-              {
-                type: "button",
-                onClick: () => setShowForm(false),
-                className: "text-xs tracking-widest uppercase text-zinc-500 hover:text-black transition-colors",
-                children: "Cancel"
-              }
-            ),
+                    "button",
+                    {
+                      type: "button",
+                      onClick: () => setShowForm(false),
+                      className: "text-xs tracking-widest uppercase text-zinc-500 hover:text-black transition-colors",
+                      children: "Cancel"
+                    }
+                  ),
             /* @__PURE__ */ jsxRuntimeExports.jsx(
-              "button",
-              {
-                type: "submit",
-                disabled: isLoading,
-                className: "bg-black text-white px-8 py-4 text-xs tracking-widest uppercase font-medium hover:bg-zinc-800 transition-colors disabled:opacity-50",
-                children: isLoading ? "Searching..." : "Find Order"
-              }
-            )
-          ] })
-        ] })
-      ] }),
-      orderData && !isSubmitted && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "max-w-xl mx-auto text-left animate-in fade-in slide-in-from-bottom-4 duration-500", children: [
+                    "button",
+                    {
+                      type: "submit",
+                      disabled: isLoading,
+                      className: "bg-black text-white px-8 py-4 text-xs tracking-widest uppercase font-medium hover:bg-zinc-800 transition-colors disabled:opacity-50",
+                      children: isLoading ? "Searching..." : "Find Order"
+                    }
+                  )
+                  ]
+                })
+              ]
+            })
+            ]
+          }),
+          orderData && !isSubmitted && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+            className: "max-w-xl mx-auto text-left animate-in fade-in slide-in-from-bottom-4 duration-500", children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "font-serif text-2xl text-black mb-6 text-center", children: "Select Items to Return" }),
-        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "bg-white border border-zinc-200 p-4 md:p-6 mb-8", children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsxs("h4", { className: "text-[10px] font-bold tracking-widest uppercase text-zinc-500 mb-4", children: [
-            "Order ",
-            orderData.tracking_number
-          ] }),
-          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "space-y-4", children: orderData.order_items?.map((item, idx) => /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex gap-4 items-center", children: [
-            item.thumbnail ? /* @__PURE__ */ jsxRuntimeExports.jsx("img", { src: item.thumbnail, alt: item.product_name || "Product", className: "w-16 h-16 object-cover bg-zinc-100" }) : /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "w-16 h-16 bg-zinc-100 flex items-center justify-center", children: /* @__PURE__ */ jsxRuntimeExports.jsx(Package, { className: "w-6 h-6 text-zinc-300" }) }),
-            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex-1", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+              className: "bg-white border border-zinc-200 p-4 md:p-6 mb-8", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("h4", {
+                className: "text-[10px] font-bold tracking-widest uppercase text-zinc-500 mb-4", children: [
+                  "Order ",
+                  orderData.tracking_number
+                ]
+              }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("div", {
+                className: "space-y-4", children: orderData.order_items?.map((item, idx) => /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+                  className: "flex gap-4 items-center", children: [
+                    item.thumbnail ? /* @__PURE__ */ jsxRuntimeExports.jsx("img", { src: item.thumbnail, alt: item.product_name || "Product", className: "w-16 h-16 object-cover bg-zinc-100" }) : /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "w-16 h-16 bg-zinc-100 flex items-center justify-center", children: /* @__PURE__ */ jsxRuntimeExports.jsx(Package, { className: "w-6 h-6 text-zinc-300" }) }),
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+                      className: "flex-1", children: [
               /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "font-medium text-black text-sm", children: item.product_name || "Product Item" }),
-              /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { className: "text-zinc-500 text-xs mt-1", children: [
-                "Qty: ",
-                item.quantity
-              ] })
-            ] }),
-            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "font-mono text-sm", children: [
-              "$",
-              (item.price_at_purchase * item.quantity).toFixed(2)
-            ] })
-          ] }, idx)) }),
-          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "mt-6 pt-4 border-t border-zinc-100 flex justify-between items-center", children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsxs("p", {
+                        className: "text-zinc-500 text-xs mt-1", children: [
+                          "Qty: ",
+                          item.quantity
+                        ]
+                      })
+                      ]
+                    }),
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+                      className: "font-mono text-sm", children: [
+                        "$",
+                        (item.price_at_purchase * item.quantity).toFixed(2)
+                      ]
+                    })
+                  ]
+                }, idx))
+              }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+                className: "mt-6 pt-4 border-t border-zinc-100 flex justify-between items-center", children: [
             /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-[10px] font-bold tracking-widest uppercase text-zinc-500", children: "Refund Amount (Est)" }),
-            /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "font-mono font-bold", children: [
-              "$",
-              orderData.total_amount?.toFixed(2)
-            ] })
-          ] })
-        ] }),
-        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "space-y-6 max-w-sm mx-auto", children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("span", {
+                  className: "font-mono font-bold", children: [
+                    "$",
+                    orderData.total_amount?.toFixed(2)
+                  ]
+                })
+                ]
+              })
+              ]
+            }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+              className: "space-y-6 max-w-sm mx-auto", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+                children: [
             /* @__PURE__ */ jsxRuntimeExports.jsx("label", { className: "text-[10px] font-bold tracking-widest uppercase text-zinc-500 block mb-2", children: "Reason for Return *" }),
             /* @__PURE__ */ jsxRuntimeExports.jsxs(
-              "select",
-              {
-                className: "w-full border border-zinc-300 p-3 text-sm flex-1 bg-white focus:outline-none focus:border-black transition-colors",
-                value: returnReason,
-                onChange: (e) => setReturnReason(e.target.value),
-                children: [
+                  "select",
+                  {
+                    className: "w-full border border-zinc-300 p-3 text-sm flex-1 bg-white focus:outline-none focus:border-black transition-colors",
+                    value: returnReason,
+                    onChange: (e) => setReturnReason(e.target.value),
+                    children: [
                   /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: "", disabled: true, children: "Select a reason..." }),
                   /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: "Wrong Size", children: "Wrong Size" }),
                   /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: "Defective", children: "Item Defective" }),
                   /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: "Not as described", children: "Not as described" }),
                   /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: "Changed mind", children: "Changed my mind" }),
                   /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: "Other", children: "Other" })
+                    ]
+                  }
+                )
                 ]
-              }
-            )
-          ] }),
-          returnReason === "Other" && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "animate-in fade-in slide-in-from-top-2 duration-300", children: [
+              }),
+                returnReason === "Other" && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+                  className: "animate-in fade-in slide-in-from-top-2 duration-300", children: [
             /* @__PURE__ */ jsxRuntimeExports.jsx("label", { className: "text-[10px] font-bold tracking-widest uppercase text-zinc-500 block mb-2", children: "Please specify *" }),
             /* @__PURE__ */ jsxRuntimeExports.jsx(
-              "textarea",
-              {
-                className: "w-full border border-zinc-300 p-3 text-sm focus:outline-none focus:border-black transition-colors min-h-[100px] bg-white resize-none",
-                placeholder: "Tell us what went wrong...",
-                value: returnOtherReason,
-                onChange: (e) => setReturnOtherReason(e.target.value)
-              }
-            )
-          ] }),
-          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-col gap-3 pt-4", children: [
+                    "textarea",
+                    {
+                      className: "w-full border border-zinc-300 p-3 text-sm focus:outline-none focus:border-black transition-colors min-h-[100px] bg-white resize-none",
+                      placeholder: "Tell us what went wrong...",
+                      value: returnOtherReason,
+                      onChange: (e) => setReturnOtherReason(e.target.value)
+                    }
+                  )
+                  ]
+                }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+                  className: "flex flex-col gap-3 pt-4", children: [
             /* @__PURE__ */ jsxRuntimeExports.jsx(
-              "button",
-              {
-                onClick: handleReturnOrder,
-                disabled: isReturning,
-                className: "w-full bg-black text-white px-8 py-4 text-xs tracking-widest uppercase font-bold hover:bg-zinc-800 transition-colors disabled:opacity-50",
-                children: isReturning ? "Submitting..." : "Confirm Return"
-              }
-            ),
+                    "button",
+                    {
+                      onClick: handleReturnOrder,
+                      disabled: isReturning,
+                      className: "w-full bg-black text-white px-8 py-4 text-xs tracking-widest uppercase font-bold hover:bg-zinc-800 transition-colors disabled:opacity-50",
+                      children: isReturning ? "Submitting..." : "Confirm Return"
+                    }
+                  ),
             /* @__PURE__ */ jsxRuntimeExports.jsx(
-              "button",
-              {
-                type: "button",
-                onClick: () => setOrderData(null),
-                disabled: isReturning,
-                className: "w-full text-zinc-500 text-xs tracking-widest uppercase font-medium hover:text-black transition-colors py-4",
-                children: "Cancel"
-              }
-            ),
-            returnError && /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { className: "text-red-500 text-xs mt-2 bg-red-50 p-3 flex items-start gap-2 border border-red-500 font-medium", children: [
+                    "button",
+                    {
+                      type: "button",
+                      onClick: () => setOrderData(null),
+                      disabled: isReturning,
+                      className: "w-full text-zinc-500 text-xs tracking-widest uppercase font-medium hover:text-black transition-colors py-4",
+                      children: "Cancel"
+                    }
+                  ),
+                    returnError && /* @__PURE__ */ jsxRuntimeExports.jsxs("p", {
+                      className: "text-red-500 text-xs mt-2 bg-red-50 p-3 flex items-start gap-2 border border-red-500 font-medium", children: [
               /* @__PURE__ */ jsxRuntimeExports.jsx(CircleAlert, { className: "w-4 h-4 shrink-0 mt-0.5" }),
-              " ",
-              returnError
-            ] })
-          ] })
-        ] })
-      ] }),
-      isSubmitted && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "max-w-md mx-auto text-center space-y-6 animate-in fade-in slide-in-from-bottom-4 duration-500", children: [
+                        " ",
+                        returnError
+                      ]
+                    })
+                  ]
+                })
+              ]
+            })
+            ]
+          }),
+          isSubmitted && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+            className: "max-w-md mx-auto text-center space-y-6 animate-in fade-in slide-in-from-bottom-4 duration-500", children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "w-16 h-16 bg-black rounded-full flex items-center justify-center mx-auto mb-6", children: /* @__PURE__ */ jsxRuntimeExports.jsx(CircleCheck, { className: "w-8 h-8 text-white" }) }),
         /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "font-serif text-2xl text-black", children: "Return Initiated" }),
-        /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { className: "text-zinc-600 text-sm leading-relaxed", children: [
-          "We've received your return request for order ",
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("p", {
+              className: "text-zinc-600 text-sm leading-relaxed", children: [
+                "We've received your return request for order ",
           /* @__PURE__ */ jsxRuntimeExports.jsx("strong", { className: "text-black", children: orderNumber }),
-          ". An email with return instructions and next steps has been sent to your address."
-        ] }),
+                ". An email with return instructions and next steps has been sent to your address."
+              ]
+            }),
         /* @__PURE__ */ jsxRuntimeExports.jsx(
-          "button",
-          {
-            onClick: () => {
-              setIsSubmitted(false);
-              setShowForm(false);
-              setOrderNumber("");
-              setEmail("");
-              setReturnReason("");
-              setReturnOtherReason("");
-            },
-            className: "mt-8 text-xs tracking-widest uppercase font-medium border-b border-black pb-1 hover:text-zinc-500 hover:border-zinc-500 transition-colors inline-block",
-            children: "Return Another Order"
-          }
-        )
-      ] })
-    ] })
-  ] }) });
+              "button",
+              {
+                onClick: () => {
+                  setIsSubmitted(false);
+                  setShowForm(false);
+                  setOrderNumber("");
+                  setEmail("");
+                  setReturnReason("");
+                  setReturnOtherReason("");
+                },
+                className: "mt-8 text-xs tracking-widest uppercase font-medium border-b border-black pb-1 hover:text-zinc-500 hover:border-zinc-500 transition-colors inline-block",
+                children: "Return Another Order"
+              }
+            )
+            ]
+          })
+        ]
+      })
+      ]
+    })
+  });
 }
 function ShoeCarePage() {
-  return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "min-h-screen bg-white", children: [
-    /* @__PURE__ */ jsxRuntimeExports.jsxs("section", { className: "relative h-[70vh] flex flex-col items-center justify-center overflow-hidden", children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "z-10 text-center max-w-4xl mx-auto flex flex-col items-center gap-6 mix-blend-difference text-white px-4 md:px-12 mt-16", children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsxs("h1", { className: "font-serif text-5xl md:text-7xl leading-[1.1] tracking-tight", children: [
-          "The Art of ",
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+    className: "min-h-screen bg-white", children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("section", {
+      className: "relative h-[70vh] flex flex-col items-center justify-center overflow-hidden", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+        className: "z-10 text-center max-w-4xl mx-auto flex flex-col items-center gap-6 mix-blend-difference text-white px-4 md:px-12 mt-16", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("h1", {
+          className: "font-serif text-5xl md:text-7xl leading-[1.1] tracking-tight", children: [
+            "The Art of ",
           /* @__PURE__ */ jsxRuntimeExports.jsx("br", {}),
           /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "italic font-light", children: "Shoe Care" })
-        ] }),
+          ]
+        }),
         /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "font-sans text-sm tracking-widest uppercase mt-4", children: "A Ritual of Longevity" })
-      ] }),
+        ]
+      }),
       /* @__PURE__ */ jsxRuntimeExports.jsx(
         Image,
         {
@@ -10997,91 +11722,127 @@ function ShoeCarePage() {
       ),
       /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-black/20 to-transparent mix-blend-multiply" }),
       /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute bottom-12 z-10 text-white animate-bounce-slow opacity-80 mix-blend-difference", children: /* @__PURE__ */ jsxRuntimeExports.jsx(ArrowDown, { className: "w-6 h-6", strokeWidth: 1.5 }) })
-    ] }),
+      ]
+    }),
     /* @__PURE__ */ jsxRuntimeExports.jsx("section", { className: "max-w-3xl mx-auto text-center px-4 md:px-12 py-24 md:py-32", children: /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-zinc-600 font-serif text-lg md:text-xl leading-relaxed", children: "A well-crafted pair of full-grain leather shoes, when properly cared for, will not only last a lifetime but will grow more beautiful with age. Developing a rich patina requires honoring the leather through a deliberate ritual of cleaning, conditioning, and polishing." }) }),
-    /* @__PURE__ */ jsxRuntimeExports.jsxs("section", { className: "max-w-[1200px] mx-auto px-4 md:px-12 pb-32", children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-24 items-center mb-32 md:mb-48", children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "relative aspect-[4/5] w-full", children: /* @__PURE__ */ jsxRuntimeExports.jsx(
-          Image,
-          {
-            src: "https://images.unsplash.com/photo-1549298916-b41d501d3772?q=80&w=2624&auto=format&fit=crop",
-            alt: "Horsehair Brush on Leather",
-            fill: true,
-            className: "object-cover"
-          }
-        ) }),
-        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-col justify-center space-y-6 md:pr-12", children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("section", {
+      className: "max-w-[1200px] mx-auto px-4 md:px-12 pb-32", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+        className: "grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-24 items-center mb-32 md:mb-48", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("div", {
+          className: "relative aspect-[4/5] w-full", children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+            Image,
+            {
+              src: "https://images.unsplash.com/photo-1549298916-b41d501d3772?q=80&w=2624&auto=format&fit=crop",
+              alt: "Horsehair Brush on Leather",
+              fill: true,
+              className: "object-cover"
+            }
+          )
+        }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+          className: "flex flex-col justify-center space-y-6 md:pr-12", children: [
           /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "font-serif text-zinc-300 text-6xl md:text-8xl leading-none block mb-4", children: "01" }),
           /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "font-sans text-xs font-semibold tracking-widest uppercase text-black", children: "Preparation" }),
           /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "font-serif text-3xl md:text-4xl text-black", children: "Clean & Reset" }),
           /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-zinc-500 leading-relaxed text-sm md:text-base", children: "Begin by placing cedar shoe trees inside to maintain the shoe's shape and absorb any ambient moisture. Remove the laces to prevent them from absorbing polish. Using a genuine horsehair brush, vigorously brush the entire upper to remove dust and topical dirt. Clean the welts utilizing a smaller welt brush." })
-        ] })
-      ] }),
-      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-24 items-center mb-32 md:mb-48 md:flex-row-reverse flex-col-reverse", children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-col justify-center space-y-6 md:pl-12 order-2 md:order-1", children: [
+          ]
+        })
+        ]
+      }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+        className: "grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-24 items-center mb-32 md:mb-48 md:flex-row-reverse flex-col-reverse", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+          className: "flex flex-col justify-center space-y-6 md:pl-12 order-2 md:order-1", children: [
           /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "font-serif text-zinc-300 text-6xl md:text-8xl leading-none block mb-4", children: "02" }),
           /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "font-sans text-xs font-semibold tracking-widest uppercase text-black", children: "Nourish" }),
           /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "font-serif text-3xl md:text-4xl text-black", children: "Conditioning" }),
           /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-zinc-500 leading-relaxed text-sm md:text-base", children: "Leather is a skin that requires hydration to prevent drying and cracking. Apply a small amount of premium leather conditioner using a cotton chamois or your fingertips. Massage it gently into the leather using circular motions, paying special attention to the creases. Allow the shoe to sit for 15 minutes to absorb the nutrients." })
-        ] }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "relative aspect-[4/5] w-full order-1 md:order-2", children: /* @__PURE__ */ jsxRuntimeExports.jsx(
-          Image,
-          {
-            src: "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?q=80&w=2574&auto=format&fit=crop",
-            alt: "Applying Conditioner",
-            fill: true,
-            className: "object-cover"
-          }
-        ) })
-      ] }),
-      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-24 items-center", children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "relative aspect-[4/5] w-full", children: /* @__PURE__ */ jsxRuntimeExports.jsx(
-          Image,
-          {
-            src: "https://images.unsplash.com/photo-1549439602-43ebca2327af?q=80&w=2670&auto=format&fit=crop",
-            alt: "Polishing Leather Shoe",
-            fill: true,
-            className: "object-cover"
-          }
-        ) }),
-        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-col justify-center space-y-6 md:pr-12", children: [
+          ]
+        }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("div", {
+          className: "relative aspect-[4/5] w-full order-1 md:order-2", children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+            Image,
+            {
+              src: "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?q=80&w=2574&auto=format&fit=crop",
+              alt: "Applying Conditioner",
+              fill: true,
+              className: "object-cover"
+            }
+          )
+        })
+        ]
+      }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+        className: "grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-24 items-center", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("div", {
+          className: "relative aspect-[4/5] w-full", children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+            Image,
+            {
+              src: "https://images.unsplash.com/photo-1549439602-43ebca2327af?q=80&w=2670&auto=format&fit=crop",
+              alt: "Polishing Leather Shoe",
+              fill: true,
+              className: "object-cover"
+            }
+          )
+        }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+          className: "flex flex-col justify-center space-y-6 md:pr-12", children: [
           /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "font-serif text-zinc-300 text-6xl md:text-8xl leading-none block mb-4", children: "03" }),
           /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "font-sans text-xs font-semibold tracking-widest uppercase text-black", children: "Protect" }),
           /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "font-serif text-3xl md:text-4xl text-black", children: "Polish & Shine" }),
           /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-zinc-500 leading-relaxed text-sm md:text-base", children: "Apply a colored cream polish to restore pigment, followed by a hard wax polish on the toe and heel counters for protection and shine. Apply in light, concentric circles. Finish by briskly buffing the entire shoe with your horsehair brush, resulting in a deep, lustrous finish." })
-        ] })
-      ] })
-    ] }),
-    /* @__PURE__ */ jsxRuntimeExports.jsx("section", { className: "bg-zinc-50 py-24 md:py-32 px-4 md:px-12 border-t border-zinc-100", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "max-w-[1200px] mx-auto text-center", children: [
+          ]
+        })
+        ]
+      })
+      ]
+    }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx("section", {
+      className: "bg-zinc-50 py-24 md:py-32 px-4 md:px-12 border-t border-zinc-100", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+        className: "max-w-[1200px] mx-auto text-center", children: [
       /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "font-serif text-3xl md:text-4xl text-black mb-16", children: "Essential Toolkit" }),
-      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12 text-left", children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsxs("a", { href: "/products/cedar-shoe-trees", className: "space-y-4 group cursor-pointer block", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+          className: "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12 text-left", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("a", {
+            href: "/products/cedar-shoe-trees", className: "space-y-4 group cursor-pointer block", children: [
           /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "h-48 w-full bg-zinc-200 relative mb-6 overflow-hidden", children: /* @__PURE__ */ jsxRuntimeExports.jsx(Image, { src: "https://images.unsplash.com/photo-1616428616183-5c7472dd97ac?q=80&w=2574&auto=format&fit=crop", alt: "Cedar Shoe Tree", fill: true, className: "object-cover mix-blend-multiply transition-transform duration-700 group-hover:scale-105" }) }),
           /* @__PURE__ */ jsxRuntimeExports.jsx("h4", { className: "font-serif text-xl text-black group-hover:underline underline-offset-4 decoration-zinc-300", children: "Cedar Shoe Trees" }),
           /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "font-sans text-xs tracking-widest text-zinc-500 uppercase mt-2", children: "NPR 4,500" }),
           /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-zinc-500 text-sm leading-relaxed mt-2", children: "Essential for maintaining shape, preventing deep creases, and pulling damaging moisture away from the interior lining." })
-        ] }),
-        /* @__PURE__ */ jsxRuntimeExports.jsxs("a", { href: "/products/horsehair-brush", className: "space-y-4 group cursor-pointer block", children: [
+            ]
+          }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("a", {
+            href: "/products/horsehair-brush", className: "space-y-4 group cursor-pointer block", children: [
           /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "h-48 w-full bg-zinc-200 relative mb-6 overflow-hidden", children: /* @__PURE__ */ jsxRuntimeExports.jsx(Image, { src: "https://images.unsplash.com/photo-1551024709-8f23befc6f87?q=80&w=2757&auto=format&fit=crop", alt: "Horsehair Brush", fill: true, className: "object-cover transition-transform duration-700 group-hover:scale-105" }) }),
           /* @__PURE__ */ jsxRuntimeExports.jsx("h4", { className: "font-serif text-xl text-black group-hover:underline underline-offset-4 decoration-zinc-300", children: "Horsehair Brush" }),
           /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "font-sans text-xs tracking-widest text-zinc-500 uppercase mt-2", children: "NPR 2,800" }),
           /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-zinc-500 text-sm leading-relaxed mt-2", children: "Used for everyday cleaning to dust off the uppers, and for the final vigorous buffing stage after polishing." })
-        ] }),
-        /* @__PURE__ */ jsxRuntimeExports.jsxs("a", { href: "/products/conditioner-polish", className: "space-y-4 group cursor-pointer block", children: [
+            ]
+          }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("a", {
+            href: "/products/conditioner-polish", className: "space-y-4 group cursor-pointer block", children: [
           /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "h-48 w-full bg-amber-900 relative mb-6 overflow-hidden transition-transform duration-700 group-hover:scale-105" }),
           /* @__PURE__ */ jsxRuntimeExports.jsx("h4", { className: "font-serif text-xl text-black group-hover:underline underline-offset-4 decoration-zinc-300", children: "Conditioner & Polish" }),
           /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "font-sans text-xs tracking-widest text-zinc-500 uppercase mt-2", children: "NPR 3,200" }),
           /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-zinc-500 text-sm leading-relaxed mt-2", children: "A high-quality liquid or cream conditioner to nourish, alongside pigmented cream and wax polishes to restore color and protect." })
-        ] }),
-        /* @__PURE__ */ jsxRuntimeExports.jsxs("a", { href: "/products/cotton-chamois", className: "space-y-4 group cursor-pointer block", children: [
+            ]
+          }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("a", {
+            href: "/products/cotton-chamois", className: "space-y-4 group cursor-pointer block", children: [
           /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "h-48 w-full bg-zinc-200 relative mb-6 overflow-hidden", children: /* @__PURE__ */ jsxRuntimeExports.jsx(Image, { src: "https://images.unsplash.com/photo-1528343118917-74070a927a7c?q=80&w=2574&auto=format&fit=crop", alt: "Cotton Chamois", fill: true, className: "object-cover transition-transform duration-700 group-hover:scale-105" }) }),
           /* @__PURE__ */ jsxRuntimeExports.jsx("h4", { className: "font-serif text-xl text-black group-hover:underline underline-offset-4 decoration-zinc-300", children: "Cotton Chamois" }),
           /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "font-sans text-xs tracking-widest text-zinc-500 uppercase mt-2", children: "NPR 1,200" }),
           /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-zinc-500 text-sm leading-relaxed mt-2", children: "A soft, lint-free cloth used for applying conditioners and polishes in precise, controlled layers." })
-        ] })
-      ] })
-    ] }) }),
-    /* @__PURE__ */ jsxRuntimeExports.jsxs("section", { className: "py-24 md:py-32 text-center px-4", children: [
+            ]
+          })
+          ]
+        })
+        ]
+      })
+    }),
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("section", {
+      className: "py-24 md:py-32 text-center px-4", children: [
       /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "font-serif text-3xl md:text-5xl text-black mb-8", children: "Ready to start your collection?" }),
       /* @__PURE__ */ jsxRuntimeExports.jsx(
         "a",
@@ -11091,8 +11852,10 @@ function ShoeCarePage() {
           children: "Explore Ready to Wear"
         }
       )
-    ] })
-  ] });
+      ]
+    })
+    ]
+  });
 }
 function TrackOrderPage() {
   const [trackingNumber, setTrackingNumber] = reactExports.useState("");
@@ -11218,278 +11981,388 @@ function TrackOrderPage() {
         return /* @__PURE__ */ jsxRuntimeExports.jsx(CircleAlert, { className: "w-8 h-8 text-zinc-400" });
     }
   };
-  return /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "min-h-screen bg-white pt-24 md:pt-32 pb-24 selection:bg-zinc-200", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "max-w-xl mx-auto px-4 md:px-8", children: [
-    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "text-center mb-12", children: [
+  return /* @__PURE__ */ jsxRuntimeExports.jsx("div", {
+    className: "min-h-screen bg-white pt-24 md:pt-32 pb-24 selection:bg-zinc-200", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+      className: "max-w-xl mx-auto px-4 md:px-8", children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+        className: "text-center mb-12", children: [
       /* @__PURE__ */ jsxRuntimeExports.jsx("h1", { className: "font-serif text-4xl text-black mb-4", children: "Track Your Order" }),
       /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-sm font-sans tracking-wide text-zinc-500", children: "Enter your tracking number below to see the latest status of your shipment." })
-    ] }),
-    /* @__PURE__ */ jsxRuntimeExports.jsxs("form", { onSubmit: handleTrackOrder, className: "mb-12", children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "relative flex items-center", children: [
+        ]
+      }),
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("form", {
+        onSubmit: handleTrackOrder, className: "mb-12", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+          className: "relative flex items-center", children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx(Search, { className: "w-5 h-5 text-zinc-400 absolute left-4" }),
         /* @__PURE__ */ jsxRuntimeExports.jsx(
-          "input",
-          {
-            type: "text",
-            placeholder: "e.g. TRK-170884949...",
-            className: "w-full border border-zinc-300 pl-12 pr-4 py-4 text-sm focus:outline-none focus:border-black transition-colors placeholder:text-zinc-400 uppercase font-mono",
-            value: trackingNumber,
-            onChange: (e) => setTrackingNumber(e.target.value.toUpperCase())
-          }
-        )
-      ] }),
-      error && /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { className: "text-red-500 text-xs mt-3 bg-red-50 p-3 flex items-center gap-2 border border-red-500 font-medium", children: [
+            "input",
+            {
+              type: "text",
+              placeholder: "e.g. TRK-170884949...",
+              className: "w-full border border-zinc-300 pl-12 pr-4 py-4 text-sm focus:outline-none focus:border-black transition-colors placeholder:text-zinc-400 uppercase font-mono",
+              value: trackingNumber,
+              onChange: (e) => setTrackingNumber(e.target.value.toUpperCase())
+            }
+          )
+          ]
+        }),
+          error && /* @__PURE__ */ jsxRuntimeExports.jsxs("p", {
+            className: "text-red-500 text-xs mt-3 bg-red-50 p-3 flex items-center gap-2 border border-red-500 font-medium", children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx(CircleAlert, { className: "w-4 h-4" }),
-        " ",
-        error
-      ] }),
+              " ",
+              error
+            ]
+          }),
       /* @__PURE__ */ jsxRuntimeExports.jsx(
-        Button,
-        {
-          type: "submit",
-          disabled: isLoading,
-          className: "w-full mt-6 rounded-none uppercase tracking-widest bg-black text-white hover:bg-zinc-800 transition-colors py-7 font-semibold",
-          children: isLoading ? "Searching..." : "Track Order"
-        }
-      )
-    ] }),
-    orderData && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "border border-zinc-200 bg-zinc-50 p-6 md:p-8 animate-in fade-in slide-in-from-bottom-4 duration-500", children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8", children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
+            Button,
+            {
+              type: "submit",
+              disabled: isLoading,
+              className: "w-full mt-6 rounded-none uppercase tracking-widest bg-black text-white hover:bg-zinc-800 transition-colors py-7 font-semibold",
+              children: isLoading ? "Searching..." : "Track Order"
+            }
+          )
+        ]
+      }),
+        orderData && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+          className: "border border-zinc-200 bg-zinc-50 p-6 md:p-8 animate-in fade-in slide-in-from-bottom-4 duration-500", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+            className: "flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+              children: [
           /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-[10px] font-bold tracking-widest uppercase text-zinc-500 block mb-1", children: "Order Tracking No." }),
           /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "font-mono text-lg font-medium text-black", children: orderData.tracking_number })
-        ] }),
-        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "text-left md:text-right", children: [
+              ]
+            }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+              className: "text-left md:text-right", children: [
           /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-[10px] font-bold tracking-widest uppercase text-zinc-500 block mb-1", children: "Date Placed" }),
           /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-sm font-medium text-black", children: new Date(orderData.created_at).toLocaleDateString() })
-        ] })
-      ] }),
-      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "border-t border-zinc-200 pt-8 pb-4", children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-6", children: [
+              ]
+            })
+            ]
+          }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+            className: "border-t border-zinc-200 pt-8 pb-4", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+              className: "flex items-center gap-6", children: [
           /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "bg-white p-4 border border-zinc-200 shrink-0 shadow-sm", children: /* @__PURE__ */ jsxRuntimeExports.jsx(StatusIcon, { status: orderData.status }) }),
-          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+                children: [
             /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-[10px] font-bold tracking-widest uppercase text-zinc-500 block mb-1", children: "Current Status" }),
             /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-2xl font-serif text-black capitalize", children: orderData.status.replace(/_/g, " ") })
-          ] })
-        ] }),
-        ["shipped", "delivered"].includes(orderData.status) && orderData.shipping_provider && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "mt-8 bg-zinc-50 border border-zinc-200 p-6", children: [
+                ]
+              })
+              ]
+            }),
+              ["shipped", "delivered"].includes(orderData.status) && orderData.shipping_provider && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+                className: "mt-8 bg-zinc-50 border border-zinc-200 p-6", children: [
           /* @__PURE__ */ jsxRuntimeExports.jsx("h4", { className: "text-[10px] uppercase tracking-[0.2em] text-zinc-500 font-bold mb-4", children: "Shipping Information" }),
-          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "grid grid-cols-2 gap-y-6 gap-x-8", children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+                  className: "grid grid-cols-2 gap-y-6 gap-x-8", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+                    children: [
               /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-[10px] uppercase tracking-widest text-zinc-400 font-bold mb-1", children: "Carrier" }),
               /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-sm font-medium text-black", children: orderData.shipping_provider })
-            ] }),
-            orderData.shipping_tracking_number && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
+                    ]
+                  }),
+                    orderData.shipping_tracking_number && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+                      children: [
               /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-[10px] uppercase tracking-widest text-zinc-400 font-bold mb-1", children: "Carrier Tracking No." }),
               /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-sm font-mono font-bold text-black", children: orderData.shipping_tracking_number })
-            ] }),
-            orderData.shipping_details?.contact_name && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
+                      ]
+                    }),
+                    orderData.shipping_details?.contact_name && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+                      children: [
               /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-[10px] uppercase tracking-widest text-zinc-400 font-bold mb-1", children: "Courier Contact" }),
-              /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { className: "text-sm font-medium text-black", children: [
-                orderData.shipping_details.contact_name,
-                orderData.shipping_details.contact_number && ` (${orderData.shipping_details.contact_number})`
-              ] })
-            ] }),
-            orderData.shipping_details?.vehicle_info && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsxs("p", {
+                        className: "text-sm font-medium text-black", children: [
+                          orderData.shipping_details.contact_name,
+                          orderData.shipping_details.contact_number && ` (${orderData.shipping_details.contact_number})`
+                        ]
+                      })
+                      ]
+                    }),
+                    orderData.shipping_details?.vehicle_info && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+                      children: [
               /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-[10px] uppercase tracking-widest text-zinc-400 font-bold mb-1", children: "Vehicle Info" }),
               /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-sm font-medium text-black", children: orderData.shipping_details.vehicle_info })
-            ] })
-          ] })
-        ] }),
-        orderData.status === "return_rejected" && /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "mt-6 bg-rose-50 border border-rose-200 p-4", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex gap-3", children: [
+                      ]
+                    })
+                  ]
+                })
+                ]
+              }),
+              orderData.status === "return_rejected" && /* @__PURE__ */ jsxRuntimeExports.jsx("div", {
+                className: "mt-6 bg-rose-50 border border-rose-200 p-4", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+                  className: "flex gap-3", children: [
           /* @__PURE__ */ jsxRuntimeExports.jsx(CircleAlert, { className: "w-5 h-5 text-rose-600 shrink-0 mt-0.5" }),
-          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+                    children: [
             /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-sm font-semibold text-rose-900", children: "Return Request Rejected" }),
             /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-xs text-rose-700 mt-1 leading-relaxed", children: "Our team has inspected the returned item and found it does not meet our return eligibility criteria. The item will be shipped back to you shortly. Please contact support if you have any questions." }),
-            orderData.return_rejection_reason && /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { className: "text-xs font-bold text-rose-800 mt-2 uppercase tracking-tighter", children: [
-              "Reason: ",
-              orderData.return_rejection_reason
-            ] })
-          ] })
-        ] }) }),
-        orderData.status === "cancelled" ? /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "mt-8 flex items-center w-full max-w-sm mx-auto", children: [
+                      orderData.return_rejection_reason && /* @__PURE__ */ jsxRuntimeExports.jsxs("p", {
+                        className: "text-xs font-bold text-rose-800 mt-2 uppercase tracking-tighter", children: [
+                          "Reason: ",
+                          orderData.return_rejection_reason
+                        ]
+                      })
+                    ]
+                  })
+                  ]
+                })
+              }),
+              orderData.status === "cancelled" ? /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, {
+                children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+                  className: "mt-8 flex items-center w-full max-w-sm mx-auto", children: [
             /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "h-1 flex-1 bg-black" }),
             /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "w-3 h-3 rounded-full bg-black" }),
             /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "h-1 flex-1 bg-red-500" }),
             /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "w-3 h-3 rounded-full bg-red-500" })
-          ] }),
-          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex justify-between items-center text-[10px] font-bold tracking-widest uppercase mt-3 max-w-sm mx-auto px-1", children: [
+                  ]
+                }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+                  className: "flex justify-between items-center text-[10px] font-bold tracking-widest uppercase mt-3 max-w-sm mx-auto px-1", children: [
             /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-black", children: "Pending" }),
             /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-red-500", children: "Cancelled" })
-          ] })
-        ] }) : /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "space-y-12 mt-12 mb-8", children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "max-w-xl mx-auto", children: [
+                  ]
+                })
+                ]
+              }) : /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+                className: "space-y-12 mt-12 mb-8", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+                  className: "max-w-xl mx-auto", children: [
             /* @__PURE__ */ jsxRuntimeExports.jsx("h4", { className: "text-[10px] uppercase tracking-[0.2em] text-zinc-400 font-bold mb-6 text-center", children: "Fulfillment Journey" }),
-            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex items-center w-full px-2", children: [
-              { key: "pending", label: "Pending", icon: Package },
-              { key: "fulfilled", label: "Processing", icon: Package },
-              { key: "shipped", label: "Shipped", icon: Truck },
-              { key: "delivered", label: "Delivered", icon: CircleCheck }
-            ].map((step, idx, arr) => {
-              const statusOrder = ["pending", "fulfilled", "shipped", "delivered", "return_pending", "under_return_review", "returned", "return_rejected", "shipping_failed"];
-              const currentIndex = statusOrder.indexOf(orderData.status);
-              const stepIndex = statusOrder.indexOf(step.key);
-              let isCompleted = stepIndex < currentIndex && currentIndex !== -1 || orderData.status === "shipping_failed" && stepIndex < 3;
-              let isActive = stepIndex === currentIndex || orderData.status === "shipping_failed" && step.key === "delivered";
-              let isError = orderData.status === "shipping_failed" && step.key === "delivered";
-              return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex-1 flex flex-col items-center", children: [
-                /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center w-full", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("div", {
+                    className: "flex items-center w-full px-2", children: [
+                      { key: "pending", label: "Pending", icon: Package },
+                      { key: "fulfilled", label: "Processing", icon: Package },
+                      { key: "shipped", label: "Shipped", icon: Truck },
+                      { key: "delivered", label: "Delivered", icon: CircleCheck }
+                    ].map((step, idx, arr) => {
+                      const statusOrder = ["pending", "fulfilled", "shipped", "delivered", "return_pending", "under_return_review", "returned", "return_rejected", "shipping_failed"];
+                      const currentIndex = statusOrder.indexOf(orderData.status);
+                      const stepIndex = statusOrder.indexOf(step.key);
+                      let isCompleted = stepIndex < currentIndex && currentIndex !== -1 || orderData.status === "shipping_failed" && stepIndex < 3;
+                      let isActive = stepIndex === currentIndex || orderData.status === "shipping_failed" && step.key === "delivered";
+                      let isError = orderData.status === "shipping_failed" && step.key === "delivered";
+                      return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+                        className: "flex-1 flex flex-col items-center", children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+                          className: "flex items-center w-full", children: [
                   /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: `h-1 flex-1 ${idx === 0 ? "invisible" : isCompleted || isActive ? "bg-black" : "bg-zinc-100"}` }),
-                  /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "relative", children: [
+                  /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+                            className: "relative", children: [
                     /* @__PURE__ */ jsxRuntimeExports.jsx(step.icon, { className: `w-4 h-4 mb-2 transition-colors duration-500 ${isActive ? isError ? "text-red-500" : "text-black" : isCompleted ? "text-zinc-800" : "text-zinc-200"}` }),
                     /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: `w-2.5 h-2.5 rounded-full mx-auto transition-all duration-500 ${isActive ? isError ? "bg-red-500 scale-125" : "bg-black scale-125" : isCompleted ? "bg-black" : "bg-zinc-100"}` })
-                  ] }),
+                            ]
+                          }),
                   /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: `h-1 flex-1 ${idx === arr.length - 1 ? "invisible" : isCompleted ? "bg-black" : "bg-zinc-100"}` })
-                ] }),
+                          ]
+                        }),
                 /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: `mt-3 text-[9px] font-bold uppercase tracking-tight transition-colors ${isActive ? isError ? "text-red-500" : "text-black" : isCompleted ? "text-zinc-900" : "text-zinc-300"}`, children: step.key === "delivered" && orderData.status === "shipping_failed" ? "Failed" : step.label })
-              ] }, step.key);
-            }) })
-          ] }),
-          ["delivered", "return_pending", "under_return_review", "returned", "return_rejected"].includes(orderData.status) && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "max-w-md mx-auto pt-8 border-t border-zinc-100 animate-in fade-in slide-in-from-top-4 duration-700", children: [
+                        ]
+                      }, step.key);
+                    })
+                  })
+                  ]
+                }),
+                  ["delivered", "return_pending", "under_return_review", "returned", "return_rejected"].includes(orderData.status) && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+                    className: "max-w-md mx-auto pt-8 border-t border-zinc-100 animate-in fade-in slide-in-from-top-4 duration-700", children: [
             /* @__PURE__ */ jsxRuntimeExports.jsx("h4", { className: "text-[10px] uppercase tracking-[0.2em] text-zinc-400 font-bold mb-6 text-center", children: "Return Process" }),
-            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex items-center w-full px-2", children: [
-              { key: "return_pending", label: "Requested", icon: RefreshCcw },
-              { key: "under_return_review", label: "Reviewing", icon: CircleAlert },
-              { key: "returned", label: "Returned", icon: CircleCheck }
-            ].map((step, idx, arr) => {
-              const statusOrder = ["return_pending", "under_return_review", "returned"];
-              const currentIndex = statusOrder.indexOf(orderData.status);
-              const stepIndex = statusOrder.indexOf(step.key);
-              let isCompleted = stepIndex < currentIndex && currentIndex !== -1 || orderData.status === "return_rejected" && stepIndex < 1;
-              let isActive = stepIndex === currentIndex || orderData.status === "return_rejected" && step.key === "under_return_review";
-              let isError = orderData.status === "return_rejected" && step.key === "under_return_review";
-              return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex-1 flex flex-col items-center", children: [
-                /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center w-full", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("div", {
+                      className: "flex items-center w-full px-2", children: [
+                        { key: "return_pending", label: "Requested", icon: RefreshCcw },
+                        { key: "under_return_review", label: "Reviewing", icon: CircleAlert },
+                        { key: "returned", label: "Returned", icon: CircleCheck }
+                      ].map((step, idx, arr) => {
+                        const statusOrder = ["return_pending", "under_return_review", "returned"];
+                        const currentIndex = statusOrder.indexOf(orderData.status);
+                        const stepIndex = statusOrder.indexOf(step.key);
+                        let isCompleted = stepIndex < currentIndex && currentIndex !== -1 || orderData.status === "return_rejected" && stepIndex < 1;
+                        let isActive = stepIndex === currentIndex || orderData.status === "return_rejected" && step.key === "under_return_review";
+                        let isError = orderData.status === "return_rejected" && step.key === "under_return_review";
+                        return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+                          className: "flex-1 flex flex-col items-center", children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+                            className: "flex items-center w-full", children: [
                   /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: `h-1 flex-1 ${idx === 0 ? "invisible" : isCompleted || isActive ? "bg-rose-500" : "bg-zinc-100"}` }),
-                  /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "relative", children: [
+                  /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+                              className: "relative", children: [
                     /* @__PURE__ */ jsxRuntimeExports.jsx(step.icon, { className: `w-4 h-4 mb-2 transition-colors duration-500 ${isActive ? isError ? "text-red-500" : "text-rose-500" : isCompleted ? "text-rose-400" : "text-zinc-200"}` }),
                     /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: `w-2.5 h-2.5 rounded-full mx-auto transition-all duration-500 ${isActive ? isError ? "bg-red-500 scale-125" : "bg-rose-500 scale-125" : isCompleted ? "bg-rose-500" : "bg-zinc-100"}` })
-                  ] }),
+                              ]
+                            }),
                   /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: `h-1 flex-1 ${idx === arr.length - 1 ? "invisible" : isCompleted ? "bg-rose-500" : "bg-zinc-100"}` })
-                ] }),
+                            ]
+                          }),
                 /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: `mt-3 text-[9px] font-bold uppercase tracking-tight transition-colors ${isActive ? isError ? "text-red-500" : "text-rose-600" : isCompleted ? "text-rose-400" : "text-zinc-300"}`, children: step.key === "under_return_review" && orderData.status === "return_rejected" ? "Rejected" : step.label })
-              ] }, step.key);
-            }) })
-          ] })
-        ] }),
-        orderData.status === "pending" && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "mt-8 pt-8 border-t border-zinc-200 flex flex-col items-center", children: [
+                          ]
+                        }, step.key);
+                      })
+                    })
+                    ]
+                  })
+                ]
+              }),
+              orderData.status === "pending" && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+                className: "mt-8 pt-8 border-t border-zinc-200 flex flex-col items-center", children: [
           /* @__PURE__ */ jsxRuntimeExports.jsx(
-            Button,
-            {
-              variant: "outline",
-              onClick: handleCancelOrder,
-              disabled: isCancelling,
-              className: "text-red-600 border-red-200 hover:bg-red-50 hover:text-red-700 w-full max-w-sm",
-              children: isCancelling ? "Cancelling..." : "Cancel Order"
-            }
-          ),
-          cancelError && /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { className: "text-red-500 text-xs mt-3 flex items-center gap-1", children: [
+                  Button,
+                  {
+                    variant: "outline",
+                    onClick: handleCancelOrder,
+                    disabled: isCancelling,
+                    className: "text-red-600 border-red-200 hover:bg-red-50 hover:text-red-700 w-full max-w-sm",
+                    children: isCancelling ? "Cancelling..." : "Cancel Order"
+                  }
+                ),
+                  cancelError && /* @__PURE__ */ jsxRuntimeExports.jsxs("p", {
+                    className: "text-red-500 text-xs mt-3 flex items-center gap-1", children: [
             /* @__PURE__ */ jsxRuntimeExports.jsx(CircleAlert, { className: "w-3 h-3" }),
-            " ",
-            cancelError
-          ] })
-        ] }),
-        orderData.status === "delivered" && !showReturnForm && /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "mt-8 pt-8 border-t border-zinc-200 flex flex-col items-center", children: /* @__PURE__ */ jsxRuntimeExports.jsx(
-          Button,
-          {
-            variant: "outline",
-            onClick: () => setShowReturnForm(true),
-            className: "text-black border-black hover:bg-black hover:text-white w-full max-w-sm rounded-none uppercase tracking-widest font-semibold py-6",
-            children: "Return Order"
-          }
-        ) }),
-        showReturnForm && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "mt-8 pt-8 border-t border-zinc-200 animate-in fade-in slide-in-from-top-4 duration-500", children: [
+                      " ",
+                      cancelError
+                    ]
+                  })
+                ]
+              }),
+              orderData.status === "delivered" && !showReturnForm && /* @__PURE__ */ jsxRuntimeExports.jsx("div", {
+                className: "mt-8 pt-8 border-t border-zinc-200 flex flex-col items-center", children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+                  Button,
+                  {
+                    variant: "outline",
+                    onClick: () => setShowReturnForm(true),
+                    className: "text-black border-black hover:bg-black hover:text-white w-full max-w-sm rounded-none uppercase tracking-widest font-semibold py-6",
+                    children: "Return Order"
+                  }
+                )
+              }),
+              showReturnForm && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+                className: "mt-8 pt-8 border-t border-zinc-200 animate-in fade-in slide-in-from-top-4 duration-500", children: [
           /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "font-serif text-2xl text-black mb-6 text-center", children: "Initiate Return" }),
-          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "bg-white border border-zinc-200 p-4 md:p-6 mb-8 max-w-2xl mx-auto", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+                  className: "bg-white border border-zinc-200 p-4 md:p-6 mb-8 max-w-2xl mx-auto", children: [
             /* @__PURE__ */ jsxRuntimeExports.jsx("h4", { className: "text-[10px] font-bold tracking-widest uppercase text-zinc-500 mb-4", children: "Items to Return" }),
-            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "space-y-4", children: orderData.order_items?.map((item, idx) => /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex gap-4 items-center", children: [
-              item.thumbnail ? /* @__PURE__ */ jsxRuntimeExports.jsx("img", { src: item.thumbnail, alt: item.product_name || "Product", className: "w-16 h-16 object-cover bg-zinc-100" }) : /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "w-16 h-16 bg-zinc-100 flex items-center justify-center", children: /* @__PURE__ */ jsxRuntimeExports.jsx(Package, { className: "w-6 h-6 text-zinc-300" }) }),
-              /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex-1", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("div", {
+                    className: "space-y-4", children: orderData.order_items?.map((item, idx) => /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+                      className: "flex gap-4 items-center", children: [
+                        item.thumbnail ? /* @__PURE__ */ jsxRuntimeExports.jsx("img", { src: item.thumbnail, alt: item.product_name || "Product", className: "w-16 h-16 object-cover bg-zinc-100" }) : /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "w-16 h-16 bg-zinc-100 flex items-center justify-center", children: /* @__PURE__ */ jsxRuntimeExports.jsx(Package, { className: "w-6 h-6 text-zinc-300" }) }),
+              /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+                          className: "flex-1", children: [
                 /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "font-medium text-black text-sm", children: item.product_name || "Product Item" }),
-                /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { className: "text-zinc-500 text-xs mt-1", children: [
-                  "Qty: ",
-                  item.quantity
-                ] })
-              ] }),
-              /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "font-mono text-sm", children: [
-                "NPR ",
-                (item.price_at_purchase * item.quantity).toFixed(2)
-              ] })
-            ] }, idx)) }),
-            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "mt-6 pt-4 border-t border-zinc-100 flex justify-between items-center", children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsxs("p", {
+                            className: "text-zinc-500 text-xs mt-1", children: [
+                              "Qty: ",
+                              item.quantity
+                            ]
+                          })
+                          ]
+                        }),
+              /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+                          className: "font-mono text-sm", children: [
+                            "NPR ",
+                            (item.price_at_purchase * item.quantity).toFixed(2)
+                          ]
+                        })
+                      ]
+                    }, idx))
+                  }),
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+                    className: "mt-6 pt-4 border-t border-zinc-100 flex justify-between items-center", children: [
               /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-[10px] font-bold tracking-widest uppercase text-zinc-500", children: "Total Purchase Value" }),
-              /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "font-mono font-bold", children: [
-                "NPR ",
-                orderData.total_amount?.toFixed(2)
-              ] })
-            ] })
-          ] }),
-          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "max-w-sm mx-auto space-y-6", children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsxs("span", {
+                      className: "font-mono font-bold", children: [
+                        "NPR ",
+                        orderData.total_amount?.toFixed(2)
+                      ]
+                    })
+                    ]
+                  })
+                  ]
+                }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+                  className: "max-w-sm mx-auto space-y-6", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+                    children: [
               /* @__PURE__ */ jsxRuntimeExports.jsx("label", { className: "text-[10px] font-bold tracking-widest uppercase text-zinc-500 block mb-2", children: "Reason for Return *" }),
               /* @__PURE__ */ jsxRuntimeExports.jsxs(
-                "select",
-                {
-                  className: "w-full border border-zinc-300 p-3 text-sm focus:outline-none focus:border-black transition-colors",
-                  value: returnReason,
-                  onChange: (e) => setReturnReason(e.target.value),
-                  children: [
+                      "select",
+                      {
+                        className: "w-full border border-zinc-300 p-3 text-sm focus:outline-none focus:border-black transition-colors",
+                        value: returnReason,
+                        onChange: (e) => setReturnReason(e.target.value),
+                        children: [
                     /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: "", disabled: true, children: "Select a reason..." }),
                     /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: "Wrong Size", children: "Wrong Size" }),
                     /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: "Defective", children: "Item Defective" }),
                     /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: "Not as described", children: "Not as described" }),
                     /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: "Changed mind", children: "Changed my mind" }),
                     /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: "Other", children: "Other" })
-                  ]
-                }
-              )
-            ] }),
-            returnReason === "Other" && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "animate-in fade-in slide-in-from-top-2 duration-300", children: [
+                        ]
+                      }
+                    )
+                    ]
+                  }),
+                    returnReason === "Other" && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+                      className: "animate-in fade-in slide-in-from-top-2 duration-300", children: [
               /* @__PURE__ */ jsxRuntimeExports.jsx("label", { className: "text-[10px] font-bold tracking-widest uppercase text-zinc-500 block mb-2", children: "Please specify *" }),
               /* @__PURE__ */ jsxRuntimeExports.jsx(
-                "textarea",
-                {
-                  className: "w-full border border-zinc-300 p-3 text-sm focus:outline-none focus:border-black transition-colors min-h-[100px]",
-                  placeholder: "Tell us what went wrong...",
-                  value: returnOtherReason,
-                  onChange: (e) => setReturnOtherReason(e.target.value)
-                }
-              )
-            ] }),
-            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-col gap-3 pt-4", children: [
+                        "textarea",
+                        {
+                          className: "w-full border border-zinc-300 p-3 text-sm focus:outline-none focus:border-black transition-colors min-h-[100px]",
+                          placeholder: "Tell us what went wrong...",
+                          value: returnOtherReason,
+                          onChange: (e) => setReturnOtherReason(e.target.value)
+                        }
+                      )
+                      ]
+                    }),
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+                      className: "flex flex-col gap-3 pt-4", children: [
               /* @__PURE__ */ jsxRuntimeExports.jsx(
-                Button,
-                {
-                  onClick: handleReturnOrder,
-                  disabled: isReturning,
-                  className: "w-full rounded-none uppercase tracking-widest bg-black text-white hover:bg-zinc-800 transition-colors py-6 font-semibold",
-                  children: isReturning ? "Submitting..." : "Confirm Return"
-                }
-              ),
+                        Button,
+                        {
+                          onClick: handleReturnOrder,
+                          disabled: isReturning,
+                          className: "w-full rounded-none uppercase tracking-widest bg-black text-white hover:bg-zinc-800 transition-colors py-6 font-semibold",
+                          children: isReturning ? "Submitting..." : "Confirm Return"
+                        }
+                      ),
               /* @__PURE__ */ jsxRuntimeExports.jsx(
-                Button,
-                {
-                  variant: "ghost",
-                  onClick: () => {
-                    setShowReturnForm(false);
-                    setReturnError("");
-                  },
-                  disabled: isReturning,
-                  className: "w-full uppercase tracking-widest text-zinc-500 hover:text-black hover:bg-zinc-100 py-6",
-                  children: "Go Back"
-                }
-              ),
-              returnError && /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { className: "text-red-500 text-xs mt-2 bg-red-50 p-3 flex items-start gap-2 border border-red-500 font-medium", children: [
+                        Button,
+                        {
+                          variant: "ghost",
+                          onClick: () => {
+                            setShowReturnForm(false);
+                            setReturnError("");
+                          },
+                          disabled: isReturning,
+                          className: "w-full uppercase tracking-widest text-zinc-500 hover:text-black hover:bg-zinc-100 py-6",
+                          children: "Go Back"
+                        }
+                      ),
+                        returnError && /* @__PURE__ */ jsxRuntimeExports.jsxs("p", {
+                          className: "text-red-500 text-xs mt-2 bg-red-50 p-3 flex items-start gap-2 border border-red-500 font-medium", children: [
                 /* @__PURE__ */ jsxRuntimeExports.jsx(CircleAlert, { className: "w-4 h-4 shrink-0 mt-0.5" }),
-                " ",
-                returnError
-              ] })
-            ] })
-          ] })
-        ] })
-      ] })
-    ] })
-  ] }) });
+                            " ",
+                            returnError
+                          ]
+                        })
+                      ]
+                    })
+                  ]
+                })
+                ]
+              })
+            ]
+          })
+          ]
+        })
+      ]
+    })
+  });
 }
 function isObject$1(subject) {
   return Object.prototype.toString.call(subject) === "[object Object]";
@@ -13382,48 +14255,68 @@ function CuratedCarousel({ products, title = "Curated Essentials" }) {
       },
       className: "w-full relative",
       children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-col md:flex-row justify-between items-start md:items-end mb-8 md:mb-16 gap-4 md:gap-8", children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "font-serif text-4xl md:text-6xl tracking-tight text-black max-w-md", children: title }),
-          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-col items-end gap-4 w-full md:w-auto mt-4 md:mt-0", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+        className: "flex flex-col md:flex-row justify-between items-start md:items-end mb-6 md:mb-16 gap-4 md:gap-8", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "font-serif text-3xl sm:text-4xl md:text-6xl tracking-tight text-black max-w-md", children: title }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+          className: "flex flex-col items-end gap-4 w-full md:w-auto mt-4 md:mt-0", children: [
             /* @__PURE__ */ jsxRuntimeExports.jsx("a", { href: "/collections", className: "text-sm font-medium tracking-widest uppercase border-b border-black pb-1 hover:text-zinc-500 hover:border-zinc-500 transition-colors", children: "View All Pieces" }),
-            products.length > 2 && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex gap-2", children: [
+            products.length > 2 && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+              className: "flex gap-2", children: [
               /* @__PURE__ */ jsxRuntimeExports.jsx(CarouselPrevious, { className: "static translate-y-0 text-black border-zinc-200 h-8 w-8 md:h-10 md:w-10 hover:bg-zinc-100" }),
               /* @__PURE__ */ jsxRuntimeExports.jsx(CarouselNext, { className: "static translate-y-0 text-black border-zinc-200 h-8 w-8 md:h-10 md:w-10 hover:bg-zinc-100" })
-            ] })
-          ] })
-        ] }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx(CarouselContent, { className: "-ml-4 sm:-ml-8", children: products.map((product) => /* @__PURE__ */ jsxRuntimeExports.jsx(CarouselItem, { className: "pl-4 sm:pl-8 sm:basis-1/2 md:basis-1/3 lg:basis-1/4", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("a", { href: `/products/${product.id}`, className: "group cursor-pointer block", children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "relative aspect-[4/5] overflow-hidden bg-zinc-100 mb-4 sm:mb-6", children: [
+              ]
+            })
+          ]
+        })
+        ]
+      }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx(CarouselContent, {
+        className: "-ml-4 sm:-ml-8", children: products.map((product) => /* @__PURE__ */ jsxRuntimeExports.jsx(CarouselItem, {
+          className: "pl-4 sm:pl-8 basis-1/2 md:basis-1/3 lg:basis-1/4", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("a", {
+            href: `/products/${product.id}`, className: "group cursor-pointer block", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+              className: "relative aspect-[4/5] overflow-hidden bg-zinc-100 mb-4 sm:mb-6", children: [
             /* @__PURE__ */ jsxRuntimeExports.jsx(
-              Image,
-              {
-                src: product.thumbnail_image_url || product.annotated_image_url || "https://images.unsplash.com/photo-1549298916-b41d501d3772?q=80&w=2012&auto=format&fit=crop",
-                alt: product.name,
-                fill: true,
-                className: `object-cover object-center transition-all duration-700 group-hover:scale-105 ${product.hover_image_url ? "group-hover:opacity-0" : ""}`
-              }
-            ),
-            product.hover_image_url && /* @__PURE__ */ jsxRuntimeExports.jsx(
-              Image,
-              {
-                src: product.hover_image_url,
-                alt: `${product.name} hover`,
-                fill: true,
-                className: "object-cover object-center absolute inset-0 opacity-0 transition-all duration-700 group-hover:opacity-100 group-hover:scale-105"
-              }
-            )
-          ] }),
-          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-col xl:flex-row justify-between items-start", children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
+                Image,
+                {
+                  src: product.thumbnail_image_url || product.annotated_image_url || "https://images.unsplash.com/photo-1549298916-b41d501d3772?q=80&w=2012&auto=format&fit=crop",
+                  alt: product.name,
+                  fill: true,
+                  className: `object-cover object-center transition-all duration-700 group-hover:scale-105 ${product.hover_image_url ? "group-hover:opacity-0" : ""}`
+                }
+              ),
+                product.hover_image_url && /* @__PURE__ */ jsxRuntimeExports.jsx(
+                  Image,
+                  {
+                    src: product.hover_image_url,
+                    alt: `${product.name} hover`,
+                    fill: true,
+                    className: "object-cover object-center absolute inset-0 opacity-0 transition-all duration-700 group-hover:opacity-100 group-hover:scale-105"
+                  }
+                )
+              ]
+            }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+              className: "flex flex-col xl:flex-row justify-between items-start", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+                children: [
               /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "font-serif text-base sm:text-lg md:text-xl mb-1 mt-2 text-black", children: product.name }),
               /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-zinc-500 text-xs sm:text-sm", children: product.short_description || "Premium Quality" })
-            ] }),
-            /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "font-sans text-sm mt-1 xl:mt-2 text-black", children: [
-              "NPR ",
-              product.base_price.toFixed(2)
-            ] })
-          ] })
-        ] }) }, product.id)) })
+                ]
+              }),
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("span", {
+                className: "font-sans text-sm mt-1 xl:mt-2 text-black", children: [
+                  "NPR ",
+                  product.base_price.toFixed(2)
+                ]
+              })
+              ]
+            })
+            ]
+          })
+        }, product.id))
+      })
       ]
     }
   );
@@ -13492,7 +14385,8 @@ function SearchModal({ isOpen, onClose }) {
   const isTyping = query.length > 0;
   const productImage = (p) => p.thumbnail_image_url || p.hover_image_url || "https://images.unsplash.com/photo-1549298916-b41d501d3772?q=80&w=300&auto=format&fit=crop";
   const filteredSuggestions = isTyping ? POPULAR_TERMS.filter((s) => s.toLowerCase().includes(query.toLowerCase())) : POPULAR_TERMS;
-  return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "fixed inset-0 z-[80] flex flex-col items-center", children: [
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+    className: "fixed inset-0 z-[80] flex flex-col items-center", children: [
     /* @__PURE__ */ jsxRuntimeExports.jsx(
       "div",
       {
@@ -13500,23 +14394,27 @@ function SearchModal({ isOpen, onClose }) {
         onClick: onClose
       }
     ),
-    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: `relative w-full bg-white transition-all duration-500 overflow-y-auto shadow-2xl origin-top animate-in slide-in-from-top-4 ${isTyping ? "h-screen" : "h-[70vh] md:h-[55vh]"}`, children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "sticky top-0 bg-white z-10 border-b border-zinc-100 flex items-center px-6 md:px-12 py-4 md:py-5", children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex-1 flex items-center bg-zinc-100/80 hover:bg-zinc-100 transition-colors rounded-full px-5 py-3", children: [
-          searching ? /* @__PURE__ */ jsxRuntimeExports.jsx(LoaderCircle, { className: "w-4 h-4 text-zinc-400 mr-3 shrink-0 animate-spin" }) : /* @__PURE__ */ jsxRuntimeExports.jsx(Search, { className: "w-4 h-4 text-zinc-500 mr-3 shrink-0", strokeWidth: 1.5 }),
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+      className: `relative w-full bg-white transition-all duration-500 overflow-y-auto shadow-2xl origin-top animate-in slide-in-from-top-4 ${isTyping ? "h-screen" : "h-[70vh] md:h-[55vh]"}`, children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+        className: "sticky top-0 bg-white z-10 border-b border-zinc-100 flex items-center px-6 md:px-12 py-4 md:py-5", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+          className: "flex-1 flex items-center bg-zinc-100/80 hover:bg-zinc-100 transition-colors rounded-full px-5 py-3", children: [
+            searching ? /* @__PURE__ */ jsxRuntimeExports.jsx(LoaderCircle, { className: "w-4 h-4 text-zinc-400 mr-3 shrink-0 animate-spin" }) : /* @__PURE__ */ jsxRuntimeExports.jsx(Search, { className: "w-4 h-4 text-zinc-500 mr-3 shrink-0", strokeWidth: 1.5 }),
           /* @__PURE__ */ jsxRuntimeExports.jsx(
-            "input",
-            {
-              ref: inputRef,
-              type: "text",
-              placeholder: "Search for products, materials…",
-              className: "flex-1 text-base md:text-lg font-serif text-black placeholder:text-zinc-400 outline-none bg-transparent",
-              value: query,
-              onChange: (e) => setQuery(e.target.value)
-            }
-          ),
-          query && /* @__PURE__ */ jsxRuntimeExports.jsx("button", { onClick: () => setQuery(""), className: "p-1 -mr-1 text-zinc-400 hover:text-black transition-colors", children: /* @__PURE__ */ jsxRuntimeExports.jsx(X, { className: "w-4 h-4" }) })
-        ] }),
+              "input",
+              {
+                ref: inputRef,
+                type: "text",
+                placeholder: "Search for products, materials…",
+                className: "flex-1 text-base md:text-lg font-serif text-black placeholder:text-zinc-400 outline-none bg-transparent",
+                value: query,
+                onChange: (e) => setQuery(e.target.value)
+              }
+            ),
+            query && /* @__PURE__ */ jsxRuntimeExports.jsx("button", { onClick: () => setQuery(""), className: "p-1 -mr-1 text-zinc-400 hover:text-black transition-colors", children: /* @__PURE__ */ jsxRuntimeExports.jsx(X, { className: "w-4 h-4" }) })
+          ]
+        }),
         /* @__PURE__ */ jsxRuntimeExports.jsx(
           "button",
           {
@@ -13525,103 +14423,140 @@ function SearchModal({ isOpen, onClose }) {
             children: "Close"
           }
         )
-      ] }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "px-6 md:px-12 py-8 md:py-12 max-w-[1400px] mx-auto animate-in fade-in duration-500 delay-150 fill-mode-both", children: !isTyping ? (
+        ]
+      }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", {
+        className: "px-6 md:px-12 py-8 md:py-12 max-w-[1400px] mx-auto animate-in fade-in duration-500 delay-150 fill-mode-both", children: !isTyping ? (
         /* ── Empty state: popular products ── */
-        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+          children: [
           /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "font-sans text-xs font-semibold tracking-widest uppercase text-zinc-400 mb-4 md:mb-6", children: "Popular Right Now" }),
-          loadingPopular ? /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex items-center justify-center h-32", children: /* @__PURE__ */ jsxRuntimeExports.jsx(LoaderCircle, { className: "w-5 h-5 animate-spin text-zinc-300" }) }) : popular.length > 0 ? /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "grid grid-cols-3 md:grid-cols-6 gap-4 md:gap-6", children: popular.map((item) => /* @__PURE__ */ jsxRuntimeExports.jsxs("a", { href: `/products/${item.id}`, className: "group block cursor-pointer", onClick: onClose, children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "relative aspect-[4/5] bg-zinc-100 mb-2 overflow-hidden", children: productImage(item) ? /* @__PURE__ */ jsxRuntimeExports.jsx(
-              Image,
-              {
-                src: productImage(item),
-                alt: item.name,
-                fill: true,
-                className: "object-cover transition-transform duration-700 group-hover:scale-105 mix-blend-multiply",
-                sizes: "(max-width: 768px) 33vw, 15vw"
-              }
-            ) : /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "w-full h-full flex items-center justify-center", children: /* @__PURE__ */ jsxRuntimeExports.jsx(Package, { className: "w-8 h-8 text-zinc-200" }) }) }),
-            /* @__PURE__ */ jsxRuntimeExports.jsx("h4", { className: "font-serif text-sm text-black group-hover:underline underline-offset-4 decoration-zinc-300 leading-tight line-clamp-2", children: item.name }),
-            /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { className: "text-xs text-zinc-400 mt-0.5 font-sans", children: [
-              "NPR ",
-              item.base_price.toLocaleString()
-            ] })
-          ] }, item.id)) }) : /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-zinc-300 font-serif italic text-lg", children: "No products found." }),
-          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "mt-10 flex flex-wrap gap-2", children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-[10px] uppercase tracking-widest text-zinc-400 font-semibold mr-2 self-center", children: "Try:" }),
-            POPULAR_TERMS.map((term) => /* @__PURE__ */ jsxRuntimeExports.jsx(
-              "button",
-              {
-                onClick: () => setQuery(term),
-                className: "px-3 py-1 border border-zinc-200 rounded-full text-xs text-zinc-600 hover:border-black hover:text-black transition-colors",
-                children: term
-              },
-              term
-            ))
-          ] })
-        ] })
-      ) : (
-        /* ── Active search state ── */
-        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "grid grid-cols-1 md:grid-cols-[1fr_2fr] gap-12 md:gap-24", children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-col gap-4", children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "font-sans text-xs font-semibold tracking-widest uppercase text-zinc-400 mb-4", children: "Suggestions" }),
-            filteredSuggestions.length > 0 ? filteredSuggestions.map((s, idx) => /* @__PURE__ */ jsxRuntimeExports.jsx(
-              "button",
-              {
-                onClick: () => setQuery(s),
-                className: "text-left font-serif text-2xl md:text-3xl text-zinc-400 hover:text-black hover:italic transition-all py-2",
-                children: s
-              },
-              idx
-            )) : /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-zinc-400 font-serif italic text-lg", children: "No suggestions." })
-          ] }),
-          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "font-sans text-xs font-semibold tracking-widest uppercase text-zinc-400 mb-8", children: searching ? "Searching…" : `Products ${results.length > 0 ? `(${results.length})` : ""}` }),
-            searching ? /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-3 text-zinc-300", children: [
-              /* @__PURE__ */ jsxRuntimeExports.jsx(LoaderCircle, { className: "w-4 h-4 animate-spin" }),
-              /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "font-serif italic text-lg", children: "Looking for results…" })
-            ] }) : results.length > 0 ? /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex flex-col gap-6", children: results.map((product) => /* @__PURE__ */ jsxRuntimeExports.jsxs(
-              "a",
-              {
-                href: `/products/${product.id}`,
-                className: "flex items-center gap-6 group cursor-pointer",
-                onClick: onClose,
-                children: [
-                  /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "relative w-24 aspect-[4/5] bg-zinc-100 shrink-0 overflow-hidden", children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+            loadingPopular ? /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex items-center justify-center h-32", children: /* @__PURE__ */ jsxRuntimeExports.jsx(LoaderCircle, { className: "w-5 h-5 animate-spin text-zinc-300" }) }) : popular.length > 0 ? /* @__PURE__ */ jsxRuntimeExports.jsx("div", {
+              className: "grid grid-cols-3 md:grid-cols-6 gap-4 md:gap-6", children: popular.map((item) => /* @__PURE__ */ jsxRuntimeExports.jsxs("a", {
+                href: `/products/${item.id}`, className: "group block cursor-pointer", onClick: onClose, children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("div", {
+                  className: "relative aspect-[4/5] bg-zinc-100 mb-2 overflow-hidden", children: productImage(item) ? /* @__PURE__ */ jsxRuntimeExports.jsx(
                     Image,
                     {
-                      src: productImage(product),
-                      alt: product.name,
+                      src: productImage(item),
+                      alt: item.name,
                       fill: true,
                       className: "object-cover transition-transform duration-700 group-hover:scale-105 mix-blend-multiply",
-                      sizes: "96px"
+                      sizes: "(max-width: 768px) 33vw, 15vw"
                     }
-                  ) }),
-                  /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-col flex-1 border-b border-zinc-100 pb-2 group-hover:border-black transition-colors self-end", children: [
-                    /* @__PURE__ */ jsxRuntimeExports.jsx("h4", { className: "font-serif text-xl text-black", children: product.name }),
-                    product.short_description && /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-xs text-zinc-400 mt-0.5 line-clamp-1", children: product.short_description }),
-                    /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "font-sans text-xs tracking-widest uppercase text-zinc-500 mt-2", children: [
-                      "NPR ",
-                      product.base_price.toLocaleString()
-                    ] })
-                  ] }),
-                  /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "pr-4 self-end pb-2", children: /* @__PURE__ */ jsxRuntimeExports.jsx(ArrowRight, { className: "w-5 h-5 text-zinc-300 group-hover:text-black transition-all -ml-4 opacity-0 group-hover:opacity-100 group-hover:translate-x-4 duration-300" }) })
+                  ) : /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "w-full h-full flex items-center justify-center", children: /* @__PURE__ */ jsxRuntimeExports.jsx(Package, { className: "w-8 h-8 text-zinc-200" }) })
+                }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("h4", { className: "font-serif text-sm text-black group-hover:underline underline-offset-4 decoration-zinc-300 leading-tight line-clamp-2", children: item.name }),
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("p", {
+                  className: "text-xs text-zinc-400 mt-0.5 font-sans", children: [
+                    "NPR ",
+                    item.base_price.toLocaleString()
+                  ]
+                })
                 ]
-              },
-              product.id
-            )) }) : /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-col gap-2", children: [
-              /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { className: "text-zinc-400 font-serif italic text-lg", children: [
-                "No products found for “",
-                query,
-                "”"
-              ] }),
+              }, item.id))
+            }) : /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-zinc-300 font-serif italic text-lg", children: "No products found." }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+              className: "mt-10 flex flex-wrap gap-2", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-[10px] uppercase tracking-widest text-zinc-400 font-semibold mr-2 self-center", children: "Try:" }),
+                POPULAR_TERMS.map((term) => /* @__PURE__ */ jsxRuntimeExports.jsx(
+                  "button",
+                  {
+                    onClick: () => setQuery(term),
+                    className: "px-3 py-1 border border-zinc-200 rounded-full text-xs text-zinc-600 hover:border-black hover:text-black transition-colors",
+                    children: term
+                  },
+                  term
+                ))
+              ]
+            })
+          ]
+        })
+        ) : (
+        /* ── Active search state ── */
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+          className: "grid grid-cols-1 md:grid-cols-[1fr_2fr] gap-12 md:gap-24", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+            className: "flex flex-col gap-4", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "font-sans text-xs font-semibold tracking-widest uppercase text-zinc-400 mb-4", children: "Suggestions" }),
+              filteredSuggestions.length > 0 ? filteredSuggestions.map((s, idx) => /* @__PURE__ */ jsxRuntimeExports.jsx(
+                "button",
+                {
+                  onClick: () => setQuery(s),
+                  className: "text-left font-serif text-2xl md:text-3xl text-zinc-400 hover:text-black hover:italic transition-all py-2",
+                  children: s
+                },
+                idx
+              )) : /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-zinc-400 font-serif italic text-lg", children: "No suggestions." })
+            ]
+          }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+            children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "font-sans text-xs font-semibold tracking-widest uppercase text-zinc-400 mb-8", children: searching ? "Searching…" : `Products ${results.length > 0 ? `(${results.length})` : ""}` }),
+              searching ? /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+                className: "flex items-center gap-3 text-zinc-300", children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx(LoaderCircle, { className: "w-4 h-4 animate-spin" }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "font-serif italic text-lg", children: "Looking for results…" })
+                ]
+              }) : results.length > 0 ? /* @__PURE__ */ jsxRuntimeExports.jsx("div", {
+                className: "flex flex-col gap-6", children: results.map((product) => /* @__PURE__ */ jsxRuntimeExports.jsxs(
+                  "a",
+                  {
+                    href: `/products/${product.id}`,
+                    className: "flex items-center gap-6 group cursor-pointer",
+                    onClick: onClose,
+                    children: [
+                  /* @__PURE__ */ jsxRuntimeExports.jsx("div", {
+                      className: "relative w-24 aspect-[4/5] bg-zinc-100 shrink-0 overflow-hidden", children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+                        Image,
+                        {
+                          src: productImage(product),
+                          alt: product.name,
+                          fill: true,
+                          className: "object-cover transition-transform duration-700 group-hover:scale-105 mix-blend-multiply",
+                          sizes: "96px"
+                        }
+                      )
+                    }),
+                  /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+                      className: "flex flex-col flex-1 border-b border-zinc-100 pb-2 group-hover:border-black transition-colors self-end", children: [
+                    /* @__PURE__ */ jsxRuntimeExports.jsx("h4", { className: "font-serif text-xl text-black", children: product.name }),
+                        product.short_description && /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-xs text-zinc-400 mt-0.5 line-clamp-1", children: product.short_description }),
+                    /* @__PURE__ */ jsxRuntimeExports.jsxs("span", {
+                          className: "font-sans text-xs tracking-widest uppercase text-zinc-500 mt-2", children: [
+                            "NPR ",
+                            product.base_price.toLocaleString()
+                          ]
+                        })
+                      ]
+                    }),
+                  /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "pr-4 self-end pb-2", children: /* @__PURE__ */ jsxRuntimeExports.jsx(ArrowRight, { className: "w-5 h-5 text-zinc-300 group-hover:text-black transition-all -ml-4 opacity-0 group-hover:opacity-100 group-hover:translate-x-4 duration-300" }) })
+                    ]
+                  },
+                  product.id
+                ))
+              }) : /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+                className: "flex flex-col gap-2", children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsxs("p", {
+                  className: "text-zinc-400 font-serif italic text-lg", children: [
+                    "No products found for “",
+                    query,
+                    "”"
+                  ]
+                }),
               /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-sm text-zinc-400", children: "Try a different keyword or browse our collections." })
-            ] })
-          ] })
-        ] })
-      ) })
-    ] })
-  ] });
+                ]
+              })
+            ]
+          })
+          ]
+        })
+        )
+      })
+      ]
+    })
+    ]
+  });
 }
 function Navigation() {
   const pathname = usePathname();
@@ -13649,10 +14584,12 @@ function Navigation() {
     };
   }, [isMenuOpen]);
   if (isPrivacyPage) {
-    return /* @__PURE__ */ jsxRuntimeExports.jsxs("nav", { className: "fixed w-full top-0 z-50 flex items-center justify-between px-8 py-6 bg-white/50 backdrop-blur-md border-b border-zinc-100", children: [
+    return /* @__PURE__ */ jsxRuntimeExports.jsxs("nav", {
+      className: "fixed w-full top-0 z-50 flex items-center justify-between px-8 py-6 bg-white/50 backdrop-blur-md border-b border-zinc-100", children: [
       /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "font-serif text-2xl tracking-tight text-black", children: /* @__PURE__ */ jsxRuntimeExports.jsx("a", { href: "/", children: "COSELI" }) }),
       /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "text-sm font-medium tracking-wide text-zinc-600 hover:text-black transition-colors", children: /* @__PURE__ */ jsxRuntimeExports.jsx("a", { href: "/", children: "BACK TO HOME" }) })
-    ] });
+      ]
+    });
   }
   const navLinks = [
     { name: "SHOP", href: "/" },
@@ -13660,11 +14597,14 @@ function Navigation() {
     { name: "ATELIER", href: "/atelier" },
     { name: "CONTACT", href: "/contact" }
   ];
-  return /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
-    /* @__PURE__ */ jsxRuntimeExports.jsxs("nav", { className: "fixed w-full top-0 z-[70] flex items-center justify-between px-6 md:px-8 py-4 md:py-6 bg-white/50 backdrop-blur-md border-b border-zinc-100 transition-all duration-300", children: [
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, {
+    children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("nav", {
+      className: "fixed w-full top-0 z-[70] flex items-center justify-between px-6 md:px-8 py-4 md:py-6 bg-white/90 backdrop-blur-md border-b border-zinc-100 transition-all duration-300", children: [
       /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "font-serif text-2xl tracking-tight text-black z-[60]", children: /* @__PURE__ */ jsxRuntimeExports.jsx("a", { href: "/", children: "COSELI" }) }),
       /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "hidden md:flex gap-8 text-sm font-medium tracking-wide text-zinc-600", children: navLinks.map((link) => /* @__PURE__ */ jsxRuntimeExports.jsx("a", { href: link.href, className: "hover:text-black transition-colors", children: link.name }, link.name)) }),
-      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-4 md:gap-6 text-sm font-medium z-[60]", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+        className: "flex items-center gap-4 md:gap-6 text-sm font-medium z-[60]", children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx(
           "button",
           {
@@ -13674,67 +14614,97 @@ function Navigation() {
             children: /* @__PURE__ */ jsxRuntimeExports.jsx(Search, { className: "w-5 h-5 text-black", strokeWidth: 1.5 })
           }
         ),
-        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "relative group", children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsxs("a", { href: "/cart", className: "relative flex items-center hover:opacity-70 transition-opacity py-4 cursor-pointer", children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsxs("svg", { className: "svg-icon icon-bag w-[22px] h-[22px] text-black", viewBox: "0 0 21 20", xmlns: "http://www.w3.org/2000/svg", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+          className: "relative group", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("a", {
+            href: "/cart", className: "relative flex items-center hover:opacity-70 transition-opacity py-4 cursor-pointer", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("svg", {
+              className: "svg-icon icon-bag w-[22px] h-[22px] text-black", viewBox: "0 0 21 20", xmlns: "http://www.w3.org/2000/svg", children: [
               /* @__PURE__ */ jsxRuntimeExports.jsx("desc", { children: "Bag Icon" }),
               /* @__PURE__ */ jsxRuntimeExports.jsx("path", { fill: "currentColor", fillRule: "evenodd", clipRule: "evenodd", d: "M1.09053 5.00869H17.9096L18.9818 15.445C19.1672 17.0769 17.9119 18.51 16.2913 18.51L2.7087 18.51C1.08808 18.51 -0.167246 17.0769 0.0181994 15.445L1.09053 5.00869ZM2.40808 6.50869L1.48668 15.6168C1.40224 16.3599 1.97334 17.01 2.7087 17.01L16.2913 17.01C17.0267 17.01 17.5977 16.3599 17.5133 15.6168L16.592 6.50869H2.40808Z", transform: "translate(1)" }),
               /* @__PURE__ */ jsxRuntimeExports.jsx("path", { fill: "currentColor", fillRule: "evenodd", clipRule: "evenodd", d: "M7.3466 0.622759C7.90387 0.233871 8.61575 0 9.49996 0C10.3842 0 11.0961 0.233871 11.6533 0.622759C12.2048 1.00762 12.5612 1.51352 12.7903 1.99321C13.0183 2.47048 13.1286 2.93833 13.183 3.2803C13.2105 3.45311 13.2246 3.59868 13.2317 3.70389C13.2353 3.75662 13.2372 3.79958 13.2382 3.83116C13.2387 3.84696 13.239 3.85994 13.2392 3.86992L13.2393 3.8826L13.2394 3.88722L13.2394 3.88908C13.2394 3.88908 13.2394 3.89065 12.5002 3.89065C11.7612 3.90271 11.7611 3.89133 11.7611 3.89133L11.7611 3.89294L11.7608 3.8796C11.7603 3.86517 11.7593 3.84065 11.757 3.80751C11.7525 3.74096 11.7431 3.64118 11.7237 3.51955C11.6844 3.27264 11.6072 2.95533 11.4601 2.64744C11.3142 2.34196 11.108 2.06271 10.8157 1.85869C10.5291 1.65871 10.1159 1.5 9.49996 1.5C8.88403 1.5 8.47081 1.65871 8.18424 1.85869C7.8919 2.06271 7.68573 2.34196 7.53981 2.64744C7.39275 2.95533 7.31551 3.27264 7.2762 3.51955C7.25684 3.64118 7.24742 3.74096 7.24288 3.80751C7.24062 3.84065 7.23959 3.86517 7.23913 3.8796L7.23879 3.89337L7.23878 3.89193C7.23878 3.89193 7.23878 3.89065 6.49968 3.89065C5.76057 3.89065 5.76057 3.8899 5.76057 3.8899L5.76058 3.88722L5.7606 3.8826L5.76075 3.86992C5.7609 3.85994 5.76118 3.84696 5.76169 3.83116C5.76269 3.79958 5.7646 3.75662 5.76819 3.70389C5.77537 3.59868 5.7894 3.45311 5.81691 3.2803C5.87136 2.93833 5.98164 2.47048 6.20961 1.99321C6.43873 1.51352 6.79512 1.00762 7.3466 0.622759Z", transform: "translate(1)" })
-            ] }),
-            isMounted && totalItems > 0 && /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "absolute top-[12px] -right-2 bg-black text-white text-[10px] font-bold w-4 h-4 flex items-center justify-center rounded-full", children: totalItems })
-          ] }),
+              ]
+            }),
+              isMounted && totalItems > 0 && /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "absolute top-[12px] -right-2 bg-black text-white text-[10px] font-bold w-4 h-4 flex items-center justify-center rounded-full", children: totalItems })
+            ]
+          }),
           /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "fixed inset-0 top-[64px] md:top-[80px] bg-black/40 backdrop-blur-sm opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 md:hidden z-40 pointer-events-none" }),
-          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "fixed top-[64px] md:top-[80px] left-0 w-full md:absolute md:top-[calc(100%+1px)] md:left-auto md:right-0 md:w-80 bg-white md:border border-zinc-200 border-b shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 md:translate-y-2 group-hover:translate-y-0 z-50 flex flex-col cursor-default", children: isMounted && items.length > 0 ? /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "max-h-[60vh] overflow-y-auto", children: items.map((item) => /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "p-5 border-b border-zinc-100 flex gap-4", children: [
-              /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "relative w-16 aspect-[4/5] bg-zinc-50 shrink-0 border border-zinc-100 mix-blend-multiply", children: /* @__PURE__ */ jsxRuntimeExports.jsx(
-                Image,
-                {
-                  src: item.image,
-                  alt: item.name,
-                  fill: true,
-                  className: "object-cover object-center"
-                }
-              ) }),
-              /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-col flex-1 justify-center", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("div", {
+            className: "fixed top-[64px] md:top-[80px] left-0 w-full md:absolute md:top-[calc(100%+1px)] md:left-auto md:right-0 md:w-80 bg-white md:border border-zinc-200 border-b shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 md:translate-y-2 group-hover:translate-y-0 z-50 flex flex-col cursor-default", children: isMounted && items.length > 0 ? /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, {
+              children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("div", {
+                className: "max-h-[60vh] overflow-y-auto", children: items.map((item) => /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+                  className: "p-5 border-b border-zinc-100 flex gap-4", children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx("div", {
+                    className: "relative w-16 aspect-[4/5] bg-zinc-50 shrink-0 border border-zinc-100 mix-blend-multiply", children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+                      Image,
+                      {
+                        src: item.image,
+                        alt: item.name,
+                        fill: true,
+                        className: "object-cover object-center"
+                      }
+                    )
+                  }),
+              /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+                    className: "flex flex-col flex-1 justify-center", children: [
                 /* @__PURE__ */ jsxRuntimeExports.jsx("a", { href: `/products/${item.productId}`, className: "font-serif text-base text-black leading-tight mb-1 hover:opacity-70 transition-opacity", children: item.name }),
-                /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "text-[10px] text-zinc-500 mb-2", children: [
-                  item.color,
-                  " / ",
-                  item.size,
-                  " ",
+                /* @__PURE__ */ jsxRuntimeExports.jsxs("span", {
+                      className: "text-[10px] text-zinc-500 mb-2", children: [
+                        item.color,
+                        " / ",
+                        item.size,
+                        " ",
                   /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-zinc-400 mx-1", children: "|" }),
-                  " Qty: ",
-                  item.quantity
-                ] }),
-                /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "font-medium text-black text-sm", children: [
-                  "NPR ",
-                  item.price.toFixed(2)
-                ] })
-              ] })
-            ] }, item.id)) }),
-            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "p-5 bg-zinc-50 border-t border-zinc-100", children: [
-              /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex justify-between items-center mb-4 text-sm", children: [
+                        " Qty: ",
+                        item.quantity
+                      ]
+                    }),
+                /* @__PURE__ */ jsxRuntimeExports.jsxs("span", {
+                      className: "font-medium text-black text-sm", children: [
+                        "NPR ",
+                        item.price.toFixed(2)
+                      ]
+                    })
+                    ]
+                  })
+                  ]
+                }, item.id))
+              }),
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+                className: "p-5 bg-zinc-50 border-t border-zinc-100", children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+                  className: "flex justify-between items-center mb-4 text-sm", children: [
                 /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-zinc-600", children: "Subtotal" }),
-                /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "font-medium text-black", children: [
-                  "NPR ",
-                  cartTotal.toFixed(2)
-                ] })
-              ] }),
+                /* @__PURE__ */ jsxRuntimeExports.jsxs("span", {
+                    className: "font-medium text-black", children: [
+                      "NPR ",
+                      cartTotal.toFixed(2)
+                    ]
+                  })
+                  ]
+                }),
               /* @__PURE__ */ jsxRuntimeExports.jsx(
-                CheckoutButton,
-                {
-                  href: "/checkout",
-                  text: "Checkout",
-                  className: "w-full py-6 text-xs"
-                }
-              ),
+                  CheckoutButton,
+                  {
+                    href: "/checkout",
+                    text: "Checkout",
+                    className: "w-full py-6 text-xs"
+                  }
+                ),
               /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "mt-4 text-center", children: /* @__PURE__ */ jsxRuntimeExports.jsx("a", { href: "/cart", className: "text-xs text-zinc-500 hover:text-black underline underline-offset-4 transition-colors", children: "View Cart" }) })
-            ] })
-          ] }) : /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "p-8 text-center bg-white flex flex-col items-center", children: [
+                ]
+              })
+              ]
+            }) : /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+              className: "p-8 text-center bg-white flex flex-col items-center", children: [
             /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-sm text-zinc-500 mb-4 font-sans", children: "Your shopping bag is empty." }),
             /* @__PURE__ */ jsxRuntimeExports.jsx("a", { href: "/collections", className: "text-xs text-black border-b border-black font-medium pb-0.5 tracking-widest uppercase hover:text-zinc-500 hover:border-zinc-500 transition-colors", children: "Start Shopping" })
-          ] }) })
-        ] }),
+              ]
+            })
+          })
+          ]
+        }),
         /* @__PURE__ */ jsxRuntimeExports.jsx(
           "button",
           {
@@ -13744,31 +14714,38 @@ function Navigation() {
             children: isMenuOpen ? /* @__PURE__ */ jsxRuntimeExports.jsx(X, { size: 24 }) : /* @__PURE__ */ jsxRuntimeExports.jsx(Menu, { size: 24 })
           }
         )
-      ] })
-    ] }),
+        ]
+      })
+      ]
+    }),
     /* @__PURE__ */ jsxRuntimeExports.jsx(
       "div",
       {
         className: `fixed inset-0 bg-white z-[55] md:hidden transition-transform duration-500 ease-in-out ${isMenuOpen ? "translate-y-0" : "-translate-y-full"}`,
-        children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-col items-center justify-center h-full gap-8", children: [
-          navLinks.map((link) => /* @__PURE__ */ jsxRuntimeExports.jsx(
-            "a",
-            {
-              href: link.href,
-              className: "font-serif text-xl tracking-[0.2em] uppercase text-black hover:italic transition-all duration-300",
-              children: link.name
-            },
-            link.name
-          )),
-          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "mt-8 flex flex-col items-center gap-4 text-xs font-sans tracking-[0.2em] text-zinc-400", children: [
+        children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+          className: "flex flex-col items-center justify-center h-full gap-8", children: [
+            navLinks.map((link) => /* @__PURE__ */ jsxRuntimeExports.jsx(
+              "a",
+              {
+                href: link.href,
+                className: "font-serif text-xl tracking-[0.2em] uppercase text-black hover:italic transition-all duration-300",
+                children: link.name
+              },
+              link.name
+            )),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+              className: "mt-8 flex flex-col items-center gap-4 text-xs font-sans tracking-[0.2em] text-zinc-400", children: [
             /* @__PURE__ */ jsxRuntimeExports.jsx("p", { children: "KATHMANDU, NEPAL" }),
             /* @__PURE__ */ jsxRuntimeExports.jsx("p", { children: "© 2024 COSELI ATELIER" })
-          ] })
-        ] })
+              ]
+            })
+          ]
+        })
       }
     ),
     /* @__PURE__ */ jsxRuntimeExports.jsx(SearchModal, { isOpen: isSearchOpen, onClose: () => setIsSearchOpen(false) })
-  ] });
+    ]
+  });
 }
 const defaultOptions = {
   active: true,
@@ -13991,7 +14968,8 @@ function TestimonialCarousel() {
       setCurrent(api.selectedScrollSnap());
     });
   }, [api]);
-  return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "w-full", children: [
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+    className: "w-full", children: [
     /* @__PURE__ */ jsxRuntimeExports.jsx(
       Carousel,
       {
@@ -13999,45 +14977,62 @@ function TestimonialCarousel() {
         plugins: [plugin.current],
         className: "w-full w-[100vw] relative left-1/2 right-1/2 -mx-[50vw]",
         opts: { loop: true },
-        children: /* @__PURE__ */ jsxRuntimeExports.jsx(CarouselContent, { children: testimonials.map((t, index) => /* @__PURE__ */ jsxRuntimeExports.jsx(CarouselItem, { children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-col items-center text-center animate-in fade-in duration-700", children: [
+        children: /* @__PURE__ */ jsxRuntimeExports.jsx(CarouselContent, {
+          children: testimonials.map((t, index) => /* @__PURE__ */ jsxRuntimeExports.jsx(CarouselItem, {
+            children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+              className: "flex flex-col items-center text-center animate-in fade-in duration-700", children: [
           /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex justify-center mb-8", children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex gap-1 text-black", children: [1, 2, 3, 4, 5].map((star) => /* @__PURE__ */ jsxRuntimeExports.jsx("svg", { className: "w-5 h-5 fill-current", viewBox: "0 0 20 20", children: /* @__PURE__ */ jsxRuntimeExports.jsx("path", { d: "M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" }) }, star)) }) }),
-          /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { className: "font-serif text-2xl md:text-4xl leading-snug text-black italic max-w-4xl mx-auto px-4 md:px-12", children: [
-            '"',
-            t.quote,
-            '"'
-          ] }),
-          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center justify-center gap-4 mt-8", children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "w-12 h-12 rounded-full overflow-hidden bg-zinc-200 aspect-square mt-4", children: /* @__PURE__ */ jsxRuntimeExports.jsx(
-              Image,
-              {
-                src: t.avatar,
-                alt: t.name,
-                width: 48,
-                height: 48,
-                className: "object-cover w-full h-full"
-              }
-            ) }),
-            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "text-left mt-4 pt-1", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("p", {
+                className: "font-serif text-2xl md:text-4xl leading-snug text-black italic max-w-4xl mx-auto px-4 md:px-12", children: [
+                  '"',
+                  t.quote,
+                  '"'
+                ]
+              }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+                className: "flex items-center justify-center gap-4 mt-8", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("div", {
+                  className: "w-12 h-12 rounded-full overflow-hidden bg-zinc-200 aspect-square mt-4", children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+                    Image,
+                    {
+                      src: t.avatar,
+                      alt: t.name,
+                      width: 48,
+                      height: 48,
+                      className: "object-cover w-full h-full"
+                    }
+                  )
+                }),
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+                  className: "text-left mt-4 pt-1", children: [
               /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-sm font-medium text-black", children: t.name }),
               /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-xs text-zinc-500 uppercase tracking-widest mt-1", children: t.title })
-            ] })
-          ] })
-        ] }) }, index)) })
+                  ]
+                })
+                ]
+              })
+              ]
+            })
+          }, index))
+        })
       }
     ),
-    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex justify-center gap-2 mt-12", children: testimonials.map((_, index) => /* @__PURE__ */ jsxRuntimeExports.jsx(
-      "button",
-      {
-        className: cn(
-          "w-2 h-2 rounded-full transition-all duration-300",
-          current === index ? "bg-black w-6" : "bg-zinc-300 hover:bg-zinc-400"
-        ),
-        onClick: () => api?.scrollTo(index),
-        "aria-label": `Go to slide ${index + 1}`
-      },
-      index
-    )) })
-  ] });
+    /* @__PURE__ */ jsxRuntimeExports.jsx("div", {
+      className: "flex justify-center gap-2 mt-12", children: testimonials.map((_, index) => /* @__PURE__ */ jsxRuntimeExports.jsx(
+        "button",
+        {
+          className: cn(
+            "w-2 h-2 rounded-full transition-all duration-300",
+            current === index ? "bg-black w-6" : "bg-zinc-300 hover:bg-zinc-400"
+          ),
+          onClick: () => api?.scrollTo(index),
+          "aria-label": `Go to slide ${index + 1}`
+        },
+        index
+      ))
+    })
+    ]
+  });
 }
 const export_f29e6e234fea = {
   ErrorBoundary,

@@ -1,7 +1,18 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { CuratedCarousel } from "@/components/curated-carousel";
 import { TestimonialCarousel } from "@/components/testimonial-carousel";
+
+export const metadata: Metadata = {
+  title: "Coseli | Luxury Handcrafted Custom-Fit Leather Shoes",
+  description: "Experience the art of custom-fit with Coseli. Handcrafted leather shoes, sneakers, and shambas made with traditional techniques and premium materials.",
+  openGraph: {
+    title: "Coseli | Handcrafted Excellence",
+    description: "Luxury minimal custom-fit footwear. Designed for your journey, built to last.",
+    images: ["https://images.unsplash.com/photo-1549298916-b41d501d3772?q=80&w=2012&auto=format&fit=crop"],
+  },
+};
 
 interface Product {
   id: number;
@@ -16,38 +27,38 @@ interface Product {
 async function getCuratedEssentials(): Promise<Product[]> {
   try {
     const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000/api/v1';
-    // Use force-cache so Next.js statically renders this page at build time
-    const res = await fetch(`${apiUrl}/showcases/curated_essentials`, { cache: 'force-cache' });
+    // Use revalidate so the content stays fresh but still benefits from caching
+    const res = await fetch(`${apiUrl}/showcases/curated-essentials`, { next: { revalidate: 3600 } });
     if (!res.ok) return [];
     const json = await res.json();
-    return json.data || [];
+    return json.data?.products || [];
   } catch (err) {
     console.error("Failed to fetch curated essentials:", err);
     return [];
   }
 }
 
-async function getPopularPicks(): Promise<Product[]> {
+async function getTopRated(): Promise<Product[]> {
   try {
     const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000/api/v1';
-    const res = await fetch(`${apiUrl}/showcases/popular`, { cache: 'force-cache' });
+    const res = await fetch(`${apiUrl}/showcases/top-rated`, { next: { revalidate: 3600 } });
     if (!res.ok) return [];
     const json = await res.json();
-    return json.data || [];
+    return json.data?.products || [];
   } catch (err) {
-    console.error("Failed to fetch popular picks:", err);
+    console.error("Failed to fetch top rated picks:", err);
     return [];
   }
 }
 
 export default async function Home() {
   const curatedProducts = await getCuratedEssentials();
-  const popularProducts = await getPopularPicks();
+  const topRatedProducts = await getTopRated();
 
   return (
-    <div className="min-h-screen bg-white selection:bg-zinc-200 pt-16 md:pt-20">
+    <div className="min-h-screen bg-white selection:bg-zinc-200">
       {/* Hero Section */}
-      <section className="relative h-[60vh] min-h-[440px] md:h-[calc(100vh-80px)] xl:h-screen flex flex-col items-center justify-center overflow-hidden px-4 md:pt-0 transition-all duration-700">
+      <section className="relative h-screen flex flex-col items-center justify-center overflow-hidden px-4 pt-20 transition-all duration-700">
         <div className="z-10 md:text-center max-w-4xl mr-auto md:mx-auto flex flex-col items-start md:items-center gap-4 md:gap-8 mix-blend-difference text-white">
           <h1 className="font-serif text-4xl sm:text-5xl md:text-8xl leading-[1.1] tracking-tight">
             The Art of<br />
@@ -94,7 +105,7 @@ export default async function Home() {
 
       {/* Top Picks Section */}
       <section className="py-8 md:py-32 px-4 md:px-12 max-w-screen-2xl mx-auto">
-        <CuratedCarousel products={popularProducts} title="Top Picks" />
+        <CuratedCarousel products={topRatedProducts} title="Top Rated" />
       </section>
 
       {/* Testimonial Section */}
